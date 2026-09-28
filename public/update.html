@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#243d4e"><title>更新網站 · openlawtw</title><style>*{box-sizing:border-box}body{margin:0;background:#f2f5f6;color:#2d4554;font:15px/1.9 system-ui,sans-serif;display:grid;min-height:100dvh;place-items:center;padding:24px}main{max-width:520px;width:100%;padding:36px;background:#fdfefd;border:1px solid #dde5e9;border-radius:12px}small{color:#8b7b5e;letter-spacing:1px}h1{font-size:26px;font-weight:500;margin:8px 0 14px}p{color:#687e8b}button,a{font:inherit;border-radius:5px;padding:10px 16px;display:inline-block;cursor:pointer}button{background:#2d5064;color:white;border:0}button:disabled{opacity:.55;cursor:wait}a{color:#416278;text-decoration:none}progress{width:100%;height:6px;accent-color:#507383}#version{font-size:11px;overflow-wrap:anywhere}#status{min-height:55px;font-size:14px}@media(max-width:480px){main{padding:26px}}</style></head><body><main><small>OPENLAWTW / UPDATE</small><h1>讓法規庫回到最新版本。</h1><p>網站看起來還是舊版時，從這裡重新檢查更新。收藏會保留；舊版離線資料會在新版介面與已選資料包準備完成後才替換。</p><progress id="progress" max="100" value="0" aria-label="更新進度"></progress><p id="status" role="status">請連上網路，再按下「檢查並更新」。</p><p id="version"></p><button id="update">檢查並更新</button><a href="/">返回法規庫 ↗</a></main><script>
+const status=document.getElementById('status'),button=document.getElementById('update'),progress=document.getElementById('progress');
+if('serviceWorker'in navigator)navigator.serviceWorker.addEventListener('message',event=>{if(event.data?.type==='PRECACHE_PROGRESS'){progress.value=100*event.data.done/event.data.total;status.textContent='正在準備新版介面… '+Math.round(progress.value)+'%';}if(event.data?.type==='OFFLINE_READY')document.getElementById('version').textContent='離線版本 '+event.data.version;});
+button.onclick=async()=>{
+ if(!('serviceWorker'in navigator)||!window.isSecureContext){status.textContent='請以 HTTPS 網址開啟此頁。';return;}
+ if(!navigator.onLine){status.textContent='目前未連線，請恢復網路後再試。';return;}
+ button.disabled=true;status.textContent='正在檢查網站版本…';
+ try{
+  const registration=await navigator.serviceWorker.register('/sw.js',{updateViaCache:'none'});await registration.update();
+  const worker=registration.installing||registration.waiting||registration.active;
+  if(!worker)throw Error('unavailable');
+  if(worker.state!=='activated')await new Promise((resolve,reject)=>{
+   const timeout=setTimeout(()=>{worker.removeEventListener('statechange',changed);reject(Error('timeout'));},180000);
+   function changed(){if(worker.state==='installed')worker.postMessage({type:'SKIP_WAITING'});if(worker.state==='activated'||worker.state==='redundant'){clearTimeout(timeout);worker.removeEventListener('statechange',changed);worker.state==='activated'?resolve():reject(Error('download'));}}
+   worker.addEventListener('statechange',changed);changed();
+  });
+  worker.postMessage({type:'STATUS'});progress.value=100;status.textContent='版本檢查完成。按「返回法規庫」即可使用已啟用的版本。';
+ }catch{status.textContent='更新尚未完成，原有版本仍保留。請確認部署檔案完整，並在連線穩定時重試。';}
+ finally{button.disabled=false;}
+};
+</script></body></html>

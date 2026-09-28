@@ -1,0 +1,42 @@
+{
+  "name": "openlawtw",
+  "version": "0.12.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node node_modules/vite/bin/vite.js --host 0.0.0.0",
+    "build": "node scripts/clean-build.mjs && node node_modules/vite/bin/vite.js build && node --experimental-strip-types scripts/build-pwa.mjs",
+    "preview": "node node_modules/vite/bin/vite.js preview --host 0.0.0.0",
+    "check": "node --experimental-strip-types scripts/check-search.mjs && node --experimental-strip-types scripts/check-v2.mjs && node scripts/check-pwa.mjs && node --experimental-strip-types scripts/check-quality.mjs && node --experimental-strip-types scripts/check-navigation.mjs && node scripts/check-documents.mjs",
+    "predev": "node --experimental-strip-types scripts/prepare-data.mjs",
+    "prebuild": "node --experimental-strip-types scripts/prepare-data.mjs",
+    "snapshot": "node --experimental-strip-types scripts/record-snapshot.mjs",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "check:quality": "node --experimental-strip-types scripts/check-quality.mjs"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.31.0",
+    "radix-ui": "1.6.7",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sonner": "2.0.8",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "tailwindcss": "4.2.1",
+    "tw-animate-css": "1.4.0",
+    "typescript": "5.9.3",
+    "vite": "8.0.13"
+  }
+}

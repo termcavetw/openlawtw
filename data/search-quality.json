@@ -1,0 +1,1167 @@
+{
+  "version": 1,
+  "description": "開發者整理的查找驗收集：預期文件與條號取自官方快照，未宣稱已完成外部建築專業者覆核。",
+  "cases": [
+    {
+      "kind": "law",
+      "query": "建築法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070109"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070109",
+        "text": "建築法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "建技規則",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070115"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+        "text": "建築技術規則建築設計施工編"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "設計施工編",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070115"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+        "text": "建築技術規則建築設計施工編"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "構造編",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070116"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070116",
+        "text": "建築技術規則建築構造編"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "設備編",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070117"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070117",
+        "text": "建築技術規則建築設備編"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "室裝",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070148"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070148",
+        "text": "建築物室內裝修管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "變使",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070141"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070141",
+        "text": "建築物使用類組及變更使用辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "公安",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070149"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070149",
+        "text": "建築物公共安全檢查簽證及申報辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "危老",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070249"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070249",
+        "text": "都市危險及老舊建築物加速重建條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "都更條例",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070008"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070008",
+        "text": "都市更新條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "非都管制",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0060013"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060013",
+        "text": "非都市土地使用管制規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "建築師法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070112"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070112",
+        "text": "建築師法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "農舍",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "M0110013"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0110013",
+        "text": "農業用地興建農舍辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "公寓大廈",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070118"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070118",
+        "text": "公寓大廈管理條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "違章建築",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070124"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070124",
+        "text": "違章建築處理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "容積移轉",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070028"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070028",
+        "text": "都市計畫容積移轉實施辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120001"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120001",
+        "text": "消防法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防安全設備",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120029"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120029",
+        "text": "各類場所消防安全設備設置標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "水土保持法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "M0110001"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0110001",
+        "text": "水土保持法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "太陽光電",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070319"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070319",
+        "text": "建築物設置太陽光電發電設備標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "法定空地 分割",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070113"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070113",
+        "text": "建築基地法定空地分割辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信設備",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "K0060159"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0060159",
+        "text": "建築物電信設備及空間設置使用管理規則（110.02.22 訂定）"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "昇降設備",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070147"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070147",
+        "text": "建築物昇降設備設置及檢查管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "機械停車設備",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070142"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070142",
+        "text": "建築物機械停車設備設置及檢查管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "建築物 節約能源",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070208"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070208",
+        "text": "新建建築物節約能源設計標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "無障礙設施設計規範",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "內政部-GL000734"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000734",
+        "text": "建築物無障礙設施設計規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北畸零地",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004107"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004107",
+        "text": "臺北市畸零地使用自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北畸零地",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170034"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170034",
+        "text": "新北市畸零地使用規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北騎樓",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170005"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170005",
+        "text": "新北市騎樓及無遮簷人行道設置標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北 建築管理",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004106"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004106",
+        "text": "臺北市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 免辦 建築執照",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170159"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170159",
+        "text": "新北市免辦建築執照建築物或雜項工作物處理原則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 室內裝修",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170020"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170020",
+        "text": "新北市建築物室內裝修審核及查驗作業事項規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 夾層",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170063"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170063",
+        "text": "新北市非住宅建築物樓層高度及夾層或挑空設計施工及管理要點"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 裝修 套房",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170133"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170133",
+        "text": "新北市政府辦理建築物裝修為多間套房審查原則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 違章 修繕",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170009"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170009",
+        "text": "新北市舊有違章建築修繕辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北 土地使用分區",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL003962"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL003962",
+        "text": "臺北市土地使用分區管制自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北 容積移轉",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL074357"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL074357",
+        "text": "臺北市容積移轉審查許可自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北 綠建築",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL075334"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL075334",
+        "text": "臺北市綠建築自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北 開放空間",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170142"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170142",
+        "text": "新北市建築物開放空間管理維護要點"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北 共同壁",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004115"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004115",
+        "text": "臺北市建築共同壁規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "畸零地",
+      "region": "臺北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004107"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004107",
+        "text": "臺北市畸零地使用自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "騎樓",
+      "region": "新北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170005"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170005",
+        "text": "新北市騎樓及無遮簷人行道設置標準"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建築法73",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070109",
+          "article": "第 73 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070109",
+        "text": "建築物非經領得使用執照，不准接水、接電及使用。但直轄市、縣（市）政府認有左列各款情事之一者，得另定建築物接用水、電相關規定：\n一、偏遠地區且非屬都市計畫地區之建築物。\n二、因興辦公共設施所需而拆遷具整建需要且無礙都市計畫發展之建築物。\n三、天然災害損壞需安置及修復之建築物。\n四、其他有迫切民生需要之建築物。\n建築物應依"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建築法77之2",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070109",
+          "article": "第 77-2 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070109",
+        "text": "建築物室內裝修應遵守左列規定：\n一、供公眾使用建築物之室內裝修應申請審查許可，非供公眾使用建築物，經內政部認有必要時，亦同。但中央主管機關得授權建築師公會或其他相關專業技術團體審查。\n二、裝修材料應合於建築技術規則之規定。\n三、不得妨害或破壞防火避難設施、消防設備、防火區劃及主要構造。\n四、不得妨害或破壞保護民眾隱私權"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建技90",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070115",
+          "article": "第 90 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+        "text": "直通樓梯於避難層開向屋外之出入口，應依左列規定：\n一、六層以上，或建築物使用類組為Ａ、Ｂ、Ｄ、Ｅ、Ｆ、Ｇ類及Ｈ－１組用途使用之樓地板面積合計超過五○○平方公尺者，除其直通樓梯於避難層之出入口直接開向道路或避難用通路者外，應在避難層之適當位置，開設二處以上不同方向之出入口。其中至少一處應直接通向道路，其他各處可開向寬一‧"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建技164-1",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070115",
+          "article": "第 164-1 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+        "text": "住宅、集合住宅等類似用途建築物樓板挑空設計者，挑空部分之位置、面積及高度應符合下列規定：\n一、挑空部分每住宅單位限設一處，應設於客廳或客餐廳之上方，並限於建築物面向道路、公園、綠地等深度達六公尺以上之法定空地或其他永久性空地之方向設置。\n二、挑空部分每處面積不得小於十五平方公尺，各處面積合計不得超過該基地內建築物允建總"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建技 第四十二條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070115",
+          "article": "第 42 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+        "text": "建築物外牆依前條規定留設之採光用窗或開口應在有效採光範圍內並依下式計算之：\n一、設有居室建築物之外牆高度（採光用窗或開口上端有屋簷時為其頂端部分之垂直距離）（H）與自該部分至其面臨鄰地境界線或同一基地內之他幢建築物或同一幢建築物內相對部分（如天井）之水平距離（D）之比，不得大於下表規定：\n     ┌───┬─────"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "室裝第3條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070148",
+          "article": "第 3 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070148",
+        "text": "本辦法所稱室內裝修，指除壁紙、壁布、窗簾、家具、活動隔屏、地氈等之黏貼及擺設外之下列行為：\n一、固著於建築物構造體之天花板裝修。\n二、內部牆面裝修。\n三、高度超過地板面以上一點二公尺固定之隔屏或兼作櫥櫃使用之隔屏裝修。\n四、分間牆變更。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "變使第2條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070141",
+          "article": "第 2 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070141",
+        "text": "建築物之使用類別、組別及其定義，如附表一。\n前項建築物之使用項目舉例如附表二。\n原核發之使用執照未登載使用類組者，該管主管建築機關應於建築物申請變更使用執照時，依前二項規定確認其類別、組別，加註於使用執照或核發確認使用類組之文件。建築物所有權人申請加註者，亦同。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "公寓大廈管理條例第6條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070118",
+          "article": "第 6 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070118",
+        "text": "住戶應遵守下列事項：\n一、於維護、修繕專有部分、約定專用部分或行使其權利時，不得妨害其他住戶之安寧、安全及衛生。\n二、他住戶因維護、修繕專有部分、約定專用部分或設置管線，必須進入或使用其專有部分或約定專用部分時，不得拒絕。\n三、管理負責人或管理委員會因維護、修繕共用部分或設置管線，必須進入或使用其專有部分或約定專用部分"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "都市計畫法第39條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070001",
+          "article": "第 39 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070001",
+        "text": "對於都市計畫各使用區及特定專用區內土地及建築物之使用、基地面積或基地內應保留空地之比率、容積率、基地內前後側院之深度及寬度、停車場及建築物之高度，以及有關交通、景觀或防火等事項，內政部或直轄市政府得依據地方實際情況，於本法施行細則中作必要之規定。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "建築法第十一條",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070109",
+          "article": "第 11 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070109",
+        "text": "本法所稱建築基地，為供建築物本身所占之地面及其所應留設之法定空地。建築基地原為數宗者，於申請建築前應合併為一宗。\n前項法定空地之留設，應包括建築物與其前後左右之道路或其他建築物間之距離，其寬度於建築管理規則中定之。\n應留設之法定空地，非依規定不得分割、移轉，並不得重複使用；其分割要件及申請核發程序等事項之辦法，由中央主"
+      }
+    },
+    {
+      "kind": "ruling",
+      "query": "1151162993",
+      "top": 5,
+      "expected": [
+        {
+          "ruling": "17669"
+        }
+      ],
+      "basis": {
+        "source": "https://www.nlma.gov.tw/ch/titlelist/interpcomp/17669",
+        "text": "內政部國土管理署115.8.27.國署建管字第1151162993號函"
+      }
+    },
+    {
+      "kind": "ruling",
+      "query": "1090806880",
+      "top": 5,
+      "expected": [
+        {
+          "ruling": "13747"
+        }
+      ],
+      "basis": {
+        "source": "https://www.nlma.gov.tw/ch/titlelist/interpcomp/13747",
+        "text": "內政部109.4.22內授營建管字第1090806880號函"
+      }
+    },
+    {
+      "kind": "ruling",
+      "query": "1130090419",
+      "top": 5,
+      "expected": [
+        {
+          "ruling": "17075"
+        },
+        {
+          "ruling": "14907"
+        }
+      ],
+      "basis": {
+        "source": "https://www.nlma.gov.tw/ch/titlelist/interpcomp/17075",
+        "text": "內政部國土管理署113.10.11國署建管字第 1130090419號函"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "陽台可以外推嗎",
+      "expected": [
+        {
+          "guide": "balcony-extension"
+        }
+      ],
+      "basis": {
+        "editorial": true,
+        "note": "僅提供可見的查找提示；各來源與摘錄另於 search-guides.json 驗證，不作適用結論。"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "室裝免申請",
+      "expected": [
+        {
+          "guide": "interior-permission"
+        }
+      ],
+      "basis": {
+        "editorial": true,
+        "note": "僅提供可見的查找提示；各來源與摘錄另於 search-guides.json 驗證，不作適用結論。"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "變使",
+      "expected": [
+        {
+          "guide": "change-use"
+        }
+      ],
+      "basis": {
+        "editorial": true,
+        "note": "僅提供可見的查找提示；各來源與摘錄另於 search-guides.json 驗證，不作適用結論。"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "夾層可以多高",
+      "expected": [
+        {
+          "guide": "mezzanine"
+        }
+      ],
+      "basis": {
+        "editorial": true,
+        "note": "僅提供可見的查找提示；各來源與摘錄另於 search-guides.json 驗證，不作適用結論。"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "無障礙廁所尺寸",
+      "expected": [
+        {
+          "guide": "accessible-toilet"
+        }
+      ],
+      "basis": {
+        "editorial": true,
+        "note": "僅提供可見的查找提示；各來源與摘錄另於 search-guides.json 驗證，不作適用結論。"
+      }
+    },
+    {
+      "kind": "empty",
+      "query": "不存在的法規詞xxxxx",
+      "region": "全台",
+      "expected": [],
+      "basis": {
+        "note": "此固定快照中不應出現精確文字結果；不代表法規適用判定。"
+      }
+    },
+    {
+      "kind": "empty",
+      "query": "建築法9999",
+      "region": "全台",
+      "expected": [],
+      "basis": {
+        "note": "此固定快照中不應出現精確文字結果；不代表法規適用判定。"
+      }
+    },
+    {
+      "kind": "empty",
+      "query": "室內裝修 外星飛船",
+      "region": "全台",
+      "expected": [],
+      "basis": {
+        "note": "此固定快照中不應出現精確文字結果；不代表法規適用判定。"
+      }
+    },
+    {
+      "kind": "empty",
+      "query": "banana星際法",
+      "region": "全台",
+      "expected": [],
+      "basis": {
+        "note": "此固定快照中不應出現精確文字結果；不代表法規適用判定。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "屏東建管",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "屏東縣-FL026602"
+        }
+      ],
+      "basis": {
+        "source": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026602",
+        "text": "屏東縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "屏東畸零地",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "屏東縣-FL026596"
+        }
+      ],
+      "basis": {
+        "source": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026596",
+        "text": "屏東縣畸零地使用規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "苗栗騎樓",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "苗栗縣-FL033441"
+        }
+      ],
+      "basis": {
+        "source": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL033441",
+        "text": "苗栗縣騎樓沿街步道空間設置自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新竹縣室內裝修",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹縣-GL000487"
+        }
+      ],
+      "basis": {
+        "source": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000487",
+        "text": "新竹縣建築物室內裝修審核及查驗作業規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新竹市免辦理變更使用",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹市-FL047278"
+        }
+      ],
+      "basis": {
+        "source": "https://law.hccg.gov.tw/LawContent.aspx?id=FL047278",
+        "text": "新竹市建築物一定規模以下免辦理變更使用執照辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "南投畸零地",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "南投縣-FL021896"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021896",
+        "text": "南投縣畸零地使用自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台東室內裝修",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺東縣-FL052957"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taitung.gov.tw/LawContent.aspx?id=FL052957",
+        "text": "臺東縣建築物室內裝修審查作業規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "澎湖畸零地",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "澎湖縣-FL022474"
+        }
+      ],
+      "basis": {
+        "source": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL022474",
+        "text": "澎湖縣畸零地使用規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "金門農舍",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "金門縣-GL000810"
+        }
+      ],
+      "basis": {
+        "source": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000810",
+        "text": "金門縣農業用地興建農舍審查作業要點"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台北免辦理變更使用",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL038035"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL038035",
+        "text": "臺北市一定規模以下建築物免辦理變更使用執照管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "台中騎樓",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺中市-GL001338"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001338",
+        "text": "臺中市騎樓及無遮簷人行道設置標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北都市計畫施行細則",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0150108"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150108",
+        "text": "都市計畫法新北市施行細則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "彰化農業設施高度",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-GL000121"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000121",
+        "text": "彰化縣申請農業設施興建高度及樓層審查基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "桃園建築線",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "桃園市-GL001806"
+        }
+      ],
+      "basis": {
+        "source": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001806",
+        "text": "桃園市建築線指定或指示核發作業程序"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "高雄施工損壞鄰房",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "高雄市-GL000572"
+        }
+      ],
+      "basis": {
+        "source": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000572",
+        "text": "高雄市建築工程施工損壞鄰房事件爭議調處辦法"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+.legal-reference{color:inherit;text-decoration:underline;text-decoration-color:#9aacb7;text-decoration-style:dotted;text-underline-offset:4px;text-decoration-thickness:1px;cursor:pointer;border-radius:2px}
+.legal-reference:hover{color:#244d66;text-decoration-style:solid;background:#edf3f5}
+.legal-reference:focus-visible{outline:2px solid #416c83;outline-offset:3px}
+.legal-reference .ruling-evidence-mark{color:inherit}
+.legal-unit:target{background:#fff5d9;box-shadow:0 0 0 3px #fff5d9}
+@media(prefers-reduced-motion:reduce){.legal-reference{transition:none}}

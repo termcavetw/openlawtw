@@ -1,0 +1,2498 @@
+[
+  {
+    "site": "基隆市",
+    "id": "GL000079",
+    "name": "基隆市建築管理自治條例"
+  },
+  {
+    "site": "基隆市",
+    "id": "GL000615",
+    "name": "基隆市免辦建築執照建築物或雜項工作物管理辦法"
+  },
+  {
+    "site": "彰化縣",
+    "id": "FL026531",
+    "name": "彰化縣建築管理自治條例"
+  },
+  {
+    "site": "彰化縣",
+    "id": "FL031576",
+    "name": "彰化縣畸零地使用自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "彰化縣",
+    "id": "FL026529",
+    "name": "彰化縣公有畸零地合併使用證明書核發基準",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "彰化縣",
+    "id": "GL000481",
+    "name": "彰化縣建築工程辦理施工計畫書備查作業原則"
+  },
+  {
+    "site": "彰化縣",
+    "id": "FL077977",
+    "name": "彰化縣建築工程申報及現場勘驗作業要點"
+  },
+  {
+    "site": "彰化縣",
+    "id": "FL049413",
+    "name": "彰化縣未領得使用執照之既有建築物申請接用水電辦法"
+  },
+  {
+    "site": "彰化縣",
+    "id": "GL000379",
+    "name": "彰化縣都市更新單元劃定基準",
+    "category": "都市更新與危老"
+  },
+  {
+    "site": "雲林縣",
+    "id": "FL028330",
+    "name": "雲林縣建築管理自治條例"
+  },
+  {
+    "site": "雲林縣",
+    "id": "GL001168",
+    "name": "雲林縣政府免辦建築執照建築物或雜項工作物處理原則"
+  },
+  {
+    "site": "金門縣",
+    "id": "FL030625",
+    "name": "金門縣建築管理自治條例"
+  },
+  {
+    "site": "金門縣",
+    "id": "FL030826",
+    "name": "金門縣建築工程施工中管制規則"
+  },
+  {
+    "site": "金門縣",
+    "id": "FL030827",
+    "name": "金門縣新舊違章建築劃分及處理自治條例",
+    "category": "使用與室內裝修"
+  },
+  {
+    "site": "金門縣",
+    "id": "FL030609",
+    "name": "金門縣辦理各項活動搭建臨時建築物管理自治條例"
+  },
+  {
+    "site": "金門縣",
+    "id": "GL000439",
+    "name": "金門縣一定規模以下建築物免辦理變更使用執照管理辦法",
+    "category": "使用與室內裝修"
+  },
+  {
+    "site": "連江縣",
+    "id": "GL000083",
+    "name": "連江縣建築物簡化管理自治條例"
+  },
+  {
+    "site": "連江縣",
+    "id": "GL000088",
+    "name": "連江縣聚落保存專用區建築管理自治條例"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL001077",
+    "name": "臺中市畸零地使用自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL002020",
+    "name": "都市計畫法臺中市施行自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL004733",
+    "name": "臺中市建築物或雜項工作物免辦建築執照處理原則"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL003620",
+    "name": "臺中市鼓勵宜居建築設施設置及回饋辦法"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL000177",
+    "name": "臺中市建築物室內裝修審查機構作業事項規範",
+    "category": "使用與室內裝修"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL001326",
+    "name": "臺中市特定場所現場人數管理辦法",
+    "category": "消防與公共安全"
+  },
+  {
+    "site": "臺中市",
+    "id": "GL000174",
+    "name": "臺中市建築物恢復使用及供水供電審查作業要點",
+    "category": "使用與室內裝修"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000492",
+    "name": "高雄市畸零地使用自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001595",
+    "name": "高雄市袋形基地認定辦法",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001681",
+    "name": "高雄市政府公有畸零地公有裡地合併使用證明書核發要點",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000003",
+    "name": "高雄市建築物免變更使用執照辦法",
+    "category": "使用與室內裝修"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000418",
+    "name": "高雄市綠建築自治條例"
+  },
+  {
+    "site": "新北市",
+    "id": "C0170034",
+    "name": "新北市畸零地使用規則",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "臺北市",
+    "id": "FL003962",
+    "name": "臺北市土地使用分區管制自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "site": "臺北市",
+    "id": "FL003961",
+    "name": "臺北市都市計畫施行自治條例",
+    "category": "都市計畫與土地"
+  },
+  {
+    "name": "臺北市都市設計及土地使用開發許可審議規則",
+    "id": "FL025899",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL025899",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=2"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001477",
+    "name": "桃園市營建剩餘土石方管理自治條例"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002557",
+    "name": "桃園市高氯離子鋼筋混凝土建築物處理自治條例"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002388",
+    "name": "桃園市公寓大廈輔導管理自治條例"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001293",
+    "name": "桃園市特定場所容留人數管制自治條例"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL000347",
+    "name": "桃園市建築基地綠化自治條例"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002697",
+    "name": "桃園市偏遠地區簡化建築管理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002578",
+    "name": "桃園市舊違章建築修繕處理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002530",
+    "name": "桃園市建築基地增設雨水溢流貯集滯洪設施容積獎勵辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002531",
+    "name": "桃園市建築基地增設雨水溢流貯集滯洪設施審查及查驗管理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL000315",
+    "name": "桃園市都市更新建築容積獎勵辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001451",
+    "name": "桃園市未領得使用執照既有建築物申請接用水電許可辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002090",
+    "name": "桃園市建築工程樣品屋管理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001844",
+    "name": "桃園市建築物屋頂綠化及再生能源設施設置辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001810",
+    "name": "桃園市建築工程施工損害鄰房爭議事件處理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001884",
+    "name": "桃園市都市危險及老舊建築物結構安全評估與重建處理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001940",
+    "name": "桃園市建築執照應實施特殊結構或設備審查之構造規模及審查機構指定辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001285",
+    "name": "桃園市一定規模以下建築物免辦理變更使用執照管理辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001646",
+    "name": "桃園市建築工程營建剩餘土石方申報作業辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001379",
+    "name": "桃園市建築物附建防空避難設備或停車空間繳納代金及管理使用辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL000324",
+    "name": "桃園市公寓大廈管理維護使用空間設置辦法"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL002495",
+    "name": "桃園市遮陽構造物設置管理原則"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001021",
+    "name": "桃園市建築物施工中管制要點"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001800",
+    "name": "桃園市都市危險及老舊建築物加速重建計畫審查作業要點"
+  },
+  {
+    "site": "桃園市",
+    "id": "GL001863",
+    "name": "桃園市政府都市計畫增加容積申請案件審查許可要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL001181",
+    "name": "臺南市政府免請領建築執照建築物或雜項工作物處理原則"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000178",
+    "name": "臺南市建築工程施工中勘驗作業辦法"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000395",
+    "name": "臺南市建築物附建防空避難設備繳納代金及管理使用辦法"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL002067",
+    "name": "臺南市政府工務局辦理建築物施工中管制要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL002046",
+    "name": "臺南市政府工務局辦理公有畸零地或裡地合併使用證明書核發作業要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000116",
+    "name": "臺南市政府辦理臨時展演場所搭建臨時性建築物審查作業要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000034",
+    "name": "臺南市政府工務局核發建築物使用執照執行要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000452",
+    "name": "臺南市非都市土地現有巷道業務執行作業要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL001876",
+    "name": "臺南市政府工務局建造執照預審實施都市計畫地區建築基地綜合設計審議作業要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000316",
+    "name": "臺南市都市計畫保護區農業區土地使用審查要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000257",
+    "name": "臺南市都市計畫區現有巷道改道或廢止申請辦法"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL001041",
+    "name": "臺南市政府辦理都市計畫土地現有巷道申請指定建築線執行要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000655",
+    "name": "都市計畫法臺南市施行細則"
+  },
+  {
+    "site": "臺南市",
+    "id": "FL057950",
+    "name": "臺南市都市設計審議委員會設置及審議作業要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL000371",
+    "name": "臺南市政府都市計畫容積移轉審查許可要點"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL001321",
+    "name": "臺南市都市更新建築容積獎勵辦法"
+  },
+  {
+    "site": "臺南市",
+    "id": "GL001080",
+    "name": "臺南市危險及老舊建築物申請重建計畫作業要點"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001987",
+    "name": "高雄市騎樓管理使用自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000526",
+    "name": "高雄市廣告物管理自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001976",
+    "name": "高雄市公寓大廈輔導管理自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001111",
+    "name": "高雄市營建工程剩餘土石方管理自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001166",
+    "name": "高雄市加強建築物公共安全管理自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000451",
+    "name": "高雄市建築物附建防空避難設備或停車空間繳納代金及管理使用自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000907",
+    "name": "高雄市高雄厝設計及鼓勵回饋辦法"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001566",
+    "name": "高雄市臨時性建築物管理辦法"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000383",
+    "name": "高雄市建築物設置太陽光電設施辦法"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000411",
+    "name": "高雄市都市更新自治條例"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL000627",
+    "name": "都市計畫法高雄市施行細則"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001986",
+    "name": "高雄市未劃定更新地區自行劃定重建更新單元標準"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001701",
+    "name": "高雄市都市計畫住宅區危險及老舊建築物重建建蔽率放寬標準"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001934",
+    "name": "高雄市都市更新建築容積獎勵辦法"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL002088",
+    "name": "高雄市政府都市設計審查規範"
+  },
+  {
+    "site": "高雄市",
+    "id": "GL001910",
+    "name": "高雄市都市設計審議作業程序規定"
+  },
+  {
+    "name": "臺北市容積移轉審查許可自治條例",
+    "site": "臺北市",
+    "id": "FL074357"
+  },
+  {
+    "name": "臺北市都市更新自治條例",
+    "site": "臺北市",
+    "id": "FL003966"
+  },
+  {
+    "name": "臺北市都市更新基金收支保管及運用自治條例",
+    "site": "臺北市",
+    "id": "FL003967"
+  },
+  {
+    "name": "臺北市住宅及都市更新中心設置自治條例",
+    "site": "臺北市",
+    "id": "FL097971"
+  },
+  {
+    "name": "臺北市容積代金基金收支保管及運用自治條例",
+    "site": "臺北市",
+    "id": "FL089577"
+  },
+  {
+    "name": "臺北市建築共同壁規則",
+    "site": "臺北市",
+    "id": "FL004115"
+  },
+  {
+    "name": "臺北市建築物附設停車空間繳納代金及管理使用自治條例",
+    "site": "臺北市",
+    "id": "FL004154"
+  },
+  {
+    "name": "臺北市畸零地使用自治條例",
+    "site": "臺北市",
+    "id": "FL004107"
+  },
+  {
+    "name": "臺北市建築法定空地臨時機械式停車架設置辦法",
+    "site": "臺北市",
+    "id": "FL004153"
+  },
+  {
+    "name": "臺北市綠建築自治條例",
+    "site": "臺北市",
+    "id": "FL075334"
+  },
+  {
+    "name": "臺北市高氯離子混凝土建築物善後處理自治條例",
+    "site": "臺北市",
+    "id": "FL004049"
+  },
+  {
+    "name": "新北市營建剩餘土石方管理自治條例",
+    "site": "新北市",
+    "id": "C0170194"
+  },
+  {
+    "name": "新北市高氯離子鋼筋混凝土建築物處理自治條例",
+    "site": "新北市",
+    "id": "C0170184"
+  },
+  {
+    "name": "新北市騎樓及無遮簷人行道設置標準",
+    "site": "新北市",
+    "id": "C0170005"
+  },
+  {
+    "name": "新北市未領得使用執照建築物申請接用水電辦法",
+    "site": "新北市",
+    "id": "C0170006"
+  },
+  {
+    "name": "新北市建築物附設停車空間繳納代金及管理使用辦法",
+    "site": "新北市",
+    "id": "C0170021"
+  },
+  {
+    "name": "新北市舊有違章建築修繕辦法",
+    "site": "新北市",
+    "id": "C0170009"
+  },
+  {
+    "name": "新北市公寓大廈管理維護使用空間設置辦法",
+    "site": "新北市",
+    "id": "C0170007"
+  },
+  {
+    "name": "新北市違章建築拆除標準",
+    "site": "新北市",
+    "id": "C0170030"
+  },
+  {
+    "name": "新北市合法建築物增設一定規模以下構造物處理要點",
+    "site": "新北市",
+    "id": "C0170029"
+  },
+  {
+    "name": "新北市建築物裝飾性構造物設置要點",
+    "site": "新北市",
+    "id": "C0170187"
+  },
+  {
+    "name": "新北市政府辦理建築物一定規模以下免辦理變更使用執照要點",
+    "site": "新北市",
+    "id": "C0170033"
+  },
+  {
+    "name": "新北市建築物機車停車空間設置要點",
+    "site": "新北市",
+    "id": "C0170068"
+  },
+  {
+    "name": "新北市非住宅建築物樓層高度及夾層或挑空設計施工及管理要點",
+    "site": "新北市",
+    "id": "C0170063"
+  },
+  {
+    "name": "新北市政府建築工程施工管理要點",
+    "site": "新北市",
+    "id": "C0170044"
+  },
+  {
+    "name": "新北市建築物開放空間管理維護要點",
+    "site": "新北市",
+    "id": "C0170142"
+  },
+  {
+    "name": "新北市非供居住使用之農業設施免由建築師設計監造及營造業承造要點",
+    "site": "新北市",
+    "id": "C0170064"
+  },
+  {
+    "name": "新北市免辦建築執照建築物或雜項工作物處理原則",
+    "site": "新北市",
+    "id": "C0170159"
+  },
+  {
+    "name": "新北市政府辦理建築物裝修為多間套房審查原則",
+    "site": "新北市",
+    "id": "C0170133"
+  },
+  {
+    "name": "新北市公共建築物無障礙環境替代改善方案處理原則",
+    "site": "新北市",
+    "id": "C0170024"
+  },
+  {
+    "name": "新北市建築物施工損壞鄰房事件處理程序",
+    "site": "新北市",
+    "id": "C0170040"
+  },
+  {
+    "name": "新北市建築物室內裝修審核及查驗作業事項規範",
+    "site": "新北市",
+    "id": "C0170020"
+  },
+  {
+    "name": "新北市建築執照工程造價標準表",
+    "site": "新北市",
+    "id": "C0170032"
+  },
+  {
+    "name": "新北市高氯離子鋼筋混凝土建築物處理自治條例事件統一裁罰基準",
+    "site": "新北市",
+    "id": "C0170185"
+  },
+  {
+    "name": "新北市建築物陽臺露臺外緣裝飾性構造物設計原則",
+    "site": "新北市",
+    "id": "C0170066"
+  },
+  {
+    "name": "南投縣辦理申請農業用地作農業設施容許使用審查作業要點",
+    "id": "GL000127",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000127",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=07&size=40"
+  },
+  {
+    "name": "南投縣畸零地使用自治條例",
+    "id": "FL021896",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021896",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=24&size=40"
+  },
+  {
+    "name": "南投縣建築物施工中損毀鄰房事件自治條例",
+    "id": "FL036748",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL036748",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=24&size=40"
+  },
+  {
+    "name": "南投縣違章建築申請補辦建築執照自治條例",
+    "id": "FL046792",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL046792",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=24&size=40"
+  },
+  {
+    "name": "南投縣一定規模以下建築物免辦理變更使用執照認定標準",
+    "id": "FL050649",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL050649",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=24&size=40"
+  },
+  {
+    "name": "南投縣免辦建築執照建築物或雜項工作物處理原則",
+    "id": "GL000696",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=GL000696",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2"
+  },
+  {
+    "name": "南投縣建築物室內裝修審核及查驗作業事項規範",
+    "id": "GL000652",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=GL000652",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2"
+  },
+  {
+    "name": "南投縣容積移轉審查許可作業要點",
+    "id": "GL000181",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=GL000181",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2"
+  },
+  {
+    "name": "南投縣建築物施工中管制要點",
+    "id": "FL037320",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=FL037320",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2"
+  },
+  {
+    "name": "南投縣非平屋頂建築物之管理及限制高度管制原則",
+    "id": "FL038131",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=FL038131",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2"
+  },
+  {
+    "name": "南投縣都市設計審議會審議原則及規範",
+    "id": "GL000654",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=GL000654",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=2",
+    "linkOnlyReason": "官方本文含附表及重複段落編號，尚未安全拆分；保留官方全文入口與附件，不宣稱全文已收錄。"
+  },
+  {
+    "name": "南投縣政府違章建築處理計畫",
+    "id": "FL053313",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/LawContent.aspx?id=FL053313",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/LawCategoryContentList.aspx?CategoryID=24&size=40&page=3"
+  },
+  {
+    "name": "屏東縣建築管理自治條例",
+    "id": "FL026602",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026602",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣畸零地使用規則",
+    "id": "FL026596",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026596",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣都市計畫區法定騎樓設置標準",
+    "id": "FL052537",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL052537",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣建築物免變更使用執照辦法",
+    "id": "GL000114",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000114",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣建築物附建防空避難設備或停車空間繳納代金及管理使用辦法",
+    "id": "GL000545",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000545",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣建築物變更使用執照違建部分處理原則",
+    "id": "GL000100",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000100",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣都市設計審議許可案件變更設計作業要點",
+    "id": "GL000596",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000596",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣政府辦理建築物變更戶數作業要點",
+    "id": "GL000688",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000688",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣農業用地作農業設施容許使用審查作業要點",
+    "id": "GL000222",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000222",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=08&size=40"
+  },
+  {
+    "name": "屏東縣政府都市計畫容積移轉審查許可要點",
+    "id": "GL000507",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000507",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40&page=2"
+  },
+  {
+    "name": "屏東縣建築物施工中管制要點",
+    "id": "GL000288",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000288",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40&page=2"
+  },
+  {
+    "name": "屏東縣建築工程辦理施工計畫書備查作業要點",
+    "id": "GL000887",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000887",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40&page=2"
+  },
+  {
+    "name": "屏東縣建築物室內裝修審查作業室項規範",
+    "id": "GL000874",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000874",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40&page=2"
+  },
+  {
+    "name": "彰化縣建築物施工中管制要點",
+    "id": "FL087989",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL087989",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40"
+  },
+  {
+    "name": "彰化縣舊有建築物防火避難設施及消防設備改善其停車空間及防空避難設備配合處理規定",
+    "id": "FL028122",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL028122",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40"
+  },
+  {
+    "name": "彰化縣建築物施工損壞鄰房事件處理自治條例",
+    "id": "FL049410",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL049410",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40"
+  },
+  {
+    "name": "彰化縣申請農業設施興建高度及樓層審查基準",
+    "id": "GL000121",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000121",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=08&size=40"
+  },
+  {
+    "name": "彰化縣政府辦理申請農業用地容許作農業設施使用審查作業要點",
+    "id": "GL000194",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000194",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=08&size=40"
+  },
+  {
+    "name": "彰化縣都市計畫容積移轉審查許可及作業規則",
+    "id": "GL000019",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000019",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "彰化縣辦理變更使用執照及室內裝修申請案違建部分處理辦法",
+    "id": "FL048257",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL048257",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "彰化縣都市更新地區建築容積獎勵核計標準",
+    "id": "FL041414",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL041414",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "彰化縣建築物附設停車空間繳納代金及管理使用辦法",
+    "id": "FL042572",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL042572",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "彰化縣免辦理變更使用執照之規模認定標準",
+    "id": "FL027887",
+    "site": "彰化縣",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL027887",
+    "discoveredFrom": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "都市計畫法新北市施行細則",
+    "id": "C0150108",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150108",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市更新建築容積獎勵辦法",
+    "id": "C0150143",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150143",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市設計及土地使用開發許可審議作業要點",
+    "id": "C0150076",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150076",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市新莊區（副都市中心地區）都市設計審議要點",
+    "id": "C0150086",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150086",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市計畫容積移轉許可審查要點",
+    "id": "C0150015",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150015",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市政府處理都市計畫法新北市施行細則第三十九條之二申請案件作業要點",
+    "id": "C0150139",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150139",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市政府城鄉發展局都市設計審議委託協審抽查作業要點",
+    "id": "C0150082",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150082",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市新莊區（頭前地區）都市設計審議要點",
+    "id": "C0150087",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150087",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市新店 B 單元及 Y7 捷運系統用地都市設計審議原則",
+    "id": "C0150176",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150176",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市設計審議原則",
+    "id": "C0150004",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150004",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "臺北港特定區都市設計審議原則",
+    "id": "C0150171",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150171",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市林口特定區計畫（第三種產業專用區）永續發展暨淨零碳示範地區都市設計審議原則",
+    "id": "C0150169",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150169",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市林口特定區都市計畫內工業區土地申請提高容積率都市設計審議原則",
+    "id": "C0150125",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150125",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市政府辦理環境影響評估及都市設計審議開發量審議原則",
+    "id": "C0150168",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150168",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市塭仔圳重要廊道及軸線都市設計審議原則",
+    "id": "C0150167",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150167",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市捷運系統及其設施設備都市設計審議原則",
+    "id": "C0150129",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150129",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市淡水埔頂地區都市設計暫行審議原則",
+    "id": "C0150117",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150117",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市社會住宅都市設計審議原則",
+    "id": "C0150090",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150090",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市變更新店水源特定區計畫（土地使用分區管制要點通盤檢討）書有關建築基地不受建築技術規則第二百六十八條高度限制規定審議原則",
+    "id": "C0150111",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150111",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市「淡水、淡水（竹圍地區）、八里（龍形地區）土地使用分區管制要點專案通盤檢討（第二階段）有關『山坡地建築物不受建築技術規則第二六八條之高度限制』規定」審議原則",
+    "id": "C0150093",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150093",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市鶯歌區鳳鳴（市地重劃範圍內）都市設計審議原則",
+    "id": "C0150110",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150110",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市板橋（江翠北側地區）都市設計審議原則",
+    "id": "C0150091",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150091",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市更新建築容積獎勵核算基準",
+    "id": "C0150057",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150057",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市都市設計審議簡化程序案件審議原則",
+    "id": "C0150165",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150165",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "一定規模以下授權作業單位辦理都審簡化原則",
+    "id": "C0150163",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150163",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C015"
+  },
+  {
+    "name": "新北市政府建築物監造施工計畫書及品質管理作業要點",
+    "id": "C0170165",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170165",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市政府辦理都市計畫區內巷道廢止或改道作業要點",
+    "id": "C0170052",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170052",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市政府辦理非都市土地建築基地建築線指定及現有巷道認定作業要點",
+    "id": "C0170136",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170136",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市政府辦理建築物變更戶數作業要點",
+    "id": "C0170113",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170113",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市建築物辦理變更使用執照案專用下水道廢（污）水量總量管制要點",
+    "id": "C0170069",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170069",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市政府辦理建築工程施工防救災計畫說明會作業原則",
+    "id": "C0170039",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170039",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市違章建築處理原則",
+    "id": "C0170192",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170192",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市政府辦理變更使用執照或室內裝修申請案違建部分處理原則",
+    "id": "C0170078",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170078",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市建物申請用途涉都市計畫法臺灣省施行細則第十八條第二款第十目工業產品展示服務業之暫行處理原則",
+    "id": "C0170065",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170065",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新北市合法建築物屋頂窳陋設置無壁式雨棚處理原則",
+    "id": "C0170111",
+    "site": "新北市",
+    "url": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170111",
+    "discoveredFrom": "https://web.law.ntpc.gov.tw/Scripts/Query2.aspx?no=C017"
+  },
+  {
+    "name": "新竹市建築物附建防空避難設備或停車空間繳納代金及管理使用自治條例",
+    "id": "FL087591",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL087591",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市都市更新建築容積獎勵核算標準",
+    "id": "FL087578",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL087578",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市都市計畫區騎樓設置標準",
+    "id": "FL026327",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL026327",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市建築物一定規模以下免辦理變更使用執照辦法",
+    "id": "FL047278",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL047278",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市建築管理自治條例第四條執行辦法",
+    "id": "GL000122",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=GL000122",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市都市計畫容積移轉審查許可規則",
+    "id": "FL084042",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL084042",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市既有建築物屋頂設置太陽光電設施辦法",
+    "id": "FL083346",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL083346",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市畸零地使用規則",
+    "id": "FL022465",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022465",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40"
+  },
+  {
+    "name": "新竹市農業用地集村興建農舍審查作業要點",
+    "id": "FL055950",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL055950",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=19&size=40"
+  },
+  {
+    "name": "新竹市建築工程辦理施工計畫書作業要點",
+    "id": "GL000197",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=GL000197",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市公共設施免辦建築執照建築物或雜項工作物處理規定",
+    "id": "GL000096",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=GL000096",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市現有巷道之改道或廢止處理程序",
+    "id": "FL086899",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL086899",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市建築物室內裝修審查要點",
+    "id": "FL022984",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022984",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市建築物施工中管制要點",
+    "id": "FL022985",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022985",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市建築基地綠化實施執行要點",
+    "id": "FL087852",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL087852",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市違章建築申請補辦執照執行要點",
+    "id": "FL022988",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022988",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹市辦理建築物分戶、增編門牌、建築物分割聯繫作業規定",
+    "id": "FL022989",
+    "site": "新竹市",
+    "url": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022989",
+    "discoveredFrom": "https://law.hccg.gov.tw/LawCategoryContentList.aspx?CategoryID=15&size=40&page=2"
+  },
+  {
+    "name": "新竹縣政府核發申請農業用地作農業設施容許使用作業程序",
+    "id": "FL047846",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL047846",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=H000&size=40"
+  },
+  {
+    "name": "新竹縣建築工程辦理施工計畫書備查作業要點",
+    "id": "GL000619",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000619",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣公共設施免辦建築執照建築物或雜項工作物處理原則",
+    "id": "GL000615",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000615",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣建築物室內裝修審核及查驗作業規範",
+    "id": "GL000487",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000487",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣政府辦理建築物分戶作業要點",
+    "id": "GL000459",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000459",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣政府辦理建築物變更使用執照申請案違章建築處理原則",
+    "id": "GL000246",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000246",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣政府建築工程施工中勘驗作業要點",
+    "id": "FL045410",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL045410",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40"
+  },
+  {
+    "name": "新竹縣都市計畫區騎樓設置自治條例",
+    "id": "GL000025",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000025",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣建築物一定規模以下免辦理變更使用執照辦法",
+    "id": "FL046114",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL046114",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣畸零地使用規則",
+    "id": "FL022959",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL022959",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣建築基地綠化實施辦法",
+    "id": "FL043087",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL043087",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣建築物附建防空避難設備或停車空間繳納代金及管理使用辦法",
+    "id": "FL023011",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023011",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣都市計畫容積移轉許可審查要點",
+    "id": "GL000005",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000005",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣建築工程基礎開挖安全措施管理作業要點",
+    "id": "GL000620",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000620",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "新竹縣建築物施工中管制要點",
+    "id": "FL023013",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023013",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40&page=2"
+  },
+  {
+    "name": "新竹縣舊有建築物防火避難設施及消防設備改善其停車空間及防空避難設備配合處理規定",
+    "id": "FL026972",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL026972",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=R000&size=40&page=2"
+  },
+  {
+    "name": "新竹縣都市更新建築容積獎勵核算基準",
+    "id": "GL000256",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000256",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40&page=2"
+  },
+  {
+    "name": "新竹縣湖口（王爺壟地區）都市設計管制要點",
+    "id": "FL048046",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL048046",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40&page=2",
+    "linkOnlyReason": "官方正文含前言或獨立段落標題，尚未完整拆分收錄；請查官方全文與附件。"
+  },
+  {
+    "name": "桃園市建築工程辦理施工計畫諮詢會作業要點",
+    "id": "GL002430",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL002430",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=2"
+  },
+  {
+    "name": "桃園市建築基地內騎樓及沿街面人行空間改善原則",
+    "id": "GL002037",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL002037",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=11&size=40&page=2"
+  },
+  {
+    "name": "桃園市建築線指定或指示核發作業程序",
+    "id": "GL001806",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001806",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市都市設計審議原則",
+    "id": "GL002432",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL002432",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市違章建築處理要點",
+    "id": "GL001011",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001011",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市都市計畫容積移轉審查許可要點",
+    "id": "GL000406",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL000406",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市古蹟土地容積移轉審查許可要點",
+    "id": "GL002130",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL002130",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市建築工程施工勘驗作業要點",
+    "id": "GL001020",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001020",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市一定規模以下免由建築師設計、監造及營造業承造之農作產銷、畜牧、水產養殖、林業設施及構造認定基準",
+    "id": "GL001990",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001990",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市都市設計審議核備案件變更設計處理原則",
+    "id": "GL000530",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL000530",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市建築物變更使用執照申請案違章建築處理原則",
+    "id": "GL001014",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001014",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "桃園市建築物室內裝修審查作業規範",
+    "id": "GL001016",
+    "site": "桃園市",
+    "url": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001016",
+    "discoveredFrom": "https://law.tycg.gov.tw/LawCategoryContentList.aspx?CategoryID=10&size=40&page=3"
+  },
+  {
+    "name": "澎湖縣偏遠地區簡化建築管理自治條例",
+    "id": "FL022498",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL022498",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40"
+  },
+  {
+    "name": "澎湖縣都市更新建築容積獎勵辦法",
+    "id": "GL000749",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000749",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40"
+  },
+  {
+    "name": "澎湖縣一定規模以下建築物免辦理變更使用執照辦法",
+    "id": "FL050474",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL050474",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40"
+  },
+  {
+    "name": "澎湖縣建築物附建防空避難設備或停車空間繳納代金管理使用辦法",
+    "id": "FL050475",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL050475",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40"
+  },
+  {
+    "name": "澎湖縣畸零地使用規則",
+    "id": "FL022474",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL022474",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40"
+  },
+  {
+    "name": "澎湖縣都市設計審議作業要點",
+    "id": "GL000657",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000657",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣違章建築暫免處理原則",
+    "id": "GL000555",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000555",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣建築工程施工中勘驗作業要點",
+    "id": "GL000531",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000531",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣免辦建築執照建築物或雜項工作物處理原則",
+    "id": "GL000829",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000829",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣都市計畫農業區土地作連接建築線私設通路使用審查要點",
+    "id": "GL000751",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000751",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣都市計畫容積移轉審查許可條件作業要點",
+    "id": "GL000357",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000357",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣建築工程施工損壞鄰房事件處理程序",
+    "id": "GL000351",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000351",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣建築物施工中管制要點",
+    "id": "GL000349",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000349",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣非都市土地一般農業區農牧用地或養殖用地興建住宅計畫暨變更編定審查作業要點基地面臨道路建築線指定作業原則",
+    "id": "GL000478",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000478",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=19&size=40&page=2"
+  },
+  {
+    "name": "澎湖縣違章建築申請補辦執照執行要點",
+    "id": "GL000354",
+    "site": "澎湖縣",
+    "url": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=GL000354",
+    "discoveredFrom": "https://law.penghu.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=06&size=40&page=3"
+  },
+  {
+    "name": "臺北市現有巷道廢止或改道自治條例",
+    "id": "FL004118",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004118",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013"
+  },
+  {
+    "name": "臺北市舊有違章建築處理辦法",
+    "id": "FL004159",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004159",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=2"
+  },
+  {
+    "name": "臺北市農業區保護區建築物及有頂蓋農業設施斜屋頂設置辦法",
+    "id": "FL039643",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL039643",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=2"
+  },
+  {
+    "name": "臺北市山坡地開發建築都市設計準則",
+    "id": "FL019432",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL019432",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=2"
+  },
+  {
+    "name": "臺北市人行陸橋及地下道都市設計準則",
+    "id": "FL019439",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL019439",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=2"
+  },
+  {
+    "name": "臺北市都市更新建築容積獎勵辦法",
+    "id": "FL036875",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL036875",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=3"
+  },
+  {
+    "name": "臺北市建築線指示申請辦法",
+    "id": "FL049627",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL049627",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=3"
+  },
+  {
+    "name": "臺北市建築物室內裝修審核及查驗作業事項準則",
+    "id": "FL055597",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL055597",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=3"
+  },
+  {
+    "name": "臺北市建築物樓層高度及夾層挑空設計管理規則",
+    "id": "FL030184",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL030184",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=4"
+  },
+  {
+    "name": "臺北市新建建築物綠化實施規則",
+    "id": "FL080927",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL080927",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=4"
+  },
+  {
+    "name": "臺北市建築施工損鄰事件爭議處理規則",
+    "id": "FL030522",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL030522",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=4"
+  },
+  {
+    "name": "臺北市建築工程施工時段管制辦法",
+    "id": "FL049845",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL049845",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=4"
+  },
+  {
+    "name": "臺北市一定規模以下建築物免辦理變更使用執照管理辦法",
+    "id": "FL038035",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL038035",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=4"
+  },
+  {
+    "name": "臺北市違章建築處理規則",
+    "id": "FL058967",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL058967",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=5"
+  },
+  {
+    "name": "臺北市政府受理都市計畫、都市設計及都市更新回饋、捐贈作業要點",
+    "id": "FL087359",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL087359",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=7"
+  },
+  {
+    "name": "臺北市南港區人行立體連通系統都市設計管制要點",
+    "id": "FL091985",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL091985",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=8"
+  },
+  {
+    "name": "臺北市實施容積管制前已建築完成之基地內未納為法定空地私設通路於實施容積管制後得納為法定空地之認定原則",
+    "id": "FL089289",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL089289",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=10"
+  },
+  {
+    "name": "臺北市尚未全面實施容積率管制前對於申請依「飛航安全標準及航空站、飛行場四週禁止限制建築辦法」之飛航限建高度規定辦理之建築案件審理原則",
+    "id": "FL004126",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004126",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=10"
+  },
+  {
+    "name": "臺北市指定道路兩側應留設騎樓或無遮簷人行道要點",
+    "id": "FL003988",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL003988",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=10"
+  },
+  {
+    "name": "臺北市建築物依法附建之防空避難設備申請臨時兼作他種用途原則",
+    "id": "FL004169",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004169",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=11"
+  },
+  {
+    "name": "臺北市免辦建築執照建築物或雜項工作物處理原則",
+    "id": "FL004147",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004147",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=11"
+  },
+  {
+    "name": "臺北市政府新建大型公有建築物及活動場所設置無障礙設施諮詢方案",
+    "id": "FL069302",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL069302",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12",
+    "linkOnlyReason": "官方頁面僅指示參閱附件；請開啟官方附件，尚未收錄附件全文。"
+  },
+  {
+    "name": "臺北市建築物樓層高度採複層式樓板設計處理原則",
+    "id": "FL072970",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL072970",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市申請建造執照變更設計程序中辦理五大管線審查或施工勘驗建造執照正本借出原則",
+    "id": "FL088862",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL088862",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市建築基地整地及基地地面認定原則",
+    "id": "FL096194",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL096194",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市建築物附設停車空間設計指導原則",
+    "id": "FL096524",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL096524",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市建築工程施工中必須勘驗部分作業要點",
+    "id": "FL004145",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004145",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市建築工程基礎開挖安全措施管理作業要點",
+    "id": "FL004148",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004148",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=12"
+  },
+  {
+    "name": "臺北市建築工程辦理施工計畫審查暨備查作業原則",
+    "id": "FL041629",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL041629",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=13"
+  },
+  {
+    "name": "臺北市現行違章建築拆除處理原則",
+    "id": "FL066531",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL066531",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=14"
+  },
+  {
+    "name": "臺北市政府遏止新增違章建築處理措施",
+    "id": "FL077835",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL077835",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=14"
+  },
+  {
+    "name": "臺北市古蹟歷史建築紀念建築土地容積移轉審查基準",
+    "id": "FL105133",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL105133",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=16"
+  },
+  {
+    "name": "臺南市騎樓及無遮簷人行道設置標準",
+    "id": "GL000191",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000191",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市政府工務局辦理審查機構執行建築物室內裝修審核及查驗作業規範",
+    "id": "GL001892",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001892",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市政府工務局建築物室內裝修委託審查案件抽查作業計畫",
+    "id": "GL001764",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001764",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市政府工務局領有使用執照建築基地範圍內部分土地申請建築及解除法定空地管制處理原則",
+    "id": "GL001437",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001437",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市政府工務局辦理申請建造執照及雜項執照基地內存有違章建築處理要點",
+    "id": "GL001561",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001561",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市政府工務局建築物施工計畫書加強作業要點",
+    "id": "GL001591",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001591",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=2"
+  },
+  {
+    "name": "臺南市建築物附設停車空間繳納代金及管理使用辦法",
+    "id": "FL062520",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=FL062520",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=3"
+  },
+  {
+    "name": "臺南市政府違章建築處理要點",
+    "id": "GL000373",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000373",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=3"
+  },
+  {
+    "name": "臺南市政府工務局公共建築物無障礙設施勘檢作業執行要點",
+    "id": "GL001489",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL001489",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=3"
+  },
+  {
+    "name": "臺南市一定規模以下建築物免辦理變更使用執照辦法",
+    "id": "GL000115",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000115",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=3"
+  },
+  {
+    "name": "臺南市建築管理自治條例第二十一條第三項申請增加建築期限認定基準",
+    "id": "GL000922",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000922",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=3"
+  },
+  {
+    "name": "臺南市畸零地使用規則",
+    "id": "GL000161",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000161",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=4"
+  },
+  {
+    "name": "臺南市建築物屋頂設置太陽光電設施辦法",
+    "id": "GL000296",
+    "site": "臺南市",
+    "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000296",
+    "discoveredFrom": "https://law01.tainan.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=0117&size=40&page=5"
+  },
+  {
+    "name": "臺東縣政府辦理建築物變更使用執照及民宿設立登記申請案其違章建築處理原則",
+    "id": "GL000313",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000313",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=006&size=40"
+  },
+  {
+    "name": "臺東縣政府委辦各鄉（鎮、市）公所核發農業用地作農業設施容許使用同意書審查作業要點",
+    "id": "FL030011",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL030011",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=008&size=40"
+  },
+  {
+    "name": "臺東縣都市計畫容積移轉許可審查要點",
+    "id": "GL000295",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000295",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40"
+  },
+  {
+    "name": "臺東縣建築物施工中管制要點",
+    "id": "FL052958",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL052958",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40"
+  },
+  {
+    "name": "臺東縣都市設計審議原則",
+    "id": "GL000649",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000649",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40"
+  },
+  {
+    "name": "臺東縣政府辦理都市計畫區內現有巷道認定作業要點",
+    "id": "GL000446",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000446",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40",
+    "linkOnlyReason": "官方將同一點的本文及附件拆散成多列，尚未安全合併；保留官方全文入口與附件。"
+  },
+  {
+    "name": "臺東縣都市計畫農業區土地申請私設連接建築線通路審查要點",
+    "id": "GL000131",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000131",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40"
+  },
+  {
+    "name": "臺東縣新建公共建築物無障礙設施竣工勘檢作業原則",
+    "id": "FL037242",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL037242",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40"
+  },
+  {
+    "name": "臺東縣非平屋頂建築物之屋頂其高度得不計入建築物高度原則",
+    "id": "FL043374",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL043374",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40",
+    "linkOnlyReason": "官方本文未編條號或點次，尚未建立可核對的段落結構；保留官方全文入口。"
+  },
+  {
+    "name": "臺東縣一定規模以下建築物免辦理變更使用執照認定標準",
+    "id": "GL000344",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000344",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=006&size=40&page=2"
+  },
+  {
+    "name": "臺東縣都市危險及老舊建築物加速重建建築物高度放寬標準",
+    "id": "GL000491",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000491",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=006&size=40&page=2"
+  },
+  {
+    "name": "臺東縣建築工程施工勘驗執行辦法",
+    "id": "GL000420",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000420",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=006&size=40&page=2"
+  },
+  {
+    "name": "臺東縣建築物附建防空避難設備或停車空間繳納代金及管理使用辦法",
+    "id": "GL000189",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000189",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=006&size=40&page=2"
+  },
+  {
+    "name": "臺東縣建築物室內裝修審查作業規範",
+    "id": "FL052957",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL052957",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "臺東縣違章建築申請補辦執照執行要點",
+    "id": "FL052998",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL052998",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "臺東縣簡化鄉鎮及偏遠地區建築管理自治條例",
+    "id": "FL023279",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL023279",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "臺東縣都市設計審議作業規則",
+    "id": "GL000617",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000617",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "臺東縣畸零地使用規則",
+    "id": "FL023882",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL023882",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "苗栗縣政府辦理申請農業用地容許作農業設施使用審查作業要點",
+    "id": "GL000173",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000173",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=09&size=40"
+  },
+  {
+    "name": "苗栗縣申請農業設施興建高度及樓層審查辦法",
+    "id": "FL037737",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL037737",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=09&size=40"
+  },
+  {
+    "name": "苗栗縣騎樓沿街步道空間設置自治條例",
+    "id": "FL033441",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL033441",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣畸零地使用自治條例",
+    "id": "FL033508",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL033508",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣建築物附建防空避難設備或停車空間繳納代金及管理使用自治條例",
+    "id": "FL026451",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL026451",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣迅行及策略性更新地區建築物高度及建蔽率放寬標準",
+    "id": "GL000203",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000203",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣建築物室內裝修審核及查驗作業規則",
+    "id": "FL034575",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL034575",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣都市更新建築容積獎勵辦法",
+    "id": "GL000198",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000198",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣都市計畫容積移轉許可審查標準",
+    "id": "FL037941",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL037941",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣建築物在一定規模以下之使用免變更使用執照辦法",
+    "id": "FL033799",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL033799",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣重大建築工程辦理施工計畫備查作業辦法",
+    "id": "GL000190",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000190",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣都市設計審議規則",
+    "id": "FL040415",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL040415",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣都市危險及老舊建築物加速重建建蔽率及建築物高度放寬標準",
+    "id": "GL000121",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000121",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "苗栗縣建築工程施工中勘驗作業辦法",
+    "id": "GL000081",
+    "site": "苗栗縣",
+    "url": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=GL000081",
+    "discoveredFrom": "https://law.miaoli.gov.tw/glrsnewsout/LawCategoryContentList.aspx?CategoryID=11&size=40"
+  },
+  {
+    "name": "金門縣騎樓管理使用自治條例",
+    "id": "GL000870",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000870",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣畸零地使用自治條例",
+    "id": "FL030823",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL030823",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣建築物附設防空避難設備或停車空間繳納代金及管理使用辦法",
+    "id": "FL051850",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL051850",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣迅行及策略性更新地區建築物高度及建蔽率放寬標準",
+    "id": "GL000901",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000901",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣建築工程施工損壞鄰房事件爭議調處辦法",
+    "id": "GL000333",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000333",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣建築物附設機車停車空間設置要點",
+    "id": "GL000761",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000761",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣建築物室內裝修審查作業規範",
+    "id": "GL000188",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000188",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣建築物施工損壞鄰房事件處理程序",
+    "id": "FL033031",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL033031",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40"
+  },
+  {
+    "name": "金門縣農業用地興建農舍審查作業要點",
+    "id": "GL000810",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000810",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=03&size=40&page=2"
+  },
+  {
+    "name": "金門縣簡易室內裝修申請案件圖說審查及竣工查驗執行要點",
+    "id": "GL000861",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000861",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40&page=2"
+  },
+  {
+    "name": "金門縣轄內建築物室內裝修施工期限及得展期期限基準",
+    "id": "GL000160",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000160",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40&page=2"
+  },
+  {
+    "name": "金門縣政府都市計畫容積移轉許可審查要點",
+    "id": "FL052151",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL052151",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40&page=2"
+  },
+  {
+    "name": "金門縣建築管理自治條例第八條第一項第一款，有關金門特定區計畫商業區建築基地面臨計畫道路之騎樓庇廊或無遮簷人行道設置基準",
+    "id": "FL053291",
+    "site": "金門縣",
+    "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL053291",
+    "discoveredFrom": "https://law.kinmen.gov.tw/LawCategoryContentList.aspx?CategoryID=023&size=40&page=2",
+    "linkOnlyReason": "官方正文含前言或獨立段落標題，尚未完整拆分收錄；請查官方全文與附件。"
+  },
+  {
+    "name": "高雄市申請農業設施興建高度及樓層審查自治條例",
+    "id": "GL000416",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000416",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=21&size=40"
+  },
+  {
+    "name": "高雄市現有巷道改道或廢止辦法",
+    "id": "GL000316",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000316",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=05&size=40"
+  },
+  {
+    "name": "高雄市都市設計審議許可案件變更設計作業要點",
+    "id": "GL000637",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000637",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=29&size=40&page=2"
+  },
+  {
+    "name": "高雄市政府都市更新建築容積獎勵核算基準",
+    "id": "GL000348",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000348",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=29&size=40&page=2"
+  },
+  {
+    "name": "高雄市政府審查容積移轉申請案件許可要點",
+    "id": "GL000664",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000664",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=29&size=40&page=2"
+  },
+  {
+    "name": "高雄市建築工程施工損壞鄰房事件爭議調處辦法",
+    "id": "GL000572",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000572",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=05&size=40&page=2"
+  },
+  {
+    "name": "高雄市政府建築工程施工中勘驗作業要點",
+    "id": "GL000545",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000545",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=05&size=40&page=2"
+  },
+  {
+    "name": "高雄市政府執行騎樓順平工程作業要點",
+    "id": "GL001954",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL001954",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=05&size=40&page=3"
+  },
+  {
+    "name": "高雄市政府工務局建築基地未臨接建築線核准建築執照認定基準",
+    "id": "GL000606",
+    "site": "高雄市",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000606",
+    "discoveredFrom": "https://outlaw.kcg.gov.tw/LawCategoryContentList.aspx?CategoryID=05&size=40&page=3"
+  },
+  {
+    "name": "臺北市面臨現有巷道申請建築原則",
+    "id": "FL004117",
+    "site": "臺北市",
+    "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004117",
+    "discoveredFrom": "https://laws.gov.taipei/Law/LawCategory/LawCategoryResult?categoryid=001013&page=10"
+  },
+  {
+    "name": "屏東縣建築物施工中發生公共安全事件處理自治條例",
+    "id": "FL041013",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL041013",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣綠建築自治條例",
+    "id": "GL000391",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000391",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣實施都市計畫以外地區原住民保留地簡化建築管理辦法",
+    "id": "GL000921",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000921",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣領有使用執照建築基地範圍內部分土地申請建築處理原則",
+    "id": "GL000776",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000776",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40"
+  },
+  {
+    "name": "屏東縣山坡地建築基地免退縮設置人行步道認定原則",
+    "id": "GL000562",
+    "site": "屏東縣",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=GL000562",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawCategoryContentList.aspx?CategoryID=04&size=40&page=2"
+  },
+  {
+    "name": "臺東縣申請自用農舍補充注意事項",
+    "id": "FL039383",
+    "site": "臺東縣",
+    "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL039383",
+    "discoveredFrom": "https://law.taitung.gov.tw/LawCategoryContentList.aspx?CategoryID=014&size=40&page=2"
+  },
+  {
+    "name": "南投縣建築工程申報勘驗作業辦法",
+    "id": "GL000497",
+    "site": "南投縣",
+    "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000497",
+    "discoveredFrom": "https://glrs.nantou.gov.tw/glrsout/LawCategoryContentList.aspx?CategoryID=24&size=40"
+  },
+  {
+    "name": "新竹縣原住民族地區簡化建築管理辦法",
+    "id": "GL000523",
+    "site": "新竹縣",
+    "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000523",
+    "discoveredFrom": "https://hclaw.hsinchu.gov.tw/law/LawCategoryContentList.aspx?CategoryID=Z000&size=40"
+  },
+  {
+    "name": "臺中市偏遠地區簡化建築管理辦法",
+    "id": "GL003643",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL003643",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市臨時性建築物管理辦法",
+    "id": "GL001336",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001336",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市建築物施工管制辦法",
+    "id": "GL001332",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001332",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市一定規模以下建築物申請免辦理變更使用執照辦法",
+    "id": "GL001001",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001001",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市都市更新建築容積獎勵辦法",
+    "id": "GL003931",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL003931",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市招牌廣告及樹立廣告設置辦法",
+    "id": "GL000601",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000601",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市特殊結構建築物委託審查辦法",
+    "id": "GL000974",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000974",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市建築物取得綠建築標章實施辦法",
+    "id": "GL002731",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002731",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市騎樓及無遮簷人行道設置標準",
+    "id": "GL001338",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001338",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40"
+  },
+  {
+    "name": "臺中市實施都市計畫容積移轉審查許可條件及作業要點",
+    "id": "GL000213",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000213",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40"
+  },
+  {
+    "name": "臺中市都市設計審議規範",
+    "id": "GL000167",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000167",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40"
+  },
+  {
+    "name": "臺中市違章建築執行原則",
+    "id": "GL002360",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002360",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40"
+  },
+  {
+    "name": "臺中市領有使用執照建築基地範圍內部分土地申請建築處理原則",
+    "id": "GL003637",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL003637",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40"
+  },
+  {
+    "name": "臺中市公寓大廈管理維護使用空間設置辦法",
+    "id": "GL000975",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000975",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030802&size=40&page=2"
+  },
+  {
+    "name": "臺中市實施都市計畫地區現有巷道廢道改道處理原則",
+    "id": "GL000195",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000195",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=2"
+  },
+  {
+    "name": "臺中市都市危險及老舊建築物加速重建計畫審查作業要點",
+    "id": "GL003610",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL003610",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=2"
+  },
+  {
+    "name": "臺中市建築物變更使用執照違章建築處理原則",
+    "id": "GL002891",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002891",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=2"
+  },
+  {
+    "name": "臺中市政府都市發展局建築工程施工計畫書諮詢意見注意事項",
+    "id": "GL002387",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002387",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=2"
+  },
+  {
+    "name": "臺中市申請農業用地作農業設施容許使用審查要點",
+    "id": "GL000357",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000357",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030903&size=40&page=2"
+  },
+  {
+    "name": "臺中市農業設施高度及樓層審查標準",
+    "id": "GL000353",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000353",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030903&size=40&page=2"
+  },
+  {
+    "name": "臺中市住宅區臨接未達十五公尺計畫道路留設法定騎樓認定原則",
+    "id": "GL001986",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL001986",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=3"
+  },
+  {
+    "name": "臺中市都市危險及老舊建築物重建高度比檢討認定原則",
+    "id": "GL004140",
+    "site": "臺中市",
+    "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL004140",
+    "discoveredFrom": "https://law.taichung.gov.tw/LawCategoryContentList.aspx?CategoryID=030803&size=40&page=4"
+  },
+  {
+    "name": "屏東縣廣告物管理自治條例",
+    "site": "屏東縣",
+    "id": "FL041014",
+    "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL041014",
+    "discoveredFrom": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL041014"
+  }
+]

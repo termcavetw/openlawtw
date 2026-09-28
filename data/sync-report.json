@@ -1,0 +1,163 @@
+{
+  "fetchedAt": "2026-09-28T10:03:59+00:00",
+  "missingCentral": [
+    "建築物防火避難設施及設備安全標準檢查簽證專業機構或人員認可辦法"
+  ],
+  "localFailures": [
+    {
+      "name": "嘉義市建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022491"
+    },
+    {
+      "name": "嘉義縣建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026925"
+    },
+    {
+      "name": "宜蘭縣建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023420"
+    },
+    {
+      "name": "花蓮縣建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026603"
+    },
+    {
+      "name": "基隆市建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000079"
+    },
+    {
+      "name": "基隆市免辦建築執照建築物或雜項工作物管理辦法",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000615"
+    },
+    {
+      "name": "雲林縣建築管理自治條例",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028330"
+    },
+    {
+      "name": "雲林縣政府免辦建築執照建築物或雜項工作物處理原則",
+      "reason": "官方來源本次無法連線，保留快照或官方連結",
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001168"
+    }
+  ],
+  "checks": [
+    {
+      "name": "南投縣都市設計審議會審議原則及規範",
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000654",
+      "type": "link-only",
+      "reason": "官方本文含附表及重複段落編號，尚未安全拆分；保留官方全文入口與附件，不宣稱全文已收錄。"
+    },
+    {
+      "name": "新竹縣湖口（王爺壟地區）都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL048046",
+      "type": "link-only",
+      "reason": "官方正文含前言或獨立段落標題，尚未完整拆分收錄；請查官方全文與附件。"
+    },
+    {
+      "name": "臺北市政府新建大型公有建築物及活動場所設置無障礙設施諮詢方案",
+      "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL069302",
+      "type": "link-only",
+      "reason": "官方頁面僅指示參閱附件；請開啟官方附件，尚未收錄附件全文。"
+    },
+    {
+      "name": "臺東縣政府辦理都市計畫區內現有巷道認定作業要點",
+      "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000446",
+      "type": "link-only",
+      "reason": "官方將同一點的本文及附件拆散成多列，尚未安全合併；保留官方全文入口與附件。"
+    },
+    {
+      "name": "臺東縣非平屋頂建築物之屋頂其高度得不計入建築物高度原則",
+      "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL043374",
+      "type": "link-only",
+      "reason": "官方本文未編條號或點次，尚未建立可核對的段落結構；保留官方全文入口。"
+    },
+    {
+      "name": "金門縣建築管理自治條例第八條第一項第一款，有關金門特定區計畫商業區建築基地面臨計畫道路之騎樓庇廊或無遮簷人行道設置基準",
+      "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL053291",
+      "type": "link-only",
+      "reason": "官方正文含前言或獨立段落標題，尚未完整拆分收錄；請查官方全文與附件。"
+    }
+  ],
+  "excludedInactive": [
+    {
+      "name": "南投縣都市計畫區騎樓設置標準",
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL053762",
+      "date": "民國 109 年 01 月 06 日"
+    },
+    {
+      "name": "彰化縣畸零地使用規則",
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000115",
+      "date": "民國 93 年 03 月 11 日"
+    },
+    {
+      "name": "新竹縣違章建築申請補辦執照執行要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023014",
+      "date": "民國 110 年 02 月 08 日"
+    },
+    {
+      "name": "新竹縣竹北（斗崙地區）（台科大附近地區）細部計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL045188",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣竹北（斗崙地區）（體育公園附近地區）細部計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023603",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣竹北（含斗崙地區）（十興路附近地區）細部計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL047202",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣竹北（含斗崙地區）（竹北高中附近地區）細部計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=GL000010",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣竹北（縣治附近地區）細部計畫都市設計審查原則",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL026967",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣竹北都市計畫（文化中心附近地區）細部計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023009",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "新竹縣高速鐵路新竹車站特定區計畫都市設計管制要點",
+      "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL023008",
+      "date": "民國 108 年 07 月 31 日"
+    },
+    {
+      "name": "臺南市建築物施工中管制要點",
+      "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000216",
+      "date": "民國 115 年 07 月 23 日"
+    },
+    {
+      "name": "臺南市建築物室內裝修審核及查驗作業規範",
+      "url": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000103",
+      "date": "民國 114 年 06 月 16 日"
+    },
+    {
+      "name": "金門縣一定規模以下建築物免辦理變更使用執照自治條例",
+      "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL029092",
+      "date": "民國 107 年 01 月 11 日"
+    },
+    {
+      "name": "臺中市推行建築基地綠化執行要點",
+      "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000225",
+      "date": "民國 107 年 04 月 17 日"
+    },
+    {
+      "name": "臺中市建築工程施工勘驗作業規定",
+      "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL000190",
+      "date": "民國 101 年 05 月 10 日"
+    }
+  ]
+}

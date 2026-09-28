@@ -1,0 +1,7 @@
+[
+ {"id":"balcony-extension","all":[["陽臺"],["外推"]],"label":"陽臺外推的查找方向","queries":["陽臺 外推","陽臺 違章"],"refs":[{"law":"D0070115","article":"第 1 條","contains":"陽臺","label":"建技設計施工編：陽臺等用語定義"},{"law":"D0070124","article":"第 2 條","contains":"違章建築","label":"違章建築處理辦法：定義"}]},
+ {"id":"interior-permission","all":[["室裝","室內裝修"],["免","申請","需要","要不要"]],"label":"先查室內裝修的範圍與申請規定","queries":["室內裝修 申請","室內裝修 免"],"refs":[{"law":"D0070148","article":"第 3 條","contains":"室內裝修","label":"室內裝修管理辦法：裝修範圍"},{"law":"D0070109","article":"第 77-2 條","contains":"室內裝修","label":"建築法：室內裝修規定"}]},
+ {"id":"change-use","all":[["變使"]],"label":"變使也可用正式用語查地方規定","queries":["變更使用","免辦 變更使用"],"refs":[{"law":"D0070141","article":"第 2 條","contains":"使用類組","label":"使用類組及變更使用辦法"},{"law":"D0070109","article":"第 73 條","contains":"變更使用","label":"建築法：使用與變更"}]},
+ {"id":"mezzanine","all":[["夾層"],["可以","可不可以","能不能","容積","高度"]],"label":"夾層的查找方向","queries":["夾層 容積","夾層 高度"],"refs":[{"law":"D0070115","article":"第 164-1 條","contains":"夾層","label":"建技設計施工編：夾層與挑空"}]},
+ {"id":"accessible-toilet","all":[["無障礙"],["廁所","廁間"]],"label":"尺寸及圖示也請核對官方設計規範","queries":["無障礙 廁所","無障礙設施設計規範"],"refs":[{"law":"內政部-GL000734","article":"","contains":"無障礙","label":"無障礙設施設計規範（官方連結）"}]}
+]

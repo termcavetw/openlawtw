@@ -1,0 +1,67 @@
+name: Review weekly official snapshots
+on:
+  schedule:
+    - cron: '23 20 * * 0' # Monday 04:23 Asia/Taipei; GitHub may delay jobs.
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: official-data-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_LAW_SYNC == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: python -m pip install -r requirements.txt
+      - name: Keep a comparison baseline
+        run: cp public/data/laws.json .sync-before.json
+      - name: Fetch official records
+        run: |
+          python scripts/sync-laws.py --cache .law-cache --refresh
+          python scripts/sync-rulings.py --cache .rulings-cache --refresh
+      - name: Reject incomplete or unexpectedly reduced imports
+        run: |
+          python scripts/sync-guard.py .sync-before.json
+          python scripts/validate-data.py --cache .law-cache
+          python scripts/check-rulings.py --cache .rulings-cache
+      - run: npm run snapshot
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm run check
+      - name: Propose verified data updates
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          branch: data/weekly-official-snapshot
+          title: '資料：官方法規與函釋快照更新'
+          commit-message: 'data: refresh verified official snapshots'
+          body-path: sync-pr.md
+          draft: true
+          add-paths: |
+            data/catalog.json
+            data/sync-report.json
+            data/provenance.json
+            data/history.json
+            public/data/laws.json
+            public/data/catalog.json
+            public/data/rulings.json
+      - name: Preserve failure reports for review
+        if: failure()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: failed-sync-report
+          path: |
+            data/sync-report.json
+            sync-pr.md
+          retention-days: 14

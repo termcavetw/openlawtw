@@ -1,0 +1,17 @@
+node_modules/
+dist/
+openlawtw.html
+.law-cache/
+.rulings-cache/
+.sync-before.json
+sync-pr.md
+__pycache__/
+*.pyc
+data/runtime-catalog.json
+data/runtime-manifest.json
+public/data/v2/
+public/data/laws/
+public/data/manifest.json
+public/data/aliases.json
+public/data/yinxian-laws.js
+data/runtime-citations.json

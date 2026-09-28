@@ -1,0 +1,48 @@
+/* v0.11 — clearer search evidence and structured reading. */
+.reader-first{--navigation-width:360px}
+.reader-first .workspace{grid-template-columns:var(--navigation-width) minmax(0,1fr)}
+.reader-first.focus-mode .workspace{grid-template-columns:minmax(0,1fr)}
+.explorer,.explorer .pane,.explorer .viewbar{background:#f5f5f2}
+.explorer .toolbar>.filter-field{flex:1}
+.explorer .toolbar>.filter-toggle{min-height:34px;font-size:12px;padding:0 5px}
+.explorer .advanced-filters{background:#eeefec;border-bottom:1px solid #dce0dc;gap:12px}
+.explorer .advanced-filters>.filter-field,.explorer .advanced-filters>.jurisdiction-toggle{flex-basis:100%;width:100%}
+.explorer .advanced-filters>.jurisdiction-toggle>button{min-height:34px;font-size:12px}
+.explorer .search-guidance{font-size:11px;line-height:1.7;color:#586a73;margin-bottom:12px}
+.explorer .result-count{font-size:11px;color:#526571;line-height:1.7}
+.explorer .section-top p,.explorer .navigator-title>span{color:#566772}
+.search-group{border:1px solid #dce1df;border-radius:9px;background:#fff;margin:0 0 12px;padding:15px;position:relative}
+.search-group.selected{border-color:#839ba4;box-shadow:inset 3px 0 #375b6c;background:#fcfdfc}
+.search-group-meta{display:flex;flex-wrap:wrap;gap:5px 8px;align-items:center;font-size:10px;color:#586c74;line-height:1.7}
+.match-reason{color:#765f30;background:#f4eedf;border-radius:3px;padding:1px 5px}
+.search-group-title{display:flex;width:100%;gap:7px;text-align:left;align-items:flex-start;cursor:pointer;padding:8px 0 4px;color:#263f4d}
+.search-group-title h3{font:600 15px/1.75 system-ui,sans-serif;margin:0;flex:1}
+.search-group-title>svg{flex:none;margin-top:5px;color:#6d838d}
+.search-group-detail,.search-group-date{font-size:10px;line-height:1.7;color:#64757c}
+.search-group-date{margin-top:11px}
+.search-article-hit{display:block;width:100%;text-align:left;border-top:1px solid #e7ebe8;margin-top:11px;padding:11px 0 0;cursor:pointer;color:#3a505b}
+.search-article-hit strong{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;color:#31566a}
+.search-article-hit strong>span{font-weight:400;font-size:10px;color:#667c87}
+.search-article-hit p{font:12px/1.85 system-ui,sans-serif;margin:6px 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.search-article-hit:hover,.search-article-hit.active{background:#f0f5f5}
+.search-group-more{display:flex;align-items:center;gap:5px;font-size:12px;color:#365e71;min-height:36px;margin-top:6px;cursor:pointer}
+.search-group-more[aria-expanded=true]>svg{transform:rotate(180deg)}
+.search-group mark{background:#f1e5bd;color:inherit;padding:1px 0;border-radius:2px}
+.reader-first .reader h2{color:#253e4a}
+.reader-first .article-section{grid-template-columns:94px minmax(0,1fr);gap:22px;padding-block:24px}
+.reader-first .article-text{line-height:1.85;letter-spacing:.025em;color:#2d4049}
+.article-text .legal-unit--paragraph{display:block;margin-block:0 .8em;white-space:pre-line}
+.article-text .legal-unit--paragraph:last-of-type{margin-bottom:0}
+.article-text .legal-unit--item,.article-text .legal-unit--subitem{display:block;padding-left:2.2em;text-indent:-2.2em;margin-block:.4em;white-space:pre-line}
+.article-text .legal-unit--subitem{padding-left:2.7em;text-indent:-2.7em}
+.article-text .legal-unit--item>.legal-unit,.article-text .legal-unit--subitem>.legal-unit{text-indent:0}
+.pair-return{display:flex;gap:8px;align-items:center;min-height:44px;width:100%;padding:10px 22px;border-bottom:1px solid #dce3df;background:#edf1ed;color:#365869;font-size:12px;cursor:pointer}
+.ruling-panel-heading{padding-top:15px}
+.reader-first .article-section.comparing{border-left:0;box-shadow:inset 3px 0 #567c8d;margin-inline:0;padding-inline:0;background:#f4f7f5}
+.reader-first .article-section.comparing:before{content:'';position:absolute;left:-13px;top:0;bottom:0;width:3px;background:#567c8d}
+.reader-first .article-section.comparing{box-shadow:none}
+.ruling-panel-content .ruling-fulltext{font-size:15px;line-height:1.9}
+.reader-first .unit-tools{color:#526a75}
+@media(min-width:900px) and (max-width:1150px){.reader-first{--navigation-width:310px}.reader-first .article-section{grid-template-columns:86px minmax(0,1fr);gap:15px}}
+@media(max-width:899px){.reader-first .workspace{display:block}.reader-first .article-section{display:block;padding-block:20px}.reader-first .article-heading{margin-bottom:10px}.reader-first .article-text{line-height:1.85}.pair-return{display:none}.search-group-title h3{font-size:15px}.search-article-hit p{font-size:13px}.search-article-hit{min-height:44px}.search-group-more{min-height:44px}.article-text .legal-unit--item{padding-left:1.8em;text-indent:-1.8em}.article-text .legal-unit--subitem{padding-left:2.2em;text-indent:-2.2em}.reader-first .article-section.comparing{margin-inline:0;padding-inline:0}}
+@media(prefers-reduced-motion:reduce){.search-group *{transition:none!important}}
