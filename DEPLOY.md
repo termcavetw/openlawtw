@@ -3,7 +3,7 @@
 
 本次加入搜尋首頁、縣市指南及《建築物無障礙設施設計規範》105 頁官方圖文 PDF。PDF 按需載入，包含頁內查找、章節跳轉與下載；尚未拆為項款條文。
 
-本版交付的是 **Vercel 建置專案**。部署包與原始碼包內容相同、擇一使用，均為 116 個原始檔，不再限制為 100 檔。資料分片、法規 HTML 與 sitemap 由 Vercel 建置時產生。
+本版交付的是 **Vercel 建置專案**。部署包與原始碼包內容相同、擇一使用，均為 117 個原始檔，不再限制為 100 檔。資料分片、法規 HTML 與 sitemap 由 Vercel 建置時產生。
 
 ## GitHub → Vercel
 1. 在 GitHub Desktop 選擇 openlawtw 儲存庫並開啟本機資料夾。解壓 openlawtw-pwa.zip（或 openlawtw-source.zip），把內容放到儲存庫根目錄；package.json、vercel.json、app、public、scripts 必須在根目錄，避免多包一層資料夾。
@@ -89,3 +89,33 @@ curl -I https://openlawtw.vercel.app/data/v2/ruling-counts-245c70055413fa25df950
 ## 本版資料更新注意
 
 新版本的離線包包含新增地方法規；已選包會由現有升級流程補抓新增或變更的分片。原始碼包與部署包完全相同，擇一解壓到 repo 根目錄即可。公開資料來源未全部成功連線，網站的收錄清單保留未取得全文的狀態，不以總部數代表全台收錄完整。
+
+## 公開儲存庫前：品牌、作者與支援範圍
+
+1. 可將儲存庫放在品牌 organization 下；`termcave` 是希望使用的名稱，尚未確認名稱可用性，也尚未建立組織或儲存庫。取得實際網址後再填 README／網站連結，勿先加入不存在的連結。目前網站的原始碼入口仍下載本站 ZIP。
+2. Organization 不會遮蔽提交者帳號。`user.name` 只改提交顯示名稱，GitHub 仍可能依 email 關聯個人帳號；noreply 地址也可能包含使用者名稱。這是品牌整理與信箱隱私設定，不是匿名保證。
+3. 首次 Commit 前，在 GitHub 帳號的 Email 設定取得該帳號實際提供的 noreply 地址。不要把聯絡信箱當成 commit 信箱，也不要自行編造 `termcave@users.noreply.github.com`。
+4. 從 GitHub Desktop 開啟本儲存庫的終端機，只設定此專案，避免改動其他工作的全域作者資訊：
+
+```sh
+git config --local user.name "termcave"
+# 下行佔位文字必須換成 GitHub 帳號 Email 設定中顯示的實際地址。
+git config --local user.email "YOUR_GITHUB_PROVIDED_NOREPLY_EMAIL"
+git var GIT_AUTHOR_IDENT
+git var GIT_COMMITTER_IDENT
+```
+
+5. 如已有 commits，發布前自行檢查作者、提交者及舊內容：
+
+```sh
+git log --all --format="%h %an <%ae> | %cn <%ce>"
+```
+
+改設定不會更新歷史 commit；不要直接對已共用的歷史強制覆寫。原始碼 ZIP 不包含 `.git`，本次檔案掃描不涵蓋你電腦或遠端儲存庫的歷史，也不構成完整憑證稽核。
+6. 若決定只收 PR，可在儲存庫 Settings → General → Features 取消 Issues；這是 GitHub 設定，README 或模板無法代為關閉。本次未變更遠端設定。
+7. README／CONTRIBUTING 已列明：官方來源資料 PR，或寄信至 termcavetw@gmail.com；不提供個別支援，不承諾回覆或補齊時程。聯絡信箱會公開出現在這些文件中。保留既有 MIT 與第三方授權聲明，不因更換品牌刪除原作者歸屬。
+
+官方說明：
+- https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
+- https://docs.github.com/en/account-and-profile/concepts/email-addresses
+- https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-issues
