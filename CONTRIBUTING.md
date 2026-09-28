@@ -63,3 +63,7 @@ CI 會驗證資料、索引搜尋、搜尋品質案例、型別、離線包與�
 以 GitHub Desktop 開啟儲存庫，修改後 Commit、Push，再建立 PR；原始碼沒有檔案數量限制。不要提交 node_modules、dist、runtime JSON 或建置生成的 public/data/v2。
 
 引用辨識在 lib/citations.ts，網址在 lib/routes.ts，畫面元件在 components/legal-reference-text.tsx，靜態頁生成在 scripts/build-pages.mjs 與 scripts/static-html.mjs。修改這些功能後執行 npm run build、npm run typecheck、npm run check。新增引用規則時，需同時提供應連結與不應推測的案例；有目的地不等於語義判讀正確，仍需人工核對原文語境。
+
+## 介面文字
+
+網站自行撰寫的內文、按鈕與提示不使用 emoji；使用清楚文字或既有 SVG 圖示。不得為了介面風格刪改官方原文。

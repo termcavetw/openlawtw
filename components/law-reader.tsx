@@ -1,3 +1,5 @@
+import {useRulingWidth} from '@/lib/use-ruling-width';
+import {useReadingPosition} from '@/lib/use-reading-position';
 import {DocumentReader} from '@/components/document-reader';
 import {useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
 import {BookOpen,ChevronRight,ChevronDown,ExternalLink,Copy,Bookmark,Link2,Search,X,LoaderCircle,CircleHelp,ArrowUpRight,GitBranch} from 'lucide-react';
@@ -18,6 +20,8 @@ export function Reader({summary,law,loading,error,retry,activeArticle,activeUnit
   const [pair,setPair]=useState<{article:Article|null;initial?:Ruling}|null>(null);
   const trigger=useRef<HTMLElement|null>(null),readingAnchor=useRef<{no:string;offset:number}|null>(null),panelRef=useRef<HTMLElement>(null);
   function capturePosition(){const pane=scroll.current;if(!pane)return;const top=pane.getBoundingClientRect().top;const section=Array.from(pane.querySelectorAll<HTMLElement>('[data-article]')).find(el=>el.getBoundingClientRect().bottom>top);if(section)readingAnchor.current={no:section.dataset.article||'',offset:section.getBoundingClientRect().top-top};}
+  const split=useRulingWidth(!!pair&&!mobile,capturePosition);
+  useLayoutEffect(()=>{const anchor=readingAnchor.current,pane=scroll.current;if(anchor&&pane){const section=Array.from(pane.querySelectorAll<HTMLElement>('[data-article]')).find(el=>el.dataset.article===anchor.no);if(section)pane.scrollTop+=section.getBoundingClientRect().top-pane.getBoundingClientRect().top-anchor.offset;readingAnchor.current=null;}},[split.width]);
   function closePair(restoreFocus=true){capturePosition();setPair(null);onPairChange(false);if(restoreFocus)requestAnimationFrame(()=>trigger.current?.focus({preventScroll:true}));}
   function openPair(article:Article|null,initial?:Ruling){setRequestedFor(summary.id);capturePosition();trigger.current=document.activeElement as HTMLElement;setPair({article,initial});onPairChange(true);}
   function openRelated(r:Ruling){openPair(null,r);}
@@ -29,6 +33,7 @@ export function Reader({summary,law,loading,error,retry,activeArticle,activeUnit
   useEffect(()=>{setTab('full');setWithin('');if(scroll.current)scroll.current.scrollTop=0;},[summary.id,activeArticle,activeUnit,navigationKey]);
   useEffect(()=>{if(!activeArticle||!law||tab!=='full')return;const frame=requestAnimationFrame(()=>{const el=Array.from(scroll.current?.querySelectorAll('[data-article]')||[]).find(e=>articleAddress(e.getAttribute('data-article')||'')===articleAddress(activeArticle));const unit=activeUnit;const target=unit?Array.from(el?.querySelectorAll('[data-unit]')||[]).find(e=>e.getAttribute('data-unit')===unit):el;(target||el)?.scrollIntoView({block:'start',behavior:'instant'});});return ()=>cancelAnimationFrame(frame);},[law,activeArticle,activeUnit,navigationKey,tab]);
   useEffect(()=>{if(scroll.current)scroll.current.scrollTop=0;},[within]);
+  useReadingPosition(scroll,summary.id,open&&!loading&&!!law&&law.id===summary.id&&tab==='full'&&!within,activeArticle,navigationKey);
   const articles=useMemo(()=>(law?.articles||[]).filter(a=>matchesArticle(a,within)),[law,within]);
   const parents=data.relations.filter(r=>r.child===summary.id);
   const children=data.relations.filter(r=>r.parent===summary.id);
@@ -38,7 +43,7 @@ export function Reader({summary,law,loading,error,retry,activeArticle,activeUnit
   useEffect(()=>{setRelatedLimit(30);setRelatedQuery('');},[summary.id]);
   const filteredRelated=useMemo(()=>relatedQuery.trim()?searchRulings(relatedRulings,relatedQuery):relatedRulings,[relatedRulings,relatedQuery]);
   const panel=pair?<RulingPanel key={summary.id+':'+(pair.article?.no||'law')+':'+(pair.initial?.id||'')} law={summary} article={pair.article} items={pair.article?perArticle.get(normalize(pair.article.no))||[]:relatedRulings} initial={pair.initial} count={pair.article?counts?.articles[normalize(pair.article.no)]:counts?.total} summariesLoading={rulingsLoading} summariesError={!!rulingsError} onRetry={retryRulings} onClose={()=>closePair()} onChoose={(id,no,unit)=>{closePair();onChoose(id,no,unit);}} onCopy={onCopy} saved={savedRulings} onSave={onSaveRuling}/>:null;
-  return <div className={'reader-comparison '+(pair&&!mobile?'is-open':'')}><div className="reader" style={{height:'100%'}}>
+  return <div ref={split.container} className={'reader-comparison '+(pair&&!mobile?'is-open ':'')+(split.dragging?'is-resizing':'')} style={pair&&!mobile?{gridTemplateColumns:`${split.width}px 10px minmax(0,1fr)`}:undefined}><div className="reader" style={{height:'100%'}}>
     <div className="reader-top"><div className="reader-headingline"><div className="reader-breadcrumb"><BookOpen size={13}/>{summary.region}<ChevronRight size={11}/>{summary.category}</div><div className="law-badges"><span className="badge">{summary.kind}</span><span className={'badge '+(summary.coverage==='full'?'red':'gold')}>{summary.document?'圖文 PDF':summary.coverage==='full'?'全文快照':'官方連結'}</span></div></div><h2>{summary.name}</h2><div className="reader-information"><div className="law-meta"><span>{summary.modified?'修正 '+summary.modified:'修正日期待核對'}</span><span>{(summary.articleCount||0)?(summary.articleCount||0)+' 條原文':summary.document?summary.document.pages+' 頁官方 PDF':'全文待收錄'}</span></div><div className="reader-actions"><a href={summary.url} target="_blank" rel="noreferrer"><ExternalLink size={13}/>官方原文與歷史版本</a><button onClick={()=>onCopy(summary.name+'\n'+summary.url)}><Copy size={13}/>複製引用</button><button className={saved?'is-saved':''} onClick={onSave} aria-pressed={saved}><Bookmark size={14} fill={saved?'currentColor':'none'}/>{saved?'已收藏':'收藏'}</button><button onClick={()=>onCopy(shareURL()+lawHref(summary.id,activeArticle,activeUnit))}><Link2 size={13}/>連結</button></div></div></div>
     {loading&&<div className="loading-line"/>}
     <Tabs value={tab} onValueChange={value=>{if(pair)closePair(false);if(value==='rulings')setRequestedFor(summary.id);setTab(value);}} className="reader-tabroot"><div className="reader-tabbar"><TabsList aria-label="法規內容"><TabsTrigger value="full">{summary.document?'圖文規範':'條文'}</TabsTrigger><TabsTrigger value="rulings">解釋函令 <span className="tab-count">{counts?.total??(countsLoading?'…':'')}</span></TabsTrigger><TabsTrigger value="relations">法源</TabsTrigger><TabsTrigger value="source">版本・附件</TabsTrigger></TabsList>{tab==='full'&&summary.coverage==='full'&&<div className="article-search"><Search size={14}/><input value={within} onChange={e=>{if(pair)closePair(false);setWithin(e.target.value);}} aria-label="在此法規搜尋" placeholder="本法規內搜尋／條號" enterKeyHint="search"/>{within&&<button className="icon-btn" onClick={()=>{if(pair)closePair(false);setWithin('');}} aria-label="清除此法規搜尋"><X size={13}/></button>}<div className="font-controls"><button aria-label="縮小條文字級" disabled={fontSize<=16} onClick={()=>setFontSize(n=>n-2)}>A−</button><button aria-label="放大條文字級" disabled={fontSize>=22} onClick={()=>setFontSize(n=>n+2)}>A+</button></div></div>}</div>
@@ -66,7 +71,7 @@ export function Reader({summary,law,loading,error,retry,activeArticle,activeUnit
         {law?.history&&<><h3 className="reader-subtitle">法規沿革</h3><div className="history">{law.history}</div></>}
       </TabsContent>
     </Tabs>
-  </div>{pair&&!mobile&&<aside className="ruling-side-panel" ref={panelRef} tabIndex={-1} aria-label="條文旁函釋閱讀區" onKeyDown={e=>{if(e.key==='Escape')closePair();}}>{panel}</aside>}
+  </div>{pair&&!mobile&&<div className="ruling-resizer" {...split.separator}><span/></div>}{pair&&!mobile&&<aside className="ruling-side-panel" ref={panelRef} tabIndex={-1} aria-label="條文旁函釋閱讀區" onKeyDown={e=>{if(e.key==='Escape')closePair();}}>{panel}</aside>}
   <Sheet open={!!pair&&mobile} onOpenChange={v=>{if(!v)closePair();}}><SheetContent side="bottom" className="ruling-bottom-sheet" showCloseButton={false} onCloseAutoFocus={e=>{e.preventDefault();trigger.current?.focus({preventScroll:true});}}><SheetTitle className="sr-only">{pair?.article?.no||'本法規'}解釋令</SheetTitle><SheetDescription className="sr-only">閱讀相關函釋，關閉後回到原條文。</SheetDescription>{mobile&&panel}</SheetContent></Sheet>
   </div>;
 }

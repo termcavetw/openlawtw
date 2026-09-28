@@ -1,3 +1,4 @@
+import {lastLaw,rememberLaw} from '@/lib/reading-session';
 import {LawPortal} from '@/components/law-portal';
 import {groupSearchHits} from '@/lib/search-groups';
 import {SearchGroupCard} from '@/components/search-results';
@@ -37,7 +38,8 @@ const tasks: Record<string, string[]> = {
 const initialOpen = new Set<string>();
 
 export default function Home() {
-  const [landing,setLanding]=useState(()=>{const r=readRoute(location.pathname,location.hash);return !r.law&&!r.ruling&&!location.hash.includes('view=search');});
+  const [landing,setLanding]=useState(()=>new URLSearchParams(location.hash.slice(1)).get('view')==='about');
+  const [welcome,setWelcome]=useState(()=>{const r=readRoute(location.pathname,location.hash);return !r.law&&!r.ruling&&!lawById.has(lastLaw());});
   const [region,setRegion] = useState('全台');
   const [task,setTask] = useState('全部主題');
   const [query,setQuery] = useState('');
@@ -58,7 +60,7 @@ export default function Home() {
   const [recent,setRecent] = useState<string[]>([]);
   const [filtersOpen,setFiltersOpen] = useState(false);
   const [expanded,setExpanded] = useState(initialOpen);
-  const [selected,setSelected] = useState(()=>{const id=readRoute(location.pathname,location.hash).law;return lawById.has(id)?id:'D0070109';});
+  const [selected,setSelected] = useState(()=>{const id=readRoute(location.pathname,location.hash).law;return lawById.has(id)?id:lawById.has(lastLaw())?lastLaw():'D0070109';});
   const [activeArticle,setActiveArticle] = useState(()=>readRoute(location.pathname,location.hash).article);
   const [activeUnit,setActiveUnit]=useState(()=>readRoute(location.pathname,location.hash).unit),[navigationKey,setNavigationKey]=useState(0);
   const [detail,setDetail] = useState<Law|null>(null);
@@ -81,10 +83,11 @@ export default function Home() {
   const [savedView,setSavedView]=useState('laws');
   useEffect(()=>{if(view!=='rulings'&&!(view==='saved'&&savedView==='rulings')&&!ruling)return;let live=true;setRulingsLoading(true);setRulingsError(false);loadHeads().then(items=>{if(live)setRulings(items);}).catch(()=>{if(live)setRulingsError(true);}).finally(()=>{if(live)setRulingsLoading(false);});return()=>{live=false;};},[view,savedView,!!ruling,rulingsRetry]);
   useEffect(()=>{try{const stored=JSON.parse(localStorage.getItem('openlawtw-ruling-favorites')||'[]');if(Array.isArray(stored))setSavedRulings(stored.filter(x=>typeof x==='string'));}catch{}
-    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(!route.law&&!route.ruling&&params.get('view')!=='search');if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
+    let firstLocation=true;const reloaded=(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined)?.type==='reload';
+    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
       if(route.ruling){applyPageMetadata();loadRuling(route.ruling).then(r=>{if(token===rulingRequest.current){setRuling(r);setRulingHistory([]);}}).catch(()=>{if(token===rulingRequest.current)toast.error('此函釋尚未下載，請連線後再開啟。');});return;}
       if(route.law&&!lawById.has(route.law)){toast.error('本庫未收錄此法規網址。');return;}
-      setRuling(null);setRulingHistory([]);setSelected(route.law||'D0070109');setActiveArticle(route.article);setActiveUnit(route.unit);setNavigationKey(n=>n+1);applyPageMetadata(route.law?lawById.get(route.law):undefined);
+      setRuling(null);setRulingHistory([]);const next=route.law||(lawById.has(lastLaw())?lastLaw():'D0070109');setSelected(next);if(route.law)rememberLaw(route.law);setActiveArticle(firstLocation&&reloaded?'':route.article);setActiveUnit(firstLocation&&reloaded?'':route.unit);firstLocation=false;setNavigationKey(n=>n+1);const resumed=!route.law&&lawById.has(lastLaw())&&params.get('view')!=='about'&&params.get('view')!=='search';if(resumed)window.history.replaceState(null,'',isPortable()?legacyLawHash(next):lawHref(next));applyPageMetadata(route.law||resumed?lawById.get(next):undefined);
     };readLocation();window.addEventListener('hashchange',readLocation);window.addEventListener('popstate',readLocation);return()=>{window.removeEventListener('hashchange',readLocation);window.removeEventListener('popstate',readLocation);};
   },[]);
   function toggleRulingFavorite(id:string){setSavedRulings(prev=>{const next=prev.includes(id)?prev.filter(x=>x!==id):[id,...prev];try{localStorage.setItem('openlawtw-ruling-favorites',JSON.stringify(next));}catch{}return next;});}
@@ -110,12 +113,12 @@ export default function Home() {
   },[]);
   useEffect(()=>{if(composing)return;const timer=setTimeout(()=>setDebounced(query),160);return ()=>clearTimeout(timer);},[query,composing]);
   useEffect(()=>{
-    if(landing)return;const cached=docCache.current.get(selected);if(cached){setDetail(cached);setDetailLoading(false);setDetailError(false);return;}
+    if(landing||welcome)return;const cached=docCache.current.get(selected);if(cached){setDetail(cached);setDetailLoading(false);setDetailError(false);return;}
     const summary=lawById.get(selected)!;if(summary.coverage==='link'){setDetail(summary);setDetailLoading(false);setDetailError(false);return;}
     const controller=new AbortController();setDetailLoading(true);setDetailError(false);setDetail(null);
     loadJSON<Law>('/data/laws/'+encodeURIComponent(selected)+'.json',controller.signal).then((doc:Law)=>{docCache.current.set(selected,doc);setDetail(doc);}).catch(e=>{if(e.name!=='AbortError')setDetailError(true);}).finally(()=>{if(!controller.signal.aborted)setDetailLoading(false);});
     return ()=>controller.abort();
-  },[selected,retry,landing]);
+  },[selected,retry,landing,welcome]);
 
   const inScope = (l: Law) => (region==='全台'||l.region==='中央'||l.region===region) && (!tasks[task].length||tasks[task].includes(l.category)) && (jurisdiction==='both'||(jurisdiction==='central'?l.region==='中央':l.region!=='中央')) && (coverage==='all'||l.coverage===coverage);
   const visibleLaws = useMemo(()=>data.laws.filter(inScope),[region,task,jurisdiction,coverage]);
@@ -140,10 +143,12 @@ export default function Home() {
   function toggleFavorite(id:string){setFavorites(prev=>{const next=prev.includes(id)?prev.filter(x=>x!==id):[id,...prev];try{localStorage.setItem('openlawtw-favorites',JSON.stringify(next));}catch{}return next;});}
   function resetFilters(){setTask('全部主題');setJurisdiction('both');setCoverage('all');setResultType('all');}
 
-  function changeRegion(r:string){setRegion(r);setExpanded(new Set());try{localStorage.setItem('openlawtw-region',r);}catch{};if(currentSummary.region!=='中央'&&r!=='全台'&&currentSummary.region!==r){chooseLaw('D0070109');}}
-  function chooseLaw(id:string,article='',unit=''){if(!lawById.has(id))return;setLanding(false);rulingRequest.current++;toast.dismiss('ruling-load');setRuling(null);setRulingHistory([]);remember(query);setSelected(id);setActiveArticle(article);setActiveUnit(unit);setNavigationKey(n=>n+1);if(drawerNavigation)setNavigationOpen(false);const href=isPortable()?legacyLawHash(id,article,unit):lawHref(id,article,unit);if((isPortable()?location.hash:location.pathname+location.hash)!==href)window.history.pushState(null,'',href);applyPageMetadata(lawById.get(id));}
+  function changeRegion(r:string){setRegion(r);setExpanded(new Set());try{localStorage.setItem('openlawtw-region',r);}catch{};}
+  function chooseLaw(id:string,article='',unit=''){if(!lawById.has(id))return;setLanding(false);setWelcome(false);rememberLaw(id);rulingRequest.current++;toast.dismiss('ruling-load');setRuling(null);setRulingHistory([]);remember(query);setSelected(id);setActiveArticle(article);setActiveUnit(unit);setNavigationKey(n=>n+1);if(drawerNavigation)setNavigationOpen(false);const href=isPortable()?legacyLawHash(id,article,unit):lawHref(id,article,unit);if((isPortable()?location.hash:location.pathname+location.hash)!==href)window.history.pushState(null,'',href);applyPageMetadata(lawById.get(id));}
 
-  function showHome(r:string){rulingRequest.current++;setRuling(null);setPairOpen(false);setNavigationOpen(false);setLanding(true);setRegion(r);setQuery('');setCompact(false);resetFilters();try{localStorage.setItem('openlawtw-region',r);}catch{}window.history.pushState(null,'',(isPortable()?'':'/')+'#region='+encodeURIComponent(r));applyPageMetadata();}
+  function returnWorkspace(){setLanding(false);setActiveArticle('');setActiveUnit('');const id=lawById.has(lastLaw())?lastLaw():'';setWelcome(!id);if(id)setSelected(id);window.history.pushState(null,'',id?(isPortable()?legacyLawHash(id):lawHref(id)):(isPortable()?'#workspace':'/#workspace'));applyPageMetadata(id?lawById.get(id):undefined);}
+  function focusSearch(){if(landing)returnWorkspace();setCompact(false);if(drawerNavigation)setNavigationOpen(true);requestAnimationFrame(()=>requestAnimationFrame(()=>searchRef.current?.focus()));}
+  function showHome(r:string){rulingRequest.current++;setRuling(null);setPairOpen(false);setNavigationOpen(false);setLanding(true);setRegion(r);setCompact(false);try{localStorage.setItem('openlawtw-region',r);}catch{}window.history.pushState(null,'',(isPortable()?'':'/')+'#view=about&region='+encodeURIComponent(r));applyPageMetadata();}
   function portalSearch(q:string){setCompact(false);resetFilters();runSearch(q);if(mobile)setNavigationOpen(true);window.history.pushState(null,'',(isPortable()?'':'/')+'#'+new URLSearchParams({view:'search',region,q}));}
   function toggle(id:string){setExpanded(prev=>{const next=new Set(prev);if(next.has(id))next.delete(id);else next.add(id);return next;});}
   function expandGroups(){setExpanded(new Set(scopedRegions.flatMap(r=>[r,...data.categories.map(c=>r+':'+c)])));}
@@ -163,7 +168,7 @@ export default function Home() {
     return ()=>lifecycle.abort();
   },[]);
 
-  const reader=<Reader summary={currentSummary} law={detail} loading={detailLoading} error={detailError} retry={()=>{setRetry(n=>n+1);setRulingsRetry(n=>n+1);}} activeArticle={activeArticle} activeUnit={activeUnit} navigationKey={navigationKey} onChoose={chooseLaw} mobile={mobile} onPairChange={changePair} savedRulings={savedRulings} onSaveRuling={toggleRulingFavorite} onCopy={copy} open={!ruling&&!landing} saved={favorites.includes(selected)} onSave={()=>toggleFavorite(selected)}/>;
+  const reader=<Reader summary={currentSummary} law={detail} loading={detailLoading} error={detailError} retry={()=>{setRetry(n=>n+1);setRulingsRetry(n=>n+1);}} activeArticle={activeArticle} activeUnit={activeUnit} navigationKey={navigationKey} onChoose={chooseLaw} mobile={mobile} onPairChange={changePair} savedRulings={savedRulings} onSaveRuling={toggleRulingFavorite} onCopy={copy} open={!ruling&&!landing&&!welcome} saved={favorites.includes(selected)} onSave={()=>toggleFavorite(selected)}/>;
   const navigator = <section className="explorer" aria-label="法規導覽"><div className="navigator-head"><div className="navigator-title"><h1>查找法規</h1><span>全庫 {number(data.laws.length)} 部索引</span></div><form className="searchbox" role="search" onSubmit={e=>{e.preventDefault();if(composing)return;setDebounced(query);remember(query);searchRef.current?.blur();}}><Search size={17}/><input ref={searchRef} onCompositionStart={()=>setComposing(true)} onCompositionEnd={e=>{setComposing(false);setQuery(e.currentTarget.value);}} value={query} onChange={e=>{setQuery(e.target.value);setView('tree');}} autoComplete="off" autoCapitalize="none" spellCheck={false} enterKeyHint="search" aria-label="搜尋法規、條號、內文或函釋字號" placeholder="名稱、內文、條號或字號"/>{query?<button type="button" className="icon-btn" onClick={()=>setQuery('')} aria-label="清除搜尋"><X size={16}/></button>:<kbd>⌘ K</kbd>}</form></div>    <div className="toolbar">
       <div className="filter-field"><MapPin size={16}/><Picker value={region} onChange={changeRegion} label="選擇縣市"><SelectItem value="全台">全台縣市</SelectItem>{data.regions.map(r=><SelectItem key={r.name} value={r.name}>{r.name}</SelectItem>)}</Picker></div>
       <button className={'filter-toggle '+(filtersOpen?'active':'')} onClick={()=>setFiltersOpen(v=>!v)} aria-expanded={filtersOpen}><SlidersHorizontal size={16}/><span>進階篩選</span>{(coverage!=='all'||task!=='全部主題'||jurisdiction!=='both')&&<b>{Number(coverage!=='all')+Number(task!=='全部主題')+Number(jurisdiction!=='both')}</b>}</button>
@@ -226,10 +231,10 @@ export default function Home() {
 </section>;
   return <main className={"app reader-first "+(landing?"portal-mode ":"")+(compact||pairOpen?"focus-mode":"")}>
     <header className="topbar">
-      <div className="brand-group"><button className={"navigation-toggle "+(mobile?"mobile-search-button":"icon-btn")} aria-label={drawerNavigation?"開啟法規搜尋":compact?"顯示側欄":"收合側欄"} aria-expanded={drawerNavigation?navigationOpen:!compact} onClick={()=>drawerNavigation?setNavigationOpen(true):setCompact(v=>!v)}><>{mobile?<><Search size={17}/><span>搜尋</span></>:<ListTree size={20}/>}</></button><a className="brand" href="#" onClick={e=>{e.preventDefault();showHome(region);}} aria-label="openlawtw 首頁"><span className="brandmark" aria-hidden="true"><BookOpen size={20} strokeWidth={1.6}/></span><span className="wordmark">openlaw<span>tw</span></span><span className="branddesc">臺灣建築法規庫</span><span className="release-badge">v{data.version}</span></a></div>
-      <div className="topright">{!landing&&<button className="home-button" onClick={()=>showHome(region)}>首頁</button>}<PwaStatus region={region}/><button className="plain-button data-button" onClick={()=>setSourceOpen(true)} aria-label="資料與開源"><Info size={16}/><span>資料與開源</span></button></div>
+      <div className="brand-group"><button className={"navigation-toggle "+(mobile?"mobile-search-button":"icon-btn")} aria-label={drawerNavigation?"開啟法規搜尋":compact?"顯示側欄":"收合側欄"} aria-expanded={drawerNavigation?navigationOpen:!compact} onClick={()=>drawerNavigation?setNavigationOpen(true):setCompact(v=>!v)}><>{mobile?<><Search size={17}/><span>搜尋</span></>:<ListTree size={20}/>}</></button><a className="brand" href="#" onClick={e=>{e.preventDefault();focusSearch();}} aria-label="openlawtw 搜尋"><span className="brandmark" aria-hidden="true"><BookOpen size={20} strokeWidth={1.6}/></span><span className="wordmark">openlaw<span>tw</span></span><span className="branddesc">臺灣建築法規庫</span><span className="release-badge">v{data.version}</span></a></div>
+      <div className="topright"><button className="home-button" onClick={()=>landing?returnWorkspace():showHome(region)}>{landing?'返回閱讀':'關於'}</button><PwaStatus region={region}/><button className="plain-button data-button" onClick={()=>setSourceOpen(true)} aria-label="資料與開源"><Info size={16}/><span>資料與開源</span></button></div>
     </header>
-    <>{landing?<LawPortal region={region} onRegion={showHome} onSearch={portalSearch} onChoose={chooseLaw} onCoverage={()=>setSourceOpen(true)}/>:<div className="workspace">{!drawerNavigation&&!compact&&navigator}<section className="reading-workspace" aria-label="法規閱讀區"><div className="law-reader-container" style={{display:ruling?'none':'contents'}}>{reader}</div>{ruling&&<RulingReader ruling={ruling} items={rulings} lawById={lawById} onBack={backFromRuling} backLabel={rulingHistory.length?'上一則函釋':currentSummary.name} onOpen={openRuling} onChoose={chooseLaw} onCopy={copy} saved={savedRulings.includes(ruling.id)} onSave={()=>toggleRulingFavorite(ruling.id)}/>}</section></div>}</>
+    <>{landing?<LawPortal region={region} onRegion={showHome} onSearch={portalSearch} onChoose={chooseLaw} onCoverage={()=>setSourceOpen(true)}/>:<div className="workspace">{!drawerNavigation&&!compact&&navigator}<section className="reading-workspace" aria-label="法規閱讀區"><div className="law-reader-container" style={{display:ruling?'none':'contents'}}>{welcome?<div className="workspace-welcome"><span className="portal-kicker">OPENLAWTW · 工作區</span><h1>今天要查什麼？</h1><p>搜尋法規、條號或函釋。選擇縣市後，可同時查中央與地方規定。</p><form onSubmit={e=>{e.preventDefault();focusSearch();}}><Search size={19}/><input aria-label="工作區搜尋" value={query} onChange={e=>runSearch(e.target.value)} placeholder="例如：台北畸零地、建技90"/><button>搜尋</button></form><h2>常用法規</h2>{['D0070109','D0070115','內政部-GL000734'].map(id=><button className="welcome-law" key={id} onClick={()=>chooseLaw(id)}>{lawById.get(id)?.name}<ArrowUpRight size={16}/></button>)}{favorites.length>0&&<><h2>已收藏</h2>{favorites.map(id=><button className="welcome-law" key={id} onClick={()=>chooseLaw(id)}>{lawById.get(id)?.name}<ArrowUpRight size={16}/></button>)}</>}</div>:reader}</div>{ruling&&<RulingReader ruling={ruling} items={rulings} lawById={lawById} onBack={backFromRuling} backLabel={rulingHistory.length?'上一則函釋':currentSummary.name} onOpen={openRuling} onChoose={chooseLaw} onCopy={copy} saved={savedRulings.includes(ruling.id)} onSave={()=>toggleRulingFavorite(ruling.id)}/>}</section></div>}</>
     <Sheet open={drawerNavigation&&navigationOpen} onOpenChange={setNavigationOpen}><SheetContent side="left" className="mobile-navigator" onOpenAutoFocus={e=>{e.preventDefault();searchRef.current?.focus();}}><SheetTitle className="sr-only">查找法規</SheetTitle><SheetDescription className="sr-only">搜尋、縣市篩選與法規目錄</SheetDescription>{drawerNavigation&&navigator}</SheetContent></Sheet>
     <DataSources open={sourceOpen} onOpenChange={setSourceOpen} region={region} onChoose={chooseLaw}/>
     <Toaster position="bottom-center"/>

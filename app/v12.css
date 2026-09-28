@@ -12,3 +12,16 @@
 .portal-mode .navigation-toggle{display:none}
 
 .article-resources{font-size:11px;color:#536e67;margin:4px 0}.article-resources summary{cursor:pointer;min-height:28px;line-height:28px}.article-resources>div{display:flex;flex-direction:column;gap:10px;padding:8px 0}.article-resources .related-provision-link{text-align:left;line-height:1.65;white-space:normal;overflow-wrap:anywhere}@media(max-width:899px){.article-resources{margin:0}.article-resources[open]{flex-basis:100%}.article-resources>div{padding:8px 12px;background:#f5f6f0;border-radius:5px}}
+
+.portal-mode .topbar .home-button{display:inline-flex}.workspace-welcome{overflow:auto;max-width:820px;margin:0 auto;padding:clamp(28px,6vw,80px);width:100%;color:#234743}.workspace-welcome h1{font-family:serif;font-size:clamp(30px,4vw,44px);margin:18px 0}.workspace-welcome p{font-size:15px;line-height:1.8;color:#667670}.workspace-welcome form{display:flex;align-items:center;gap:12px;border:1px solid #bccdc4;border-radius:6px;padding:12px;margin:28px 0;background:#fafbf7}.workspace-welcome input{min-width:0;flex:1;background:transparent;outline:none;font-size:16px}.workspace-welcome form button{white-space:nowrap}.workspace-welcome h2{font-size:13px;color:#748078;margin:30px 0 10px}.welcome-law{display:flex;justify-content:space-between;gap:14px;text-align:left;align-items:center;width:100%;padding:18px 0;border-bottom:1px solid #dce3db;line-height:1.6;font-size:15px}
+
+/* Resizable desktop comparison; mobile continues to use the full-width sheet. */
+.reader-comparison.is-open>.reader{grid-column:3}
+.ruling-resizer{grid-column:2;grid-row:1;position:relative;cursor:col-resize;touch-action:none;background:#eef2ef;border-inline:1px solid #d8e1dc;display:flex;align-items:center;justify-content:center;z-index:2;outline-offset:-2px}
+.ruling-resizer>span{height:44px;width:3px;border-radius:3px;background:#8a9f98}
+.ruling-resizer:hover,.ruling-resizer:focus-visible,.is-resizing>.ruling-resizer{background:#d9e5df;outline:2px solid #527769}
+.ruling-resizer:hover>span,.is-resizing>.ruling-resizer>span{background:#365f52}
+.reader-comparison.is-resizing{user-select:none;cursor:col-resize}
+.reader-comparison.is-open>.ruling-side-panel{border-right:0}
+.ruling-panel-content .ruling-reader-top{flex-shrink:0;max-height:45%;overflow-y:auto;scrollbar-width:thin}
+@media(max-width:899px){.ruling-resizer{display:none}}
