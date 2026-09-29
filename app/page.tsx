@@ -1,3 +1,4 @@
+import {LawUniverse} from '@/components/law-universe';
 import {lastLaw,rememberLaw} from '@/lib/reading-session';
 import {LawPortal} from '@/components/law-portal';
 import {groupSearchHits} from '@/lib/search-groups';
@@ -38,6 +39,11 @@ const tasks: Record<string, string[]> = {
 const initialOpen = new Set<string>();
 
 export default function Home() {
+  const [universeOpen,setUniverseOpen]=useState(()=>new URLSearchParams(location.hash.slice(1)).get('view')==='universe');
+  const universeReturn=useRef('');
+  function openUniverse(){universeReturn.current=isPortable()?location.hash:location.pathname+location.search+location.hash;setUniverseOpen(true);setNavigationOpen(false);window.history.pushState(null,'',(isPortable()?'':'/')+'#view=universe');}
+  function closeUniverse(){setUniverseOpen(false);window.history.replaceState(null,'',universeReturn.current||(isPortable()?'#workspace':'/#workspace'));}
+
   const [landing,setLanding]=useState(()=>new URLSearchParams(location.hash.slice(1)).get('view')==='about');
   const [welcome,setWelcome]=useState(()=>{const r=readRoute(location.pathname,location.hash);return !r.law&&!r.ruling&&!lawById.has(lastLaw());});
   const [region,setRegion] = useState('全台');
@@ -84,7 +90,7 @@ export default function Home() {
   useEffect(()=>{if(view!=='rulings'&&!(view==='saved'&&savedView==='rulings')&&!ruling)return;let live=true;setRulingsLoading(true);setRulingsError(false);loadHeads().then(items=>{if(live)setRulings(items);}).catch(()=>{if(live)setRulingsError(true);}).finally(()=>{if(live)setRulingsLoading(false);});return()=>{live=false;};},[view,savedView,!!ruling,rulingsRetry]);
   useEffect(()=>{try{const stored=JSON.parse(localStorage.getItem('openlawtw-ruling-favorites')||'[]');if(Array.isArray(stored))setSavedRulings(stored.filter(x=>typeof x==='string'));}catch{}
     let firstLocation=true;const reloaded=(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined)?.type==='reload';
-    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
+    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));setUniverseOpen(params.get('view')==='universe');if(params.get('view')==='universe')return;const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
       if(route.ruling){applyPageMetadata();loadRuling(route.ruling).then(r=>{if(token===rulingRequest.current){setRuling(r);setRulingHistory([]);}}).catch(()=>{if(token===rulingRequest.current)toast.error('此函釋尚未下載，請連線後再開啟。');});return;}
       if(route.law&&!lawById.has(route.law)){toast.error('本庫未收錄此法規網址。');return;}
       setRuling(null);setRulingHistory([]);const next=route.law||(lawById.has(lastLaw())?lastLaw():'D0070109');setSelected(next);if(route.law)rememberLaw(route.law);setActiveArticle(firstLocation&&reloaded?'':route.article);setActiveUnit(firstLocation&&reloaded?'':route.unit);firstLocation=false;setNavigationKey(n=>n+1);const resumed=!route.law&&lawById.has(lastLaw())&&params.get('view')!=='about'&&params.get('view')!=='search';if(resumed)window.history.replaceState(null,'',isPortable()?legacyLawHash(next):lawHref(next));applyPageMetadata(route.law||resumed?lawById.get(next):undefined);
@@ -208,7 +214,7 @@ export default function Home() {
               <div className="quick-laws"><h3>常用法規<span>快速開啟</span></h3>{['D0070109','D0070115','D0070116','D0070117','D0070001',...visibleLaws.filter(l=>l.region===region).sort((a,b)=>quickPriority(a)-quickPriority(b)).slice(0,5).map(l=>l.id)].map(id=>lawById.get(id)!).filter(l=>l&&visibleLaws.some(v=>v.id===l.id)).map(l=><button className={selected===l.id?'active':''} key={l.id} onClick={()=>chooseLaw(l.id)}><FileText size={15}/><span>{l.name}<small>{l.region} · {l.coverage==='full'?(l.articleCount||0)+' 條':'官方連結'}</small></span><ChevronRight size={13}/></button>)}</div><div className="coverage-note">分類目錄供瀏覽；法律依據請見「法源」。尚未完整收錄，查無結果不代表沒有規定。</div>
             </>}
           </TabsContent>
-          <TabsContent value="graph" className="pane canvas">
+          <TabsContent value="graph" className="pane canvas"><button className="universe-entry" onClick={openUniverse}><Network size={17}/><span>探索法規宇宙</span><ArrowUpRight size={15}/></button>
             <div className="section-top"><div><div className="eyebrow">LEGAL FOUNDATIONS</div><h2>法源關係圖</h2><p>每一條連線，都能回到原文。</p></div><Scale size={25} color="#8a9aaf"/></div>
             <Picker value={graphParent} onChange={setGraphParent} label="選擇法源根節點">{[...new Set(data.relations.map(r=>r.parent))].map(id=><SelectItem value={id} key={id}>{lawById.get(id)?.name}</SelectItem>)}</Picker>
             <div className="relation-note">呈現條文明載的訂定依據。地方自治規定與中央法規可能共同適用；本圖不將地方法規一概視為中央法規的下位規範。</div>
@@ -232,11 +238,12 @@ export default function Home() {
   return <main className={"app reader-first "+(landing?"portal-mode ":"")+(compact||pairOpen?"focus-mode":"")}>
     <header className="topbar">
       <div className="brand-group"><button className={"navigation-toggle "+(mobile?"mobile-search-button":"icon-btn")} aria-label={drawerNavigation?"開啟法規搜尋":compact?"顯示側欄":"收合側欄"} aria-expanded={drawerNavigation?navigationOpen:!compact} onClick={()=>drawerNavigation?setNavigationOpen(true):setCompact(v=>!v)}><>{mobile?<><Search size={17}/><span>搜尋</span></>:<ListTree size={20}/>}</></button><a className="brand" href="#" onClick={e=>{e.preventDefault();focusSearch();}} aria-label="openlawtw 搜尋"><span className="brandmark" aria-hidden="true"><BookOpen size={20} strokeWidth={1.6}/></span><span className="wordmark">openlaw<span>tw</span></span><span className="branddesc">臺灣建築法規庫</span><span className="release-badge">v{data.version}</span></a></div>
-      <div className="topright"><button className="home-button" onClick={()=>landing?returnWorkspace():showHome(region)}>{landing?'返回閱讀':'關於'}</button><PwaStatus region={region}/><button className="plain-button data-button" onClick={()=>setSourceOpen(true)} aria-label="資料與開源"><Info size={16}/><span>資料與開源</span></button></div>
+      <div className="topright"><button className="universe-top-button" onClick={openUniverse} aria-label="開啟法規宇宙"><Network size={17}/><span>法規宇宙</span></button><button className="home-button" onClick={()=>landing?returnWorkspace():showHome(region)}>{landing?'返回閱讀':'關於'}</button><PwaStatus region={region}/><button className="plain-button data-button" onClick={()=>setSourceOpen(true)} aria-label="資料與開源"><Info size={16}/><span>資料與開源</span></button></div>
     </header>
     <>{landing?<LawPortal region={region} onRegion={showHome} onSearch={portalSearch} onChoose={chooseLaw} onCoverage={()=>setSourceOpen(true)}/>:<div className="workspace">{!drawerNavigation&&!compact&&navigator}<section className="reading-workspace" aria-label="法規閱讀區"><div className="law-reader-container" style={{display:ruling?'none':'contents'}}>{welcome?<div className="workspace-welcome"><span className="portal-kicker">OPENLAWTW · 工作區</span><h1>今天要查什麼？</h1><p>搜尋法規、條號或函釋。選擇縣市後，可同時查中央與地方規定。</p><form onSubmit={e=>{e.preventDefault();focusSearch();}}><Search size={19}/><input aria-label="工作區搜尋" value={query} onChange={e=>runSearch(e.target.value)} placeholder="例如：台北畸零地、建技90"/><button>搜尋</button></form><h2>常用法規</h2>{['D0070109','D0070115','內政部-GL000734'].map(id=><button className="welcome-law" key={id} onClick={()=>chooseLaw(id)}>{lawById.get(id)?.name}<ArrowUpRight size={16}/></button>)}{favorites.length>0&&<><h2>已收藏</h2>{favorites.map(id=><button className="welcome-law" key={id} onClick={()=>chooseLaw(id)}>{lawById.get(id)?.name}<ArrowUpRight size={16}/></button>)}</>}</div>:reader}</div>{ruling&&<RulingReader ruling={ruling} items={rulings} lawById={lawById} onBack={backFromRuling} backLabel={rulingHistory.length?'上一則函釋':currentSummary.name} onOpen={openRuling} onChoose={chooseLaw} onCopy={copy} saved={savedRulings.includes(ruling.id)} onSave={()=>toggleRulingFavorite(ruling.id)}/>}</section></div>}</>
     <Sheet open={drawerNavigation&&navigationOpen} onOpenChange={setNavigationOpen}><SheetContent side="left" className="mobile-navigator" onOpenAutoFocus={e=>{e.preventDefault();searchRef.current?.focus();}}><SheetTitle className="sr-only">查找法規</SheetTitle><SheetDescription className="sr-only">搜尋、縣市篩選與法規目錄</SheetDescription>{drawerNavigation&&navigator}</SheetContent></Sheet>
     <DataSources open={sourceOpen} onOpenChange={setSourceOpen} region={region} onChoose={chooseLaw}/>
+    <LawUniverse open={universeOpen} onClose={closeUniverse} onChoose={(id,article)=>{setUniverseOpen(false);chooseLaw(id,article);}} onRuling={r=>{setUniverseOpen(false);setLanding(false);openRuling(r);}}/>
     <Toaster position="bottom-center"/>
   </main>;
 }

@@ -12,3 +12,5 @@ createRoot(document.getElementById('root')!).render(<Home/>);
 import './app/v11.css';
 
 import './app/v12.css';
+
+import './app/universe.css';

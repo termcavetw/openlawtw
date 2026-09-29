@@ -1,3 +1,4 @@
+import {makeUniverseData} from './universe-data.mjs';
 import {gzipSync} from 'node:zlib';
 import {readFile,writeFile,mkdir,rm} from 'node:fs/promises';
 import {join} from 'node:path';
@@ -12,7 +13,7 @@ let history;try{history=await read('data/history.json');}catch{throw Error('Run 
 // This directory contains only generated build output.
 await rm(dir,{recursive:true,force:true});await mkdir(dir,{recursive:true});
 const files=new Map();
-async function emit(kind,value){const compressed=kind==='index',body=compressed?gzipSync(JSON.stringify(value)):JSON.stringify(value),hash=sha(body),url='/data/v2/'+kind+'-'+hash+(compressed?'.bin':'.json');const f={url,sha256:hash,bytes:Buffer.byteLength(body),...(compressed?{encoding:'gzip'}:{})};if(!files.has(url)){await writeFile(join(root,'public',url),body);files.set(url,f);}return f;}
+async function emit(kind,value){const compressed=kind==='index'||kind==='universe-rulings',body=compressed?gzipSync(JSON.stringify(value)):JSON.stringify(value),hash=sha(body),url='/data/v2/'+kind+'-'+hash+(compressed?'.bin':'.json');const f={url,sha256:hash,bytes:Buffer.byteLength(body),...(compressed?{encoding:'gzip'}:{})};if(!files.has(url)){await writeFile(join(root,'public',url),body);files.set(url,f);}return f;}
 const manifest={schemaVersion:2,release:pkg.version,collected:catalog.collected,laws:{},related:{},rulings:{},rulingHeads:null,rulingCounts:null,documents:{},indexes:[],packs:[],provenance:null,history:null,files:[]};
 const documentSources=await read('data/documents/catalog.json');
 for(const [id,source] of Object.entries(documentSources)){const pdf=await readFile(join(root,source.file));if(sha(pdf)!==source.sha256)throw Error('Document source checksum mismatch: '+id);const text=await read(source.file.replace('.pdf','-text.json'));manifest.documents[id]=await emit('document',{...text,pdf:pdf.toString('base64'),sha256:source.sha256});}
@@ -42,6 +43,9 @@ const rulingFiles=unique([manifest.rulingCounts,manifest.rulingHeads,...Object.v
 manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive.items.length,files:rulingFiles,bytes:rulingFiles.reduce((s,f)=>s+f.bytes,0)});
 const provenance=await read('data/provenance.json');provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
+const universe=makeUniverseData(catalog,archive);
+manifest.universe=await emit('universe',universe.laws);
+manifest.universeRulings=await emit('universe-rulings',universe.rulings);
 manifest.files=[...files.values()];
 // The starter catalogue carries counts, not every chapter/article or full text.
 const slim={...catalog,version:pkg.version,laws:catalog.laws.map(l=>({...l,articles:[],articleCount:l.articles.length,history:''}))};
