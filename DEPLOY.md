@@ -1,4 +1,4 @@
-# openlawtw v0.18.0 部署指南
+# openlawtw v0.19.0 部署指南
 
 專案：[termcavetw/openlawtw](https://github.com/termcavetw/openlawtw)；目標網站：[openlawtw.vercel.app](https://openlawtw.vercel.app/)。
 
@@ -55,7 +55,9 @@ Windows 若使用 `python` 啟動器，將上述 `python3` 換成對應指令即
 
 ## 部署後驗收
 
-- 頁首顯示 `v0.18.0`。同版本的文件或介面修正仍需以 Vercel commit SHA 確認，不能只看版本號。
+v0.19 另需驗收 `/embed.html?law=D0070109&article=第1條` 可顯示引用卡，並核對 `/data/embed-index.json` 使用 `no-cache`；網站內「分享／嵌入」會產生正式的參數與版本指紋。`npm run build` 已包含獨立嵌入卡入口、資產及索引，不需要新增環境變數。嵌入卡僅在完整網站部署後可供第三方網站使用，單檔 HTML 本身無法代替此服務。詳見 [使用說明](WATCH-SHARE-EMBED.md)。
+
+- 頁首顯示 `v0.19.0`。同版本的文件或介面修正仍需以 Vercel commit SHA 確認，不能只看版本號。
 - 搜尋法規、選縣市、閱讀條文和函釋均可操作；`/laws/D0070109.html#a-1` 可開啟建築法第 1 條，`/#ruling=9821` 可開啟指定函釋。
 - `/#view=universe` 可開啟法規宇宙；《建築物無障礙設施設計規範》可切換圖文章節／原始 PDF。手機另核對文字、章節、圖片與 PDF 開啟方式。
 - 「資料與開源」與「關於」中的 GitHub、引用指南連結指向正確儲存庫；確認 GitHub 的 main 已包含 [CITING.md](CITING.md) 及相關權利文件。

@@ -8,12 +8,13 @@ const dist=join(root,'dist');
 // Canonical bundles are authoring inputs. Deploy only content-addressed data.
 for(const name of ['laws','laws.json','search.json','rulings.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
 await import('./build-pages.mjs');
+await import('./build-embed.mjs');
 const manifest=JSON.parse(await readFile(join(root,'data/runtime-manifest.json'),'utf8'));
 async function walk(dir){const entries=await readdir(dir,{withFileTypes:true});return (await Promise.all(entries.map(e=>e.isDirectory()?walk(join(dir,e.name)):[join(dir,e.name)]))).flat();}
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/update.html')&&!p.endsWith('/LICENSE')&&!p.endsWith('.zip')&&!p.endsWith('/openlawtw.html')&&!p.endsWith('/vercel.json')&&!p.endsWith('.md')).sort();
 // The runtime bundle and worker already embed the manifest; do not download a duplicate at install.
-const precache=await Promise.all(files.filter(p=>(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+const precache=await Promise.all(files.filter(p=>!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.
@@ -37,7 +38,9 @@ const icon=await readFile(join(dist,'icons/icon-192.png'));
 html=html.replace('</head>',()=>'<link rel="icon" href="data:image/png;base64,'+icon.toString('base64')+'"/></head>');
 html=html.replace('</body>',()=>'<script type="module">const packed=Uint8Array.from(atob("'+data+'"),c=>c.charCodeAt(0));window.OPENLAWTW_OFFLINE=JSON.parse(await new Response(new Blob([packed]).stream().pipeThrough(new DecompressionStream("gzip"))).text());'+js.replace(/<\/script/gi,'<\\/script')+'</script></body>');
 await writeFile(join(root,'openlawtw.html'),html);
-for(const name of ['LICENSE','DATA_LICENSE.md','THIRD_PARTY_NOTICES.md','DEPLOY.md','SCHEMA.md','CITING.md','CONTRIBUTING.md','GITHUB_SETUP.md']){await copyFile(join(root,name),join(dist,name));}
+for(const name of ['LICENSE','DATA_LICENSE.md','THIRD_PARTY_NOTICES.md','DEPLOY.md','SCHEMA.md','CITING.md','CONTRIBUTING.md','GITHUB_SETUP.md','WATCH-SHARE-EMBED.md']){await copyFile(join(root,name),join(dist,name));}
+await mkdir(join(dist,'vendor'),{recursive:true});
+await copyFile(join(root,'vendor/qrcode-generator.LICENSE.txt'),join(dist,'vendor/qrcode-generator.LICENSE.txt'));
 console.log(JSON.stringify({version,precache:precache.length,offlineHTMLBytes:Buffer.byteLength(html),snapshot:'2026-09-18'}));
 
 await import("./package-source.mjs");

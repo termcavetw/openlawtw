@@ -17,6 +17,7 @@ public/data/yinxian-laws.js
 data/runtime-citations.json
 
 public/data/versions/
+public/data/embed-index.json
 
 # Local environment values and deployment account settings.
 .env

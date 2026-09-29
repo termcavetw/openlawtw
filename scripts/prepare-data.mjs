@@ -69,3 +69,6 @@ await writeFile(join(root,'public/data/aliases.json'),await readFile(join(root,'
 await writeFile(join(root,'public/data/yinxian-laws.js'),'// Generated from aliases.json and the same official catalogue.\nexport const aliases='+JSON.stringify(await read('data/aliases.json'))+';\nexport const laws='+JSON.stringify(docs.map(l=>({id:l.id,name:l.name,url:l.url})))+';\n');
 console.log(JSON.stringify({schema:2,laws:docs.length,shards:files.size,indexBytes:manifest.indexes.reduce((s,i)=>s+i.file.bytes,0),catalogBytes:Buffer.byteLength(JSON.stringify(slim))}));
 
+
+// Compact public lookup for standalone cards; no personal workspace data.
+await writeFile(join(root,'public/data/embed-index.json'),JSON.stringify({schemaVersion:1,release:pkg.version,rulingRetrieved:archive.stats.retrieved,laws:manifest.laws,rulings:manifest.rulings}));

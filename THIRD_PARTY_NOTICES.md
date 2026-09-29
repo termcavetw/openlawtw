@@ -1,5 +1,7 @@
 # 第三方元件
 
+分享圖卡使用 qrcode-generator 2.0.4（Copyright (c) 2009 Kazuhiko Arase，MIT）。完整聲明見 [vendor/qrcode-generator.LICENSE.txt](vendor/qrcode-generator.LICENSE.txt)；QR Code 直接在本機產生，未使用第三方製圖服務。
+
 本專案使用 Vite、React、Tailwind CSS、Shadcn 元件、Radix UI、Lucide、Sonner 及其相依套件。
 
 原始版本與依賴關係以 package.json、package-lock.json 為準。這些套件遵循各套件隨附的 LICENSE / NOTICE；本專案的 MIT 聲明不改變其授權。
