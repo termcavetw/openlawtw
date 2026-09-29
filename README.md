@@ -1,5 +1,9 @@
 # openlawtw
 
+[使用網站](https://openlawtw.vercel.app/) · [GitHub 原始碼](https://github.com/termcavetw/openlawtw) · [引用指南](CITING.md) · [資料來源與權利](DATA_LICENSE.md) · [GitHub 保護設定](GITHUB_SETUP.md)
+
+程式採 MIT；法規、函釋、PDF 與圖表依各自來源與權利說明處理，不因收錄於本庫而改採 MIT。引用時可依 [CITING.md](CITING.md) 保存官方來源、條號／字號、資料日期與版本；附件及裁圖的逐檔紀錄見 [資料文件清單](data/documents/RIGHTS.md)。
+
 v0.18.0：新增 29 部官方法規（中央 12、南投 7、彰化 10），清理舊建置產物、快取及退役實務資料包來源。詳見 [增補與清理紀錄](CLEANUP-LAWS-2026-09-29.md)。
 
 v0.17.1：移除實務資料包入口、室裝書表介面與離線包內容，保留既有案件引用。詳見 [更新紀錄](REMOVE-PRACTICE-2026-09-29.md)。

@@ -37,7 +37,7 @@ const icon=await readFile(join(dist,'icons/icon-192.png'));
 html=html.replace('</head>',()=>'<link rel="icon" href="data:image/png;base64,'+icon.toString('base64')+'"/></head>');
 html=html.replace('</body>',()=>'<script type="module">const packed=Uint8Array.from(atob("'+data+'"),c=>c.charCodeAt(0));window.OPENLAWTW_OFFLINE=JSON.parse(await new Response(new Blob([packed]).stream().pipeThrough(new DecompressionStream("gzip"))).text());'+js.replace(/<\/script/gi,'<\\/script')+'</script></body>');
 await writeFile(join(root,'openlawtw.html'),html);
-for(const name of ['LICENSE','DATA_LICENSE.md','THIRD_PARTY_NOTICES.md','DEPLOY.md','SCHEMA.md']){await copyFile(join(root,name),join(dist,name));}
+for(const name of ['LICENSE','DATA_LICENSE.md','THIRD_PARTY_NOTICES.md','DEPLOY.md','SCHEMA.md','CITING.md','CONTRIBUTING.md','GITHUB_SETUP.md']){await copyFile(join(root,name),join(dist,name));}
 console.log(JSON.stringify({version,precache:precache.length,offlineHTMLBytes:Buffer.byteLength(html),snapshot:'2026-09-18'}));
 
 await import("./package-source.mjs");

@@ -17,3 +17,10 @@ public/data/yinxian-laws.js
 data/runtime-citations.json
 
 public/data/versions/
+
+# Local environment values and deployment account settings.
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/

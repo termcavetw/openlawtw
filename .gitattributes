@@ -1,2 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Official downloaded snapshots are checked against their original byte hashes.
+# Preserve mixed line endings on every platform instead of normalizing them.
+data/documents/*-source.html -text
+
+# Version archives are content-addressed; their filenames hash the exact bytes.
+data/versions/** -text
