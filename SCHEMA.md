@@ -104,7 +104,7 @@ Service Worker 管理下的已知法規網址由已驗證介面開啟，再讀�
 ## v0.15 版本、案件與實務來源
 
 - `data/history.json.archive` 是完整封存的提交索引；`data/versions/objects/<sha256>.json` 保存正文與來源描述，`assets/<sha256>.<ext>` 保存原始檔及既有可讀文字。內容定址檔案不可覆寫；歷史雜湊不會被推定成不存在的歷史全文。`recordedAt` 為封存時間、`sourceRetrieved` 為資料來源擷取欄位，與官方修正／施行日期分開。
-- `data/practice/ntpc-interior-forms.json` 記錄官方原始清單與 11 份書表；`sourcePageSHA256` / `sha256` 各自驗證來源頁與原始 ODT。`versionLabel` 是官方清單標示。建置為 `manifest.practiceDocuments` 的可驗證分片；原始 ODT 以 base64 保存在分片內，不與法條索引混算。
+- `data/practice/ntpc-interior-forms.json` 記錄官方原始清單與 11 份書表；`sourcePageSHA256` / `sha256` 各自驗證來源頁與原始 ODT。`versionLabel` 是官方清單標示。自 v0.17.1 起僅保留為歷史來源封存，不再生成 runtime 目錄、manifest 分片或加入離線包。既有案件的 source 引用仍可解析與匯出，停止提供目前收錄版本比對。
 - `openlawtw-casebook` JSON schemaVersion 1：案件 folders 包含 name、notes、questions、entries。引用保存 locator、quote、contentHash、sourceHash、sourceURL、sourcePageURL、region、observedAt、officialModifiedAt、effectiveAt、capturedAt、note。匯入限制大小、驗證雜湊及安全網址，保存快照不會自動替換。
 
 
