@@ -15,3 +15,10 @@
 .graph-parent{margin-left:0;max-width:100%;width:100%}.graph-stem{margin-left:20px}.graph-children{grid-template-columns:1fr;margin-left:20px;border-top:0;border-left:1px solid #aebcce;padding:0 0 0 23px;gap:13px}.graph-child{min-height:94px;display:grid;grid-template-columns:120px 1fr;gap:4px 13px;align-items:center}.graph-child:before{width:24px;height:1px;left:-24px;top:39px}.graph-child small{grid-row:1/3;line-height:1.8;border-right:1px solid #e7ebf1;height:100%;display:flex;align-items:center;padding-right:13px}.graph-child strong{margin:0;grid-column:2}.graph-child span{grid-column:2;margin:0}.searchbox kbd{white-space:nowrap}
 @media(max-width:430px){.graph-child{grid-template-columns:86px 1fr;padding:12px;gap:3px 10px}.graph-child small{padding-right:8px;font-size:11px}.graph-child strong{font-size:13px}.graph-child span{font-size:10px}}
 
+
+/* Official document snapshots retain table structure while fitting the reader. */
+.source-document-scroll{max-width:100%;overflow-x:auto;margin:20px 0}
+.source-document{font-size:17px;line-height:1.9;overflow-wrap:anywhere}
+.source-document table{border-collapse:collapse;width:100%;min-width:420px}
+.source-document td,.source-document th{border:1px solid #aab5c4;padding:10px;vertical-align:top;min-width:65px}
+.source-document p{margin:0 0 .7em}.source-document pre{white-space:pre-wrap}.source-document a{color:#315a85;text-decoration:underline}.source-document ul,.source-document ol{padding-left:1.5em}

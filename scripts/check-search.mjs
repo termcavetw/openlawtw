@@ -57,3 +57,7 @@ for(const h of searchLaws(data.laws,corpus,'樓梯 寬度',true)){
 for(const r of rulings.slice(0,30))if(r.numberKey)assert(searchRulings(rulings,r.number).some(x=>x.id===r.id),'The 第 inside a letter serial is not an article');
 for(const q of ['1151162993','1.5','H-2'])assert.equal(parseQuery(q).article,'',q);
 console.log('Long Chinese queries, precise law/article binding, serials, multi-keyword AND and ranking passed.');
+
+// Official HTML can carry invisible formatting in article headings.
+assert.equal(normalize('\u200B\u200B第十二條'),'第12條');
+assert.equal(parseQuery('雲林縣建築管理自治條例 \u200B第十二條').article,'第12條');

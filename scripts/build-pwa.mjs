@@ -1,8 +1,9 @@
+import {fileURLToPath} from 'node:url';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {readFile,writeFile,readdir,mkdir,copyFile,rm} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {join} from 'node:path';
-const root=new URL('../',import.meta.url).pathname;
+import {join} from './paths.mjs';
+const root=fileURLToPath(new URL('../',import.meta.url));
 const dist=join(root,'dist');
 // Canonical bundles are authoring inputs. Deploy only content-addressed data.
 for(const name of ['laws','laws.json','search.json','rulings.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
@@ -11,7 +12,8 @@ const manifest=JSON.parse(await readFile(join(root,'data/runtime-manifest.json')
 async function walk(dir){const entries=await readdir(dir,{withFileTypes:true});return (await Promise.all(entries.map(e=>e.isDirectory()?walk(join(dir,e.name)):[join(dir,e.name)]))).flat();}
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/update.html')&&!p.endsWith('/LICENSE')&&!p.endsWith('.zip')&&!p.endsWith('/openlawtw.html')&&!p.endsWith('/vercel.json')&&!p.endsWith('.md')).sort();
-const precache=await Promise.all(files.filter(p=>(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&(!p.includes('/data/')||p.endsWith('/data/manifest.json'))).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+// The runtime bundle and worker already embed the manifest; do not download a duplicate at install.
+const precache=await Promise.all(files.filter(p=>(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.

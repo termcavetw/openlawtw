@@ -412,16 +412,16 @@
     "內政部-GL000734": {
       "url": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000734",
       "format": "html",
-      "sha256": "3c452bc9d5f6622ed1d2ff22f2b7e40d2a43f0e60ae6a8f69a4ebe1300e46ad5",
+      "sha256": "e36c6073f6ecd3431b94429c954fecf39f4bd8fb5523a06277f128847819d47a",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T01:56:41+00:00"
+      "observedAt": "2026-09-29T00:28:23+00:00"
     },
     "內政部-GL000180": {
       "url": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000180",
       "format": "html",
-      "sha256": "003d5a45da169d37c88a8333a3eda624ac07d3376725eeebca89e39e533e3f72",
+      "sha256": "db052e26b8ca7a43dc8d53158e45d610e4037077c98df856207cdabae3f1805e",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T01:56:41+00:00"
+      "observedAt": "2026-09-29T00:28:23+00:00"
     },
     "彰化縣-FL031576": {
       "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL031576",
@@ -1098,9 +1098,9 @@
     "南投縣-GL000654": {
       "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000654",
       "format": "html",
-      "sha256": "3f849b459010509f5251b8d3f41810d10f64c0bf4919a9421cd2b2fce4e6c3f8",
+      "sha256": "a392cb5f39f77de9874855ec10d94e159e600249282da57fb78961211245af71",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:50:18+00:00"
+      "observedAt": "2026-09-29T00:28:24+00:00"
     },
     "屏東縣-FL026596": {
       "url": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026596",
@@ -1777,9 +1777,9 @@
     "新竹縣-FL048046": {
       "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL048046",
       "format": "html",
-      "sha256": "0a41bc522d532cd08fd367e19610073e9bb512787a280c7be39855a35383d65a",
+      "sha256": "2523c849035da9abb8f659dec0be21f1df87161125f30788f88d325b25294bab",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:54:00+00:00"
+      "observedAt": "2026-09-29T00:28:23+00:00"
     },
     "新竹縣-FL047202": {
       "url": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL047202",
@@ -2141,9 +2141,9 @@
     "臺北市-FL069302": {
       "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL069302",
       "format": "html",
-      "sha256": "6f557fb2cc03f50f08d72134ff3c644a4baf048f28915829397a0a651b5a1f27",
+      "sha256": "f96f905209819c59eff8044bb1e698d6dbfc5d8fbc7c0ae71f852b8194a29202",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:56:02+00:00"
+      "observedAt": "2026-09-29T00:28:24+00:00"
     },
     "臺北市-FL004147": {
       "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004147",
@@ -2372,16 +2372,16 @@
     "臺東縣-GL000446": {
       "url": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000446",
       "format": "html",
-      "sha256": "b90ec51b8300622449aa16f4aaf063519c2542d01302e5d4a0b67f18e7809558",
+      "sha256": "f2c0889a4848de61da3826cc20245b5339d9e3f02da518d1152c0e445a5c5801",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:57:10+00:00"
+      "observedAt": "2026-09-29T00:28:24+00:00"
     },
     "臺東縣-FL043374": {
       "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL043374",
       "format": "html",
-      "sha256": "b9902fcc5d039bcd3c9b9c65e56ff7f4816ade86a4478aa0c91990c41e6491ac",
+      "sha256": "fd56624910c5e1e10e6dc505395edd484e30d656978f2ccb2b83694d020bc3c9",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:57:16+00:00"
+      "observedAt": "2026-09-29T00:28:24+00:00"
     },
     "臺東縣-FL037242": {
       "url": "https://law.taitung.gov.tw/LawContent.aspx?id=FL037242",
@@ -2631,9 +2631,9 @@
     "金門縣-FL053291": {
       "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL053291",
       "format": "html",
-      "sha256": "1576399732fcc50f2c2bc7641f02bd0294cffe759abc1e4f094041771a2991d2",
+      "sha256": "82d568c9cce6d1d7492c0f45c72faef4ae9cefd15c88a29a8dece5fd4be3e131",
       "hashScope": "downloaded-html-file",
-      "observedAt": "2026-09-28T09:58:40+00:00"
+      "observedAt": "2026-09-29T00:28:26+00:00"
     },
     "金門縣-GL000160": {
       "url": "https://law.kinmen.gov.tw/LawContent.aspx?id=GL000160",
@@ -2956,6 +2956,2736 @@
       "sha256": "33d71f8ad8bfe781d12dfad5c24cfc52e943be2152a843184e01fcd34c795a4c",
       "hashScope": "downloaded-html-file",
       "observedAt": "2026-09-28T09:54:27+00:00"
+    },
+    "花蓮縣-FL026603": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026603",
+      "format": "html",
+      "sha256": "072efae5e2d02ef7ca82245393ab4587e3cdaa87fafcd2ad3cdc5d987ce4a3bd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:23+00:00"
+    },
+    "嘉義縣-FL026925": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026925",
+      "format": "html",
+      "sha256": "b2b6ae4c2a49e81cb9a25ae179e16e9268b170807be2c4f9d45f28a4a0a55c38",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:23+00:00"
+    },
+    "嘉義市-FL022491": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022491",
+      "format": "html",
+      "sha256": "d806f549287473e5b4972fad808d042b899a37428a460bf29d5234d44d9d98cf",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:23+00:00"
+    },
+    "宜蘭縣-FL023420": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023420",
+      "format": "html",
+      "sha256": "897215a62a76decdc70c6f93446a7bc1a332d3859318ef31699b860de23b843a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:57+00:00"
+    },
+    "基隆市-GL000079": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000079",
+      "format": "html",
+      "sha256": "6e8bfd4a7575e4de51bcfab1ab1ee6b3f1841effffa483af644f33fbd9add276",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:56+00:00"
+    },
+    "基隆市-GL000615": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000615",
+      "format": "html",
+      "sha256": "088e58662258c78b3cc218c56e7bec951d40e973b6d5e12438643825b085bbe8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:28:56+00:00"
+    },
+    "雲林縣-FL028330": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028330",
+      "format": "html",
+      "sha256": "630558f08af4fbbb0a42fa557c86303e7e7e0a0e4af5cabfdf25136517af6742",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:50+00:00"
+    },
+    "雲林縣-GL001168": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001168",
+      "format": "html",
+      "sha256": "287a915710c00c0153ab770051df89ae72facd4b2508a8dcd71c17a116f66f6b",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:57+00:00"
+    },
+    "基隆市-GL000795": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000795",
+      "format": "html",
+      "sha256": "e14164bd8c7c1ecd7eb42fc9914f3f2949c5bc615dd9aa7bab1eadd17485d5a0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-GL000788": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000788",
+      "format": "html",
+      "sha256": "aa11713a409dc68ac5993bac8802796d24a4f04dd9dfcf9b0e9e4ed6270995ce",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-GL000778": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000778",
+      "format": "html",
+      "sha256": "20c048da9964bcc29a352b10d29252bb5652ff6da24a85a3280a564934b01551",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-GL000774": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000774",
+      "format": "html",
+      "sha256": "4b53c1029e31a2bdaef94b01e2d01a06a0a57e1735bda032eb2ce8889f20a0c5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-FL055276": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL055276",
+      "format": "html",
+      "sha256": "51dcc43f805581b801b36393d2baac44336e8e3e000709714c2d7bb1404f09c9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-FL051483": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL051483",
+      "format": "html",
+      "sha256": "6f4897a68ae846eacb78692a75ae9f6809d2b78362d6ae20e185e4cb4e03ec7a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:00+00:00"
+    },
+    "基隆市-FL004315": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004315",
+      "format": "html",
+      "sha256": "efae7b00177d9196086c4045f7a6252d492b7fdf310c03567faafb8174c84d33",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-GL000721": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000721",
+      "format": "html",
+      "sha256": "ff3fcb8dc76032ff51e2368bf5b5662fbad3851731d31d1e00ebd1b41f8df512",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-GL000720": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000720",
+      "format": "html",
+      "sha256": "4996e781fb276ca5648431d928a32d37d4d1c5c4aad3f3347d12058d25a679d5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-FL054949": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054949",
+      "format": "html",
+      "sha256": "d3c61a1579b61996e142300de57124a5d3aa9b1788d58abd142e53ad47f2d60b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-GL000435": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000435",
+      "format": "html",
+      "sha256": "831481b51c4df335c9ecb17b78d71ac2d86d5bdb11038a270aaf1c3be0ca46c3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-FL054828": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054828",
+      "format": "html",
+      "sha256": "14b3ecc32b61765d8dda0d49921297e44ef384439312df2ae6258488f31b9409",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:01+00:00"
+    },
+    "基隆市-GL000699": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000699",
+      "format": "html",
+      "sha256": "a39a9bb72e13f40269b9bafdb04d48b624f2b4106200cb2b5ed43e3f40269c53",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-FL004323": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004323",
+      "format": "html",
+      "sha256": "a827a30eed376e9a6397f34d913df42a841c0adacf6b7bc959ae8ab1d2273121",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000698": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000698",
+      "format": "html",
+      "sha256": "c9f5e4685ade7027a2e2bac0778f74927f56087ba992fa832ac20531794085e4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-FL054775": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054775",
+      "format": "html",
+      "sha256": "23fda93979494262cdf5cce00b149f047e66d2f07495fcf9b76e6110ac7debca",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000239": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000239",
+      "format": "html",
+      "sha256": "5963588e90f7b5f4599d23cab4bb99db877703b0811dfa71356927e1364fbe77",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-FL004318": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004318",
+      "format": "html",
+      "sha256": "55dff1a9e1a774e8a245f34dd7795a04179d72fe52a30ea10d8b3eedcfd9be01",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000638": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000638",
+      "format": "html",
+      "sha256": "44e4a93e1788178ba7f877ce8f954f217ac5bfb320e77859d9d582280162ab60",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000604": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000604",
+      "format": "html",
+      "sha256": "2ceccf91cafc7eb136bce81937bf2ece914eceed7e99383137d88b4bb43de1c8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000566": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000566",
+      "format": "html",
+      "sha256": "74211bb5142ddc0160df2864a20d45650b1a9b0c876406bc8ca2dfef2e99a9ba",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-GL000425": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000425",
+      "format": "html",
+      "sha256": "ac1064071c7f628a7e463ed22bd92546c46eb5f565e636a99a95d5ede537c75c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:02+00:00"
+    },
+    "基隆市-GL000402": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000402",
+      "format": "html",
+      "sha256": "0dbc3970c4d4cf23ed420e4d96550507a8416708ee58b7789ae62c469b42d424",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-GL000396": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000396",
+      "format": "html",
+      "sha256": "67afdabf7ae221cf1a60e2aea4b8eef11ea82ece98e1f328b0f4f6a0f1923385",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-GL000249": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000249",
+      "format": "html",
+      "sha256": "0cf80cd84d6ab67cb17c6362513411817bd415e4d272ea854318382e0a92df3d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-FL004306": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004306",
+      "format": "html",
+      "sha256": "fae0e3d13d924424ab23525ea710f374eae84f8eb9155641eb02524a29fbb318",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-GL000236": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000236",
+      "format": "html",
+      "sha256": "d332a2b21d73d3be6f31485329cb7b77f4b05ed563a89cf89a561a4a2572c3fd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-GL000229": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000229",
+      "format": "html",
+      "sha256": "c0e53c77398a3d721044cc8444bac2e244855f3b7c8cb1e22beb46301440ef0e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-FL003536": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL003536",
+      "format": "html",
+      "sha256": "910c1740505452c17f4fd184181f63d0e4ba16136171fc57d15706c520e0872d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:03+00:00"
+    },
+    "基隆市-FL003538": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL003538",
+      "format": "html",
+      "sha256": "4e0defdcea032eda7ad7f3350fe9e4df06005867465f95ff08bed73462b57fea",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-GL000139": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000139",
+      "format": "html",
+      "sha256": "5d8ec47d00f61a8c3bed972f602a66e9474bc9348c90199482b8aa29e893904e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-GL000078": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000078",
+      "format": "html",
+      "sha256": "af0c271f57c8dc13597e703b5afabc0c1acfc8f6a32ac129c64e8a1b8e461971",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-FL004316": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004316",
+      "format": "html",
+      "sha256": "a4915e8a73061c55cfdd82c6601ee748292124c568d91a195a40ac489274369d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-GL000076": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000076",
+      "format": "html",
+      "sha256": "a5f572b0990df14b090b580628402040d31da90565d3fc904fa7d5630a0cec86",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-FL054915": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054915",
+      "format": "html",
+      "sha256": "5b7a487b71f61c374843a3082a42061c5102ddea919a425ad812563e85530ffe",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:04+00:00"
+    },
+    "基隆市-FL054909": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054909",
+      "format": "html",
+      "sha256": "069b170c47de2ff7750d4f54a03f32c1bd3bb16366336c8d055dae6136c49021",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-GL000107": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000107",
+      "format": "html",
+      "sha256": "8ce9c2c373858cc36758dd5815d54fe0b6af292e087d877e06713ed2761c7f35",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-FL004309": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004309",
+      "format": "html",
+      "sha256": "f269e66d1903fe174c9664132a616494cf4d5d917f57b4e2c009354964da5e07",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-FL046311": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL046311",
+      "format": "html",
+      "sha256": "bba4bd9906091acf0becab4037d337c958d89d6f01511c894419cfd584e0d9a2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-FL054912": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054912",
+      "format": "html",
+      "sha256": "1fc40be2fb742fe730b6762f0cafe29e25d0a32e07742a8ebeac40ca58217489",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-FL046423": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL046423",
+      "format": "html",
+      "sha256": "e18b1c4d954ac465ace901ca9731982a32f8f014532572a5b52d69da15310df3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-GL000082": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000082",
+      "format": "html",
+      "sha256": "54242326c0586650a9a202132ce8f716b4fa4c35569fcfaa8df5482fa6089634",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:05+00:00"
+    },
+    "基隆市-FL055113": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL055113",
+      "format": "html",
+      "sha256": "83be4a4ba58e1b7cb4d95d7bffe9ee7bf63e58a7671dabcbe0643c4e035fb581",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL026265": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL026265",
+      "format": "html",
+      "sha256": "282ba08da2d79a4b6ccbce0fbd8ac72036e4097e9c01e985e63e82da5079e4fb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-GL000077": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000077",
+      "format": "html",
+      "sha256": "e95a18c643e5438b72b26a28c9e212b795e93413419dce37781f1b1cbc72a3fd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL046312": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL046312",
+      "format": "html",
+      "sha256": "cb365996b96f0dc14ba0ded7cfd35104868aa8da123b4f8c6c3bf1f851cfb4ab",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL039784": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL039784",
+      "format": "html",
+      "sha256": "d502e90329bfaf03a598db105534e80847813f0944dee60037c5dca60a204538",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL054908": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054908",
+      "format": "html",
+      "sha256": "acc2b294882d9be3d84ec86fe0b2b8cd85adeba6257ff5cb192937feeea98e6a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL054907": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054907",
+      "format": "html",
+      "sha256": "039df170ac0c01b03ec0d71e87b0f54aaf7e87593d15b884ae84d0173126a5f5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL054906": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054906",
+      "format": "html",
+      "sha256": "14c91b813f0da9e8af507276fd2da2a7f184aaf7e3eac66df7b07e5bdaef3e92",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-FL055275": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL055275",
+      "format": "html",
+      "sha256": "a0d0c67877424e6bc254bcfb15fae225844ea9ef1696a65e3bca113ec8baad0c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:06+00:00"
+    },
+    "基隆市-GL000036": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000036",
+      "format": "html",
+      "sha256": "f5e8c57b03341223a4261f94809fb1b1e3660d12d2c262aa41c09c808fc6c365",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-GL000137": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000137",
+      "format": "html",
+      "sha256": "7f0cde6cbb7c7ea101893a8dc9c4b402e2f8e0cefdd1db688417a5a735996cb0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-FL004325": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004325",
+      "format": "html",
+      "sha256": "4462c639ae1caa69c1071c3493cb48581bcb621defcb3e93d762d8111b0f7ac6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-FL004310": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004310",
+      "format": "html",
+      "sha256": "225cc80450c2f213c184955212ba1a1e39557aa2195e6a4fada41deffe2c6f06",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-FL054776": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054776",
+      "format": "html",
+      "sha256": "f1f810eb23508c505112ad6faba395909176ab4deb38f268577ce037aa0c0440",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-GL000135": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000135",
+      "format": "html",
+      "sha256": "7d2c2d9eac9eec821ee49621fd3749798df892a878d0582fdeaaf5289bd7ffdb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-GL000257": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000257",
+      "format": "html",
+      "sha256": "dfed30ef6891726f055f7c3cfdc7bc8dddec65352d5bd08452a9916a7f808dcb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-GL000028": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000028",
+      "format": "html",
+      "sha256": "72fc5a809c0c711a55927488075a494591b308010f20e0652186824b5a5593af",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-FL054889": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054889",
+      "format": "html",
+      "sha256": "57cb0ef12654c24eb79905bcdc351f3ca2835ebb8b9516cac7bb5817b3d8f0a5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:07+00:00"
+    },
+    "基隆市-FL004312": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004312",
+      "format": "html",
+      "sha256": "9cfb73ba418e5a27234ecd7c766267e46a83bf7482595cf293cc19ea4717694d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:08+00:00"
+    },
+    "基隆市-GL000614": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000614",
+      "format": "html",
+      "sha256": "594f9ae3d8730aa267c0b705abec8d5173bb3d2c94a50c63738d674a26be54ea",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:08+00:00"
+    },
+    "基隆市-GL000499": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000499",
+      "format": "html",
+      "sha256": "1b17b3ea71091b72a60ad0ee666f1e22491fe4fefc6968b2368c317d253eb415",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:08+00:00"
+    },
+    "基隆市-FL054814": {
+      "url": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL054814",
+      "format": "html",
+      "sha256": "bb0e97e928d8ae321a23ede60405c26b374ec27ec8c0196744f9b4af038fedba",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:08+00:00"
+    },
+    "嘉義市-GL000681": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000681",
+      "format": "html",
+      "sha256": "4cec6155fe24e5b93ccf1871767e7491dda452fc040b7a5733ec4baa6a931e4d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:09+00:00"
+    },
+    "嘉義市-GL000779": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000779",
+      "format": "html",
+      "sha256": "74610753f682eabe951fa96f9ed1fa6eba9f004df5efa98b2f83bad0ebb8df7f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:08+00:00"
+    },
+    "嘉義市-GL000780": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000780",
+      "format": "html",
+      "sha256": "8022abcd06b491e92e4e808afb2b6626f7372cb20b34c2c52370b8ca345b5615",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:09+00:00"
+    },
+    "嘉義市-FL044306": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL044306",
+      "format": "html",
+      "sha256": "5a7d27d578f58396f985aff5a9b05f9b56f20cd0e6e19b910ab0048fe78bea0e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:09+00:00"
+    },
+    "嘉義市-GL000682": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000682",
+      "format": "html",
+      "sha256": "1397a54ce9c945093f0633dd5cb24167d70274ab32463e1101ed3d5f1a2b7974",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:09+00:00"
+    },
+    "嘉義市-FL022468": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022468",
+      "format": "html",
+      "sha256": "fac937258b0e8dcc188a891a8829c19a133c71e6d3cff724cef1576a90c591af",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-GL000518": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000518",
+      "format": "html",
+      "sha256": "ba2bf024a0393aadb06cf9fdd9b812fbf8973b72b8c949d9ebafe8b5981acd78",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-FL023337": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL023337",
+      "format": "html",
+      "sha256": "5a7b821e4f2d4b2abc66090e5bc2c1b6b2adec7a8bf7b7336620028cb43a28e3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-FL023338": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL023338",
+      "format": "html",
+      "sha256": "80beb85bf2605c2d709fba444cf2a839e0feefb87271dbb3c221a1c11cda9488",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-FL035266": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL035266",
+      "format": "html",
+      "sha256": "649e5600ab4aa917e69e46c3ec49dadc3512f398c5ad89f534a1cc04d2deb956",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-FL022494": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022494",
+      "format": "html",
+      "sha256": "626187dbd7fc76187d0aadd79973fc3ec2ad12c82771603b2457097d63359e79",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:10+00:00"
+    },
+    "嘉義市-FL046257": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL046257",
+      "format": "html",
+      "sha256": "accc25104a1416b4693726e44aea08189685a02d296cf19f6fb7618e2694e6d2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:11+00:00"
+    },
+    "嘉義市-GL000857": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000857",
+      "format": "html",
+      "sha256": "293c6e96627ba82e63ed0bf9f1c179f6e17b45884c88550a3ac1500e1ea00d47",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:11+00:00"
+    },
+    "嘉義市-GL000182": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000182",
+      "format": "html",
+      "sha256": "556526f689571c9c132a4415c9a3ee0dea9e21b36aa7f644f1eb457e3e633848",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:11+00:00"
+    },
+    "嘉義市-GL000386": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000386",
+      "format": "html",
+      "sha256": "2c1e0234be67d1b54036150603d7ed5ff8e43cdd482cc8a1b50e162fe8119d98",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:11+00:00"
+    },
+    "嘉義市-GL000846": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000846",
+      "format": "html",
+      "sha256": "f492a31b8a4f9c1f58daabeea5df08171bbf3e1f270a804e006247e0235ecf89",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:13+00:00"
+    },
+    "嘉義市-GL000020": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000020",
+      "format": "html",
+      "sha256": "34775590f000fc91f7958e28c2d8d1bc0b22435fdd5798b6a3e6f374c5d1dbc2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:12+00:00"
+    },
+    "嘉義市-GL000016": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000016",
+      "format": "html",
+      "sha256": "8407d67c4927ae1afc6056c4703e646f19aa960aefc51d3d7f2785285040e2c6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:13+00:00"
+    },
+    "嘉義市-GL000699": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000699",
+      "format": "html",
+      "sha256": "93b4495bacb513c2042bbd6d9c3919dc411ed3baa889db124e1dd6f2ee1ce564",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:12+00:00"
+    },
+    "嘉義市-FL026919": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL026919",
+      "format": "html",
+      "sha256": "1889292a3977fee54a821466c47bc8b1116c24370e4f3a4eb817b327236e4dd9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:12+00:00"
+    },
+    "嘉義市-GL000614": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000614",
+      "format": "html",
+      "sha256": "4a7e838c6595ad14c64c36a06a7594c12a15604be455eb12536a99e1df99267b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:12+00:00"
+    },
+    "嘉義市-GL000812": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000812",
+      "format": "html",
+      "sha256": "5355918a661efbdd057207760cebbe8be9aa3ffe36c607631b3030cc3ccc40f0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:12+00:00"
+    },
+    "嘉義市-GL000289": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000289",
+      "format": "html",
+      "sha256": "65bf502d38742f6cbbbc2ed52cc32accc34b221daae49fd4e30fd09e573ce972",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:13+00:00"
+    },
+    "嘉義市-GL000746": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000746",
+      "format": "html",
+      "sha256": "111614e60359bb6af85e5201190ac909e350053d083008389e0accc26cdb1d7b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:13+00:00"
+    },
+    "嘉義市-GL000805": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000805",
+      "format": "html",
+      "sha256": "37ff463ee9aa759a1f1e90a18c84dec557e1727563377d9f71b86ae22a0ebe92",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:14+00:00"
+    },
+    "嘉義市-GL000797": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000797",
+      "format": "html",
+      "sha256": "08ebb43dcc6ff772afe2726af1f00bb1e379b4772fc4fe9cf59cb6971c5215c8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:14+00:00"
+    },
+    "嘉義市-GL000796": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000796",
+      "format": "html",
+      "sha256": "4788d6a7eaf948a9278ea3cd8e24488dbeea4d908bcc380f350f51fc6fb32e26",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:14+00:00"
+    },
+    "嘉義市-GL000361": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000361",
+      "format": "html",
+      "sha256": "fc4de52b699192bebd4c4ee37c4f65ad010a2fbccfff8ce80ea25c93e3c0a172",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:14+00:00"
+    },
+    "嘉義市-GL000766": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000766",
+      "format": "html",
+      "sha256": "fa0e30e694f6725fba00e0a5d56bf29cd8a3a16279f38c3ff87c70849746718b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:14+00:00"
+    },
+    "嘉義市-GL000287": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000287",
+      "format": "html",
+      "sha256": "e19c081fbc05d87ace59fde54ddc7e8eb82268530be14d339fc112665d89e304",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000521": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000521",
+      "format": "html",
+      "sha256": "5a77af2d20422507a4e9f8c040ee3a6a7d8d603510feb0969b619c246a063c3c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:15+00:00"
+    },
+    "嘉義市-GL000720": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000720",
+      "format": "html",
+      "sha256": "faeb5da8d01445191b3d32c4015c25a0b8beff3dfd42855f10b734933be2f897",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:15+00:00"
+    },
+    "嘉義市-GL000554": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000554",
+      "format": "html",
+      "sha256": "808096c48c625a680f04a76cc72480e17aa4d5978632f79dde560b15cdc36bbe",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:15+00:00"
+    },
+    "嘉義市-GL000019": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000019",
+      "format": "html",
+      "sha256": "965ee9149bf189489842a93c6196cbd0bc99e1caae35b96860bd39b1789b3a38",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000635": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000635",
+      "format": "html",
+      "sha256": "51990d48718ee6f70862c6e624bda7ccc2701057fa1886b97fe08fcfa096db5f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000509": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000509",
+      "format": "html",
+      "sha256": "d9e60030dfda99fed613a98487fea435d585be68f989db985c8b3d71fa15ee76",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000198": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000198",
+      "format": "html",
+      "sha256": "4b4abd2a402f33e7b412401466742db18c8f78a36161599fd0b8d579a8d50faa",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000633": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000633",
+      "format": "html",
+      "sha256": "71d0c02ba5220ccdc45c387c86230aed96f463a8e76c12c6d554ea3256eb044d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:16+00:00"
+    },
+    "嘉義市-GL000015": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000015",
+      "format": "html",
+      "sha256": "d55b429a596574760c05fc81347dbacc19f91645743ac7b31ed2e2afaf4174f5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:17+00:00"
+    },
+    "嘉義市-GL000498": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000498",
+      "format": "html",
+      "sha256": "8c5dda1f941ed72475b9ad80190e25b1a485ab150148f44fe45b023bc87ce4a6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:17+00:00"
+    },
+    "嘉義市-GL000432": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000432",
+      "format": "html",
+      "sha256": "ac756871b2789ba9760ac1d6f283304b1984d27c01d14381e7fac76da7d4be46",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:18+00:00"
+    },
+    "嘉義市-GL000385": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000385",
+      "format": "html",
+      "sha256": "f81274e4a5aa2a73a6a015c23456b0d2d23fa9aa688af871be5f2b4c4acd1d6f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:17+00:00"
+    },
+    "嘉義市-GL000363": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000363",
+      "format": "html",
+      "sha256": "f93c426dd0586281cf69854837498466b050ec8375dae3d0d3d2a065e55f53ef",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:17+00:00"
+    },
+    "嘉義市-FL030701": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030701",
+      "format": "html",
+      "sha256": "ed55bc56acf3f57c9e0e667213e17d820949636facbfa5219ce04a8a086bdb0c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:17+00:00"
+    },
+    "嘉義市-FL022995": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022995",
+      "format": "html",
+      "sha256": "19393dae1ba9f2a9becdb733df74eea5566426ebb5e7cef3372267e776d88ae4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:18+00:00"
+    },
+    "嘉義市-GL000290": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000290",
+      "format": "html",
+      "sha256": "fa3a278d5f02d4dd068474499d11b24df6815a62f8972198886159c6f1692da7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:18+00:00"
+    },
+    "嘉義市-GL000018": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000018",
+      "format": "html",
+      "sha256": "754451f06a38363bb9a73290ba30d2e48d567eb7437434cadb164be547378b39",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:20+00:00"
+    },
+    "嘉義市-GL000022": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000022",
+      "format": "html",
+      "sha256": "4eca75e03c05f58e4ce05cf5d2d990151460a44369ec2e3b8478afe86c9fa26d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:19+00:00"
+    },
+    "嘉義市-GL000017": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000017",
+      "format": "html",
+      "sha256": "df01f6828f6943470ef118f79ea8141f74c075e0716826f13e895b38a5f813e3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:18+00:00"
+    },
+    "嘉義市-GL000021": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000021",
+      "format": "html",
+      "sha256": "44e56b18c0440df8a6087503b31fd5fa4bbe72b10c35bfbc89b2cd4683a8fb2b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:19+00:00"
+    },
+    "嘉義市-FL026914": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL026914",
+      "format": "html",
+      "sha256": "3efa43a20caa1c07081dee856d9f5701c7c9074abc1388f163f4edee86b965e9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:19+00:00"
+    },
+    "嘉義市-FL030697": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030697",
+      "format": "html",
+      "sha256": "56121554b3c655533d2fb9fc2f10a0e7b93f323ce6567513da909648ea147b29",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:19+00:00"
+    },
+    "嘉義市-FL022993": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022993",
+      "format": "html",
+      "sha256": "a549286a947f3e7cb03c5ca7a8a4bcbbaf416962881605782786bbc69fb53e8d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:20+00:00"
+    },
+    "嘉義市-FL031633": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL031633",
+      "format": "html",
+      "sha256": "1f18fc4e2fd30fe54177ea4b25b81b60be7675e0b015f2706f688c378a334998",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:20+00:00"
+    },
+    "嘉義市-GL000522": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000522",
+      "format": "html",
+      "sha256": "4dbd62c3e7b889f4e002b96c3901201b788d65f31251d069a3c07a3009cae444",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:20+00:00"
+    },
+    "嘉義市-GL000784": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000784",
+      "format": "html",
+      "sha256": "f8ce9d552a08df9ffcb9eaa26b951fe2286bbf769f0730d2ef2299e3be6867f3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000673": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000673",
+      "format": "html",
+      "sha256": "63e15493c7361265e5a2b951abef6bee64cc53d094e4a6c1b2403c01542e0e2e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000564": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000564",
+      "format": "html",
+      "sha256": "238f9960c2eb28b454aa3f9605431e69e5af28b1c39dad43f296c189a5595cf9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000524": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000524",
+      "format": "html",
+      "sha256": "1ae278076415088d88506ba2331d396577cac3f41cde328b827ef38df9ffd282",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000013": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000013",
+      "format": "html",
+      "sha256": "250b0f45c00b18bfe440e75643c602cc0f8403a8dd6fdf09900da0e4431e15be",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000193": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000193",
+      "format": "html",
+      "sha256": "0f2de8165e6e2eb34cd8af9a8468a17a3ef5155e8dfc426fe76285951946abd5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:21+00:00"
+    },
+    "嘉義市-GL000014": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000014",
+      "format": "html",
+      "sha256": "65f377b7e7dbee29eb970f70eb8143414dbfbf3177201df63750413b56c1f7b3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:22+00:00"
+    },
+    "嘉義市-GL000481": {
+      "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000481",
+      "format": "html",
+      "sha256": "cca88feede1d73912ba727a4e9310e0a3db49f83400e41cd033638d92311d485",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:22+00:00"
+    },
+    "嘉義縣-FL034164": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL034164",
+      "format": "html",
+      "sha256": "e831b77bb514a15c0f414fa1e9dd3b5dab181d38e4ef17e51e93dc7f720e3a21",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:24+00:00"
+    },
+    "嘉義縣-GL000133": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000133",
+      "format": "html",
+      "sha256": "c9871eb04ee279e55e16e9b2d1143083297c77c1618018d674340a84bf3eae42",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:23+00:00"
+    },
+    "嘉義縣-GL000164": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000164",
+      "format": "html",
+      "sha256": "5ab0c99d0845dcbb5a3891189004deca7cf2c8968ce9061923fcc406d7715907",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:23+00:00"
+    },
+    "嘉義縣-GL000711": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000711",
+      "format": "html",
+      "sha256": "4df892cfb9aa491b4b748c5a63e7edcb5fa81784adc320f7e833eb26ccacffd9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:23+00:00"
+    },
+    "嘉義縣-FL035595": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL035595",
+      "format": "html",
+      "sha256": "7313da246a265f10dfad2152ac12159f071f7fecc4bcb022b891ae295b2867f7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:23+00:00"
+    },
+    "嘉義縣-GL000617": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000617",
+      "format": "html",
+      "sha256": "9ba492d2ac9aa4159a4764dbadb8c1df626b28f1015ebeaf23c05f1e094db90e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:23+00:00"
+    },
+    "嘉義縣-FL027048": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL027048",
+      "format": "html",
+      "sha256": "c4a35f919ea2ccb1cc4b66849dd9306207e9218e3c1500af86618b308aeb160f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-GL000418": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000418",
+      "format": "html",
+      "sha256": "478bbc1de4d5baf4059cf3f79d72779eaceb07edda2fe2fce79979b2c7cdaefc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-FL031963": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL031963",
+      "format": "html",
+      "sha256": "a997de1a237f869bf2d2794dbe0ea21daab49470465805fda8d34408b655a10b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-FL052674": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052674",
+      "format": "html",
+      "sha256": "892c0232e71997bf00cee78fa997d856351a1b56ca381fca225d184f80b39127",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-FL026756": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026756",
+      "format": "html",
+      "sha256": "57371ed8f4222a363691fb24816cec61beab9b4fb3338e61a7bd636e15b90b01",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-FL052721": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052721",
+      "format": "html",
+      "sha256": "265984bc2e29705d586909c7a82f81a04e234c2d2002a3a7b911713e1fc3c328",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:25+00:00"
+    },
+    "嘉義縣-FL043585": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL043585",
+      "format": "html",
+      "sha256": "23ab68aace72e62f6cd6e4edd540f3d63af0fa67bfb5a6abe88e261c7b228d1b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-FL052678": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052678",
+      "format": "html",
+      "sha256": "1088ea01c8c390fb8147ee6ac32ce0d8a2b94999fb871279f836e0b3e4762ab4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-FL052677": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052677",
+      "format": "html",
+      "sha256": "899d4654fa5f66b3d0362e66110455946fbd358700566ffdc2659e3635be25a5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-GL000321": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000321",
+      "format": "html",
+      "sha256": "b811d64cc4ea436f1784bd67553dcd3debf45a95a19acef6996c833b674a2c59",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-GL000733": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000733",
+      "format": "html",
+      "sha256": "ca374a377bd30ccdcb72eccb2f9aa0cb57085feb414c0673cfd2c9fa8448e7bf",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-GL000311": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000311",
+      "format": "html",
+      "sha256": "a38fdbab808229fa3d385d29c050623c420d5fab8b00eccbff6b2e64fba983b1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:26+00:00"
+    },
+    "嘉義縣-GL000706": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000706",
+      "format": "html",
+      "sha256": "ee8ac958cd67dd6e795d7f3c317d5bdc4835357aa30844083d8b8f5ae9de6018",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:27+00:00"
+    },
+    "嘉義縣-GL000140": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000140",
+      "format": "html",
+      "sha256": "19091a71d6c27c52d42eff9dcaccc2ebf6ee3d1eb2f687520955d06eb88dfa7a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:27+00:00"
+    },
+    "嘉義縣-GL000697": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000697",
+      "format": "html",
+      "sha256": "7fa09da9a1fe8c49c45358eaf5d9eaad8948d5ea12874ccc6e2637d09e4a35b5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:27+00:00"
+    },
+    "嘉義縣-GL000291": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000291",
+      "format": "html",
+      "sha256": "cd483fe104483970be32b7ace17917b3215bd7337a8f3db0d192680b76630014",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:27+00:00"
+    },
+    "嘉義縣-GL000693": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000693",
+      "format": "html",
+      "sha256": "8a60f8469127c236d06256b529ac376a7b1d615348cbcae301d96b31603b319c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:27+00:00"
+    },
+    "嘉義縣-GL000501": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000501",
+      "format": "html",
+      "sha256": "ebf5cef767eb4181d8b90d89a9b8e987067111a71b481ab57181202105eb1cc2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:28+00:00"
+    },
+    "嘉義縣-GL000648": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000648",
+      "format": "html",
+      "sha256": "3d8f2ec1cc966721f3ccf6fde19ea4de1aa6fd410cfa91be6e34fcb0109b30c6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:28+00:00"
+    },
+    "嘉義縣-FL048833": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL048833",
+      "format": "html",
+      "sha256": "a85211419ee6a12c05bde3d5fd08a8596ed8f474c418a911e28b8504503c3728",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:28+00:00"
+    },
+    "嘉義縣-GL000613": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000613",
+      "format": "html",
+      "sha256": "8e2c39cb29cc08b822f85952ad25368c83295ca9c177e0d66904f02eeefd4a53",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:28+00:00"
+    },
+    "嘉義縣-GL000486": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000486",
+      "format": "html",
+      "sha256": "6797ae0a2f213da6442bd57b2313c97f557ca1a8cc07cd4eb1409c12acfb30a8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:28+00:00"
+    },
+    "嘉義縣-GL000602": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000602",
+      "format": "html",
+      "sha256": "e0acb9d92122988162b24f2d68af6f83d6b26f20bef12fe53c30b4cd8d744983",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:29+00:00"
+    },
+    "嘉義縣-FL052681": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052681",
+      "format": "html",
+      "sha256": "8b977fbf4fce624d46d185dce8a9bd4dfc2a287f5bc46b5dfc03ebb66f9f5cf9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:29+00:00"
+    },
+    "嘉義縣-GL000185": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000185",
+      "format": "html",
+      "sha256": "5a99e9b5518bacf7a1a8748f65313d856f3174ca4747d9065773369851bf6f19",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:29+00:00"
+    },
+    "嘉義縣-FL032754": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL032754",
+      "format": "html",
+      "sha256": "0c462fe61b324e38b4eb372202f1d9733e54a1350525de7db056d786fbb73fa1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:29+00:00"
+    },
+    "嘉義縣-GL000481": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000481",
+      "format": "html",
+      "sha256": "18f572321701831e316833d99dbfeba5d5227c97a65f5b0c07810e5fc2d7f77e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000372": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000372",
+      "format": "html",
+      "sha256": "66e8b5b043ea42fd4b2b4752225615a159c62aec676afad3f8ef4db90b9cab1b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000162": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000162",
+      "format": "html",
+      "sha256": "dab9306c9814563a24bbb8ccbcfbe6bf255c2d3c00686645ebe15aa357073730",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000309": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000309",
+      "format": "html",
+      "sha256": "68f833cc9852f7f591999ad9c0b41144970868d5ba256fd7cdf47edd18d60901",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000296": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000296",
+      "format": "html",
+      "sha256": "0ba3ec859d4e8459101c6ac59278de9389dd5a2fc8d805b7e3668d87265561cc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000258": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000258",
+      "format": "html",
+      "sha256": "503e730c9930b1633de5528e75bcc3c9f12a7016d10a76961d6e02581ad5a9af",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:30+00:00"
+    },
+    "嘉義縣-GL000253": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000253",
+      "format": "html",
+      "sha256": "5e91ebe19b98d4456b815867964b7684d292ab05533d01a48f48f1bdc8831fe3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-GL000259": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000259",
+      "format": "html",
+      "sha256": "188e20b2a2d6cc55119cf94decd5b2b7d0420234758ab10f700d0cc79e44c730",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-GL000202": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000202",
+      "format": "html",
+      "sha256": "df583d860293b1f960557ec3a17fff329569f7523c8420a698b128eef6f297a5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-FL052676": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052676",
+      "format": "html",
+      "sha256": "e898aaa8946180b8d0dd4efc1e89886677b520dfe0107401a1c53bac628e3f02",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-FL053530": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL053530",
+      "format": "html",
+      "sha256": "acc2c2639a1090aa01227600dcbd0c44a3bb199dbe494246a84b4f9626e7511d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-FL040556": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL040556",
+      "format": "html",
+      "sha256": "b280018316f3fcb625898be21d5ad71a166cb58cf29a4632cb59a16cabaed521",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-FL023521": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL023521",
+      "format": "html",
+      "sha256": "2a4a05a97b14dc01343792645e60582d901def11ebb9d3762857ce5a64e9aa7a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:31+00:00"
+    },
+    "嘉義縣-GL000022": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000022",
+      "format": "html",
+      "sha256": "63a1385f8ec0f029ea53fe04f2b3c05a6dd9f7bab005667d507b52c5305362af",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-FL035003": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL035003",
+      "format": "html",
+      "sha256": "205e15111c266c9f87a79f9af49588503a6e2fdd3d888a6f89929c0894255889",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-FL033955": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL033955",
+      "format": "html",
+      "sha256": "7ba95c316d46069337f33258c2c9cc470e3ac3b4642489feba21afc8fb82d57f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-FL053679": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL053679",
+      "format": "html",
+      "sha256": "b1efab78af3758d56c13043e2e587844baf88af9e4e69dd133a11ac5fd05e71b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-FL036812": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL036812",
+      "format": "html",
+      "sha256": "3cc5e728ddff6304ec9f7e130b226332afd6d516313086426d51d2c61c06bc7e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-GL000440": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000440",
+      "format": "html",
+      "sha256": "e85311f57aed6b1a45c8c51360ab566cb24dc85554530bd7d92da44020681f99",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:32+00:00"
+    },
+    "嘉義縣-GL000313": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000313",
+      "format": "html",
+      "sha256": "48845b43a34498d6b3feb7baeb4b21dbeb32ff61bae84261b6a4d4d88c634d52",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "嘉義縣-GL000308": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000308",
+      "format": "html",
+      "sha256": "4694c90c4a66d374c3a730b4265bb30a1413bc340b89223c8f671e4b61c43310",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "嘉義縣-FL026916": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026916",
+      "format": "html",
+      "sha256": "7cd1be9f69b1a42e3c69dce7ecb42768eed30a62207a79f6fccc1e88fe68fcdf",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "嘉義縣-FL021922": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL021922",
+      "format": "html",
+      "sha256": "7c0aa18bd383694be05e3d9091dba8953178cf2729a84e634658d899944ff602",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "嘉義縣-FL049966": {
+      "url": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL049966",
+      "format": "html",
+      "sha256": "6b4d2021d57809de9d03779c4556bb15c2c39f1362d7cde6474865fdc350094e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "宜蘭縣-FL036358": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL036358",
+      "format": "html",
+      "sha256": "1e410e64324fec98e19b72d45122c47ebeafe95cc810cf9b0b89cd44ad8b68a9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "宜蘭縣-GL000233": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000233",
+      "format": "html",
+      "sha256": "e66856ba74373aa656240980a5d8f495c44f1832b66318ba15b4621772535095",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "宜蘭縣-GL000132": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000132",
+      "format": "html",
+      "sha256": "620a6b669ecc7ea282a83d6081de3587075ef293876341e40fc2081fbaf38b8e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:33+00:00"
+    },
+    "宜蘭縣-GL000109": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000109",
+      "format": "html",
+      "sha256": "1c8318575d1179d0d9dd6372b7c7c90415121206daa3138055c2884748c428a2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-FL051000": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL051000",
+      "format": "html",
+      "sha256": "a9cb6f4ee6b812482151c7c555804f1303a8aa18396db9dfae865971badfb8eb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-FL023438": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023438",
+      "format": "html",
+      "sha256": "160a68194003ccb65d68d4fdd920d8d17939d575752a4e670690624def911d78",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-GL000621": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000621",
+      "format": "html",
+      "sha256": "252a4ddd4db847253f66c00f7afb84aaa12f20a2e35ccd9e3cb1af4595844742",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-GL000712": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000712",
+      "format": "html",
+      "sha256": "f397424d100e75b05f2565f67f6c2475ce2c1e6058e213feb7a5877e8f12107c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-FL030367": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL030367",
+      "format": "html",
+      "sha256": "7c51074028ff825c9524827f688857ac81687d7aa67986dc5a329b5e0ae4914f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:34+00:00"
+    },
+    "宜蘭縣-FL040021": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL040021",
+      "format": "html",
+      "sha256": "39e21e57e53dbc7139bde8a17c3109847e1e0460ce85c5a71c8013a4d8b89285",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-FL023446": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023446",
+      "format": "html",
+      "sha256": "a3476bda53172c741557c824cc486dd4e40538f51870c658e523cbe2edcc3e86",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-FL030366": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL030366",
+      "format": "html",
+      "sha256": "dccb0454fac4738502f0353cc85eb92960ee1268c44a00fb7e881d1d146070a2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-GL000492": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000492",
+      "format": "html",
+      "sha256": "74aaa83a57dc5ae7822dd218238148df3edb74a6628d68e891cab362ef6bd653",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-GL000532": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000532",
+      "format": "html",
+      "sha256": "e9a3b810ff0da4148cf8158b77d3efe21fbd4c8ea826ccb4792fe4fa2e9dc561",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-FL030365": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL030365",
+      "format": "html",
+      "sha256": "27cc7ec168c76b67f9f2d372521b3b7259b4c85cf97b2360ad116ead601febd0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:35+00:00"
+    },
+    "宜蘭縣-GL000247": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000247",
+      "format": "html",
+      "sha256": "6e1548023f984cc1132191c0bce9fa623e5f243f4d337c28455218f8a8aa3934",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-GL000108": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000108",
+      "format": "html",
+      "sha256": "efb789badb3777a920c3ad7a89a68c05e96a7becc9dcbbe775f170f8ece95d3f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-FL034154": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034154",
+      "format": "html",
+      "sha256": "1cb197b1b349cb948a9d09d8ef2c0961c43dbfea8175a5366bd9e632a22c3c81",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-FL041248": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL041248",
+      "format": "html",
+      "sha256": "f3b772683454e2562eead9df3851b8a7dfb6559217b392ecd34e444c6f8ef037",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-FL041247": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL041247",
+      "format": "html",
+      "sha256": "5a16701f3f451e22be13cad64b14bd50a3ac81e8fbe33eb1afb8ceb9df9c15bd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-FL023541": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023541",
+      "format": "html",
+      "sha256": "7e1622e59e3ad616dca9c36901f8b5b553cc643c46a7eee14fe46fdd42bcc813",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:36+00:00"
+    },
+    "宜蘭縣-FL023434": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023434",
+      "format": "html",
+      "sha256": "35744e056cce621e1cea0f15efe730e70ca90ffea59a464e7e4f59e1400916dd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-FL029898": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL029898",
+      "format": "html",
+      "sha256": "2f5395d3769132afa197b189bf8bc11db93703f0d89a6ebd4ae5044361a0af65",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-FL034156": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034156",
+      "format": "html",
+      "sha256": "87941d229175973d36a4c6439c3c7d86a7e00b5afac0e09b4af928cf13de3d60",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-GL000782": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000782",
+      "format": "html",
+      "sha256": "5374aa26ee26c602d92f91a39879c7154324a652bf86e1b065a50227807acbb8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-GL000748": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000748",
+      "format": "html",
+      "sha256": "117e786f8d220583e0b6a32dd2650235d9c0e8138916e8a201d1b915aa7643ff",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-FL046532": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL046532",
+      "format": "html",
+      "sha256": "24fa89f07443674b526e16d33bd1683de79e0524829c632ef9f8ce895850eaeb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-GL000744": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000744",
+      "format": "html",
+      "sha256": "503f205fca6b4e17430cf77fe661c0bb18c3c3cf3eaa439a6a57b2504169a8c1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000721": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000721",
+      "format": "html",
+      "sha256": "79c6c5517e23709e2c8b93211b7155ac72854aa0715e1811cd1b230576e0aa01",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:37+00:00"
+    },
+    "宜蘭縣-GL000289": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000289",
+      "format": "html",
+      "sha256": "543895d2ea302cc6a16b935f6277a946b80660831a6d282739a226199293c675",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000341": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000341",
+      "format": "html",
+      "sha256": "2c659ccc2eee83a6ece82bb12cf26b99e5dccbfffa6eae5074db3d057073ffb4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000600": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000600",
+      "format": "html",
+      "sha256": "19aae13b071493930bcfc8efaa71d2caad2a22609e2bb918fc8353fd3095cf84",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000507": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000507",
+      "format": "html",
+      "sha256": "936678ead1a25a8dcb53f80d5b8d6d728e96cda2ddca285be4fb2a8991ba5ac5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000459": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000459",
+      "format": "html",
+      "sha256": "b90291e5a7057419ca24bc150e94ffb3a18cad66e52b46536e10230b2bc97e1e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-GL000346": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000346",
+      "format": "html",
+      "sha256": "2f7aab43bd4b9652508071f29d69f51a3ed68c14bf306fff916ef0bfa83422e5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-GL000319": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000319",
+      "format": "html",
+      "sha256": "9d4240028e99ee171b8c188d769012a4f2e9d082d6fa4ccc9f1a5852e44a97fe",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-GL000257": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000257",
+      "format": "html",
+      "sha256": "4ca37baefd2e7c297866d14c6f6682561f3f1b714fab65eaba329cdb9068cd79",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-FL034344": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034344",
+      "format": "html",
+      "sha256": "aa97a2bbcad4d315538b5664df166b156d06b37b24b5eec4e5588836cc3051df",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:38+00:00"
+    },
+    "宜蘭縣-FL034347": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034347",
+      "format": "html",
+      "sha256": "60e8a95803ca5e7657c03af805c1186b705c4ac5f7b98591979e43c913bd9aaa",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-FL034340": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034340",
+      "format": "html",
+      "sha256": "8a4012f8d929d31870c942018e594ccb113affaae2e63a2cbe6821fe43c93caa",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-GL000094": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000094",
+      "format": "html",
+      "sha256": "65ca146ee65257b3ab758ff8a232c762e6069bacb424b9719b8441dc05dbb371",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-FL034343": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034343",
+      "format": "html",
+      "sha256": "c27b604c2cbf11c53e8b7e9cfb8eeede3be1ae119d9ea5c44d1b271cfa81c08b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-FL034336": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034336",
+      "format": "html",
+      "sha256": "11defad918b992ccace89f7d5f9da193e267e605727e1afd9c729704379c3fc9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:39+00:00"
+    },
+    "宜蘭縣-GL000665": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000665",
+      "format": "html",
+      "sha256": "98623e21a72e2169f62229265bdd46bfa0085a8531b628fbc2ee893cdad3da34",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000786": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000786",
+      "format": "html",
+      "sha256": "f8b63dcdb054180937d0c1d101786438ebc29b90d789a725bd1c8396816713dc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-FL042321": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL042321",
+      "format": "html",
+      "sha256": "e19acf95f3e5cbc1d5de230b94eb3f05f61a15255d241fab0ae3ca0d9817c68e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000735": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000735",
+      "format": "html",
+      "sha256": "5c3ff7acce2e2978e77d1c0ad26e7c21ed66e86dc9c9cf652145d51b70e6d88b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000713": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000713",
+      "format": "html",
+      "sha256": "ce9a38d692e4019d8a94bf1147f673fe8536deaa05527dc6ee883f53c670c679",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000571": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000571",
+      "format": "html",
+      "sha256": "d9f452d19d635a3485c14271fba13fe7c7bec00cfdb4e27553f408a6566e45ce",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000618": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000618",
+      "format": "html",
+      "sha256": "f01463e1cf8aa67a38a5ad3572d6b2f58a03b1fd8d8cffe6b3c18f8b3992360a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:40+00:00"
+    },
+    "宜蘭縣-GL000416": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000416",
+      "format": "html",
+      "sha256": "a9ba6ba79de64c39360f123aa59a30afeb1dc823f490c5ddfcd6006fc4240324",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:41+00:00"
+    },
+    "宜蘭縣-GL000594": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000594",
+      "format": "html",
+      "sha256": "83373ccb4c1db21d90407b66910a11be167597062004d43b44bcb6fb73e8b2d4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-GL000581": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000581",
+      "format": "html",
+      "sha256": "3154f60b576518ede3882362cbf759e0faea59ca8ccd8d2aa569c43ce0b3ac89",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-GL000157": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000157",
+      "format": "html",
+      "sha256": "ebd477cf201271c1ff2a54f0b137f8668e8a83ca2c485d8ce070e43e0aa7a036",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:41+00:00"
+    },
+    "宜蘭縣-GL000493": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000493",
+      "format": "html",
+      "sha256": "05110e4eacc211692b275661976d9db10e4f71fda03ca1d99b0f511d77aef995",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:41+00:00"
+    },
+    "宜蘭縣-GL000230": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000230",
+      "format": "html",
+      "sha256": "95beba51b998a1c33d6a59b11ab3c59d4b84a8086c91a64fb6c394f66f2166bb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:41+00:00"
+    },
+    "宜蘭縣-GL000405": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000405",
+      "format": "html",
+      "sha256": "009127e3facbf219e1426bcd33b19e502787fa191283a77a42c43367a035d895",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-FL040798": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL040798",
+      "format": "html",
+      "sha256": "0a6e2ffd358bfe54058af89bbaa9ef1696df289f3cc41f5003ccc17825f5a422",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-FL034349": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034349",
+      "format": "html",
+      "sha256": "da5364518ef1bb4d44e7f4ae913c976204c385d35818a2f4f5b9f9d52c873826",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-FL023838": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023838",
+      "format": "html",
+      "sha256": "ac140cc373dcc39429be69f284807718e549b4663da33ae7e3179e406abfe2eb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-FL034803": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034803",
+      "format": "html",
+      "sha256": "8e2e1825bb5c065e5fc20a696a5685143594ec3b6a6c976be426f6f5e4fde778",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:42+00:00"
+    },
+    "宜蘭縣-FL034330": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034330",
+      "format": "html",
+      "sha256": "39c0caa367f6ad1426848d2498da935dec30024d969ec6c238e8dec7cc034bd7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-FL023839": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023839",
+      "format": "html",
+      "sha256": "442e31c17cd5ff5c5d0e362298a6041cc4de849dde78670b93401de46f945e44",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-FL034350": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034350",
+      "format": "html",
+      "sha256": "46522983d24f0e0b1b171472f3ae89a4adbb96fc45504c1ebfcea89816cce1e9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-FL034337": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034337",
+      "format": "html",
+      "sha256": "ac1e6a1ffd0ecc047092af5f9ed21af0692f9b49171379986aa5e5607c39c3d8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-FL034346": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034346",
+      "format": "html",
+      "sha256": "425d6972b99af92af9eaf309fb1e64cf4d8fd7053b0fd49c2b772661d5851968",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-GL000540": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000540",
+      "format": "html",
+      "sha256": "03fb285ddeec314e4931cf9b083662ac8a7c062499a6afd77c271f3cba07a637",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-GL000441": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000441",
+      "format": "html",
+      "sha256": "4950fc71e2cb09e5434350d2991a688af82fbf80ece55b40c31ff3b93bbfaac6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-GL000364": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000364",
+      "format": "html",
+      "sha256": "d39eca900d5dfd1e711b4ec38741cf9a68e6657dd00f5095df44538bd8c229e1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:43+00:00"
+    },
+    "宜蘭縣-FL051520": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL051520",
+      "format": "html",
+      "sha256": "949a7bb80189fccfb6ed27be3e7853475acf8afe393ae87cebcbe843f9fbb729",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "宜蘭縣-GL000386": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000386",
+      "format": "html",
+      "sha256": "8c8d6ec2d0eb7dea0762ecf034fd6701c54f206e0496b24671bf88165e5f6b35",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "宜蘭縣-FL034076": {
+      "url": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL034076",
+      "format": "html",
+      "sha256": "976eac79eed3dd6b946c3d1a52a1f928cd4091308131628efba57ce200422e46",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "花蓮縣-GL000500": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000500",
+      "format": "html",
+      "sha256": "0da54b4aa716847dee2999b648254db907a08beed841844deae8b1330ce53b66",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "花蓮縣-FL049563": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL049563",
+      "format": "html",
+      "sha256": "86fef0854ea89b1863bb7b27b73730e98240560971c26fe6be4bd323f20755d4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "花蓮縣-FL044134": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL044134",
+      "format": "html",
+      "sha256": "3f0ef380b992066286aef13c0eb2ab61b596dec2b01c7d14160034aecc1c7039",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:44+00:00"
+    },
+    "花蓮縣-GL000716": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000716",
+      "format": "html",
+      "sha256": "f32f2a94cd95669061d1e3f2be5ca5224fcfeef556141f27a73d108e6589cf7b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL001568": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001568",
+      "format": "html",
+      "sha256": "812cbe09bfdbe219d6036ced41958df6bac0463ef3c50a6d85f8ae8a2b0b2b74",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL001429": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001429",
+      "format": "html",
+      "sha256": "9fce689715709b3833a2622b7b8604702a37366a6055d9b6ae7c3d66ece48727",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL001397": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001397",
+      "format": "html",
+      "sha256": "2f00679bbe7b7fe78c7dd94587c5d81aae83958fafec3730f527f287c52449aa",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL001396": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001396",
+      "format": "html",
+      "sha256": "2decbe1bdea07f172fabacd80c96edeb9fbf4ae64a0795004b0ccfbc8ca52786",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-FL024182": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL024182",
+      "format": "html",
+      "sha256": "72634c3f6eb0fa8e74498d3e3efb27c5dbcd0461b01e6c2b3289a9f898446ce9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL000930": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000930",
+      "format": "html",
+      "sha256": "3ac8d0b0f54561babb535566ea52e5c68cfcc39f6d6d069ab41225a5bee48155",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:45+00:00"
+    },
+    "花蓮縣-GL000821": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000821",
+      "format": "html",
+      "sha256": "0822a8fa18e8620aa755a3a0442921d0a593a1735c7b060d280217ef93d73fd4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-FL026634": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026634",
+      "format": "html",
+      "sha256": "44f97136d7345644f5351d7101a3736ff4c2778d012d4c8d7676066922c62044",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-GL000512": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000512",
+      "format": "html",
+      "sha256": "7d48f85fe8630f1f81def17b43cec917deabd1c576ed49f2941de41d919dfd26",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-GL000198": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000198",
+      "format": "html",
+      "sha256": "26e6182d9e2105da82c2276ed4b76959c9ff39888b42b242d79940c4538ee86d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-FL053692": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL053692",
+      "format": "html",
+      "sha256": "db2e54d618884bfe6d72a6ece64ec812f450243406146304d6c02b9c2427895e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-FL035113": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL035113",
+      "format": "html",
+      "sha256": "cdffe7a120a553749beaeca8d645f748cc990556df362dd29ef62cb53f9a7cf5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-FL043070": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL043070",
+      "format": "html",
+      "sha256": "d1511ca130121e4cea20f67afa5560bb307644ce9aaad1b9cd4b9bfe79a372f7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:46+00:00"
+    },
+    "花蓮縣-GL000021": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000021",
+      "format": "html",
+      "sha256": "fcb42f1d505122fc51b548b63288f6a1849e31bf7193512faaee427ef01ac1c6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-FL026606": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026606",
+      "format": "html",
+      "sha256": "8b356bb0fff5f04bffb46254261209683ce6944028570f8959562b7583d3bad3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-FL035114": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL035114",
+      "format": "html",
+      "sha256": "bc42ac882b464fc0021e496626de0898b6a160ea28802f06f34438ee9672f2aa",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-GL000904": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000904",
+      "format": "html",
+      "sha256": "87bdf69d662f53691f86ec711f3154478fe6b026172ba8a8889e3f22bbebdf72",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-GL000026": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000026",
+      "format": "html",
+      "sha256": "99739804c3d19889fcf2ae6f931a6c239aeaa9a186b2b7692e7d6d0049f5665d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-GL001238": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001238",
+      "format": "html",
+      "sha256": "d3d127f0d674feea14ab766e53f7df331661d7b8e6c92ce3fe285fef563a44e3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:47+00:00"
+    },
+    "花蓮縣-GL001206": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001206",
+      "format": "html",
+      "sha256": "5911faf7b53296b67cfdd57569001e6c6f1223ae369cf19302dcdce4e78b4757",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000404": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000404",
+      "format": "html",
+      "sha256": "fd9aaf6160084664632f90fb6bbd7b4c66b3a65a261cec7cab4499bfadc2468d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000185": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000185",
+      "format": "html",
+      "sha256": "700bef53a474331e723a1403549f634e25f758027b69590682b685176fecb5fd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000876": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000876",
+      "format": "html",
+      "sha256": "cc2afb17c9d45cfa0a14aab7b9d729bacf64caa8069d04c29c6bc90224b2a289",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000737": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000737",
+      "format": "html",
+      "sha256": "c76dc2c6f78a18d396bb7c02ff64471dcbafa6539ed32737c43cd8149ced2d72",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000637": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000637",
+      "format": "html",
+      "sha256": "c5a55b18f7af7e2a95a99000c569909d81cfeecaf2c2fe0d501b9b82f476554c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000501": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000501",
+      "format": "html",
+      "sha256": "7665a0a9229b9e7c9e0ace3ae83e31ff3a67e0c43e22319dd886e9fa5908f936",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:48+00:00"
+    },
+    "花蓮縣-GL000872": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000872",
+      "format": "html",
+      "sha256": "56e65d0db5c5426d8284a4a2ed2e1f8b10d2120edf04d40e6c4193447033c693",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000507": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000507",
+      "format": "html",
+      "sha256": "450681286716337b329b045a5346babe3273f09961b35b12101547ea03f5ba6c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000621": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000621",
+      "format": "html",
+      "sha256": "1bab989644e15b421439d15723e9f9cb59196081d4d6931466a92dbdb8164ffc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000494": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000494",
+      "format": "html",
+      "sha256": "49a3fe80209e356079d68acb8855b3bd7ee553f3f20b3226ab832694c756d95b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000362": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000362",
+      "format": "html",
+      "sha256": "84a41c01a59014c3aea56009e654f89d8862cfa14aafbd0201ec13263448558d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000243": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000243",
+      "format": "html",
+      "sha256": "8fe816abe93a3d339cc24b4cf1783f37aedfbec076c1397aa4a84e6fe4014a54",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:49+00:00"
+    },
+    "花蓮縣-GL000027": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000027",
+      "format": "html",
+      "sha256": "fd6f3a63ed560dfff1f05d64ec11dd11dde98d3938e2d2d8534a6af1e4347bee",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-FL034926": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL034926",
+      "format": "html",
+      "sha256": "da654551dad005f1ed6350fcba323e4632627a8ca3576284d7d13c60da14a5fb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-GL000025": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000025",
+      "format": "html",
+      "sha256": "95d32c67e4de25aa433bda632ab239a29da5e8df92b64a635b7a6c25c7818b85",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-FL047549": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL047549",
+      "format": "html",
+      "sha256": "58c760585e7442cb0527f39d5ecb4eb9200df2c7a396117a0515a6be6a1eed81",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-GL001531": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001531",
+      "format": "html",
+      "sha256": "33ebbda73c4d38f0eaed18743c93c27ee525c16e4f9172259493785ba129be7e",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-FL040880": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL040880",
+      "format": "html",
+      "sha256": "dd592f8d61cade5d58ce3db298d324d01abff28da98948b394a69cce7597fa58",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:50+00:00"
+    },
+    "花蓮縣-GL001499": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001499",
+      "format": "html",
+      "sha256": "9922466da9ac42a8b581ceca71e644f52f4a52fb3f3f604fa0e7ce547bb82b30",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-GL000969": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000969",
+      "format": "html",
+      "sha256": "553371f4af850078499df33d95ea7815e4ec0e654a39a6857d143ec0b3d6c3a4",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-GL001341": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001341",
+      "format": "html",
+      "sha256": "9469c3be0c8a0f1f046f5f42ae633f76e2c5f9d8a074e6444680eee75581c707",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-GL001342": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001342",
+      "format": "html",
+      "sha256": "3e29a9bcc4980eb8566d55c91af45a7568b75bc30f165b2c058890c2a1bb38e1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-GL001248": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001248",
+      "format": "html",
+      "sha256": "a9c7284d45713b9b845ec013fcad1fde81798f3769a783cbefe36cb1ffcf9bdd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-FL045744": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL045744",
+      "format": "html",
+      "sha256": "af1e6c15d8390aa391dcec9fb050495434fd0796151f9375dd618b4288bb7ca9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:51+00:00"
+    },
+    "花蓮縣-GL000576": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000576",
+      "format": "html",
+      "sha256": "0023eeb67132725d985eeddf5feaaceb9e6d1aebbaef5b6d547d2656bfe819fc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-GL000952": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000952",
+      "format": "html",
+      "sha256": "8fdf33a5a22435de509b87f461e90872f786dd4e3fe1bfe8ca8b2035bafeda87",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-FL048392": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL048392",
+      "format": "html",
+      "sha256": "7750373aa592055a891b25cd42a54dea409520bc82d2adbc0fcdd223f1804ecc",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-FL026608": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026608",
+      "format": "html",
+      "sha256": "a15f8012879d2183601d4c710ef1b43744cc02cf0ab1d53c77c9b213a1cb126a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-FL046858": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL046858",
+      "format": "html",
+      "sha256": "51aa1bf01cd45afa9c19f654d53330a1227091d16e2e228b6afcc8b319e268c5",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-GL000029": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000029",
+      "format": "html",
+      "sha256": "40ec7061883b02a51be5531e309de94ec2cb519d2f16bd21d0a0f1c8cd572aa8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-FL030308": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL030308",
+      "format": "html",
+      "sha256": "0fde47311345c4b372ddec2cae1d37c1081873aa2f3b11274a03d5bb3766a3bb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:53+00:00"
+    },
+    "花蓮縣-FL026597": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026597",
+      "format": "html",
+      "sha256": "fbcfd7048bee4c50ee0827c32752561d62ce7381e2d2280aaba5d02aecc3dcbd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:52+00:00"
+    },
+    "花蓮縣-FL046054": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL046054",
+      "format": "html",
+      "sha256": "f86afcb58d4d7d317e398cf20d88bc60e3175de48c8d5aea8184179296306816",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:53+00:00"
+    },
+    "花蓮縣-FL042272": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL042272",
+      "format": "html",
+      "sha256": "4bb4e45adf5e69d692d45e30919aab7071327a39030677e78330aff69460d039",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:53+00:00"
+    },
+    "花蓮縣-GL000023": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000023",
+      "format": "html",
+      "sha256": "740f0d278103afd3fbd23c057c5952496159b49552303b458aa515fa51f15a44",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:53+00:00"
+    },
+    "花蓮縣-GL000022": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000022",
+      "format": "html",
+      "sha256": "37cc95d09802322a0540efa82070a299ff8cc782201034b4fb4467b9d9b5bd51",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:53+00:00"
+    },
+    "花蓮縣-FL046233": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL046233",
+      "format": "html",
+      "sha256": "d75a164ecdcf41159293d53b8c622c2f1c525a5dea66050bdd9435bdf51fb352",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-FL035117": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL035117",
+      "format": "html",
+      "sha256": "07829b4090e7543c9d7d3db4c9ffbdd7194e3bade63bb8547bc188212fbc12ed",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-FL035118": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL035118",
+      "format": "html",
+      "sha256": "b27ce3ae35a9ce81b3bbacba8abd8a950524eca5399ec0632edde71d30fab11b",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-GL000020": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000020",
+      "format": "html",
+      "sha256": "0bdf5949986dbb0c4a355f16aa6a957fc08a96fbf503a53cf73c1a900de7b6e1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-FL026635": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026635",
+      "format": "html",
+      "sha256": "e81cdc2743ce990f9b28e8aac97bca9e7d6848f4a74f0a0ab319bfabe019add2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-FL039049": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL039049",
+      "format": "html",
+      "sha256": "31766f14ffe0eb67fe08d19ab96dacf5859cbfe29031e321ca8381439c447269",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:54+00:00"
+    },
+    "花蓮縣-GL000618": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000618",
+      "format": "html",
+      "sha256": "9ce4960866ed1c8b70fdd19fadf45993e47f55d6a5af8563074b424ae32e917c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:55+00:00"
+    },
+    "花蓮縣-FL030320": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL030320",
+      "format": "html",
+      "sha256": "6b188ed54071d2ac88e5fb2cb2246d313cf28fea55d0c271c86b6c4efd8dc8e7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:55+00:00"
+    },
+    "花蓮縣-GL001331": {
+      "url": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL001331",
+      "format": "html",
+      "sha256": "ea7591e3c93b2f7662751ea1e63c30ce4866a20b59a6c8b97de5fbc47fc0c775",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:55+00:00"
+    },
+    "連江縣-GL000279": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000279",
+      "format": "html",
+      "sha256": "a0b377aca36230723c029d880ab92fc27a3cefff917e291a11e20f20e821ee33",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000331": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000331",
+      "format": "html",
+      "sha256": "74019a2b768d295c155ccb9f8234d833b733248471111c80139750dd2b9783c9",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000280": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000280",
+      "format": "html",
+      "sha256": "bb69dbc088660e9ad1f536c4c0ee95304f8e05d75c7a02b18e830fae21cd3d01",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000111": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000111",
+      "format": "html",
+      "sha256": "864faa853ba17d6aa64bf592419366b2b1d69c5b7252602628bbdec9e07be2d8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000522": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000522",
+      "format": "html",
+      "sha256": "5180bd02ddd0faf61737981ed8b4b796b5e862e41061943e264afaa0fa2792f3",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000507": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000507",
+      "format": "html",
+      "sha256": "0eef917f7153aa200d30b9629e5c984ee345fa739c598a19e568cd5fe988b7e8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-GL000448": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000448",
+      "format": "html",
+      "sha256": "bb541de3fe0bec9bc8862f127bed41958b21625e4eeeb0ac25e3bf5ed94ab9b1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:56+00:00"
+    },
+    "連江縣-FL033977": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=FL033977",
+      "format": "html",
+      "sha256": "33406ad0003402b9581d43aa096be8c71bcf7a6fc46d78c9120a96f39c585fe8",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000333": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000333",
+      "format": "html",
+      "sha256": "69a3e82474c12846b789b02b77f228f1bf399adfab04cac0fdb2f118d9c0485f",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000332": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000332",
+      "format": "html",
+      "sha256": "393c10ceff9855a33760c93bdfe47b2df491916f7d8092f41a9ebddd746b23ac",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000444": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000444",
+      "format": "html",
+      "sha256": "1f88171740aab3a36e706b416500f366071f00cd8a7163e6571bf747a3021805",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000501": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000501",
+      "format": "html",
+      "sha256": "63b03f3474a5b21a7ce269f3f5435bf4cda01d072a6a5ab917d398bd4b88e491",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000581": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000581",
+      "format": "html",
+      "sha256": "a74f8377e01bc5b4a1abb1d6472ae95a8885f70b6bb839c8cd239eb0e21c80cf",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000521": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000521",
+      "format": "html",
+      "sha256": "74dc70efcbd7dca1f96f7e74a61f20a409b966dcd420bd782027ce14de14adc2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:57+00:00"
+    },
+    "連江縣-GL000601": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000601",
+      "format": "html",
+      "sha256": "9ba9b4380e326af353b7329322637525999fa2ca648ca85a04474e133c8ff8e7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000434": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000434",
+      "format": "html",
+      "sha256": "754e1051300a2d5a01985a4b1f52c5677dae7faabc76cbe0590e050ae5ee6672",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000620": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000620",
+      "format": "html",
+      "sha256": "acd0f32094cc5fd0856490b0df8e354d7728dc9111165f7487fec9f6fac4875a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000445": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000445",
+      "format": "html",
+      "sha256": "8c81cc7958f24a2622e97ac4c4da898747cad5f2ed1865fc0a6a3b76fb1b3f0d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000585": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000585",
+      "format": "html",
+      "sha256": "a2eb1d5ecabc27345a26876bfa82e79b46902a7222a533b2e51f0e7c52a7dd8c",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000543": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000543",
+      "format": "html",
+      "sha256": "ea66b6d1f98275428885478e857ae10c80628712464fe337bf1bed532ba94158",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:59+00:00"
+    },
+    "連江縣-GL000489": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000489",
+      "format": "html",
+      "sha256": "315573d36b7c8dfbf0e56380bef5a10be80edb7d66b7cab365a823feb24b3ba2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:58+00:00"
+    },
+    "連江縣-GL000488": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000488",
+      "format": "html",
+      "sha256": "f120bed9302adfaa28c3c5976e415a75d04c714b0468c533fc3100af5e2a99c7",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:59+00:00"
+    },
+    "連江縣-GL000539": {
+      "url": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000539",
+      "format": "html",
+      "sha256": "8098a47e0f2087cc453ef28c100ab7b1dfce1eb7622131b69972084ec1993fed",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T00:34:59+00:00"
+    },
+    "雲林縣-FL028271": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028271",
+      "format": "html",
+      "sha256": "11be7b4aaedd45a84aab040452e061604c0a7e88a1eb3229c93b2d4054546a97",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:50+00:00"
+    },
+    "雲林縣-FL042576": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL042576",
+      "format": "html",
+      "sha256": "aafda087035beab85ab903bf90f986a8e112a78ffcb96af74c3fbe0a95152d18",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:50+00:00"
+    },
+    "雲林縣-FL028328": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028328",
+      "format": "html",
+      "sha256": "75213e681820a33eaace836ba11f08e365827e58e0ce7da0a4aca6bfc1f53882",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:51+00:00"
+    },
+    "雲林縣-GL000943": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000943",
+      "format": "html",
+      "sha256": "84a45652ad91ff340e7a84e162cbc95e548860bc2d7c9ffbd25c4f8ed9900321",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:51+00:00"
+    },
+    "雲林縣-GL000485": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000485",
+      "format": "html",
+      "sha256": "cbdff216b71199f506f66793d128dc57700924c8d9f6271efa8e9b41caaad48a",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:52+00:00"
+    },
+    "雲林縣-GL000484": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000484",
+      "format": "html",
+      "sha256": "d32bfc3c584058ac6a59446974f8fcac5a21845f5e0155c7342a8c44b2c5b295",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:52+00:00"
+    },
+    "雲林縣-GL000482": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000482",
+      "format": "html",
+      "sha256": "c95db0bff5e40e4631f3068f5fe34cda88f2843e7481c571e7cca344e3b2dd9f",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:52+00:00"
+    },
+    "雲林縣-GL000364": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000364",
+      "format": "html",
+      "sha256": "120e34503f35b0b1882ea943fd31f48d4d4affa5d8f40c30355bebce1516d15c",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:52+00:00"
+    },
+    "雲林縣-GL000198": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000198",
+      "format": "html",
+      "sha256": "7d81bfa88a2a966b9b5edd952a1d0c2484efc465de7cb9b9a440ffa293b46806",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:54+00:00"
+    },
+    "雲林縣-GL000104": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000104",
+      "format": "html",
+      "sha256": "5e8ca3f9298abf2997ebcf8cfbdc2531a6967bb60b32e744fe0ac5c68f3d2ff7",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:54+00:00"
+    },
+    "雲林縣-FL038867": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL038867",
+      "format": "html",
+      "sha256": "5abc773b6e45679fb662429c3842ad760761025687eb434c2e064fe28cf3efc6",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:54+00:00"
+    },
+    "雲林縣-FL054803": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL054803",
+      "format": "html",
+      "sha256": "297eb215a993925c0070d9fb12ebf1af57b1735e636236cad86861ea732ebeb1",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:55+00:00"
+    },
+    "雲林縣-FL054801": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL054801",
+      "format": "html",
+      "sha256": "23971fcec50f19703172bf81c4325947ae9bed9685cebb55b41bc6e9aea6b3d0",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:55+00:00"
+    },
+    "雲林縣-GL000383": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000383",
+      "format": "html",
+      "sha256": "5f201fb1a3dee4b9a6e2e58469a761f76b637822093d079b7df965006b71b902",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:56+00:00"
+    },
+    "雲林縣-GL001200": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001200",
+      "format": "html",
+      "sha256": "2e042e32f0b08a012228bffcf78ed602ac3e53c299b622eaf7be12a398e66f43",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:56+00:00"
+    },
+    "雲林縣-GL000462": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000462",
+      "format": "html",
+      "sha256": "0f3da23072c12981ae9c459ef6d334178a5397df3e9f0759b1b208a455e215bc",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:56+00:00"
+    },
+    "雲林縣-GL001089": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001089",
+      "format": "html",
+      "sha256": "981f281554570787cfd9dc57fab74ce863db58a65b0df2c6022afa38ab179f45",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:57+00:00"
+    },
+    "雲林縣-GL000511": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000511",
+      "format": "html",
+      "sha256": "983d4378b838e5e635f954f52875fd02591f29fd3395ee5511a4a52245e022c2",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:57+00:00"
+    },
+    "雲林縣-GL000466": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000466",
+      "format": "html",
+      "sha256": "0810b6696e07b9adb0f3d60203ae26cb3e8fa068b056e50872863601b37af316",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:57+00:00"
+    },
+    "雲林縣-GL000613": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000613",
+      "format": "html",
+      "sha256": "39f9c520825f1e95c4c9dd92070b252c51545f19a46a12c2d747efaf2833bdc2",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:58+00:00"
+    },
+    "雲林縣-GL000574": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000574",
+      "format": "html",
+      "sha256": "d42f685c32cc0fe55fd7842f2a10cfd8fc153957dd90c8ba01fcda9190170b82",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:58+00:00"
+    },
+    "雲林縣-GL000467": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000467",
+      "format": "html",
+      "sha256": "cb10b15a81b9e70145a115c95fbd7b987f851b26233872be9da93e3d98d1d2a8",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:58+00:00"
+    },
+    "雲林縣-GL000424": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000424",
+      "format": "html",
+      "sha256": "f49f52869596c5c42aec89bed411ff7109c9eafc1b604b8fd2b1c57d24403665",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:59+00:00"
+    },
+    "雲林縣-GL000361": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000361",
+      "format": "html",
+      "sha256": "1df87fdee0111d2aeed9d01f8ea7c8e84d782ec204023143b818636acc022a0c",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:59+00:00"
+    },
+    "雲林縣-GL000362": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000362",
+      "format": "html",
+      "sha256": "8301d3dc649074f75005e51cbe80d5137b6521d246c9c9ccdd4d30d33111f0de",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:36:59+00:00"
+    },
+    "雲林縣-GL000224": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000224",
+      "format": "html",
+      "sha256": "5f43c4baed719a6874ecc3b0788c80937585f8e5ebe1d64e36b41d41007f8082",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:00+00:00"
+    },
+    "雲林縣-GL000175": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000175",
+      "format": "html",
+      "sha256": "747cfd51e2f768792b2576a1eb174c3c9143e2c5629f675c7d8b6653e995ab9c",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:00+00:00"
+    },
+    "雲林縣-GL000239": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000239",
+      "format": "html",
+      "sha256": "aba344e4f805337ee9d338fc0c59ef14544f71d94958accdd6cbe307f4ba5f48",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:00+00:00"
+    },
+    "雲林縣-FL040963": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL040963",
+      "format": "html",
+      "sha256": "7a1a3115211fbefdf262abb71b0813c36cfcc6153783bcda536a5a3fa67d36ce",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:01+00:00"
+    },
+    "雲林縣-GL000243": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000243",
+      "format": "html",
+      "sha256": "aa653e4631531b186251749bc2dbcde9269ac516329ff5a23e27a9105275552e",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:01+00:00"
+    },
+    "雲林縣-FL030715": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL030715",
+      "format": "html",
+      "sha256": "1cb251229dd83f333e6498c6b0f9c1a8a853025b936eea627dba4cf91c0b481e",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:01+00:00"
+    },
+    "雲林縣-GL001115": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001115",
+      "format": "html",
+      "sha256": "122f19a367b1a236cda654fccc0517d9d4f8cea5a3c7d86cdc648fd498b12ae5",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:02+00:00"
+    },
+    "雲林縣-GL001120": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL001120",
+      "format": "html",
+      "sha256": "6e2857e60dae233dfab5c8935c1cba94a00df3dba9904b6c51e4ca60fd7b9b06",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:02+00:00"
+    },
+    "雲林縣-FL042014": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL042014",
+      "format": "html",
+      "sha256": "b29926f8fe6b8e6ac033d238ffdc4e5d8556c5f61c8e25bb38200145ab0bc8a1",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:02+00:00"
+    },
+    "雲林縣-FL054840": {
+      "url": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL054840",
+      "format": "html",
+      "sha256": "5ecdae121e60333d7b9fe629df342683a8252090a15b83f74f32eeda221a2f95",
+      "hashScope": "browser-dom-html",
+      "observedAt": "2026-09-29T00:37:03+00:00"
     }
   }
 }

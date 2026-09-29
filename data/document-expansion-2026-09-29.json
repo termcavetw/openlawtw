@@ -1,0 +1,148 @@
+{
+  "indexed": 984,
+  "structuredFull": 955,
+  "articles": 19064,
+  "pdfDocuments": 13,
+  "pdfPages": 408,
+  "htmlDocuments": 16,
+  "sourceOnly": 0,
+  "preservedFullTexts": 955,
+  "resolved": [
+    {
+      "id": "嘉義市-FL031633",
+      "name": "嘉義市建築物未領得使用執照接用水電辦法",
+      "format": "html",
+      "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL031633",
+      "sourcePage": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL031633"
+    },
+    {
+      "id": "嘉義市-FL022993",
+      "name": "嘉義市興辦公共工程建築改良物拆遷補償救濟自治條例",
+      "format": "html",
+      "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022993",
+      "sourcePage": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022993"
+    },
+    {
+      "id": "嘉義市-FL030697",
+      "name": "嘉義市辦理都市計畫規劃徵求民眾意見實施要點",
+      "format": "html",
+      "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030697",
+      "sourcePage": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030697"
+    },
+    {
+      "id": "嘉義縣-FL023521",
+      "name": "嘉義縣建築物施工中發生公共安全事件處理原則",
+      "format": "html",
+      "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL023521",
+      "sourcePage": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL023521"
+    },
+    {
+      "id": "嘉義縣-GL000311",
+      "name": "嘉義縣建築物造價標準表",
+      "format": "html",
+      "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000311",
+      "sourcePage": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000311"
+    },
+    {
+      "id": "嘉義縣-GL000022",
+      "name": "嘉義縣都市計畫公共設施保留地臨時建築使用辦法第四條臨時建築使用細目、建蔽率及最大建築面積",
+      "format": "html",
+      "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000022",
+      "sourcePage": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000022"
+    },
+    {
+      "id": "基隆市-FL004323",
+      "name": "基隆市建築物使用執照變更案違章建築處理原則",
+      "format": "html",
+      "source": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004323",
+      "sourcePage": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL004323"
+    },
+    {
+      "id": "基隆市-GL000239",
+      "name": "基隆市都市計畫甲乙種工業區申請設置工業發展有關設施及公共服務設施暨公用事業設施土地使用審查作業要點",
+      "format": "html",
+      "source": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000239",
+      "sourcePage": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000239"
+    },
+    {
+      "id": "新竹縣-FL048046",
+      "name": "新竹縣湖口（王爺壟地區）都市設計管制要點",
+      "format": "html",
+      "source": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL048046",
+      "sourcePage": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL048046"
+    },
+    {
+      "id": "臺北市-FL069302",
+      "name": "臺北市政府新建大型公有建築物及活動場所設置無障礙設施諮詢方案",
+      "format": "pdf",
+      "source": "https://data.taipei/api/frontstage/tpeod/dataset/resource.download?rid=694b3dc5-3c84-490b-8888-9369300e053f",
+      "sourcePage": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL069302"
+    },
+    {
+      "id": "臺東縣-GL000446",
+      "name": "臺東縣政府辦理都市計畫區內現有巷道認定作業要點",
+      "format": "html",
+      "source": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000446",
+      "sourcePage": "https://law.taitung.gov.tw/LawContent.aspx?id=GL000446"
+    },
+    {
+      "id": "臺東縣-FL043374",
+      "name": "臺東縣非平屋頂建築物之屋頂其高度得不計入建築物高度原則",
+      "format": "html",
+      "source": "https://law.taitung.gov.tw/LawContent.aspx?id=FL043374",
+      "sourcePage": "https://law.taitung.gov.tw/LawContent.aspx?id=FL043374"
+    },
+    {
+      "id": "花蓮縣-GL000621",
+      "name": "花蓮縣建築物雨、污水分流設計審查及竣工查驗標準作業程序",
+      "format": "html",
+      "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000621",
+      "sourcePage": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=GL000621"
+    },
+    {
+      "id": "花蓮縣-FL046054",
+      "name": "花蓮縣既有公共建築物行動不便者設施替代改善計畫處理原則",
+      "format": "html",
+      "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL046054",
+      "sourcePage": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL046054"
+    },
+    {
+      "id": "花蓮縣-FL048392",
+      "name": "花蓮縣違章建築查報及拆除標準作業程序",
+      "format": "html",
+      "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL048392",
+      "sourcePage": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL048392"
+    },
+    {
+      "id": "連江縣-GL000444",
+      "name": "連江縣違章建築分類分期查報拆除計畫",
+      "format": "html",
+      "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000444",
+      "sourcePage": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000444"
+    },
+    {
+      "id": "雲林縣-GL000383",
+      "name": "雲林縣建築物工程造價標準表",
+      "format": "html",
+      "source": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000383",
+      "sourcePage": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000383"
+    },
+    {
+      "id": "雲林縣-GL000243",
+      "name": "雲林縣都市計畫公共設施保留地地價查估圖例",
+      "format": "pdf",
+      "source": "https://law.yunlin.gov.tw/Download.ashx?FileID=1635&id=GL000243&type=LAW",
+      "sourcePage": "https://law.yunlin.gov.tw/LawContent.aspx?id=GL000243"
+    }
+  ],
+  "searchTests": {
+    "existing": 147,
+    "document": 33
+  },
+  "browserChecks": [
+    "PDF keyword search and page 2 link",
+    "PDF page retained on reload",
+    "HTML table and source-note keyword search",
+    "No browser console errors"
+  ]
+}

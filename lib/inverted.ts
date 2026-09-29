@@ -1,5 +1,5 @@
 import {candidateTerms,normalize,parseQuery} from './search.ts';
-export type IndexRow={id:string;no?:string;articles?:string[]};
+export type IndexRow={id:string;no?:string;documentPage?:number;articles?:string[]};
 export type InvertedIndex={version:1;rows:IndexRow[];postings:Record<string,string>};
 // Delta-varint postings keep common CJK grams compact. No original text is copied.
 export function grams(text:string):string[]{const chars=Array.from(normalize(text)),out=new Set<string>();for(let i=0;i<chars.length;i++){out.add(chars[i]);if(i)out.add(chars[i-1]+chars[i]);}return [...out];}
@@ -10,4 +10,4 @@ const decoded=new WeakMap<InvertedIndex,Map<string,number[]>>();
 function posting(index:InvertedIndex,key:string){let cache=decoded.get(index);if(!cache)decoded.set(index,cache=new Map());let p=cache.get(key);if(!p){p=decode(index.postings[key]);cache.set(key,p);}return p;}
 function intersect(lists:number[][]):number[]{if(!lists.length)return [];lists.sort((a,b)=>a.length-b.length);let result=lists[0];for(const list of lists.slice(1)){const next:number[]=[];let a=0,b=0;while(a<result.length&&b<list.length){if(result[a]===list[b]){next.push(result[a]);a++;b++;}else if(result[a]<list[b])a++;else b++;}result=next;if(!result.length)break;}return result;}
 function phrase(index:InvertedIndex,value:string):number[]{const chars=Array.from(normalize(value));const tokens=chars.length===1?chars:chars.slice(1).map((c,i)=>chars[i]+c);return intersect([...new Set(tokens)].map(g=>posting(index,g)));}
-export function candidates(index:InvertedIndex,query:string):IndexRow[]{const groups=candidateTerms(query);const lists=groups.map(alternatives=>[...new Set(alternatives.flatMap(parts=>intersect(parts.map(p=>phrase(index,p)))))].sort((a,b)=>a-b));const ids=lists.length?intersect(lists):index.rows.map((_,i)=>i);const article=parseQuery(query).article;return ids.map(i=>index.rows[i]).filter(r=>!article||(r.no?normalize(r.no)===article:r.articles?.includes(article)));}
+export function candidates(index:InvertedIndex,query:string):IndexRow[]{const groups=candidateTerms(query);const lists=groups.map(alternatives=>[...new Set(alternatives.flatMap(parts=>intersect(parts.map(p=>phrase(index,p)))))].sort((a,b)=>a-b));const ids=lists.length?intersect(lists):index.rows.map((_,i)=>i);const article=parseQuery(query).article;return ids.map(i=>index.rows[i]).filter(r=>!article||r.documentPage!==undefined||(r.no?normalize(r.no)===article:r.articles?.includes(article)));}

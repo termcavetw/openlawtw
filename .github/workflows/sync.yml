@@ -53,6 +53,7 @@ jobs:
             data/sync-report.json
             data/provenance.json
             data/history.json
+            data/versions/
             public/data/laws.json
             public/data/catalog.json
             public/data/rulings.json

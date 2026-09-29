@@ -1,12 +1,13 @@
+import {fileURLToPath} from 'node:url';
 // Real build bytes, deterministic Cache API, no network or browser internals.
 import {readFile} from 'node:fs/promises';
-import {join} from 'node:path';
+import {join} from './paths.mjs';
 import {createHash,webcrypto} from 'node:crypto';
 import {gunzipSync} from 'node:zlib';
 import {spawnSync} from 'node:child_process';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
-const root=new URL('../',import.meta.url).pathname,dist=join(root,'dist'),origin='https://openlawtw.vercel.app';
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=join(root,'dist'),origin='https://openlawtw.vercel.app';
 const source=await readFile(join(dist,'sw.js'),'utf8'),template=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 const manifest=JSON.parse(await readFile(join(dist,'data/manifest.json'),'utf8'));
 const precache=JSON.parse(source.match(/const PRECACHE=(\[.*?\]),MANIFEST=/s)[1]);

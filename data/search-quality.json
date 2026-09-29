@@ -1162,6 +1162,1065 @@
         "source": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000572",
         "text": "高雄市建築工程施工損壞鄰房事件爭議調處辦法"
       }
+    },
+    {
+      "kind": "law",
+      "query": "臺北市建築管理自治條例",
+      "region": "臺北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004106"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004106",
+        "text": "臺北市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "臺北市建築管理自治條例 第 41 條",
+      "region": "臺北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL004106",
+          "article": "第 41 條"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL004106",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新北市建築管理規則",
+      "region": "新北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170035"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170035",
+        "text": "新北市建築管理規則"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "新北市建築管理規則 第 38 條",
+      "region": "新北市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新北市-C0170035",
+          "article": "第 38 條"
+        }
+      ],
+      "basis": {
+        "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170035",
+        "text": "本規則自發布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "桃園市建築管理自治條例",
+      "region": "桃園市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "桃園市-GL001431"
+        }
+      ],
+      "basis": {
+        "source": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001431",
+        "text": "桃園市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "桃園市建築管理自治條例 第 50 條",
+      "region": "桃園市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "桃園市-GL001431",
+          "article": "第 50 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.tycg.gov.tw/LawContent.aspx?id=GL001431",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "臺中市建築管理自治條例",
+      "region": "臺中市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺中市-GL002282"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002282",
+        "text": "臺中市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "臺中市建築管理自治條例 第七十一條",
+      "region": "臺中市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺中市-GL002282",
+          "article": "第七十一條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taichung.gov.tw/LawContent.aspx?id=GL002282",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "臺南市建築管理自治條例",
+      "region": "臺南市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺南市-GL000154"
+        }
+      ],
+      "basis": {
+        "source": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000154",
+        "text": "臺南市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "臺南市建築管理自治條例 第三十六條",
+      "region": "臺南市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺南市-GL000154",
+          "article": "第三十六條"
+        }
+      ],
+      "basis": {
+        "source": "https://law01.tainan.gov.tw/glrsnewsout/LawContent.aspx?id=GL000154",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "高雄市建築管理自治條例",
+      "region": "高雄市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "高雄市-GL000537"
+        }
+      ],
+      "basis": {
+        "source": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000537",
+        "text": "高雄市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "高雄市建築管理自治條例 第七十四條",
+      "region": "高雄市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "高雄市-GL000537",
+          "article": "第七十四條"
+        }
+      ],
+      "basis": {
+        "source": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL000537",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "基隆市建築管理自治條例",
+      "region": "基隆市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "基隆市-GL000079"
+        }
+      ],
+      "basis": {
+        "source": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000079",
+        "text": "基隆市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "基隆市建築管理自治條例 第四十七條",
+      "region": "基隆市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "基隆市-GL000079",
+          "article": "第四十七條"
+        }
+      ],
+      "basis": {
+        "source": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=GL000079",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新竹市建築管理自治條例",
+      "region": "新竹市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹市-FL022481"
+        }
+      ],
+      "basis": {
+        "source": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022481",
+        "text": "新竹市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "新竹市建築管理自治條例 第 42 條",
+      "region": "新竹市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹市-FL022481",
+          "article": "第 42 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.hccg.gov.tw/LawContent.aspx?id=FL022481",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "新竹縣建築管理自治條例",
+      "region": "新竹縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹縣-FL026964"
+        }
+      ],
+      "basis": {
+        "source": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL026964",
+        "text": "新竹縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "新竹縣建築管理自治條例 第三十八條",
+      "region": "新竹縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "新竹縣-FL026964",
+          "article": "第三十八條"
+        }
+      ],
+      "basis": {
+        "source": "https://hclaw.hsinchu.gov.tw/law/LawContent.aspx?id=FL026964",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "苗栗縣建築管理自治條例",
+      "region": "苗栗縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "苗栗縣-FL026450"
+        }
+      ],
+      "basis": {
+        "source": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL026450",
+        "text": "苗栗縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "苗栗縣建築管理自治條例 第 42 條",
+      "region": "苗栗縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "苗栗縣-FL026450",
+          "article": "第 42 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.miaoli.gov.tw/glrsnewsout/LawContent.aspx?id=FL026450",
+        "text": "本自治條例自公布日起施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "彰化縣建築管理自治條例",
+      "region": "彰化縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-FL026531"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL026531",
+        "text": "彰化縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "彰化縣建築管理自治條例 第 41 條",
+      "region": "彰化縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-FL026531",
+          "article": "第 41 條"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL026531",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "南投縣建築管理自治條例",
+      "region": "南投縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "南投縣-FL021919"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021919",
+        "text": "南投縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "南投縣建築管理自治條例 第五十四條",
+      "region": "南投縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "南投縣-FL021919",
+          "article": "第五十四條"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021919",
+        "text": "本自治條例自公布日施行。\n\n \n\n附表\n\n\n\n\n\n\n\n\n\n\n\n路\n\n\n\n\n\n\n\n\n\n\n\n寬\n\n\n\n\n\n\n\n\n\n\n\n截\n\n\n\n\n\n\n\n\n\n\n\n角\n\n\n\n\n\n\n\n\n\n\n\n長\n\n\n\n\n\n\n\n\n\n\n\n度\n\n\n\n\n\n\n\n\n\n\n\n路\n\n\n\n\n\n\n\n\n\n\n\n寬\n\n\n\n\n\n\n\n六\n\n\n七\n\n\n八\n\n\n九\n\n\n十\n\n\n十一\n\n\n十二\n\n\n十三\n\n\n十四\n\n\n十五\n\n\n二十\n\n\n二十五\n\n\n三十\n\n\n四十\n\n\n五十\n\n\n六十\n\n\n七十\n\n\n\n一百\n\n\n\n\n六\n\n\n四\n\n\n四\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n\n\n七\n\n\n四\n\n\n四\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n\n\n八\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n\n\n九\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n\n\n十\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n\n\n十一\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n\n\n十二\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n\n\n十三\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n\n\n十四\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n\n\n十五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n\n\n二十\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n\n\n二十五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n三十\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n四十\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n五十\n\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n六十\n\n\n\n五\n\n\n五\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n七十\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n一百\n\n\n五\n\n\n五\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n六\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n十\n\n\n\n\n \n\n\n（一）單位：公尺。\n（二）路寬為非整數者，按四捨五入計算。\n（三）本表所稱之道路及路寬係指依有關法令公布之道路及路寬或經指定建築線之現有巷道及路寬。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "雲林縣建築管理自治條例",
+      "region": "雲林縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "雲林縣-FL028330"
+        }
+      ],
+      "basis": {
+        "source": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028330",
+        "text": "雲林縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "雲林縣建築管理自治條例 第四十一條",
+      "region": "雲林縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "雲林縣-FL028330",
+          "article": "第四十一條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028330",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "嘉義市建築管理自治條例",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-FL022491"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022491",
+        "text": "嘉義市建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市建築管理自治條例 第四十九條",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-FL022491",
+          "article": "第四十九條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022491",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "嘉義縣建築管理自治條例",
+      "region": "嘉義縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義縣-FL026925"
+        }
+      ],
+      "basis": {
+        "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026925",
+        "text": "嘉義縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義縣建築管理自治條例 第 41 條",
+      "region": "嘉義縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義縣-FL026925",
+          "article": "第 41 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL026925",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "屏東縣建築管理自治條例",
+      "region": "屏東縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "屏東縣-FL026602"
+        }
+      ],
+      "basis": {
+        "source": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026602",
+        "text": "屏東縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "屏東縣建築管理自治條例 第四十一條",
+      "region": "屏東縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "屏東縣-FL026602",
+          "article": "第四十一條"
+        }
+      ],
+      "basis": {
+        "source": "https://ptlaw.pthg.gov.tw/LawContent.aspx?id=FL026602",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "宜蘭縣建築管理自治條例",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-FL023420"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023420",
+        "text": "宜蘭縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "宜蘭縣建築管理自治條例 第四十六條",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-FL023420",
+          "article": "第四十六條"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023420",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "花蓮縣建築管理自治條例",
+      "region": "花蓮縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "花蓮縣-FL026603"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026603",
+        "text": "花蓮縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "花蓮縣建築管理自治條例 第 四十 條",
+      "region": "花蓮縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "花蓮縣-FL026603",
+          "article": "第 四十 條"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026603",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "臺東縣建築管理自治條例",
+      "region": "臺東縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺東縣-FL021926"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taitung.gov.tw/LawContent.aspx?id=FL021926",
+        "text": "臺東縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "臺東縣建築管理自治條例 第 40 條",
+      "region": "臺東縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺東縣-FL021926",
+          "article": "第 40 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.taitung.gov.tw/LawContent.aspx?id=FL021926",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "澎湖縣建築管理自治條例",
+      "region": "澎湖縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "澎湖縣-FL026758"
+        }
+      ],
+      "basis": {
+        "source": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL026758",
+        "text": "澎湖縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "澎湖縣建築管理自治條例 第四十一條",
+      "region": "澎湖縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "澎湖縣-FL026758",
+          "article": "第四十一條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.penghu.gov.tw/glrsnewsout/LawContent.aspx?id=FL026758",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "金門縣建築管理自治條例",
+      "region": "金門縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "金門縣-FL030625"
+        }
+      ],
+      "basis": {
+        "source": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL030625",
+        "text": "金門縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "金門縣建築管理自治條例 第 40 條",
+      "region": "金門縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "金門縣-FL030625",
+          "article": "第 40 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL030625",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "連江縣建築管理自治條例",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000331"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000331",
+        "text": "連江縣建築管理自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "連江縣建築管理自治條例 第四十四條",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000331",
+          "article": "第四十四條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000331",
+        "text": "本自治條例自發布日施行。"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "基隆市畸零地",
+      "region": "基隆市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "基隆市-FL003538"
+        }
+      ],
+      "basis": {
+        "source": "https://exlaw.klcg.gov.tw/LawContent.aspx?id=FL003538",
+        "text": "基隆市公有畸零地合併使用證明書核發基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "雲林縣畸零地",
+      "region": "雲林縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "雲林縣-FL028271"
+        }
+      ],
+      "basis": {
+        "source": "https://law.yunlin.gov.tw/LawContent.aspx?id=FL028271",
+        "text": "雲林縣畸零地使用自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "嘉義市畸零地",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-FL026914"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL026914",
+        "text": "嘉義市公有畸零地合併使用證明書核發基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "嘉義縣畸零地",
+      "region": "嘉義縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義縣-FL052674"
+        }
+      ],
+      "basis": {
+        "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=FL052674",
+        "text": "嘉義縣公有畸零地合併使用證明書核發基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "宜蘭縣畸零地",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-FL023838"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=FL023838",
+        "text": "宜蘭縣公有畸零地合併使用證明書核發基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "花蓮縣畸零地",
+      "region": "花蓮縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "花蓮縣-FL026597"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.hl.gov.tw/glrsout/LawContent.aspx?id=FL026597",
+        "text": "花蓮縣公有畸零地合併使用證明書核發基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "連江縣畸零地",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000279"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000279",
+        "text": "連江縣畸零地使用自治條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市建築工程必須申報勘驗部分作業要點 第五點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000018",
+          "article": "第五點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000018",
+        "text": "承造人未依建築法第五十六條規定申報勘驗即先行動工者，辦理補\n\n     申報勘驗時，基於公共安全考量，應提出專業公會出具之安全鑑定\n\n     報告書及結構強度證明文件（如結構體鑽心試驗報告）。\n\n     鑑定報告書或鑽心試驗報告未合格者，應立即停工，並提報結構補\n\n     強計畫及辦理變更設計，無法補強者依建築法第五十八條規定，得\n\n     強制拆除。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市建築物申請補辦建築執照作業要點 第四點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000022",
+          "article": "第四點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000022",
+        "text": "擅自建造者依建築法第八十六條第一款規定罰鍰。經領得建造執照\n    後，應依建築法規定申報開工、勘驗及申請使用執照。但已建造之\n    結構體與設計圖說相符且經鑑定安全無虞者，無須申報勘驗。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市推行建築基地之法定空地綠化執行要點 第九點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000021",
+          "article": "第九點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000021",
+        "text": "（刪除）"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市政府辦理新領使用執照建築物之複查作業要點 第六點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000290",
+          "article": "第六點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000290",
+        "text": "已於期限內複查完成之案件，如有接獲檢舉、查報二次施工情\n\n    事時，仍得依嘉義市施工中之違章建築即報即拆作業規定處置\n\n    。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市臨時展演場所搭建臨時建築物管理作業程序 第八點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-FL030701",
+          "article": "第八點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030701",
+        "text": "臨時建築物申請延長使用期限者，應於原核准使用期限內提出申請，\n\n    其使用期限(含原核准使用期限)除目的事業主管機關另有規定者外，\n\n    以不超過六個月為限。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市都市計畫農業區土地作為連接建築線私設通路使用審查基準 第四點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000013",
+          "article": "第四點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000013",
+        "text": "農業區土地作為連接建築線私設通路使用應辦理土地分割，並應取\n\n     得該筆私設通路土地之使用同意書。\n\n    \n\n     分割後剩餘土地之申請使用應依相關規定辦理。\n\n    \n\n     分割後變更為非農業使用者，應依農業發展條例等相關規定辦理繳\n\n     交回饋金。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市都市設計審議作業規定 第十一點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000198",
+          "article": "第十一點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000198",
+        "text": "經本府完成核定之案件，申請人應自收受核定函之日起六個月\n\n\n      內申請建築執照，必要時得向都市發展處申請展期，以一次六\n\n\n      個月為限，逾期作廢。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "嘉義市高氯離子混凝土建築物善後處理措施 第七點",
+      "region": "嘉義市",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義市-GL000017",
+          "article": "第七點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000017",
+        "text": "經鑑定機關（構）鑑定為高氯離子混凝土建築物，其原相關監造人或承\n    造人應負之責任，本府應依法移送相關懲戒機關或單位審議；其涉及刑\n    事責任者，並移送司法機關偵辦。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "宜蘭縣政府處理違反建築法使用管理規定事件統一裁罰基準 第3點",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-GL000735",
+          "article": "第3點"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000735",
+        "text": "三、違規事件依附表裁罰外，其情節重大或為特殊情事，符合行政\n\n    罰法加重或減輕裁罰規定之情形者，得酌予加重或減輕裁罰之\n\n    。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "宜蘭縣政府辦理建築物施工計畫書備查作業原則 第5點",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-GL000782",
+          "article": "第5點"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000782",
+        "text": "五、施工計畫書應於開工報請備查作業：\n\n    (一)特殊性案件：起造人或承造人委託建築師公會、土木技師公會、結構\n\n        技師公會或大地技師公會辦理計畫書技術性諮詢作業且無修正意見後\n\n        ，將諮詢結果文件送本府備查。\n\n    (二)一般性案件：由主管建築機關自行辦理備查。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "宜蘭縣興建農舍及其農業用地稽查及取締要點 第九點",
+      "region": "宜蘭縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "宜蘭縣-GL000364",
+          "article": "第九點"
+        }
+      ],
+      "basis": {
+        "source": "https://glrslaw.e-land.gov.tw/LawContent.aspx?id=GL000364",
+        "text": "稽查業務成效良好，或有查核不力者，視情節予以獎懲。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "申請「已完成目的事業開發或利用許可之整體開發水土保持計畫取得水土保持完工證明書之後續個別開發建築或其他開發利用行為，涉及水土保持處理原則」之補充規定 第六點",
+      "region": "嘉義縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "嘉義縣-GL000308",
+          "article": "第六點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.cyhg.gov.tw/LawContent.aspx?id=GL000308",
+        "text": "同意程序：水土保持主管機關同意該申請，應檢附說明書核定本 1 \n\n    式 4  份，送該開發行為目的事業主管機關（單位），並副知其他有\n\n    關機關（單位）、水土保持義務人、設計建築師及簽證專業技師等。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "連江縣免辦建築執照建築物或雜項工作物作業要點 第四點",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000507",
+          "article": "第四點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000507",
+        "text": "下列建築物或構造物，不妨礙公共安全、公共交通、公共衛生、市容觀瞻及相關法令，且土地使用證明文件及構造安全自行負責下，免辦理申請手續。但第（四）、（六）、(十)及(十一)款，應具備圖說報本府列管。另上開構造物涉及開放空間、停車空間、騎樓或無遮簷人行道、防火間隔等應辦理變更使用執照。如需申請接水電者，應報經本府許可後得准予洽臺灣電力股份有限公司或連江縣自來水廠辦理接水電事宜。\n\n\n（一）臺電輸配電鐵塔。\n\n\n（二）藝術雕塑物之台座：\n\n\n1.須設置於公園綠地、廣場、及公私有建築物法定空地（不含騎樓地或無遮簷人行道）。\n\n\n2.台座高度在一．二公尺以下，面積在二十平方公尺以下。\n\n\n（三）建築基地內之花台高度在六十公分以下。\n\n\n（四）未建築使用之土地搭設高度在二公尺以下之鐵絲網。\n\n\n（五）建築基地內之鐵欄杆式圍籬，高度二公尺以下，其以磚、木、混凝土等建造之牆基在六十公分以下，圍牆透空率應達百分之七十以上。\n\n\n（六）守望相助崗亭：\n\n\n1.由合法設立之公寓大廈管理委員會先向警察局申請核准，並檢具核准函件。\n\n\n2.崗亭面積限六．六平方公尺，高度二．五公尺以下。\n\n\n3.應設於主要出入口，並以乙座為限。\n\n\n（七）既有建築物屋頂上設置無線電接收天線及相關附屬設施，其高度未超過九尺或面積未超過建築面積八分之一者，惟不得設置於供避難使用之屋頂平台範圍；或於空地設置直徑未超過三公尺者。既有建築物屋頂上設置非營業性運動休閒遊憩設施（限社區遊憩設施或各目的事業主管機關專業簽報本府同意之用途）及相關附屬設施，其高度未超過六公尺（無昇降設備建物限三公尺）且面積未超過建築面積八分之一者，惟應先報經申設用途之本府目的事業主管機關同意，且不得設置於供避難使用之屋頂平台範圍，並依公寓大廈管理條例規定檢附相關同意設置文件及設置適當之隔音防震設施（檢附建築師或專業技師簽證檢討報告書圖）後，報本府工務處（都計建築科）列管。\n\n\n（八）政府機關自行設置或經目的事業主管機關同意設置之電話亭、公車候車亭、售票亭、路邊停車場之收費亭、警察崗亭，面積在四平方公尺以下且高度未超過二．五公尺者。\n\n\n（九）河川、行水區、已開闢計畫道路或其他已開闢公共設施用地搭建臨時建築物，必須取得用地管理機關及目的事業主管機關同意後始得興建。\n\n\n（十）公共廁所：由政府機關興建供公眾使用，面積七十五平方公尺以下、簷高四公尺以下。\n\n\n（十一）公園綠地廣場及觀光遊憩場所，由政府機關興建供公眾使用為下列項目者：\n\n\n1.涼亭及供休憩建築物：供休憩之涼亭及無門窗建築物，面積七十五平方公尺以下，簷高四公尺以下。\n\n\n2.圍牆及欄杆：高度一．八公尺以下，其以磚、木、鐵、混凝土等造之牆基五十公分以下，透空率應達百分之七十以上。\n\n\n3.大門及牌樓：簷高六公尺以下，投影面積二十平方公尺以下。\n\n\n4.花架：高度四公尺以下。\n\n\n5.露營區營地內之小木屋：簷高二公尺以下，面積二十四平方公尺以下。\n\n\n6.其他雜項設施物（如給水架、烤肉臺、簡易運動設施及類似小型設施物者）。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "連江縣山坡地開發建築基地條件特殊免適用建築技術規則建築設計施工編第二百六十二條第三項規定認定標準 第六條",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000522",
+          "article": "第六條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000522",
+        "text": "本標準自發布日施行。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "連江縣建築物附設防空避難設備或停車空間繳納代金及管理使用自治條例 第 八 條",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000111",
+          "article": "第 八 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000111",
+        "text": "本自治條例自公布日施行。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "連江縣政府違章建築管理自治條例」 第 十一 條",
+      "region": "連江縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "連江縣-GL000280",
+          "article": "第 十一 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.matsu.gov.tw/LawContent.aspx?id=GL000280",
+        "text": "本自治條例自發布日施行。"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "金門縣建築管理自治條例第八條第一項第一款，有關金門特定區計畫商業區建築基地面臨計畫道路之騎樓庇廊或無遮簷人行道設置基準 第二點",
+      "region": "金門縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "金門縣-FL053291",
+          "article": "第二點"
+        }
+      ],
+      "basis": {
+        "source": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL053291",
+        "text": "商業區面臨超過七公尺以上計畫道路，依法設置之騎樓、庇廊或無遮\n\n    簷人行道，應配合左右鄰近建築物之騎樓寬度留設。"
+      }
     }
   ]
 }

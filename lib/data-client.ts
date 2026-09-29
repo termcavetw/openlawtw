@@ -1,7 +1,7 @@
 import rawManifest from '../data/runtime-manifest.json' with {type:'json'};
 import type {DataFile,DataManifest,Law,Ruling,RulingCounts} from './law-types.ts';
 import {candidates,type InvertedIndex,type IndexRow} from './inverted.ts';
-import {searchLaws,searchRulings,type SearchDoc,type SearchHit} from './search.ts';
+import {searchLaws,searchRulings,searchDocumentPages,type DocumentText,type SearchDoc,type SearchHit} from './search.ts';
 declare global {interface Window {OPENLAWTW_PAGE_LAW?:Law}}
 export const manifest=rawManifest as DataManifest;
 const pending=new Map<string,Promise<unknown>>(),memory=new Map<string,unknown>();
@@ -30,5 +30,9 @@ export async function indexedSearch(laws:Law[],query:string,includeRulings=true,
  const loaded=await mapLimit([...byLaw],async([id,nos])=>{const law=await loadLaw(id,signal);return {id,articles:law.articles.filter(a=>nos.has(a.no))};},signal);aborted(signal);
  const corpus:SearchDoc[]=loaded.flatMap(r=>r.status==='fulfilled'?[r.value]:[]);
  // The existing exact matcher/ranker verifies candidates, so grams never create false positives.
- return {base:searchLaws(laws,corpus,query),articles:searchLaws(laws,corpus,query,true),rulings:rulingResult.items,missing:found.missing+rulingResult.missing+loaded.filter(r=>r.status==='rejected').length,candidates:found.rows.length+rulingResult.candidates};
+ const pageIds=new Map<string,Set<number>>();for(const row of found.rows){if(!allowed.has(row.id)||row.documentPage===undefined)continue;let set=pageIds.get(row.id);if(!set)pageIds.set(row.id,set=new Set());set.add(row.documentPage);}
+ const documents=await mapLimit([...pageIds],async([id,pages])=>{const doc=await loadFile<DocumentText>(manifest.documentTexts![id],signal);const law=laws.find(l=>l.id===id)!;return searchDocumentPages(law,doc.pages.filter(p=>pages.has(p.page)),query);},signal);aborted(signal);
+ const documentHits=documents.flatMap(r=>r.status==='fulfilled'?r.value:[]);
+ const ranked=(hits:SearchHit[])=>[...hits,...documentHits].sort((a,b)=>b.score-a.score);
+ return {base:ranked(searchLaws(laws,corpus,query)),articles:ranked(searchLaws(laws,corpus,query,true)),rulings:rulingResult.items,missing:found.missing+rulingResult.missing+loaded.filter(r=>r.status==='rejected').length+documents.filter(r=>r.status==='rejected').length,candidates:found.rows.length+rulingResult.candidates};
 }

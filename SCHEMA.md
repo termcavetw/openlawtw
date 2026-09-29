@@ -86,3 +86,32 @@ Service Worker 管理下的已知法規網址由已驗證介面開啟，再讀�
 ## 官方圖文文件（v0.12）
 
 `Law.document` 保存官方 PDF 的來源、來源頁、頁數、SHA-256、擷取日及版本說明。PDF 與逐頁抽取文字由 `data/documents/catalog.json` 管理；`manifest.documents[lawId]` 指向按需下載的內容定址分片（原始 PDF base64 + 頁面搜尋文字）。PDF 原始位元組保留，不重繪尺寸圖。`coverage: link` 仍表示尚無結構化全文，UI 另顯示「圖文 PDF」；不能用文字抽取代替官方圖表。PDF 日期獨立於 MOI 索引修正日期，重新抓取 HTML 不等於更新 PDF。
+
+
+## 原文文件與全站文件搜尋（2026-09-29）
+
+`Law.document` 表示獨立原文文件，`format` 為 `pdf` 或 `html`（未提供時沿用PDF）。`coverage=full`仍只表示已拆分條文；`coverage=link`且具有`document`時已收錄原文文件，不等於僅有連結。僅來源連結必須同時沒有`document`。
+
+- `manifest.documents[id]`：按需載入的原文文件。PDF包含原檔base64與逐頁抽取文字；HTML包含白名單清理後的正文HTML與完整文字，保留表格合併，不保留腳本、事件及站台樣式。
+- `manifest.documentTexts[id]`：供搜尋驗證的文字資料`{pages:[{page,text}]}`，不含原檔PDF。索引列以`documentPage`標記實際頁碼，不借用`Article.no`。
+- 公報合輯可提供`searchPages`限制搜尋正文；完整`pages`與原始PDF仍保留。`data/documents/catalog.json`的`searchRange`記錄頁碼及首尾原文界線，`startPage`設定預設閱讀頁。
+- 文件結果使用`SearchHit.type=documents`與`documentPage`；全站「條文／文件」結果包含條文及文件頁。
+- 網站分享路由為`/laws/<id>.html#document-page-N`；單檔版為`#law=<id>&page=N`。頁碼必須為正整數，閱讀器再依檔案頁數限制。
+- Runtime目錄不再附帶完整附件清單、前言及備註；開啟法規時自內容資料取得，減少初始下載量。
+- `python scripts/validate-documents.py`核對原檔、HTML文字及表格、PDF抽取文字與公報搜尋範圍。Python檢查需安裝requirements.txt。
+
+
+## v0.15 版本、案件與實務來源
+
+- `data/history.json.archive` 是完整封存的提交索引；`data/versions/objects/<sha256>.json` 保存正文與來源描述，`assets/<sha256>.<ext>` 保存原始檔及既有可讀文字。內容定址檔案不可覆寫；歷史雜湊不會被推定成不存在的歷史全文。`recordedAt` 為封存時間、`sourceRetrieved` 為資料來源擷取欄位，與官方修正／施行日期分開。
+- `data/practice/ntpc-interior-forms.json` 記錄官方原始清單與 11 份書表；`sourcePageSHA256` / `sha256` 各自驗證來源頁與原始 ODT。`versionLabel` 是官方清單標示。建置為 `manifest.practiceDocuments` 的可驗證分片；原始 ODT 以 base64 保存在分片內，不與法條索引混算。
+- `openlawtw-casebook` JSON schemaVersion 1：案件 folders 包含 name、notes、questions、entries。引用保存 locator、quote、contentHash、sourceHash、sourceURL、sourcePageURL、region、observedAt、officialModifiedAt、effectiveAt、capturedAt、note。匯入限制大小、驗證雜湊及安全網址，保存快照不會自動替換。
+
+
+## v0.16 圖文章節衍生資料
+
+`data/documents/readers/catalog.json` 對應 law ID 與圖文來源 JSON。每份 `reader.json` 保存官方原檔 SHA-256、章節／小節、原始逐行文字、跨頁段落與圖檔來源座標；圖檔用 SHA-256 驗證。衍生資料不改變原始 PDF、Law.article、coverage 或官方修正日期。
+
+`manifest.documentReaders[id]` 指向不含圖片的章節目錄，保存章節、小節、搜尋文字、段落定位及各章 DataFile。各章分片按需載入，圖片以 base64 保留無損 WebP；所有分片均列入 manifest.files、所屬地區離線包與單檔 HTML。錯誤或版本不符可重試，並可切回官方原始 PDF。
+
+既有 `#document-page-N` 仍是物理頁碼定位，圖文模式以章節和段落的來源頁碼開啟相應內容。一般法規章節只是 Article.path 的視圖分組，不改寫條文或項款。

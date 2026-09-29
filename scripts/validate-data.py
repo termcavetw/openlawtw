@@ -3,9 +3,9 @@ from pathlib import Path
 import json, re, argparse, hashlib, urllib.parse, xml.etree.ElementTree as ET
 p=argparse.ArgumentParser();p.add_argument("--cache",help="Optional directory of official raw HTML/XML for source completeness checks");args=p.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
-D=json.loads((ROOT/'data/catalog.json').read_text());laws={x['id']:x for x in D['laws']}
+D=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'));laws={x['id']:x for x in D['laws']}
 bundle_path=ROOT/'public/data/laws.json'
-bundle=json.loads(bundle_path.read_text()) if bundle_path.exists() else {}
+bundle=json.loads(bundle_path.read_text(encoding='utf-8')) if bundle_path.exists() else {}
 def read_law(id):
  return bundle[id]
 assert len(laws)==len(D['laws']), 'Duplicate canonical ids'
@@ -27,7 +27,7 @@ for rel in D['relations']:
  child=read_law(rel['child'])
  assert rel['evidence']==child['articles'][0]['text']
  assert rel['source']==child['url']
-R=json.loads((ROOT/'public/data/rulings.json').read_text())['items']
+R=json.loads((ROOT/'public/data/rulings.json').read_text(encoding='utf-8'))['items']
 for r in R:
  assert r['id'] in r['url'] and (r['body'] or r['number']) 
  for x in r['refs']:
@@ -60,6 +60,8 @@ if args.cache:
    containers=tree.xpath('//*[contains(@id,"divLawContent08")]')
    assert containers,(law['name'],'missing official body container')
    source=squash(containers[0].text_content());cursor=0
+   if read_law(law['id']).get('preamble'):
+    prefix=squash(read_law(law['id'])['preamble']);assert source.startswith(prefix),(law['name'],'preamble differs');cursor=len(prefix)
    # These three existing source pages contain a title/publication preamble or
    # a part heading outside their numbered paragraphs. Preserve that exception
    # explicitly rather than allowing arbitrary dropped text in new imports.
@@ -88,14 +90,14 @@ if args.cache:
    body=squash(article['text']);source=squash(official)
    # Some GLRS cells include the article/point heading in the same cell.
    prefix=source[:-len(body)] if source.endswith(body) else None
-   assert prefix is not None and (not prefix or re.fullmatch(r'第?[\d一二三四五六七八九十百千零〇兩ㄧ]+(?:之[\d一二三四五六七八九十百千零〇兩ㄧ]+)?(?:條(?:之[\d一二三四五六七八九十百千零〇兩ㄧ]+)?|[、.．])',prefix)),(law['name'],article['no'],'source body differs')
+   assert prefix is not None and (not prefix or re.fullmatch(r'第?[\d一二三四五六六七八九十百千零〇兩ㄧ]+(?:之[\d一二三四五六六七八九十百千零〇兩ㄧ]+)?(?:條(?:之[\d一二三四五六六七八九十百千零〇兩ㄧ]+)?|[、.．])',prefix)),(law['name'],article['no'],'source body differs')
    body_checked+=1
   checked+=1
  print(f'Official HTML row counts checked for {checked} local laws; no nonempty article row omitted.')
  print(f'Compared {body_checked} complete local article bodies against official sources, including {blob_checked} unstructured pages (presentation whitespace only).')
 
  if (ROOT/'data/provenance.json').exists():
-  sources=json.loads((ROOT/'data/provenance.json').read_text())['sources'];verified=0
+  sources=json.loads((ROOT/'data/provenance.json').read_text(encoding='utf-8'))['sources'];verified=0
   for id,source in sources.items():
    path=cache/('laws/FalV.xml' if id=='CF' else 'orders/MingLing.xml' if id=='CM' else id+'.html')
    if path.exists():assert hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256'],id;verified+=1

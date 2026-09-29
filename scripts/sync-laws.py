@@ -3,11 +3,14 @@ No AI rewrites. Download ZIP/XML to a local cache; preserve article text.
 Usage: python scripts/sync-laws.py --cache /path/to/cache
 """
 from pathlib import Path
+from copy import deepcopy
 import argparse, json, re, urllib.request, urllib.parse, zipfile, hashlib, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from lxml import html
+from local_source import validate_local_text
+PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
@@ -23,20 +26,22 @@ GROUPS={
  '農業與山坡地':['農業發展條例','農業用地興建農舍辦法','申請農業用地作農業設施容許使用審查辦法','水土保持法','水土保持法施行細則','水土保持技術規範','山坡地建築管理辦法','山坡地保育利用條例','休閒農業輔導管理辦法'],
  '環境與其他規範':['環境影響評估法','環境影響評估法施行細則','開發行為應實施環境影響評估細目及範圍認定標準','文化資產保存法','文化資產保存法施行細則','工廠管理輔導法','停車場法','身心障礙者權益保障法','下水道法']
 }
-for category,names in json.loads((ROOT/'data/expanded-central.json').read_text()).items():
+for category,names in json.loads((ROOT/'data/expanded-central.json').read_text(encoding='utf-8')).items():
  GROUPS.setdefault(category,[]).extend(n for n in names if n not in GROUPS[category])
 NAMES={n:g for g,ns in GROUPS.items() for n in ns}
-seed=json.loads((ROOT/'data/extension-seed.json').read_text())
-previous=json.loads((ROOT/'public/data/laws.json').read_text()) if (ROOT/'public/data/laws.json').exists() else {}
+seed=json.loads((ROOT/'data/extension-seed.json').read_text(encoding='utf-8'))
+previous=json.loads((ROOT/'public/data/laws.json').read_text(encoding='utf-8')) if (ROOT/'public/data/laws.json').exists() else {}
 provenance_path=ROOT/'data/provenance.json'
-provenance=json.loads(provenance_path.read_text()) if provenance_path.exists() else {'schemaVersion':2,'sources':{}}
+provenance=json.loads(provenance_path.read_text(encoding='utf-8')) if provenance_path.exists() else {'schemaVersion':2,'sources':{}}
 
 def fetch(url,filename):
  path=CACHE/filename
  if path.exists() and not a.refresh:return path.read_bytes()
  req=urllib.request.Request(url,headers={'User-Agent':'OpenLawTW/0.10 (official source snapshot)'})
  with urllib.request.urlopen(req,timeout=20) as r:b=r.read()
- path.write_bytes(b);return b
+ path.write_bytes(b)
+ if a.refresh:path.with_suffix('.source.json').unlink(missing_ok=True)
+ return b
 
 def date8(v):
  v=v.strip();return f'{v[:4]}-{v[4:6]}-{v[6:8]}' if re.fullmatch(r'\d{8}',v) else v
@@ -96,6 +101,7 @@ regions.sort(key=lambda r:order.index(r['name']))
 
 
 def gettext(node):
+ node=deepcopy(node)
  for br in node.xpath('.//br'):br.tail='\n'+(br.tail or '')
  for x in node.xpath('.//p|.//div'):
   if x.tail is None:x.tail='\n'
@@ -110,14 +116,17 @@ def getlocal(job):
  url=(host+'/Law/LawSearch/LawArticleContent/'+code if site=='臺北市' else host+'/Scripts/FLAWDAT0202.aspx?fcode='+code if site=='新北市' else host+'/LawContent.aspx?id='+code)
  doc=dict(id=sid,name=name,region='中央' if site in ['內政部','農業部'] else site,category=val.get('category',localcat(name)),kind='自治條例' if '自治條例' in name else '地方規定',url=url,source=site+'法規查詢系統',coverage='link',modified='',effective='',effectiveNote='',snapshot='',retrieved='',status='待核對',articles=[],history='',attachments=[],keywords=[],note='已核對官方索引連結；尚未完整收錄文字。')
  if a.only_sites and site not in a.only_sites.split(',') and sid in previous:
-  cached=CACHE/(sid+'.html')
-  if cached.exists() and b'LawContent' in cached.read_bytes():
-   provenance['sources'][sid]={'url':previous[sid]['url'],'format':'html','sha256':hashlib.sha256(cached.read_bytes()).hexdigest(),'hashScope':'downloaded-html-file','observedAt':previous[sid]['retrieved']}
   return previous[sid]
+ raw=None;tree=None
  try:
   if site in a.skip_sites.split(','):raise ValueError('官方來源本次無法連線，保留快照或官方連結')
   raw=fetch(url,sid+'.html'); tree=html.fromstring(raw)
   provenance['sources'][sid]={'url':url,'format':'html','sha256':hashlib.sha256(raw).hexdigest(),'hashScope':'downloaded-html-file','observedAt':datetime.fromtimestamp((CACHE/(sid+'.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds')}
+  cache_meta=CACHE/(sid+'.source.json')
+  if cache_meta.exists() and not a.refresh:
+   meta=json.loads(cache_meta.read_text(encoding='utf-8'))
+   if meta.get('url')!=url or meta.get('sha256')!=hashlib.sha256(raw).hexdigest():raise ValueError('快照來源紀錄不符')
+   provenance['sources'][sid].update(hashScope=meta['hashScope'],observedAt=meta['observedAt'])
   abolished=tree.xpath('//tr[th[contains(.,"廢止日期") or contains(.,"停止適用日期")]]/td')
   if abolished and compact(abolished[0].text_content()):
    report.setdefault('excludedInactive',[]).append({'name':name,'url':url,'date':compact(abolished[0].text_content())});return None
@@ -133,14 +142,14 @@ def getlocal(job):
    known={'桃園市政府受理興辦工業人利用非都市土地使用管制規則申請變更編定為丁種建築用地審查作業要點':'桃園市政府受理非都市土地使用管制規則申請變更編定為丁種建築用地審查作業要點'}
    if actual==known.get(name):doc['keywords']=[name];doc['name']=actual
    else:raise ValueError('名稱不符：'+actual)
-  if val.get('linkOnlyReason'):
+  if val.get('linkOnlyReason') and sid not in PARSING:
    attachments=[{'title':compact(el.text_content()) or '官方附件','url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx") or contains(@href,"LawFileList")]')]
    doc.update(retrieved=provenance['sources'][sid]['observedAt'],status='已核對官方頁面',attachments=list({x['url']:x for x in attachments}.values()),note=val['linkOnlyReason'])
    report['checks'].append({'name':name,'url':url,'type':'link-only','reason':val['linkOnlyReason']})
    return doc
   table=tree.xpath('//table[contains(@id,"tableLawArticle")]')
   articles=[];path=[]
-  chars=r'\d一二三四五六七八九十百千零〇兩ㄧ'
+  chars=r'\d一二三四五六六七八九十百千零〇兩ㄧ六'
   article_re=r'(第?[\s'+chars+r']+條(?:之[\s'+chars+r']+)?)'
   if site=='臺北市':
    containers=tree.xpath('//ul[@class="law law-content"]')
@@ -167,6 +176,7 @@ def getlocal(job):
      if re.search(r'第.*[章節編]',title):path=[title]
     elif len(cells)>=2:
      no=compact(cells[0].text_content());text=gettext(cells[-1])
+     if no.isdecimal():no='第'+no+'點'
      if re.fullmatch(r'['+chars+r']+(?:之['+chars+r']+)?[、.．]',no):no='第'+no[:-1]+'點'
      if not no:
       m=re.match(r'^\s*'+article_re,text)
@@ -174,32 +184,46 @@ def getlocal(job):
       else:
        m=re.match(r'^\s*(['+chars+r']+(?:之['+chars+r']+)?)[、.．]',text)
        if m:no='第'+m.group(1)+'點';text=text[m.end():].strip()
-     if re.search(r'(?:第)?[\d一二三四五六七八九十百千零〇兩ㄧ\s]+(?:之[\d一二三四五六七八九十百千零〇兩ㄧ]+)?[條點]',no) and text:articles.append({'no':no,'text':text,'path':path[:]})
+     if re.search(r'(?:第)?[\d一二三四五六六七八九十百千零〇兩ㄧ\s]+(?:之[\d一二三四五六六七八九十百千零〇兩ㄧ]+)?[條點]',no) and text:articles.append({'no':no,'text':text,'path':path[:]})
      elif text:raise ValueError('無法識別條文段落，保留連結待核對：'+text[:35])
   else:
    bodies=tree.xpath('//*[contains(@id,"divLawContent08")]')
    if not bodies and site not in ['內政部','農業部']:raise ValueError('無可識別的全文容器')
    if not bodies:bodies=[html.fromstring('<div></div>')]
-   blob=gettext(bodies[0])
+   blob=gettext(bodies[0]);title_path=[]
+   if sid in PARSING:
+    prefix=PARSING[sid]['preamble']
+    if not blob.startswith(prefix):raise ValueError('已核對前言與官方來源不符')
+    doc['preamble']=prefix;blob=blob[len(prefix):].lstrip()
+   first=blob.splitlines()[0].strip() if blob else ''
+   if norm(first)==norm(name):title_path=[first];blob=blob[len(blob.splitlines()[0]):].lstrip()
    # A citation at the beginning of a paragraph is not an article heading.
    # Official headings separate the number from the body with whitespace.
    # A chapter citation such as 第四章第九十條 is body text, not a heading.
-   heading=r'(?m)^[ \t\u3000\xa0]*(?P<article>'+article_re+r')(?=[ \t\u3000\xa0]|$)|^[ \t\u3000\xa0]*(?P<chapter>第[ '+chars+r'\u3000\xa0]+[編章節](?:[ \t\u3000\xa0]+[^\n]*)?)$'
-   matches=list(re.finditer(heading,blob));path=[]
+   heading=r'(?m)^[ \t\u3000\xa0]*(?P<article>'+article_re+r')(?=[ \t\u3000\xa0]|$)|^[ \t\u3000\xa0]*(?P<chapter>第[\s'+chars+r'\u3000\xa0]+[編章節](?:[ \t\u3000\xa0]+[^\n]*)?)$'
+   matches=list(re.finditer(heading,blob));path=title_path[:]
    for i,m in enumerate(matches):
     if m.group('chapter'):
-     path=[compact(m.group('chapter'))];continue
+     path=title_path+[compact(m.group('chapter'))];continue
     text=blob[m.end():matches[i+1].start() if i+1<len(matches) else len(blob)].strip()
     if text:articles.append({'no':compact(m.group('article')),'text':text,'path':path[:]})
   if not articles and not table:
    bodies=tree.xpath('//*[contains(@id,"divLawContent08")]')
    if bodies:
-    blob=gettext(bodies[0]); points=list(re.finditer(r'(?m)^[ \t\u3000\xa0]*([一二三四五六七八九十百]+)(?:之([一二三四五六七八九十百]+))?(?:[、．.]|[ \t\u3000\xa0]{2,})',blob))
+    blob=gettext(bodies[0]);title_path=[]
+    if sid in PARSING:
+     prefix=PARSING[sid]['preamble']
+     if not blob.startswith(prefix):raise ValueError('已核對前言與官方來源不符')
+     doc['preamble']=prefix;blob=blob[len(prefix):].lstrip()
+    first=blob.splitlines()[0].strip() if blob else ''
+    if norm(first)==norm(name):title_path=[first];blob=blob[len(blob.splitlines()[0]):].lstrip()
+    points=list(re.finditer(r'(?m)^[ \t\u3000\xa0]*([一二三四五六六七八九十百ㄧ]+)(?:之([一二三四五六六七八九十百ㄧ]+))?(?:[、．.]|[ \t\u3000\xa0]{2,})',blob))
     for i,m in enumerate(points):
      text=blob[m.end():points[i+1].start() if i+1<len(points) else len(blob)].strip()
-     if text:articles.append({'no':'第'+m.group(1)+('之'+m.group(2) if m.group(2) else '')+'點','text':text,'path':[]})
+     if text:articles.append({'no':'第'+m.group(1)+('之'+m.group(2) if m.group(2) else '')+'點','text':text,'path':title_path[:]})
   if len({norm(a['no']) for a in articles})!=len(articles):raise ValueError('重複條號，保留連結待核對')
   if not articles and site not in ['內政部','農業部']:raise ValueError('未解析到條文')
+  if articles and doc['region']!='中央':validate_local_text(tree,{**doc,'articles':articles})
   modified=tree.xpath('//tr[th[contains(.,"修正日期")]]/td'); status=compact(tree.text_content())
   attachments=[{'title':compact(el.text_content()),'url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx")]')]
   if site=='臺北市':
@@ -214,7 +238,7 @@ def getlocal(job):
   type_text=compact(types[0].text_content()) if types else ''
   for kind in ['自治條例','自治規則','行政規則']:
    if kind in type_text:doc['kind']=kind
-  doc.update(coverage='full' if articles else 'link',retrieved=datetime.fromtimestamp((CACHE/(sid+'.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),modified=compact(modified[0].text_content()) if modified else '',status='來源現行頁',articles=articles,attachments=list({x['url']:x for x in attachments}.values()),note='地方資料取自官方頁面；附件保留原站連結。')
+  doc.update(coverage='full' if articles else 'link',retrieved=provenance['sources'][sid]['observedAt'],modified=compact(modified[0].text_content()) if modified else '',status='來源現行頁',articles=articles,attachments=list({x['url']:x for x in attachments}.values()),note='地方資料取自官方頁面；附件保留原站連結。')
   if site in ['內政部','農業部']:
    doc['kind']='技術規範';doc['note']='技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。'
   return doc
@@ -223,11 +247,14 @@ def getlocal(job):
   old=previous.get(sid)
   if old and old.get('coverage')=='full':
    return {**old,'note':'本次未能重新擷取；保留原官方快照，擷取日期未更新。'}
+  if raw is not None and tree is not None:
+   doc.update(retrieved=provenance['sources'].get(sid,{}).get('observedAt',''),status='已取得官方頁面，待完整解析',note=str(e)+'；請查官方原文及附件。')
+   doc['attachments']=[{'title':compact(el.text_content()) or '官方附件','url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx")]')]
   return doc
 
 jobs=[(n,v) for n,v in seed['local'].items() if v['site'] not in ['內政部','農業部'] and not n.startswith('桃園縣') and '原繼續適用' not in n and not any(t in n for t in ['消費者','農作物污染'])]
-jobs += [(v['name'],v) for v in json.loads((ROOT/'data/technical-sources.json').read_text())]
-jobs += [(v['name'],v) for v in json.loads((ROOT/'data/expanded-local.json').read_text())]
+jobs += [(v['name'],v) for v in json.loads((ROOT/'data/technical-sources.json').read_text(encoding='utf-8'))]
+jobs += [(v['name'],v) for v in json.loads((ROOT/'data/expanded-local.json').read_text(encoding='utf-8'))]
 jobs=list({v['site']+'-'+v['id']:(n,v) for n,v in jobs}.values())
 with ThreadPoolExecutor(max_workers=3) as pool:
  for doc in pool.map(getlocal,jobs):
@@ -257,7 +284,7 @@ resources=[
  {'title':'桃園市政府都市發展局','description':'建管、都市計畫與業務公告入口。','region':'桃園市','category':'申辦資源','url':'https://urdb.tycg.gov.tw/'}
 ]+[{'title':r['name']+'法規查詢','description':'前往該縣市官方法規系統查詢自治法規及行政規則。','region':r['name'],'category':'法規查詢','url':r['url']} for r in regions]
 
-ruling_stats=json.loads((ROOT/'public/data/rulings.json').read_text())['stats']
+ruling_stats=json.loads((ROOT/'public/data/rulings.json').read_text(encoding='utf-8'))['stats']
 
 laworder={n:i for i,n in enumerate(NAMES)}
 laws.sort(key=lambda l:(0 if l['region']=='中央' else 1,laworder.get(l['name'],999),l['name']))
@@ -267,24 +294,25 @@ for oldfile in rawdir.glob('*.json'):
  if oldfile.stem not in validids:oldfile.unlink()
 # Curated PDF snapshots are independent of refreshed HTML link records.
 # Keep their own source/version date; an HTML refresh is not a PDF update.
-for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_text()).items():
+for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_text(encoding='utf-8')).items():
  for law in laws:
   if law['id']==doc_id:
-   law['document']={k:doc_source[k] for k in ['pages','source','sourcePage','sha256','versionNote','retrieved']}
-   law['attachments']=[{'title':'已收錄官方圖文 PDF（版本見規範頁）','url':doc_source['source']}]+[a for a in law['attachments'] if a['url']!=doc_source['source']]
+   law['document']={k:doc_source[k] for k in ['pages','source','sourcePage','sha256','versionNote','retrieved','format','startPage','endPage'] if k in doc_source}
+   law['note']=doc_source['versionNote']
+   law['attachments']=[{'title':'已收錄官方原文文件（版本見規範頁）','url':doc_source['source']}]+[a for a in law['attachments'] if a['url']!=doc_source['source']]
 
-(ROOT/'public/data/laws.json').write_text(json.dumps({l['id']:l for l in laws},ensure_ascii=False,separators=(',',':')))
+(ROOT/'public/data/laws.json').write_text(json.dumps({l['id']:l for l in laws},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 for law in laws:
- (ROOT/'public/data/laws'/ (law['id']+'.json')).write_text(json.dumps(law,ensure_ascii=False,separators=(',',':')))
+ (ROOT/'public/data/laws'/ (law['id']+'.json')).write_text(json.dumps(law,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 fulls=[l for l in laws if l['coverage']=='full']
 # Search indexes are built from canonical records; no duplicate text export.
 summary=[]
 for law in laws:
  row={**law,'articleCount':len(law['articles']),'articles':[{'no':a['no'],'text':'','path':a['path']} for a in law['articles']],'history':''}
  summary.append(row)
-catalog={'version':json.loads((ROOT/'package.json').read_text())['version'],'collected':NOW,'snapshot':snapshots[0],'laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
-(ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')))
-(ROOT/'public/data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')))
-provenance_path.write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n')
-(ROOT/'data/sync-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'collected':NOW,'snapshot':snapshots[0],'laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
+(ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+(ROOT/'public/data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+provenance_path.write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(ROOT/'data/sync-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'laws':len(laws),'full':len(fulls),'articles':sum(len(l['articles']) for l in laws),'relations':len(relations),'missing':report['missingCentral'],'failures':report['localFailures']},ensure_ascii=False),flush=True)

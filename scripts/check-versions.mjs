@@ -1,0 +1,73 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir,mkdtemp,rm,readdir} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {join,resolve,relative,sep} from 'node:path';
+import {recordSnapshots} from './record-snapshot.mjs';
+import {sha,canonicalLaw,enrichLaw} from './schema.mjs';
+import {archiveStatus,compareArchivedArticles,versionEvidence} from '../lib/version-evidence.ts';
+
+const base=resolve(fileURLToPath(new URL('../../',import.meta.url))),root=await mkdtemp(join(base,'openlawtw-version-test-'));
+const read=path=>readFile(join(root,path),'utf8').then(JSON.parse);
+const write=(path,value)=>writeFile(join(root,path),JSON.stringify(value));
+const countFiles=async dir=>{const items=await readdir(join(root,dir),{withFileTypes:true});return items.length;};
+let checks=0;const check=(value,message)=>{assert.ok(value,message);checks++;};
+try{
+ await mkdir(join(root,'public/data'),{recursive:true});await mkdir(join(root,'data/documents'),{recursive:true});
+ const original=Buffer.from('%PDF-1.4\nimmutable-source-one\n%%EOF');
+ await writeFile(join(root,'data/documents/example.pdf'),original);
+ await write('data/documents/example-text.json',{pages:[{page:1,text:'第一版圖表內容'}]});
+ let source={file:'data/documents/example.pdf',sha256:sha(original),source:'https://example.gov.tw/original.pdf',sourcePage:'https://example.gov.tw/law',retrieved:'2026-01-05',pages:1};
+ let law={id:'中央-example',name:'版本保存測試法',region:'中央',category:'測試',kind:'法律',url:'https://example.gov.tw/law',source:'官方測試來源',coverage:'full',modified:'2025-01-01',effective:'2025-02-01',effectiveNote:'',snapshot:'',retrieved:'2026-01-05',status:'',preamble:'前言',articles:[{no:'第1條',text:'第一版文字。',path:[]},{no:'第2條',text:'保留舊條文。',path:[]}],history:'原始沿革',attachments:[],keywords:[],document:{...source,versionNote:'來源說明'}};
+ await write('public/data/laws.json',{[law.id]:law});await write('data/catalog.json',{collected:'2026-01-10'});await write('data/documents/catalog.json',{[law.id]:source});
+ const initial=await recordSnapshots(root,{recordedAt:'2026-02-01T01:00:00.000Z'});
+ check(initial.archived===1&&initial.newObjects===1&&initial.newAssets===2,'Initial snapshot retains body plus original and text');
+ const initialBytes=await readFile(join(root,'data/history.json')),first=await read('data/history.json'),version1=first.archive.laws[law.id][0],object1=await read(version1.file.url.slice(1));
+ check(object1.law.articles[0].text==='第一版文字。','Archived complete law body');
+ check(version1.recordedAt==='2026-02-01T01:00:00.000Z'&&version1.batchDate==='2026-01-10'&&version1.sourceRetrieved==='2026-01-05','Recording, batch, and source dates remain distinct');
+ const noOp=await recordSnapshots(root,{recordedAt:'2026-03-01T00:00:00.000Z'});
+ check(noOp.archived===0&&noOp.changes===0&&noOp.newObjects===0&&noOp.newAssets===0,'Unchanged rerun deduplicates all archived bytes');
+ check((await readFile(join(root,'data/history.json'))).equals(initialBytes),'Unchanged rerun does not rewrite observed dates');
+ law={...law,articles:[{no:'第1條',text:'第二版文字。',path:[]},{no:'第3條',text:'新增條文。',path:[]}]};
+ await write('public/data/laws.json',{[law.id]:law});
+ await recordSnapshots(root,{recordedAt:'2026-04-01T00:00:00.000Z'});
+ const second=await read('data/history.json'),version2=second.archive.laws[law.id][1],object2=await read(version2.file.url.slice(1));
+ check(second.archive.laws[law.id].length===2&&version2.previousVersion===version1.file.sha256,'Immutable versions are linked in observation order');
+ check((await read(version1.file.url.slice(1))).law.articles[0].text==='第一版文字。'&&object2.law.articles[0].text==='第二版文字。','Changing a law never replaces the earlier full body');
+ assert.deepEqual(version2.changedArticles,['第1條','第2條','第3條']);checks++;
+ assert.deepEqual(compareArchivedArticles(object1.law,object2.law).map(change=>change.kind),['changed','removed','added']);checks++;
+ check(await countFiles('data/versions/assets')===2,'Unchanged official originals deduplicate across law versions');
+ const changedOriginal=Buffer.from('%PDF-1.4\nimmutable-source-two\n%%EOF');
+ source={...source,sha256:sha(changedOriginal),retrieved:'2026-05-01'};law={...law,document:{...law.document,...source}};
+ await writeFile(join(root,'data/documents/example.pdf'),changedOriginal);await write('data/documents/catalog.json',{[law.id]:source});await write('public/data/laws.json',{[law.id]:law});
+ const committedBeforeFailure=await readFile(join(root,'data/history.json'));
+ await assert.rejects(recordSnapshots(root,{recordedAt:'2026-05-02T00:00:00.000Z',beforeCommit:()=>{throw Error('Simulated interrupted transaction');}}),/Simulated interrupted transaction/);checks++;
+ check((await readFile(join(root,'data/history.json'))).equals(committedBeforeFailure),'Pre-commit failure leaves the entire published history unchanged');
+ const oldAsset=object1.originals.find(file=>file.role==='official-original');
+ check((await readFile(join(root,oldAsset.url.slice(1)))).equals(original),'Previous official binary remains reproducible after source changes and interruption');
+ await recordSnapshots(root,{recordedAt:'2026-05-03T00:00:00.000Z'});
+ const third=await read('data/history.json'),version3=third.archive.laws[law.id][2],object3=await read(version3.file.url.slice(1));
+ check(version3.documentSha256===sha(changedOriginal)&&third.archive.laws[law.id].length===3,'Retry atomically publishes a changed official original');
+ check((await readFile(join(root,object3.originals.find(file=>file.role==='official-original').url.slice(1)))).equals(changedOriginal),'New original binary reproduces its snapshot');
+ const committedBeforeCorruption=await readFile(join(root,'data/history.json'));
+ await writeFile(join(root,'data/documents/example.pdf'),'bad source bytes');
+ await assert.rejects(recordSnapshots(root),/Original source checksum mismatch/);checks++;
+ check((await readFile(join(root,'data/history.json'))).equals(committedBeforeCorruption),'Source checksum failure cannot mutate committed history');
+ await writeFile(join(root,'data/documents/example.pdf'),changedOriginal);
+ const evidence=versionEvidence({...law,retrieved:'misleading-derived-date'},law,'2026-01-10');
+ check(evidence.find(row=>row.label==='資料所載擷取日期').value==='2026-01-05','UI uses input source evidence instead of overwritten enrichment date');
+ check(evidence.find(row=>row.label==='官方再次核對').value.includes('尚未建立'),'UI never infers a live official-source check from snapshot time');
+ check(versionEvidence({...law,modified:'',effective:'9999-12-31',retrieved:'',document:undefined}).some(row=>row.value==='依官方生效說明'),'Unspecified official effective dates remain explicit');
+ check(archiveStatus([],true).includes('未保存可還原正文')&&archiveStatus([version1],true).includes('尚未收錄'),'Legacy hashes are not presented as reconstructed versions');
+ // A migrated hash-only record may predate the full archive. It must never
+ // manufacture a previous-body file or replace the earlier observation ledger.
+ const legacy={schemaVersion:2,note:'older observations',laws:{[law.id]:{contentHash:sha(canonicalLaw(law)),observedAt:'2026-01-10',previousContentHash:'1'.repeat(64),articles:Object.fromEntries(law.articles.map(a=>[a.no,sha(a.text)]))}},changes:[{law:law.id,contentHash:'1'.repeat(64)}]};
+ await write('data/history.json',legacy);await recordSnapshots(root,{recordedAt:'2026-06-01T00:00:00.000Z'});const migrated=await read('data/history.json');
+ check(migrated.archive.laws[law.id].length===1&&migrated.archive.laws[law.id][0].previousVersion===null&&migrated.changes.length===1,'Hash-only migration starts one honest archive baseline and preserves older observations');
+ check(migrated.laws[law.id].observedAt==='2026-01-10','Archive creation does not masquerade as a fresh source observation');
+ const enriched=enrichLaw({...law,snapshot:'2026-01-batch'},{observedAt:'2025-12-20'});
+ check(enriched.retrieved===law.retrieved&&enriched.snapshot==='2026-01-batch','Runtime enrichment retains factual retrieval and batch evidence');
+ check(enriched.version.observedAt==='2025-12-20','Legacy version observation remains a separate date');
+ console.log(JSON.stringify({versionChecks:checks,fullBodyReproduction:'passed',originalReproduction:'passed',noOp:'passed',transactionRollback:'passed',sourceDates:'passed',legacyMigration:'passed'}));
+}finally{
+ const local=relative(base,resolve(root));if(!local.startsWith('openlawtw-version-test-')||local.includes(sep)||local==='..')throw Error('Refusing unsafe fixture cleanup');await rm(root,{recursive:true,force:true});
+}

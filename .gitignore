@@ -15,3 +15,6 @@ public/data/manifest.json
 public/data/aliases.json
 public/data/yinxian-laws.js
 data/runtime-citations.json
+
+data/runtime-practice.json
+public/data/versions/

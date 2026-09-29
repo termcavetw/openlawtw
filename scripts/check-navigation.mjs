@@ -27,7 +27,7 @@ assert.equal(ref('建築法第73條第2款').unit,'','Missing paragraph is not g
 const duplicate=createCitationMatcher([...laws,{...building,id:'duplicate'}],targets);assert.equal(duplicate('建築法第73條').length,0,'Ambiguous titles stay plain text');
 const path='/laws/D0070109.html',anchor='#a-73-p-2';
 assert.equal(lawHref('D0070109','第 73 條','D0070109/a:73/p:2'),path+anchor);
-assert.deepEqual(readRoute(path,anchor),{law:'D0070109',article:'第 73 條',unit:'D0070109/a:73/p:2',ruling:''});
+assert.deepEqual(readRoute(path,anchor),{law:'D0070109',article:'第 73 條',unit:'D0070109/a:73/p:2',ruling:'',documentPage:0});
 assert.deepEqual(readRoute('/',legacyLawHash('D0070109','第 73 條','D0070109/a:73/p:2')),readRoute(path,anchor));
 assert.equal(readRoute('/','').law,'');assert.equal(readRoute('/','#ruling=17669').ruling,'17669');assert.equal(readRoute('/laws/%zz.html','').law,'');
 const units=new Set(),anchors=new Map(),pages=new Map();
@@ -40,6 +40,7 @@ for(const law of laws){
  assert(html.includes(`<link rel="canonical" href="https://openlawtw.vercel.app${lawHref(law.id)}"/>`));
  const texts=[...html.matchAll(/<div class="static-text">([\s\S]*?)<\/div>/g)].map(m=>decode(m[1].replace(/<[^>]*>/g,'')));
  assert.deepEqual(texts,law.articles.map(a=>a.text),law.id+' no-JavaScript original-text fidelity');textArticles+=texts.length;
+ if(law.preamble)assert.equal(decode(html.match(/<div class="static-preamble"[^>]*>([\s\S]*?)<\/div>/)[1]),law.preamble,law.id+' preamble fidelity');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>decode(m[1]));assert.equal(new Set(ids).size,ids.length,law.id+' unique HTML anchors');anchors.set(law.id,new Set(ids));
  for(const article of law.articles){const url=new URL(lawHref(law.id,article.no),'https://example.test');const route=readRoute(url.pathname,url.hash);assert.equal(route.law,law.id);assert.equal(articleAddress(route.article),articleAddress(article.no));}
 }

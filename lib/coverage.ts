@@ -13,6 +13,6 @@ export const coverageTopics=[
 ] as const;
 export function regionCoverage(laws:Law[],region:string){
  const records=laws.filter(l=>l.region===region);
- return {records,full:records.filter(l=>l.coverage==='full'),links:records.filter(l=>l.coverage==='link'),topics:coverageTopics.map(topic=>({...topic,laws:records.filter(l=>topic.pattern.test(l.name))}))};
+ return {records,full:records.filter(l=>l.coverage==='full'),documents:records.filter(l=>!!l.document),links:records.filter(l=>l.coverage==='link'&&!l.document),topics:coverageTopics.map(topic=>({...topic,laws:records.filter(l=>topic.pattern.test(l.name))}))};
 }
 export function captureDate(law:Law){return law.retrieved?.split('T')[0]||'';}
