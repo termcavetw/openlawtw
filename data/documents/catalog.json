@@ -375,5 +375,19 @@
     "retrieved": "2026-09-29T01:20:10+00:00",
     "versionNote": "官方法規頁附件原檔；含圖例及當時附錄，現行適用請核對官方版本。",
     "textMethod": "PDFium 原生文字抽取；表格與圖例以原始 PDF 為準。"
+  },
+  "彰化縣-GL000439": {
+    "format": "html",
+    "file": "data/documents/彰化縣-GL000439-source.html",
+    "contentFile": "data/documents/彰化縣-GL000439.json",
+    "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+    "sourcePage": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+    "sha256": "9cb71d06336e6e32b0c856e7a9bd5ad8e696fd2e03e07e09d9df08788e9af3df",
+    "hashScope": "downloaded-html-file",
+    "bytes": 21730,
+    "pages": 1,
+    "retrieved": "2026-09-29T04:29:53+00:00",
+    "versionNote": "官方頁面正文快照；保留表格、原始標題及編號順序。未重新編排為條文；獨立附表與圖說仍請核對官方附件。",
+    "textMethod": "HTML 本文全部文字與表格列、欄合併逐一核對；移除站台樣式及可執行內容。"
   }
 }

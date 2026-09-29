@@ -21,4 +21,8 @@
 .source-document{font-size:17px;line-height:1.9;overflow-wrap:anywhere}
 .source-document table{border-collapse:collapse;width:100%;min-width:420px}
 .source-document td,.source-document th{border:1px solid #aab5c4;padding:10px;vertical-align:top;min-width:65px}
-.source-document p{margin:0 0 .7em}.source-document pre{white-space:pre-wrap}.source-document a{color:#315a85;text-decoration:underline}.source-document ul,.source-document ol{padding-left:1.5em}
+.source-document p{margin:0 0 .7em}.source-document pre{white-space:pre-wrap}.source-document a{color:#315a85;text-decoration:underline}.source-document ul,.source-document ol{padding-left:1.5em;list-style:revert}.source-document li{margin-bottom:.5em}
+/* Some official pages wrap one ordered list in a two-cell layout table.
+   Keep data tables scrollable, but let this list-only wrapper fit a phone. */
+.source-document table:has(>tbody>tr:only-child>td:first-child:empty+td:last-child ol){min-width:0}
+.source-document table:has(>tbody>tr:only-child>td:first-child:empty+td:last-child ol)>tbody>tr>td:first-child{display:none}

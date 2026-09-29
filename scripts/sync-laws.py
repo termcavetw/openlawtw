@@ -13,8 +13,9 @@ from local_source import validate_local_text
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
 ROOT=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--add-central',action='store_true',help='With --add-only, add missing central records from official XML without changing existing snapshots');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
 if a.add_only and a.refresh:p.error('--add-only and --refresh are mutually exclusive')
+if a.add_central and not a.add_only:p.error('--add-central requires --add-only')
 CACHE=Path(a.cache);CACHE.mkdir(parents=True,exist_ok=True)
 NOW=datetime.now(timezone.utc).isoformat(timespec='seconds')
 GROUPS={
@@ -63,15 +64,16 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
    preserved=[doc for doc in previous.values() if doc['source']=='全國法規資料庫']
    laws.extend(preserved)
    snapshots.extend(sorted({doc.get('snapshot','') for doc in preserved}) or [''])
-  # Adding local documents must not download a newer central XML and then
-  # advertise that date/hash for central text retained from an older snapshot.
-  continue
+  # Existing central records keep their original snapshot and provenance.
+  # A separate source record below identifies each newly added XML law.
+  if not a.add_central:continue
  target=CACHE/label/xml
  if not target.exists() or a.refresh:
   fetch('https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML',label+'.zip')
   with zipfile.ZipFile(CACHE/(label+'.zip')) as z:z.extractall(CACHE/label)
  root=ET.parse(target).getroot(); snapshot=root.attrib.get('UpdateDate','');snapshots.append(snapshot)
- if not a.add_only or key not in provenance['sources']:
+ xml_source={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':datetime.fromtimestamp(target.stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),'snapshot':snapshot}
+ if not a.add_only:
   provenance['sources'][key]={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':NOW,'snapshot':snapshot}
  for item in root.findall('法規'):
   get=lambda k:(item.findtext(k) or '').strip()
@@ -79,8 +81,9 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   if name not in NAMES or get('廢止註記'):continue
   url=get('法規網址');code=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
   if not code:continue
-  if a.add_only and code in previous:
-   laws.append(previous[code]);continue
+  if a.add_only and code in previous:continue
+  if a.add_only:provenance['sources'][code]={**xml_source,'lawId':code,'bulkKey':key}
+  elif provenance['sources'].get(code,{}).get('format')=='xml':provenance['sources'].pop(code)
   articles=[];path=[]
   for part in item.find('法規內容'):
    if part.tag=='編章節':
@@ -92,7 +95,7 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
     text=(part.findtext('條文內容') or '').strip()
     if no and text: articles.append({'no':no,'text':text,'path':[q[1] for q in path]})
   att=[{'title':f.findtext('檔案名稱') or '附件','url':f.findtext('下載網址') or ''} for f in item.findall('附件/檔案')]
-  laws.append(dict(id=code,name=name,region='中央',category=NAMES[name],kind='法規命令' if get('法規性質')=='命令' else get('法規性質'),url=url,source='全國法規資料庫',coverage='full',modified=date8(get('最新異動日期')),effective=date8(get('生效日期')),effectiveNote=get('生效內容'),snapshot=snapshot,retrieved=NOW,status='來源未標廢止',articles=articles,history=get('沿革內容'),attachments=att,keywords=[]))
+  laws.append(dict(id=code,name=name,region='中央',category=NAMES[name],kind='法規命令' if get('法規性質')=='命令' else get('法規性質'),url=url,source='全國法規資料庫',coverage='full',modified=date8(get('最新異動日期')),effective=date8(get('生效日期')),effectiveNote=get('生效內容'),snapshot=snapshot,retrieved=xml_source['observedAt'],status='來源未標廢止',articles=articles,history=get('沿革內容'),attachments=att,keywords=[]))
 report['missingCentral']=[n for n in NAMES if not any(l['name']==n for l in laws)]
 regions=[{'name':n,'url':u,'kind':'GLRS'} for n,u in seed['hosts'].items() if n not in ['內政部','農業部']]
 regions += [{'name':n,'url':v['host'],'kind':v['kind']} for n,v in seed['sites'].items()]
@@ -109,14 +112,14 @@ def gettext(node):
 
 def getlocal(job):
  name,val=job;site=val['site'];code=val['id'];sid=site+'-'+code
- if a.add_only and previous.get(sid,{}).get('coverage')=='full':return previous[sid]
+ if a.add_only and (previous.get(sid,{}).get('coverage')=='full' or previous.get(sid,{}).get('document')):return previous[sid]
  host=seed['hosts'].get(site) or seed['sites'].get(site,{}).get('host')
  if not host:return None
  if site=='臺中市':host='https://law.taichung.gov.tw'
  url=(host+'/Law/LawSearch/LawArticleContent/'+code if site=='臺北市' else host+'/Scripts/FLAWDAT0202.aspx?fcode='+code if site=='新北市' else host+'/LawContent.aspx?id='+code)
  doc=dict(id=sid,name=name,region='中央' if site in ['內政部','農業部'] else site,category=val.get('category',localcat(name)),kind='自治條例' if '自治條例' in name else '地方規定',url=url,source=site+'法規查詢系統',coverage='link',modified='',effective='',effectiveNote='',snapshot='',retrieved='',status='待核對',articles=[],history='',attachments=[],keywords=[],note='已核對官方索引連結；尚未完整收錄文字。')
- if a.only_sites and site not in a.only_sites.split(',') and sid in previous:
-  return previous[sid]
+ if a.only_sites and site not in a.only_sites.split(','):
+  return previous.get(sid)
  raw=None;tree=None
  try:
   if site in a.skip_sites.split(','):raise ValueError('官方來源本次無法連線，保留快照或官方連結')
@@ -176,7 +179,7 @@ def getlocal(job):
      if re.search(r'第.*[章節編]',title):path=[title]
     elif len(cells)>=2:
      no=compact(cells[0].text_content());text=gettext(cells[-1])
-     if no.isdecimal():no='第'+no+'點'
+     if re.fullmatch(r'['+chars+r']+(?:之['+chars+r']+)?',no):no='第'+no+'點'
      if re.fullmatch(r'['+chars+r']+(?:之['+chars+r']+)?[、.．]',no):no='第'+no[:-1]+'點'
      if not no:
       m=re.match(r'^\s*'+article_re,text)

@@ -1,11 +1,30 @@
 """Cross-check the reader, search corpus, chapter index and evidence links."""
 from pathlib import Path
 import json, re, argparse, hashlib, urllib.parse, xml.etree.ElementTree as ET
-p=argparse.ArgumentParser();p.add_argument("--cache",help="Optional directory of official raw HTML/XML for source completeness checks");args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument("--cache",help="Optional directory of official raw HTML/XML for source completeness checks");p.add_argument('--source-ids',help='Comma-separated law IDs to restrict raw-source checks; core validation still covers every law');args=p.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'));laws={x['id']:x for x in D['laws']}
+source_ids=None if args.source_ids is None else {id.strip() for id in args.source_ids.split(',') if id.strip()}
+if source_ids is not None:
+ if not args.cache:p.error('--source-ids requires --cache')
+ if not source_ids:p.error('--source-ids must contain at least one law ID')
+ unknown=source_ids-laws.keys()
+ if unknown:p.error('Unknown --source-ids: '+', '.join(sorted(unknown)))
 bundle_path=ROOT/'public/data/laws.json'
 bundle=json.loads(bundle_path.read_text(encoding='utf-8')) if bundle_path.exists() else {}
+XML_PATHS={'CF':'laws/FalV.xml','CM':'orders/MingLing.xml'}
+def source_path(cache,id,source):
+ if source.get('format')=='xml' or id in XML_PATHS:
+  key=source.get('bulkKey') or (id if id in XML_PATHS else None)
+  if key not in XML_PATHS:raise ValueError('XML provenance requires a valid bulkKey: '+id)
+  if source.get('lawId') and source['lawId']!=id:raise ValueError('XML provenance lawId mismatch: '+id)
+  return cache/XML_PATHS[key]
+ return cache/(id+'.html')
+
+def legacy_xml_key(law):
+ if law['kind']=='法律':return 'CF'
+ if law['kind']=='法規命令':return 'CM'
+ raise ValueError('Cannot identify legacy XML source for '+law['id'])
 def read_law(id):
  return bundle[id]
 assert len(laws)==len(D['laws']), 'Duplicate canonical ids'
@@ -42,6 +61,7 @@ if args.cache:
  # whitespace is ignored; punctuation, figures and legal wording must match.
  squash=lambda text:re.sub(r'\s+','',text)
  for law in D['laws']:
+  if source_ids is not None and law['id'] not in source_ids:continue
   if law['coverage']!='full' or law['region']=='中央':continue
   raw=cache/(law['id']+'.html')
   if not raw.exists():continue
@@ -96,19 +116,45 @@ if args.cache:
  print(f'Official HTML row counts checked for {checked} local laws; no nonempty article row omitted.')
  print(f'Compared {body_checked} complete local article bodies against official sources, including {blob_checked} unstructured pages (presentation whitespace only).')
 
+ sources={};verified=0;digests={}
+ def source_digest(path):
+  if path not in digests:digests[path]=hashlib.sha256(path.read_bytes()).hexdigest()
+  return digests[path]
  if (ROOT/'data/provenance.json').exists():
-  sources=json.loads((ROOT/'data/provenance.json').read_text(encoding='utf-8'))['sources'];verified=0
-  for id,source in sources.items():
-   path=cache/('laws/FalV.xml' if id=='CF' else 'orders/MingLing.xml' if id=='CM' else id+'.html')
-   if path.exists():assert hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256'],id;verified+=1
+  sources=json.loads((ROOT/'data/provenance.json').read_text(encoding='utf-8'))['sources']
+  selected_sources=sources
+  if source_ids is not None:
+   selected_sources={}
+   for id in sorted(source_ids):
+    key=id if id in sources else legacy_xml_key(laws[id]) if laws[id]['source']=='全國法規資料庫' else id
+    assert key in sources,(id,'missing source provenance')
+    selected_sources[key]=sources[key]
+  for id,source in selected_sources.items():
+   path=source_path(cache,id,source)
+   if source_ids is not None:assert path.is_file(),(id,'selected raw source is missing',str(path))
+   if path.exists():assert source_digest(path)==source['sha256'],(id,'raw source SHA-256 mismatch');verified+=1
   print(f'Verified {verified} raw source SHA-256 records (file scope, not fabricated per-law raw hashes).')
- checked_xml=0
- for path in [cache/'laws/FalV.xml',cache/'orders/MingLing.xml']:
+ elif source_ids is not None:
+  raise ValueError('Scoped source validation requires data/provenance.json')
+ checked_xml=0;checked_xml_ids=set()
+ for bulk_key,relative_path in XML_PATHS.items():
+  path=cache/relative_path
   if not path.exists():continue
   for item in ET.parse(path).getroot().findall('法規'):
    url=(item.findtext('法規網址') or '').strip();id=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
+   if source_ids is not None and id not in source_ids:continue
    if id not in bundle or bundle[id]['source']!='全國法規資料庫':continue
+   specific=sources.get(id)
+   if specific and specific.get('format')=='xml':
+    expected_path=source_path(cache,id,specific)
+    if path!=expected_path:continue
+    assert source_digest(path)==specific['sha256'],(id,'per-law XML snapshot SHA-256 mismatch')
+   elif sources.get(bulk_key):
+    assert source_digest(path)==sources[bulk_key]['sha256'],(id,'legacy XML snapshot SHA-256 mismatch')
    official=[(a.findtext('條文內容') or '').strip() for a in item.findall('法規內容/條文') if (a.findtext('條號') or '').strip() and (a.findtext('條文內容') or '').strip()]
    assert official==[a['text'] for a in bundle[id]['articles']],id
-   checked_xml+=1
+   checked_xml+=1;checked_xml_ids.add(id)
+ if source_ids is not None:
+  expected={id for id in source_ids if laws[id]['source']=='全國法規資料庫'}
+  assert expected<=checked_xml_ids,('Selected laws missing from their official XML',sorted(expected-checked_xml_ids))
  print(f'Compared full official XML article text for {checked_xml} central laws.')

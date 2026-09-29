@@ -1,14 +1,14 @@
 import {lawById,data} from './catalog';
 import {loadFile,loadLaw,loadRuling,manifest} from './data-client';
 import {normalize} from './search';
-import {loadPracticeDocument} from './practice-packs';
-import {currentEvidenceVersion,makeArticleEvidence,makeDocumentEvidence,makeRulingEvidence,makeSourceEvidence,type CaseEvidence,type EvidenceVersion} from './casebook';
+import {currentEvidenceVersion,makeArticleEvidence,makeDocumentEvidence,makeRulingEvidence,type CaseEvidence,type EvidenceVersion} from './casebook';
 
 /** Compare against this release; never silently replace a saved quotation. */
 export async function resolveCaseEvidence(entry:CaseEvidence):Promise<EvidenceVersion|null>{
  const locator=entry.locator;
  if(entry.kind==='ruling'&&locator.rulingId)return currentEvidenceVersion(await makeRulingEvidence(await loadRuling(locator.rulingId),{region:'中央',observedAt:data.rulingStats.retrieved}));
- if(entry.kind==='source'&&locator.sourceId){const form=await loadPracticeDocument(locator.sourceId);return currentEvidenceVersion(await makeSourceEvidence({id:form.id,title:form.title,region:form.region,url:form.source,sourcePageURL:form.sourcePage,text:form.text,sourceHash:form.sha256,observedAt:form.retrieved}));}
+ // Retired forms remain valid saved snapshots, but this release cannot verify a current version.
+ if(entry.kind==='source')return null;
  const summary=lawById.get(locator.lawId||'');if(!summary)return null;
  const full=await loadLaw(summary.id);const law={...full,retrieved:summary.retrieved};
  if(entry.kind==='article'){

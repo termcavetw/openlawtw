@@ -8,7 +8,7 @@ manifest.laws[法規ID] 提供 url、sha256、bytes。取得該 URL 的 JSON，�
 每份 Law 保留原有 id、name、url、source、modified、effective、articles，並加入：
 - schemaVersion：2。
 - contentHash：規範化文件內容的 SHA-256，排除抓取時間、批次日期與編輯備註。
-- sourceRecordId：查找來源觀測資料的鍵，中央 CF／CM 是 XML 批次檔。
+- sourceRecordId：查找來源觀測資料的鍵。既有中央快照沿用 CF／CM 的 XML 批次觀測；另行新增且具有 `provenance.sources[id].bulkKey` 的中央法規指向該法規 ID，保留此次取得來源的觀測日期。其 SHA-256 仍是 `bulkKey` 指定的完整 XML 檔雜湊，不是逐部原始檔雜湊。
 - version.observedAt：本庫首次觀測這一內容版本的時間。
 - version.previousContentHash：上次已記錄內容；初始基準為 null。
 - version.officialModified、effectiveDate：來源所列法規整體日期，不能當作各條修正日。
@@ -79,7 +79,7 @@ data/aliases.json 是唯一人工維護的別名來源；build 產生 /data/alia
 
 法規原文可辨識本法／本條例及保守的「依第○條」；函釋不從目前開啟的法規推測「本法」「同法」指誰。未指明項卻直接引用款時，不推測其母項。函釋引用連至本庫快照，不代表發文當時版本。
 
-build 產生 363 個 `/laws/<id>.html` 與靜態目錄 `/laws/index.html`。法規頁包含原文 HTML、結構錨點及同一份 JSON 快照；啟動互動介面時重用當頁 JSON。網站根目錄也提供可爬取的法規目錄。sitemap 共 365 個網址；不補造逐條修正日期或 sitemap lastmod。
+v0.18 build 產生 1,013 個 `/laws/<id>.html` 與靜態目錄 `/laws/index.html`。法規頁包含原文 HTML、結構錨點及同一份 JSON 快照；啟動互動介面時重用當頁 JSON。網站根目錄也提供可爬取的法規目錄。sitemap 共 1,015 個網址；不補造逐條修正日期或 sitemap lastmod。
 
 Service Worker 管理下的已知法規網址由已驗證介面開啟，再讀取相應資料；初次不預存所有法規 HTML。未收錄的 law ID 不套用介面回退。單檔 HTML 的內部導航沿用 hash，分享時使用網站獨立網址。
 
@@ -104,7 +104,7 @@ Service Worker 管理下的已知法規網址由已驗證介面開啟，再讀�
 ## v0.15 版本、案件與實務來源
 
 - `data/history.json.archive` 是完整封存的提交索引；`data/versions/objects/<sha256>.json` 保存正文與來源描述，`assets/<sha256>.<ext>` 保存原始檔及既有可讀文字。內容定址檔案不可覆寫；歷史雜湊不會被推定成不存在的歷史全文。`recordedAt` 為封存時間、`sourceRetrieved` 為資料來源擷取欄位，與官方修正／施行日期分開。
-- `data/practice/ntpc-interior-forms.json` 記錄官方原始清單與 11 份書表；`sourcePageSHA256` / `sha256` 各自驗證來源頁與原始 ODT。`versionLabel` 是官方清單標示。自 v0.17.1 起僅保留為歷史來源封存，不再生成 runtime 目錄、manifest 分片或加入離線包。既有案件的 source 引用仍可解析與匯出，停止提供目前收錄版本比對。
+- v0.15 的 `data/practice/ntpc-interior-forms.json` 曾記錄官方原始清單與 11 份書表；`sourcePageSHA256` / `sha256` 各自驗證來源頁與原始 ODT，`versionLabel` 是官方清單標示。v0.17.1 停止生成 runtime 目錄、manifest 分片與離線包內容；v0.18 將該來源與相關匯入腳本移至專案外封存。既有案件的 source 引用仍可解析與匯出，停止提供目前收錄版本比對。
 - `openlawtw-casebook` JSON schemaVersion 1：案件 folders 包含 name、notes、questions、entries。引用保存 locator、quote、contentHash、sourceHash、sourceURL、sourcePageURL、region、observedAt、officialModifiedAt、effectiveAt、capturedAt、note。匯入限制大小、驗證雜湊及安全網址，保存快照不會自動替換。
 
 
@@ -115,3 +115,11 @@ Service Worker 管理下的已知法規網址由已驗證介面開啟，再讀�
 `manifest.documentReaders[id]` 指向不含圖片的章節目錄，保存章節、小節、搜尋文字、段落定位及各章 DataFile。各章分片按需載入，圖片以 base64 保留無損 WebP；所有分片均列入 manifest.files、所屬地區離線包與單檔 HTML。錯誤或版本不符可重試，並可切回官方原始 PDF。
 
 既有 `#document-page-N` 仍是物理頁碼定位，圖文模式以章節和段落的來源頁碼開啟相應內容。一般法規章節只是 Article.path 的視圖分組，不改寫條文或項款。
+
+## v0.18 新增來源與清理
+
+`data/law-expansion-2026-09-29.json` 記錄本批新增 29 部法規與官方來源。`sync-laws.py --add-only --add-central` 僅匯入設定中缺少的中央法規；新增法規使用各自 `provenance.sources[id]` 的 `bulkKey`、XML SHA-256、來源批次及擷取時間，既有中央批次不被覆蓋。完整同步會清理個別中央來源紀錄，改用本次全量 CF／CM。
+
+`validate-data.py --cache <目錄> --source-ids <逗號分隔ID>` 限定官方來源比對範圍，核心法規／函釋一致性仍全量檢查。`import-source-documents.py` 優先從文件目錄讀取已封存官方HTML，缺少才使用可指定的快取；`--queue` 接收經核實的待收錄來源清單。
+
+已退役的實務資料包原始來源和匯入腳本於 v0.18 移到專案外備份；不影響既有案件引用資料格式。

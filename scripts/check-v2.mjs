@@ -12,6 +12,15 @@ await assert.rejects(loadLaw('D0070109'),/資料尚未下載/);
 const controller=new AbortController(),canceled=loadLaw('D0070109',controller.signal),rejected=assert.rejects(canceled,{name:'AbortError'}),shared=loadLaw('D0070109');controller.abort();const law=await shared;await rejected;assert.equal(calls,2,'one shared law download, independent cancellation');
 assert.equal(law.articles.length,original.D0070109.articles.length);await loadLaw('D0070109');assert.equal(calls,2);
 const different=await loadLaw('D0070115');assert.equal(calls,3,'a different law downloads only its own shard');
+const provenance=await read('data/provenance.json');
+assert.equal(law.sourceRecordId,'CF','Existing central law keeps its original bulk source');
+assert.equal(different.sourceRecordId,'CM','Existing central order keeps its original bulk source');
+for(const [id,source] of Object.entries(provenance.sources).filter(([,source])=>source.format==='xml'&&source.bulkKey)){
+ const document=await read('public'+manifest.laws[id].url);
+ assert.equal(document.sourceRecordId,id,'Added central law must resolve to its own source observation: '+id);
+ assert.equal(provenance.sources[document.sourceRecordId].observedAt,original[id].retrieved,'Source reference retains the actual retrieval date: '+id);
+ assert.equal(document.contentHash,sha(canonicalLaw(original[id])),'Source reference selection does not change legal content: '+id);
+}
 const counts=await loadRulingCounts();assert.equal(calls,4);
 assert(!requests.some(url=>/\/(related|ruling-heads|rulings)-/.test(url)),'Reading laws and counts does not fetch ruling summaries or bodies');
 assert(manifest.rulingCounts.bytes<64*1024,'Keep the shared count table below 64 KiB');

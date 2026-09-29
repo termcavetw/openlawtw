@@ -2221,6 +2221,126 @@
         "source": "https://law.kinmen.gov.tw/LawContent.aspx?id=FL053291",
         "text": "商業區面臨超過七公尺以上計畫道路，依法設置之騎樓、庇廊或無遮\n\n    簷人行道，應配合左右鄰近建築物之騎樓寬度留設。"
       }
+    },
+    {
+      "kind": "law",
+      "query": "防焰 性能 試驗",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120074"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120074",
+        "text": "防焰物品或其材料防焰性能試驗標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "燃氣熱水器 安裝",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120013"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120013",
+        "text": "燃氣熱水器及其配管安裝標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "室內空氣品質標準",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "O0130005"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0130005",
+        "text": "室內空氣品質標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "身心障礙 專用停車位",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0050069"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050069",
+        "text": "身心障礙者專用停車位設置管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "南投 設備 代金",
+      "region": "南投縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "南投縣-FL021920"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021920",
+        "text": "南投縣建築物設備繳納代金及管理使用自治條例"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "彰化 都市更新 最小分配",
+      "region": "彰化縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-GL000465"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000465",
+        "text": "彰化縣都市更新權利變換最小分配面積單元標準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "彰化 違章 檢舉",
+      "region": "彰化縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-GL000439"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+        "text": "彰化縣政府受理違章建築檢舉要點"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "彰化 農業區 合法建築物",
+      "region": "彰化縣",
+      "top": 5,
+      "expected": [
+        {
+          "law": "彰化縣-GL000109"
+        }
+      ],
+      "basis": {
+        "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000109",
+        "text": "彰化縣政府辦理都市計畫農業區已建築供居住使用之合法建築物基地認定作業要點"
+      }
     }
   ]
 }

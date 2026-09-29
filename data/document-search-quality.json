@@ -222,6 +222,13 @@
       "id": "臺北市-FL069302",
       "page": 11,
       "query": "無障礙諮詢小組"
+    },
+    {
+      "id": "彰化縣-GL000439",
+      "page": 1,
+      "query": "現場照片三張",
+      "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+      "basis": "現場照片三張（應顯示明確清楚的違章建築物及拍攝日期）。"
     }
   ]
 }

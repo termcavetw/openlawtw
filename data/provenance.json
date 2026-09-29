@@ -5686,6 +5686,245 @@
       "sha256": "5ecdae121e60333d7b9fe629df342683a8252090a15b83f74f32eeda221a2f95",
       "hashScope": "browser-dom-html",
       "observedAt": "2026-09-29T00:37:03+00:00"
+    },
+    "O0130001": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CF&DType=XML",
+      "format": "xml",
+      "sha256": "8deb2211e7992aff1a20d90db66c9979de4bcd0de49a8656aad6210f384549d5",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:28:35+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "O0130001",
+      "bulkKey": "CF"
+    },
+    "D0050048": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0050048",
+      "bulkKey": "CM"
+    },
+    "D0050069": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0050069",
+      "bulkKey": "CM"
+    },
+    "D0120013": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0120013",
+      "bulkKey": "CM"
+    },
+    "D0120073": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0120073",
+      "bulkKey": "CM"
+    },
+    "D0120074": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0120074",
+      "bulkKey": "CM"
+    },
+    "D0120079": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "D0120079",
+      "bulkKey": "CM"
+    },
+    "J0130028": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "J0130028",
+      "bulkKey": "CM"
+    },
+    "O0130002": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "O0130002",
+      "bulkKey": "CM"
+    },
+    "O0130003": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "O0130003",
+      "bulkKey": "CM"
+    },
+    "O0130005": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "O0130005",
+      "bulkKey": "CM"
+    },
+    "O0130006": {
+      "url": "https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData=CM&DType=XML",
+      "format": "xml",
+      "sha256": "bb3fc43ae1934a74cce407bea84ecd882728d9aca0619ceb3d5ca06766be8795",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-09-29T04:29:28+00:00",
+      "snapshot": "2026/9/18 上午 12:00:00",
+      "lawId": "O0130006",
+      "bulkKey": "CM"
+    },
+    "南投縣-FL053769": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL053769",
+      "format": "html",
+      "sha256": "0a1a0d74ee1c70f99405b2fd177bef0bd44f60e8817723aa9c4db69d51110635",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:52+00:00"
+    },
+    "南投縣-FL021920": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL021920",
+      "format": "html",
+      "sha256": "3e107b1687ee596e178808271cc66fccc44064508586f44377743fdc4bd635cd",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:52+00:00"
+    },
+    "南投縣-GL000020": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000020",
+      "format": "html",
+      "sha256": "c6503ce89476c66b81da5efc9a6150c59ba38854ff0c3aa5677d31d500e733e0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:52+00:00"
+    },
+    "南投縣-FL044609": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL044609",
+      "format": "html",
+      "sha256": "ec78604a1b7d4356f444e6d889541a8a4ab6cb55ecf503515a0ad8e45cfe76c1",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:52+00:00"
+    },
+    "南投縣-FL034563": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=FL034563",
+      "format": "html",
+      "sha256": "8e8aa9a7455e2190b4d7a82c5f5de0aba5868f0f6eb964ee7e7d269f3a1b6ebb",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "南投縣-GL000179": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000179",
+      "format": "html",
+      "sha256": "829f73c5ce89ea25442fca90c4e4f8f6bc1668dd14d7c02b417526740dc2b70d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "南投縣-GL000257": {
+      "url": "https://glrs.nantou.gov.tw/glrsout/LawContent.aspx?id=GL000257",
+      "format": "html",
+      "sha256": "10ec5c0460a09286124bff364562ececcdc989db99c6b7868a911368c661376a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-FL044145": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL044145",
+      "format": "html",
+      "sha256": "5278912cfbf2e53665cf19a03b99f9fcb12815019afd8ce9ad3d94745f7314c6",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-FL026537": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL026537",
+      "format": "html",
+      "sha256": "996e632b352d04c2dc37d515dac8b71a6bdd7da6554c4d0cdffee44f99d04f2a",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-GL000465": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000465",
+      "format": "html",
+      "sha256": "bc1642c424a621b43b5b79b79af4a79c6a1b6f557c2c4aa95c893386d5aa1736",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-FL028115": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL028115",
+      "format": "html",
+      "sha256": "4d1d877ccfd4463264f1711ced339b04a508d9ece9ff2e3949df4143f8136522",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-GL000439": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+      "format": "html",
+      "sha256": "9cb71d06336e6e32b0c856e7a9bd5ad8e696fd2e03e07e09d9df08788e9af3df",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-GL000453": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000453",
+      "format": "html",
+      "sha256": "9cb459c5aab04229e62891281b1ff56668697f039ceaf749e21052816f8fd3d2",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-GL000109": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000109",
+      "format": "html",
+      "sha256": "4a3a7b8c738d87cf4514e083b28fd2af9b7a76659a8b606da1cc1eebe003e15d",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-GL000367": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000367",
+      "format": "html",
+      "sha256": "c6019ec2b840c9997d6fcf011789657508af0f2389c208afc0f14d8a29724fe0",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-FL050628": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL050628",
+      "format": "html",
+      "sha256": "6457115c7b0c89b80ec8362ffbc7b5cbc21ebbdaa081823d7e7e79a8200b78ba",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
+    },
+    "彰化縣-FL088017": {
+      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=FL088017",
+      "format": "html",
+      "sha256": "6bc0a48911599753383d3a16192486ab6c12241e90a926b70b65c069e96b2828",
+      "hashScope": "downloaded-html-file",
+      "observedAt": "2026-09-29T04:29:53+00:00"
     }
   }
 }
