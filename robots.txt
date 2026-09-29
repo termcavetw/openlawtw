@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://openlawtw.vercel.app/sitemap.xml
