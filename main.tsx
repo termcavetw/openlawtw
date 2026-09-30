@@ -16,3 +16,5 @@ import './app/v12.css';
 import './app/universe.css';
 
 import './app/premium.css';
+
+import './components/legal-table.css';
