@@ -15,3 +15,8 @@
 .legal-table-raw{display:block;margin:0;padding:12px;width:max-content;min-width:100%;font-family:monospace;font-size:1em;line-height:1.25;letter-spacing:0;white-space:pre;overflow-wrap:normal;word-break:normal;text-indent:0;tab-size:4}
 .legal-table-raw>span{display:inline-block;text-align:center;white-space:pre;vertical-align:top}
 .article-text,.static-text{min-width:0}
+
+/* Isolate wide table intrinsic sizing without clipping its local scroller. */
+.legal-table-block,.legal-table-scroll{width:100%;box-sizing:border-box}
+.legal-table-block{contain:inline-size}
+.article-text,.static-text,.article-text .legal-unit{min-width:0;max-width:100%}
