@@ -11,10 +11,8 @@ import {AddEvidenceButton} from './casebook';
 import {ReferenceShareButton} from './reference-share';
 import {makeRulingEvidence} from '@/lib/casebook';
 import {data} from '@/lib/catalog';
-
-export function RulingCard({ruling,onClick,selected=false}:{ruling:Ruling;onClick:()=>void;selected?:boolean}){
- return <button className={'ruling-card '+(selected?'selected':'')} onClick={onClick}><div className="result-meta"><span>{ruling.topic}</span><span>{ruling.date||'發文日待核對'}</span></div><h3>{ruling.title}</h3><div className="number">{ruling.number||'字號待核對'}</div>{ruling.status==='mentioned'&&<small className="ruling-status">內文含停止適用／廢止等註記</small>}</button>;
-}
+import {RulingCard} from './ruling-card';
+export {RulingCard};
 
 export function RulingExplorer({items,loading,error,retry,onOpen,selected,saved,onSavedOnly}:{items:Ruling[];loading:boolean;error:boolean;retry:()=>void;onOpen:(r:Ruling)=>void;selected:string;saved:string[];onSavedOnly?:boolean}){
  const [composing,setComposing]=useState(false);
