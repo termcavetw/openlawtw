@@ -14,7 +14,9 @@ async function walk(dir){const entries=await readdir(dir,{withFileTypes:true});r
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/update.html')&&!p.endsWith('/LICENSE')&&!p.endsWith('.zip')&&!p.endsWith('/openlawtw.html')&&!p.endsWith('/vercel.json')&&!p.endsWith('.md')).sort();
 // The runtime bundle and worker already embed the manifest; do not download a duplicate at install.
-const precache=await Promise.all(files.filter(p=>!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+// The social preview image is crawler metadata, not an offline UI asset. Keep it
+// deployed for link previews without charging every PWA installation for it.
+const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&(!p.includes('/laws/')||p.endsWith('/laws/index.html'))&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.
