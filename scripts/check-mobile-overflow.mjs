@@ -30,7 +30,12 @@ for(const width of [320,375,390,430]){
  assert.equal(declaration('.reading-column','min-width',width),'0');
  assert.equal(declaration('.reader-first .reader-scroll','overscroll-behavior-x',width),'none','Horizontal elastic movement stays inside the reader');
  assert.equal(declaration('.reading-column','max-width',width),'820px','Preserve the existing desktop reading measure');
- assert.equal(declaration('.reader-first .reader-scroll','overflow',width),'auto','Vertical reading remains scrollable; content is not clipped');
+ assert.equal(declaration('.reader-first .reader-scroll','overflow-x',width),'hidden','Reader cannot pan sideways outside a table');
+ assert.equal(declaration('.reader-first .reader-scroll','overflow-y',width),'auto','Vertical reading remains scrollable');
+ assert.equal(declaration('.legal-table-block','contain',width),'inline-size','Wide intrinsic table sizes stay local');
+ assert.equal(declaration('.legal-table-scroll','width',width),'100%');
+ assert.equal(declaration('.reader-first .reader-tabbar [data-slot=tabs-trigger] .tab-count','white-space',width),'nowrap');
+ assert.equal(declaration('.reader-first .reader-tabbar [role=tablist]','overflow-x',width),'hidden','The non-table tab strip must not pan sideways either');
  assert.equal(declaration('.reader-first .reader-tabbar [data-slot=tabs-list]','gap',width),'clamp(6px,2vw,14px)');
  assert.equal(declaration('.reader-first .reader-tabbar [data-slot=tabs-trigger]','white-space',width),'normal');
  assert.equal(declaration('.reader-first .reader-tabbar [data-slot=tabs-trigger]','min-width',width),'0');
@@ -47,6 +52,7 @@ for(const width of [320,375,390,430]){
  assert.equal(declaration('.legal-data-table','min-width',width),'34em','Never squeeze table columns to fit the phone');
 }
 const patch=read('app/premium.css').split('/* Let nested flex/grid readers')[1]+read('components/law-reading.css').split('/* Chapter paths/ranges')[1];
-assert(!/overflow(?:-x)?\s*:\s*(?:hidden|clip)|touch-action\s*:/.test(patch),'Repair wrapping without clipping content or disabling touch gestures');
+assert(!/touch-action\s*:|overflow-y\s*:\s*(?:hidden|clip)/.test(patch),'Do not disable table gestures, pinch zoom or vertical reading');
+assert(read('scripts/static-html.mjs').includes('overflow-x:hidden;overflow-y:auto;overscroll-behavior-x:none'),'Static fallback is also vertical-only');
 assert(!/user-scalable\s*=\s*(?:no|0)|maximum-scale\s*=\s*1(?:[,"\s]|$)/.test(read('index.html')),'Pinch zoom is not disabled');
 console.log(JSON.stringify({widths:[320,375,390,430],readerShrink:'passed',tabAndChapterWrapping:'passed',localTableOverflow:'preserved',touchAndZoom:'unchanged',browserGeometry:'requires separate QA'}));
