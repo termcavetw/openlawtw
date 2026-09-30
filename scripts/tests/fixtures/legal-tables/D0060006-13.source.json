@@ -1,0 +1,18 @@
+{
+  "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0060006&flno=13",
+  "retrievedAt": "2026-09-30T08:53:59.758214+00:00",
+  "sha256": "59fcd8447383e4a6f1f1fdcec9cacc5a82d39b632c7d6ffb7ef6f07a88be63e6",
+  "file": "D0060006-13.html",
+  "lawId": "D0060006",
+  "articleNo": "第 13 條",
+  "articleTextFile": "D0060006-13.article.txt",
+  "articleTextSha256": "64ef2fc66daab5c888262defa7b0811f0085e59080c3fc357c735c9ad72224a7",
+  "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+  "pattern": "root-formula",
+  "matchesCorpusExactly": true,
+  "matchesCorpusIgnoringLineLeadingWhitespace": true,
+  "textPreBlocks": 1,
+  "allTextPreBlocksVerbatimInCorpus": true,
+  "nativeHtmlTables": 0,
+  "inlineImages": 0
+}
