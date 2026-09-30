@@ -229,6 +229,21 @@
       "query": "現場照片三張",
       "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
       "basis": "現場照片三張（應顯示明確清楚的違章建築物及拍攝日期）。"
+    },
+    {
+      "id": "NCC-FL096222",
+      "query": "電信室",
+      "page": 1
+    },
+    {
+      "id": "NCC-FL096222",
+      "query": "水平主幹光纜",
+      "page": 62
+    },
+    {
+      "id": "NCC-FL096222",
+      "query": "弱電系統",
+      "page": 110
     }
   ]
 }

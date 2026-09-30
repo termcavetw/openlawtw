@@ -6074,6 +6074,45 @@
       "sha256": "324549651f3d29173fa652feb2816707c2d5dfee2a99bf6d83d1ba5aa988014e",
       "hashScope": "downloaded-html-file",
       "observedAt": "2026-09-30T08:00:08+00:00"
+    },
+    "NCC-FL096222": {
+      "url": "https://gazette2.nat.gov.tw/EG_FileManager/eguploadpub/eg027032/ch06/type1/gov53/num16/images/BB.pdf",
+      "sourcePage": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+      "format": "pdf",
+      "file": "data/documents/NCC-FL096222.pdf",
+      "sha256": "65c88eb06104af0274eec53047175f6f8c71b6f03d51fae694aff1f703cf0d08",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-09-30T10:32:25+00:00"
+    },
+    "NCC-FL096019": {
+      "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg027032/ch06/type1/gov53/num15/Eg.pdf",
+      "sourcePage": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096019",
+      "format": "pdf",
+      "file": "data/formal-sources/FL096019.pdf",
+      "sha256": "47d63377df67423a2478e1ef3fb630afb26c08e0d7a08226bdbfaba9f4b16ed9",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-09-30T10:32:25+00:00",
+      "articlePages": [
+        10,
+        13
+      ],
+      "textMethod": "pdftotext -layout；只移除公報頁首與法規標題，保留條文內文字、標點及換行。"
+    },
+    "內政部-GL001203": {
+      "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg025156/ch02/type2/gov10/num2/Eg.pdf",
+      "sourcePage": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL001203",
+      "format": "pdf",
+      "file": "data/formal-sources/GL001203.pdf",
+      "sha256": "1c3fdc812561caa62030cd9e58f0ace6015a5eb40b6b6971f1b17a597d7be947",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-09-30T10:38:19+00:00",
+      "textMethod": "pdftotext -layout；移除公報頁首、發布令、法規標題及附件下載提示；完整保留12點正文。",
+      "amendment": {
+        "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg026070/ch02/type2/gov10/num2/Eg.pdf",
+        "date": "2020-04-17",
+        "scope": "第六點附件七",
+        "verification": "官方公報發布令及消防署修正公告；未將附件抽字冒充正文。"
+      }
     }
   }
 }
