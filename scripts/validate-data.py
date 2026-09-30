@@ -62,7 +62,7 @@ if args.cache:
  squash=lambda text:re.sub(r'\s+','',text)
  for law in D['laws']:
   if source_ids is not None and law['id'] not in source_ids:continue
-  if law['coverage']!='full' or law['region']=='中央':continue
+  if law['coverage']!='full' or law['source']=='全國法規資料庫':continue
   raw=cache/(law['id']+'.html')
   if not raw.exists():continue
   tree=html.fromstring(raw.read_bytes());tables=tree.xpath('//table[contains(@id,"tableLawArticle")]')
@@ -133,9 +133,67 @@ if args.cache:
    path=source_path(cache,id,source)
    if source_ids is not None:assert path.is_file(),(id,'selected raw source is missing',str(path))
    if path.exists():assert source_digest(path)==source['sha256'],(id,'raw source SHA-256 mismatch');verified+=1
+   if source.get('history'):
+    hp=cache/(id+'-history.html')
+    if source_ids is not None:assert hp.is_file(),(id,'selected history source is missing')
+    if hp.exists():assert source_digest(hp)==source['history']['sha256'],(id,'history SHA-256 mismatch')
   print(f'Verified {verified} raw source SHA-256 records (file scope, not fabricated per-law raw hashes).')
  elif source_ids is not None:
   raise ValueError('Scoped source validation requires data/provenance.json')
+ # Independently compare MOJ HTML article rows and all body characters. The
+ # importer owns line boundaries; this check independently rejects omitted,
+ # duplicated or rewritten official text, headings, metadata and attachments.
+ checked_html_ids=set()
+ for id,source in sources.items():
+  if source_ids is not None and id not in source_ids:continue
+  if source.get('parser')!='moj-lawall-html' or id not in bundle:continue
+  path=cache/(id+'.html')
+  if not path.exists():continue
+  tree=html.fromstring(path.read_bytes(),parser=html.HTMLParser(encoding='utf-8'))
+  rows=tree.xpath('//*[@id="pnLawFla"]//div[@class="law-reg-content"]/div[contains(concat(" ",normalize-space(@class)," ")," row ")]')
+  assert len(rows)==len(bundle[id]['articles']),(id,'MOJ article count')
+  for row,article in zip(rows,bundle[id]['articles']):
+   no=row.xpath('./div[@class="col-no"]/a')[0].text_content()
+   body=row.xpath('./div[@class="col-data"]/div[@class="law-article"]')[0].text_content()
+   assert squash(no)==squash(article['no']),(id,'MOJ article number')
+   assert squash(body)==squash(article['text']),(id,article['no'],'MOJ original text differs')
+  meta=tree.xpath('//*[@id="hlLawName"]/ancestor::table[1]')[0]
+  date_cells=meta.xpath('.//tr[th[contains(.,"修正日期") or contains(.,"公布日期")]]/td')
+  assert len(date_cells)==1,(id,'MOJ date metadata')
+  dm=re.search(r'民國\s*(\d+)\s*年\s*(\d+)\s*月\s*(\d+)\s*日',date_cells[0].text_content())
+  assert dm,(id,'MOJ ROC date')
+  year,month,day=map(int,dm.groups())
+  assert bundle[id]['modified']==f'{year+1911:04d}-{month:02d}-{day:02d}',(id,'MOJ modified date')
+  effect=meta.xpath('.//tr[th[contains(.,"生效狀態")]]/td')
+  effect_text=''
+  if effect:
+   from copy import deepcopy
+   ec=deepcopy(effect[0])
+   for link in ec.xpath('.//a'):link.drop_tree()
+   effect_text=ec.text_content()
+  assert squash(effect_text)==squash(bundle[id]['effectiveNote']),(id,'MOJ effective notice')
+  assert bundle[id]['effective']=='',(id,'HTML import must not infer a whole-law effective date')
+  chapter_path=[];article_index=0
+  for node in tree.xpath('//*[@id="pnLawFla"]//div[@class="law-reg-content"]/*'):
+   if re.search(r'(?:^| )char-\d+(?: |$)',node.get('class','')):
+    label=re.sub(r'\s+',' ',node.text_content()).strip()
+    match=re.match(r'^第\s*[\d一二三四五六七八九十百千零〇兩\s]+([編章節款目])',label)
+    assert match,(id,'MOJ chapter heading')
+    level='編章節款目'.index(match.group(1));chapter_path=[(n,t) for n,t in chapter_path if n<level]+[(level,label)]
+   elif 'row' in node.get('class','').split():
+    assert bundle[id]['articles'][article_index]['path']==[t for _,t in chapter_path],(id,'MOJ chapter path',article_index)
+    article_index+=1
+  official_title=tree.xpath('//*[@id="hlLawName"]')[0].text_content()
+  assert squash(official_title)==squash(bundle[id]['name']),(id,'MOJ name')
+  links=tree.xpath('//*[@id="hlLawName"]/ancestor::table[1]//a[contains(@href,"LawGetFile.ashx")]/@href')
+  assert {urllib.parse.urljoin(source['url'],url) for url in links}=={a['url'] for a in bundle[id]['attachments']},(id,'MOJ attachments')
+  history_path=cache/(id+'-history.html')
+  if history_path.exists():
+   htree=html.fromstring(history_path.read_bytes(),parser=html.HTMLParser(encoding='utf-8'))
+   htexts=htree.xpath('//*[contains(concat(" ",normalize-space(@class)," ")," law-history ")]//*[contains(concat(" ",normalize-space(@class)," ")," text-pre ")]')
+   assert squash(''.join(h.text_content() for h in htexts))==squash(bundle[id]['history']),(id,'MOJ history')
+  checked_html_ids.add(id)
+ print(f'Compared complete official HTML text and attachments for {len(checked_html_ids)} central laws.')
  checked_xml=0;checked_xml_ids=set()
  for bulk_key,relative_path in XML_PATHS.items():
   path=cache/relative_path
@@ -145,6 +203,7 @@ if args.cache:
    if source_ids is not None and id not in source_ids:continue
    if id not in bundle or bundle[id]['source']!='全國法規資料庫':continue
    specific=sources.get(id)
+   if specific and specific.get('parser')=='moj-lawall-html':continue
    if specific and specific.get('format')=='xml':
     expected_path=source_path(cache,id,specific)
     if path!=expected_path:continue
@@ -156,5 +215,5 @@ if args.cache:
    checked_xml+=1;checked_xml_ids.add(id)
  if source_ids is not None:
   expected={id for id in source_ids if laws[id]['source']=='全國法規資料庫'}
-  assert expected<=checked_xml_ids,('Selected laws missing from their official XML',sorted(expected-checked_xml_ids))
+  assert expected<=checked_xml_ids|checked_html_ids,('Selected laws missing from their official XML/HTML',sorted(expected-(checked_xml_ids|checked_html_ids)))
  print(f'Compared full official XML article text for {checked_xml} central laws.')

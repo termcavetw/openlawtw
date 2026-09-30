@@ -13,9 +13,10 @@ from local_source import validate_local_text
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
 ROOT=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--add-central',action='store_true',help='With --add-only, add missing central records from official XML without changing existing snapshots');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--add-central',action='store_true',help='With --add-only, add missing central records from official XML without changing existing snapshots');p.add_argument('--central-html',help='With --add-only, import central records from an explicit MOJ HTML source manifest instead of bulk XML');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
 if a.add_only and a.refresh:p.error('--add-only and --refresh are mutually exclusive')
 if a.add_central and not a.add_only:p.error('--add-central requires --add-only')
+if a.central_html and not a.add_only:p.error('--central-html requires --add-only')
 CACHE=Path(a.cache);CACHE.mkdir(parents=True,exist_ok=True)
 NOW=datetime.now(timezone.utc).isoformat(timespec='seconds')
 GROUPS={
@@ -66,7 +67,7 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
    snapshots.extend(sorted({doc.get('snapshot','') for doc in preserved}) or [''])
   # Existing central records keep their original snapshot and provenance.
   # A separate source record below identifies each newly added XML law.
-  if not a.add_central:continue
+  if not a.add_central or a.central_html:continue
  target=CACHE/label/xml
  if not target.exists() or a.refresh:
   fetch('https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML',label+'.zip')
@@ -83,7 +84,7 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   if not code:continue
   if a.add_only and code in previous:continue
   if a.add_only:provenance['sources'][code]={**xml_source,'lawId':code,'bulkKey':key}
-  elif provenance['sources'].get(code,{}).get('format')=='xml':provenance['sources'].pop(code)
+  elif code in provenance['sources']:provenance['sources'].pop(code)
   articles=[];path=[]
   for part in item.find('法規內容'):
    if part.tag=='編章節':
@@ -96,6 +97,22 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
     if no and text: articles.append({'no':no,'text':text,'path':[q[1] for q in path]})
   att=[{'title':f.findtext('檔案名稱') or '附件','url':f.findtext('下載網址') or ''} for f in item.findall('附件/檔案')]
   laws.append(dict(id=code,name=name,region='中央',category=NAMES[name],kind='法規命令' if get('法規性質')=='命令' else get('法規性質'),url=url,source='全國法規資料庫',coverage='full',modified=date8(get('最新異動日期')),effective=date8(get('生效日期')),effectiveNote=get('生效內容'),snapshot=snapshot,retrieved=xml_source['observedAt'],status='來源未標廢止',articles=articles,history=get('沿革內容'),attachments=att,keywords=[]))
+if a.central_html:
+ from moj_source import parse_law_all
+ for item in json.loads(Path(a.central_html).read_text(encoding='utf-8')):
+  code=item['id'];name=item['name']
+  if code in previous:continue
+  if name not in NAMES:raise ValueError('Central HTML law must be in expanded-central.json: '+name)
+  url='https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode='+code
+  raw=fetch(url,code+'.html')
+  observed=datetime.fromtimestamp((CACHE/(code+'.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds')
+  history_raw=fetch('https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode='+code,code+'-history.html')
+  history_observed=datetime.fromtimestamp((CACHE/(code+'-history.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds')
+  fields=parse_law_all(raw,code,name,retrieved=observed,history_html=history_raw,history_retrieved=history_observed)
+  provenance['sources'][code]={**fields.pop('provenance'),'parser':'moj-lawall-html'}
+  laws.append({**fields,'category':NAMES[name],'kind':item['kind']})
+  report['checks'].append({'name':name,'url':url,'type':'central-html','reason':'Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import'})
+
 report['missingCentral']=[n for n in NAMES if not any(l['name']==n for l in laws)]
 regions=[{'name':n,'url':u,'kind':'GLRS'} for n,u in seed['hosts'].items() if n not in ['內政部','農業部']]
 regions += [{'name':n,'url':v['host'],'kind':v['kind']} for n,v in seed['sites'].items()]
@@ -243,7 +260,7 @@ def getlocal(job):
    if kind in type_text:doc['kind']=kind
   doc.update(coverage='full' if articles else 'link',retrieved=provenance['sources'][sid]['observedAt'],modified=compact(modified[0].text_content()) if modified else '',status='來源現行頁',articles=articles,attachments=list({x['url']:x for x in attachments}.values()),note='地方資料取自官方頁面；附件保留原站連結。')
   if site in ['內政部','農業部']:
-   doc['kind']='技術規範';doc['note']='技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。'
+   doc['kind']=val.get('kind','技術規範');doc['note']=val.get('note','技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。')
   return doc
  except Exception as e:
   report['localFailures'].append({'name':name,'reason':str(e),'url':url})
@@ -313,7 +330,7 @@ summary=[]
 for law in laws:
  row={**law,'articleCount':len(law['articles']),'articles':[{'no':a['no'],'text':'','path':a['path']} for a in law['articles']],'history':''}
  summary.append(row)
-catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'collected':NOW,'snapshot':snapshots[0],'laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
+catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'collected':NOW,'snapshot':snapshots[0],'laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照或逐筆下載的全國法規資料庫頁面；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
 (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 (ROOT/'public/data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 provenance_path.write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
