@@ -2462,6 +2462,152 @@
         "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
         "text": "原廠及擴展工業均屬低污染事業。"
       }
+    },
+    {
+      "kind": "law",
+      "query": "電信送審",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "K0060159"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0060159",
+        "text": "建築物電信設備及空間設置使用管理規則（110.02.22 訂定）"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信審驗",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "NCC-FL096019"
+        }
+      ],
+      "basis": {
+        "source": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096019",
+        "text": "建築物電信設備審查及審驗機構管理辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信技術規範",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "NCC-FL096222"
+        }
+      ],
+      "basis": {
+        "source": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+        "text": "建築物屋內外電信設備設置技術規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信室",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "NCC-FL096222"
+        }
+      ],
+      "basis": {
+        "source": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+        "text": "建築物屋內外電信設備設置技術規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "弱電",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "NCC-FL096222"
+        }
+      ],
+      "basis": {
+        "source": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+        "text": "建築物屋內外電信設備設置技術規範"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防送審",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "內政部-GL001203"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL001203",
+        "text": "消防機關辦理建築物消防安全設備審查及查驗作業基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防查驗",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "內政部-GL001203"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL001203",
+        "text": "消防機關辦理建築物消防安全設備審查及查驗作業基準"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防設備設置標準",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120029"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120029",
+        "text": "各類場所消防安全設備設置標準"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "電信送審",
+      "region": "全台",
+      "expected": [
+        {
+          "guide": "telecom-review"
+        }
+      ],
+      "basis": {
+        "text": "導向已核對正式條文，非法律適用結論"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "消防查驗",
+      "region": "全台",
+      "expected": [
+        {
+          "guide": "fire-review"
+        }
+      ],
+      "basis": {
+        "text": "導向已核對正式條文，非法律適用結論"
+      }
     }
   ]
 }
