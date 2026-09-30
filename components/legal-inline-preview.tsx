@@ -13,6 +13,8 @@ export type InlineSelection={kind:'definition';definition:LegalDefinition;law:La
 function unitById(units:LegalUnit[],id:string):LegalUnit|undefined {for(const u of units){if(u.id===id)return u;const child=unitById(u.children,id);if(child)return child;}}
 export default function LegalInlinePreview({selection,onClose,onChoose}:{selection:InlineSelection;onClose:()=>void;onChoose:ChooseLaw}){
  const law=selection.kind==='definition'?selection.law:selection.reference.law;
+ // Official feeds use year 9999 as an undetermined-date sentinel.
+ const effectiveDate=law.effective&&!/^9999(?:[-/]|$)/.test(law.effective)?law.effective:'';
  const articleNo=selection.kind==='definition'?selection.definition.article:selection.reference.article;
  const unit=selection.kind==='citation'?selection.reference.unit:'';
  const [loaded,setLoaded]=useState<Law|null>(selection.kind==='definition'?law:null),[error,setError]=useState(false),[attempt,setAttempt]=useState(0);
@@ -27,7 +29,7 @@ export default function LegalInlinePreview({selection,onClose,onChoose}:{selecti
   <div className="legal-preview-body">
    <p className="legal-preview-note">{selection.kind==='definition'?'本法規的正式定義原文，僅供此法規語境核對。':'以下為本庫收錄的官方條文快照，請核對現行版本。'}{selection.kind==='citation'&&selection.reference.fallback?' 引用的項款尚未核實，顯示整條。':''}</p>
    {error?<div role="alert"><p>原文暫時無法載入。</p><button onClick={()=>setAttempt(n=>n+1)}>重試</button></div>:!loaded?<p role="status">正在載入官方原文…</p>:text?<div className="legal-preview-text"><LegalTextWithTables text={text} label={law.name+' '+articleNo} renderText={part=>part}/></div>:<p role="alert">本版本找不到對應條文，請核對官方來源。</p>}
-   <footer><a href={href} onClick={event=>{if(event.button||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();onClose();onChoose(law.id,articleNo,unit);}}>閱讀完整法條<ArrowUpRight size={13}/></a><a href={law.url} target="_blank" rel="noreferrer">官方來源<ExternalLink size={12}/></a><span>快照：{law.snapshot||law.retrieved||'日期未列'}</span>{law.effective&&<span>法規生效日期：{law.effective}</span>}</footer>
+   <footer><a href={href} onClick={event=>{if(event.button||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();onClose();onChoose(law.id,articleNo,unit);}}>閱讀完整法條<ArrowUpRight size={13}/></a><a href={law.url} target="_blank" rel="noreferrer">官方來源<ExternalLink size={12}/></a><span>快照：{law.snapshot||law.retrieved||'日期未列'}</span>{effectiveDate&&<span>法規生效日期：{effectiveDate}</span>}</footer>
   </div>
  </Modal.Content></Modal.Portal></Modal.Root>;
 }
