@@ -1,0 +1,17 @@
+/* Table geometry is independent of prose font, spacing, and line wrapping. */
+.legal-table-block{display:block;min-width:0;max-width:100%;margin:1em 0;white-space:normal;text-indent:0;letter-spacing:normal;font-family:system-ui,'Noto Sans TC',sans-serif}
+.legal-table-block figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4em 1em;font-size:12px;line-height:1.6;color:#60736d;margin-bottom:8px}
+.legal-table-block figcaption span{font-weight:400}
+.legal-table-scroll{display:block;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;border:1px solid #b9c6bd;border-radius:4px;background:#fff;scrollbar-width:thin}
+.legal-table-scroll:focus-visible{outline:2px solid #426852;outline-offset:3px}
+.legal-data-table{border-collapse:collapse;min-width:34em;width:100%;table-layout:auto;font:inherit;font-size:.9em;line-height:1.7;white-space:pre-wrap;overflow-wrap:normal;word-break:normal;text-align:left}
+.legal-data-table td{border:1px solid #b9c6bd;padding:.65em .8em;vertical-align:top;min-width:5em}
+.legal-data-table tr:first-child td{background:#f0f4ed}
+.legal-data-table td:first-child{min-width:10em}
+.legal-table-caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.legal-table-source{font-size:12px;line-height:1.7;margin-top:8px}
+.legal-table-source>summary{cursor:pointer;color:#587065;width:fit-content;padding:5px 0}
+.legal-table-source .legal-table-scroll{margin-top:6px;font-size:16px}
+.legal-table-raw{display:block;margin:0;padding:12px;width:max-content;min-width:100%;font-family:monospace;font-size:1em;line-height:1.25;letter-spacing:0;white-space:pre;overflow-wrap:normal;word-break:normal;text-indent:0;tab-size:4}
+.legal-table-raw>span{display:inline-block;text-align:center;white-space:pre;vertical-align:top}
+.article-text,.static-text{min-width:0}
