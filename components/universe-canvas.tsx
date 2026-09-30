@@ -1,8 +1,9 @@
 import {forwardRef,useEffect,useImperativeHandle,useMemo,useRef,useState} from 'react';
 import type {UniverseGraph,UniverseNode} from '@/lib/universe';
-import {defaultUniverseAngles,orbitUniverseCamera,pickUniverseNode,projectUniversePoint,stableFraction,universeSpace,type UniverseCamera,type UniverseHit,type UniverseProjection} from '@/lib/universe-3d';
+import {defaultUniverseAngles,orbitUniverseCamera,pickUniverseNode,projectUniversePoint,universeSpace,type UniverseCamera,type UniverseHit,type UniverseProjection} from '@/lib/universe-3d';
 
 export type UniverseCanvasHandle={fit:(ids?:Set<string>,animate?:boolean)=>void;zoom:(factor:number)=>void;rotate:(yaw:number,pitch:number)=>void;reset:()=>void;exportPNG:()=>void};
+// Preserve the original topic colors; shape still distinguishes legal-source type.
 const palette=['#62d9f7','#7de4c8','#ecbd7e','#b69bfa','#f5d98b','#8cd0b4','#8ca9eb','#ef9cb6'];
 const categories=['建築與設計','使用與室內裝修','都市計畫與土地','都市更新與危老','消防與公共安全','農業與山坡地','環境與其他規範','目的事業與設立標準'];
 export const universeColor=(n:UniverseNode)=>n.kind==='ruling'?'#f2c997':palette[Math.max(0,categories.indexOf(n.category))];
@@ -20,7 +21,7 @@ export const UniverseCanvas=forwardRef<UniverseCanvasHandle,Props>(function Univ
  const data=useRef({graph,focus,selected,mode,space});data.current={graph,focus,selected,mode,space};
  const pointers=useRef(new Map<number,{x:number;y:number}>()),gesture=useRef<Gesture|null>(null);
  const labelHits=useRef<{id:string;x:number;y:number;w:number;h:number}[]>([]);
- const projected=useRef<ProjectedNode[]>([]),glows=useRef(new Map<string,HTMLCanvasElement>()),background=useRef<HTMLCanvasElement|null>(null),measurements=useRef(new Map<string,number>());
+ const projected=useRef<ProjectedNode[]>([]),glows=useRef(new Map<string,HTMLCanvasElement>()),measurements=useRef(new Map<string,number>());
  const [hover,setHover]=useState<{node:UniverseNode;x:number;y:number}|null>(null);
  const reduced=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  function schedule(){if(!frame.current)frame.current=requestAnimationFrame(()=>{frame.current=0;drawRef.current();});}
@@ -42,23 +43,15 @@ export const UniverseCanvas=forwardRef<UniverseCanvasHandle,Props>(function Univ
  function reset(){stopAnimation();camera.current={...camera.current,...defaultUniverseAngles};fit();}
  function pick(x:number,y:number){const label=labelHits.current.find(b=>x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h);const id=label?.id??pickUniverseNode(projected.current,x,y);return id?data.current.graph.byId.get(id)??null:null;}
  function glow(color:string){let sprite=glows.current.get(color);if(sprite)return sprite;sprite=document.createElement('canvas');sprite.width=sprite.height=96;const ctx=sprite.getContext('2d');if(ctx){const g=ctx.createRadialGradient(48,48,1,48,48,48);g.addColorStop(0,color+'bb');g.addColorStop(.14,color+'78');g.addColorStop(.4,color+'26');g.addColorStop(1,color+'00');ctx.fillStyle=g;ctx.fillRect(0,0,96,96);}glows.current.set(color,sprite);return sprite;}
- function backdrop(ctx:CanvasRenderingContext2D,w:number,h:number,dpr:number){
-  if(!background.current){const bg=document.createElement('canvas');bg.width=Math.round(w*dpr);bg.height=Math.round(h*dpr);const b=bg.getContext('2d');if(!b)return;b.scale(dpr,dpr);b.fillStyle='#050c1a';b.fillRect(0,0,w,h);
-   for(const [x,y,r,color] of [[w*.31,h*.54,w*.59,'#114653'],[w*.73,h*.43,w*.43,'#29234f'],[w*.52,h*.85,w*.5,'#173041']] as const){const g=b.createRadialGradient(x,y,0,x,y,Math.max(240,r));g.addColorStop(0,color+'55');g.addColorStop(.55,color+'19');g.addColorStop(1,color+'00');b.fillStyle=g;b.fillRect(0,0,w,h);}
-   const stars=Math.min(900,Math.max(180,Math.round(w*h/1600)));
-   for(let i=0;i<stars;i++){const x=stableFraction('star-x'+i)*w,y=stableFraction('star-y'+i)*h,bright=stableFraction('star-b'+i),r=bright>.96?1.25:bright>.68?.75:.45;b.fillStyle=bright>.8?'#91adc8':'#56728e';b.globalAlpha=.16+bright*.42;b.fillRect(x,y,r,r);if(bright>.985){b.globalAlpha=.2;b.fillRect(x-3,y,7,.5);b.fillRect(x,y-3,.5,7);}}
-   b.globalAlpha=1;const vignette=b.createRadialGradient(w/2,h/2,Math.min(w,h)*.2,w/2,h/2,Math.max(w,h)*.68);vignette.addColorStop(0,'#03091400');vignette.addColorStop(1,'#03091499');b.fillStyle=vignette;b.fillRect(0,0,w,h);background.current=bg;
-  }
-  ctx.drawImage(background.current,0,0,w,h);
+ function backdrop(ctx:CanvasRenderingContext2D,w:number,h:number,_dpr:number){
+  // Only evidence-backed nodes and relationships appear on this quiet field.
+  // No decorative stars, nebula gradients or orbital paths compete with them.
+  ctx.fillStyle='#080809';ctx.fillRect(0,0,w,h);
  }
  function draw(){
   const el=canvas.current,ctx=el?.getContext('2d');if(!ctx)return;
   const {w,h,dpr}=size.current,c=camera.current,{graph:g,focus:f,selected:s,mode:m,space:sp}=data.current;
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalAlpha=1;ctx.clearRect(0,0,w,h);backdrop(ctx,w,h,dpr);
-  // Faint dotted orbital guides are decoration, visually distinct from evidence-backed links.
-  if(m==='3d'&&!f){ctx.strokeStyle='#6195b0';ctx.lineWidth=.6;ctx.setLineDash([1,8]);ctx.globalAlpha=.13;
-   for(const radius of [.3,.51,.7]){ctx.beginPath();for(let i=0;i<=120;i++){const a=i/120*tau,r=sp.extent*radius,p=projectUniversePoint({x:Math.cos(a)*r,y:Math.sin(a)*r*.43,z:Math.sin(a)*r*.66},c,sp.distance,m);if(i===0)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);}ctx.stroke();}ctx.setLineDash([]);
-  }
   const points:ProjectedNode[]=[],byId=new Map<string,ProjectedNode>();
   for(const n of g.nodes){const point=sp.points.get(n.id);if(!point)continue;const p=projectUniversePoint(point,c,sp.distance,m),radius=Math.max(n.kind==='law'?1.9:.72,n.radius*c.k*p.scale);
    const out:ProjectedNode={...p,id:n.id,kind:n.kind,node:n,radius,active:!f||f.has(n.id),tier:m==='2d'?3:Math.max(0,Math.min(5,Math.floor((p.z/sp.extent+.8)*3.75)))};points.push(out);byId.set(n.id,out);
@@ -72,45 +65,45 @@ export const UniverseCanvas=forwardRef<UniverseCanvasHandle,Props>(function Univ
   }
   for(let group=0;group<edgeGroups.length;group++){if(!edgeGroups[group].length)continue;const active=group>=9,kind=Math.floor(group%9/3),depth=group%3;
    ctx.globalAlpha=active?(f?.32+depth*.12:kind===0?.14+depth*.09:.045+depth*.018):.018;
-   ctx.strokeStyle=kind===0?'#6aa9c7':kind===1?'#bb9b7a':'#bda4e4';ctx.lineWidth=active&&f&&kind===0?1.1:kind===0?.75:.5;ctx.setLineDash(kind===2?[3,5]:[]);ctx.beginPath();
+   ctx.strokeStyle=kind===0?'#b8b8c0':kind===1?'#96969f':'#b0b0b9';ctx.lineWidth=active&&f&&kind===0?1.1:kind===0?.75:.5;ctx.setLineDash(kind===2?[3,5]:[]);ctx.beginPath();
    for(const {a,b} of edgeGroups[group]){ctx.moveTo(a.x,a.y);if(kind===0){const bend=m==='3d'?.036:.02;ctx.quadraticCurveTo((a.x+b.x)/2+(a.y-b.y)*bend,(a.y+b.y)/2+(b.x-a.x)*bend,b.x,b.y);}else ctx.lineTo(b.x,b.y);}ctx.stroke();
   }
   ctx.setLineDash([]);
-  if(f&&c.k>.22){ctx.globalAlpha=.7;ctx.fillStyle='#9de3ef';ctx.beginPath();for(const e of g.edges){if(e.kind!=='basis')continue;const a=byId.get(e.from),b=byId.get(e.to);if(!a?.active||!b?.active||!a.visible||!b.visible||b.x<0||b.x>w||b.y<0||b.y>h)continue;const angle=Math.atan2(b.y-a.y,b.x-a.x),r=b.radius+4,x=b.x-Math.cos(angle)*r,y=b.y-Math.sin(angle)*r;ctx.moveTo(x,y);ctx.lineTo(x-Math.cos(angle-.4)*5,y-Math.sin(angle-.4)*5);ctx.lineTo(x-Math.cos(angle+.4)*5,y-Math.sin(angle+.4)*5);ctx.closePath();}ctx.fill();}
+  if(f&&c.k>.22){ctx.globalAlpha=.7;ctx.fillStyle='#dedee3';ctx.beginPath();for(const e of g.edges){if(e.kind!=='basis')continue;const a=byId.get(e.from),b=byId.get(e.to);if(!a?.active||!b?.active||!a.visible||!b.visible||b.x<0||b.x>w||b.y<0||b.y>h)continue;const angle=Math.atan2(b.y-a.y,b.x-a.x),r=b.radius+4,x=b.x-Math.cos(angle)*r,y=b.y-Math.sin(angle)*r;ctx.moveTo(x,y);ctx.lineTo(x-Math.cos(angle-.4)*5,y-Math.sin(angle-.4)*5);ctx.lineTo(x-Math.cos(angle+.4)*5,y-Math.sin(angle+.4)*5);ctx.closePath();}ctx.fill();}
   const visible=points.filter(p=>p.visible&&p.x>-64&&p.x<w+64&&p.y>-64&&p.y<h+64);
   // Six depth layers avoid thousands of sorts/gradients while still drawing front objects last.
   for(let tier=0;tier<6;tier++){
    const layer=visible.filter(p=>p.tier===tier);
-   for(const p of layer){if(p.node.kind!=='law'||!p.active||(p.node.degree<4&&p.id!==s))continue;const color=universeColor(p.node),r=Math.max(14,p.radius*(p.id===s?6:4.2));ctx.globalAlpha=p.id===s?.95:.2+tier*.045;ctx.drawImage(glow(color),p.x-r,p.y-r,r*2,r*2);}
+   for(const p of layer){if(p.id!==s||!p.active)continue;const color='#ffffff',r=Math.max(12,p.radius*3);ctx.globalAlpha=.24;ctx.drawImage(glow(color),p.x-r,p.y-r,r*2,r*2);}
    const groups=new Map<string,ProjectedNode[]>();for(const p of layer){const key=(p.active?'a':'b')+(p.node.kind==='ruling'?'r':p.node.region==='中央'?'c':'l')+universeColor(p.node);const list=groups.get(key)??[];list.push(p);groups.set(key,list);}
    for(const [key,list] of groups){const active=key[0]==='a',kind=key[1],color=key.slice(2);ctx.globalAlpha=active?(kind==='r'?.22+tier*.07:.46+tier*.105):kind==='r'?.05:.10;ctx.fillStyle=color;ctx.strokeStyle=color;ctx.lineWidth=kind==='l'?Math.max(.9,Math.min(1.8,c.k*2)):1;ctx.beginPath();
     for(const p of list){ctx.moveTo(p.x+p.radius,p.y);ctx.arc(p.x,p.y,p.radius,0,tau);}if(kind==='l'){ctx.stroke();}else ctx.fill();
    }
-   ctx.globalAlpha=.78;ctx.fillStyle='#e8fbff';ctx.beginPath();for(const p of layer){if(!p.active||p.node.kind!=='law'||p.node.region!=='中央'||p.radius<3.2)continue;ctx.moveTo(p.x+p.radius*.24,p.y);ctx.arc(p.x,p.y,p.radius*.24,0,tau);}ctx.fill();
+   ctx.globalAlpha=.78;ctx.fillStyle='#fafafa';ctx.beginPath();for(const p of layer){if(!p.active||p.node.kind!=='law'||p.node.region!=='中央'||p.radius<3.2)continue;ctx.moveTo(p.x+p.radius*.24,p.y);ctx.arc(p.x,p.y,p.radius*.24,0,tau);}ctx.fill();
   }
   const chosen=byId.get(s);
-  if(chosen?.visible&&chosen.x>-80&&chosen.x<w+80&&chosen.y>-80&&chosen.y<h+80){const p=chosen,r=Math.max(p.radius+9,17);ctx.globalAlpha=.95;ctx.strokeStyle='#bcefff';ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(p.x,p.y,r,0,tau);ctx.stroke();ctx.globalAlpha=.35;ctx.lineWidth=.7;ctx.beginPath();ctx.ellipse(p.x,p.y,r*1.7,r*.64,-.4,0,tau);ctx.stroke();ctx.globalAlpha=.9;ctx.fillStyle='#e7fbff';for(const a of [0,Math.PI]){ctx.beginPath();ctx.arc(p.x+Math.cos(a-.4)*r*1.7,p.y+Math.sin(a-.4)*r*.64,1.8,0,tau);ctx.fill();}}
+  if(chosen?.visible&&chosen.x>-80&&chosen.x<w+80&&chosen.y>-80&&chosen.y<h+80){const p=chosen,r=Math.max(p.radius+7,13);ctx.globalAlpha=1;ctx.strokeStyle='#ffffff';ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(p.x,p.y,r,0,tau);ctx.stroke();}
   labelHits.current=[];
   const boxes:{x:number;y:number;w:number;h:number}[]=[],labels=visible.filter(p=>p.id===s||(p.node.kind==='law'&&p.active&&(p.node.degree>5||c.k>1.25||(!!f&&c.k>.6)))).sort((a,b)=>Number(b.id===s)-Number(a.id===s)||b.node.degree-a.node.degree||b.z-a.z);
   for(const p of labels){const isSelected=p.id===s;if(boxes.length>(f?52:30)&&!isSelected)break;if(p.x<12||p.x>w-12||p.y<98||p.y>h-68)continue;
-   const maxChars=w<600?18:25,text=p.node.label.length>maxChars?p.node.label.slice(0,maxChars-1)+'…':p.node.label;ctx.font=(isSelected?'600 13px':'11px')+' '+font;
+   const maxChars=w<600?18:25,text=p.node.label.length>maxChars?p.node.label.slice(0,maxChars-1)+'…':p.node.label;ctx.font=(isSelected?'600 13px':'12px')+' '+font;
    const key=(isSelected?'s':'n')+text;let tw=measurements.current.get(key);if(tw===undefined){tw=ctx.measureText(text).width;measurements.current.set(key,tw);}
    const b={x:Math.max(8,Math.min(w-tw-20,p.x-tw/2-6)),y:p.y+p.radius+7,w:tw+12,h:22};if(b.y+b.h>h-54||(!isSelected&&boxes.some(a=>a.x<b.x+b.w+7&&a.x+a.w+7>b.x&&a.y<b.y+b.h+5&&a.y+a.h+5>b.y)))continue;
-   boxes.push(b);labelHits.current.push({...b,id:p.id});ctx.globalAlpha=isSelected?.95:.83;ctx.fillStyle=isSelected?'#153448':'#071423';ctx.beginPath();ctx.roundRect(b.x,b.y,b.w,b.h,4);ctx.fill();if(isSelected){ctx.globalAlpha=.55;ctx.strokeStyle='#6ccde4';ctx.lineWidth=.6;ctx.stroke();}ctx.globalAlpha=isSelected?1:.8;ctx.fillStyle=isSelected?'#e6faff':'#b6cedd';ctx.textAlign='left';ctx.fillText(text,b.x+6,b.y+15);
+   boxes.push(b);labelHits.current.push({...b,id:p.id});ctx.globalAlpha=isSelected?.95:.83;ctx.fillStyle=isSelected?'#f1f1f3':'#131315';ctx.beginPath();ctx.roundRect(b.x,b.y,b.w,b.h,4);ctx.fill();if(isSelected){ctx.globalAlpha=.55;ctx.strokeStyle='#f1f1f3';ctx.lineWidth=.6;ctx.stroke();}ctx.globalAlpha=isSelected?1:.8;ctx.fillStyle=isSelected?'#151517':'#c1c1c8';ctx.textAlign='left';ctx.fillText(text,b.x+6,b.y+15);
   }
   ctx.globalAlpha=1;
  }
  drawRef.current=draw;
  function exportPNG(){
-  draw();const source=canvas.current;if(!source)return;const {w,h}=size.current,dpr=Math.min(size.current.dpr,2),out=document.createElement('canvas'),mobile=w<550,header=mobile?130:108,footer=mobile?82:58;out.width=Math.round(w*dpr);out.height=Math.round((h+header+footer)*dpr);const ctx=out.getContext('2d');if(!ctx)return;ctx.scale(dpr,dpr);ctx.fillStyle='#050c1a';ctx.fillRect(0,0,w,h+header+footer);ctx.drawImage(source,0,header,w,h);ctx.fillStyle='#d9f4fb';ctx.font='600 23px '+font;ctx.fillText('openlawtw / 法規宇宙',24,40);ctx.fillStyle='#91b4c8';ctx.font='12px '+font;
+  draw();const source=canvas.current;if(!source)return;const {w,h}=size.current,dpr=Math.min(size.current.dpr,2),out=document.createElement('canvas'),mobile=w<550,header=mobile?130:108,footer=mobile?82:58;out.width=Math.round(w*dpr);out.height=Math.round((h+header+footer)*dpr);const ctx=out.getContext('2d');if(!ctx)return;ctx.scale(dpr,dpr);ctx.fillStyle='#080809';ctx.fillRect(0,0,w,h+header+footer);ctx.drawImage(source,0,header,w,h);ctx.fillStyle='#f1f1f3';ctx.font='600 23px '+font;ctx.fillText('openlawtw / 法規宇宙',24,40);ctx.fillStyle='#a8a8b0';ctx.font='12px '+font;
   const {graph:g,selected:s,mode:m}=data.current,lawCount=g.nodes.filter(n=>n.kind==='law').length.toLocaleString('zh-TW'),edgeCount=g.edges.filter(e=>e.kind==='basis').length.toLocaleString('zh-TW'),heading=`${m==='3d'?'3D 空間':'2D 關係'} · ${lawCount} 部法規`;
   ctx.fillText(mobile?heading:heading+` · ${edgeCount} 筆法源關係`,24,65);if(mobile)ctx.fillText(`${edgeCount} 筆法源關係`,24,84);
-  const name=g.byId.get(s)?.label;let label=name?'聚焦 '+name:'沿著法源與引用，探索法規之間的關係。';while(ctx.measureText(label).width>w-48&&label.length>2)label=label.slice(0,-2)+'…';ctx.fillStyle='#adc7d7';ctx.fillText(label,24,mobile?106:87);
-  const legend=mobile?['實心：中央　空心：地方　細點：函釋','實線：法源／引法　虛線：互引','位置不代表位階；未連線不代表無關。']:['實心：中央　空心：地方　細點：函釋　實線：法源／引法　虛線：互引','位置與距離不代表位階或適用性；未連線不代表無關。'];ctx.fillStyle='#9ab7c9';ctx.font='11px '+font;legend.forEach((line,i)=>ctx.fillText(line,24,h+header+25+i*19));
+  const name=g.byId.get(s)?.label;let label=name?'聚焦 '+name:'沿著法源與引用，探索法規之間的關係。';while(ctx.measureText(label).width>w-48&&label.length>2)label=label.slice(0,-2)+'…';ctx.fillStyle='#c3c3ca';ctx.fillText(label,24,mobile?106:87);
+  const legend=mobile?['實心：中央　空心：地方　細點：函釋','實線：法源／引法　虛線：互引','顏色依主題；位置不代表位階或適用性。']:['實心：中央　空心：地方　細點：函釋　實線：法源／引法　虛線：互引','顏色依主題；位置與距離不代表位階或適用性；未連線不代表無關。'];ctx.fillStyle='#a8a8b0';ctx.font='11px '+font;legend.forEach((line,i)=>ctx.fillText(line,24,h+header+25+i*19));
   out.toBlob(blob=>{if(!blob)return;const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='openlawtw-universe-'+m+'.png';a.hidden=true;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);});
  }
  useImperativeHandle(ref,()=>({fit,zoom:(factor)=>zoomAt(factor),rotate,reset,exportPNG}));
- useEffect(()=>{const el=host.current;if(!el)return;const observer=new ResizeObserver(()=>{const {width:w,height:h}=el.getBoundingClientRect();if(!w||!h)return;const mobile=window.matchMedia('(max-width: 700px)').matches,dpr=Math.min(devicePixelRatio||1,w<700?1.6:2);if(size.current.w===w&&size.current.h===h&&size.current.mobile===mobile&&initialized.current)return;const previous=size.current;size.current={w,h,dpr,mobile};background.current=null;if(canvas.current){canvas.current.width=Math.round(w*dpr);canvas.current.height=Math.round(h*dpr);}if(!initialized.current||(previous.mobile!==mobile&&data.current.focus))fit(data.current.focus??undefined,false);else change({...camera.current,x:camera.current.x+(w-previous.w)/2,y:camera.current.y+(h-previous.h)/2});initialized.current=true;});observer.observe(el);return()=>{observer.disconnect();cancelAnimationFrame(frame.current);frame.current=0;stopAnimation();};},[]);
+ useEffect(()=>{const el=host.current;if(!el)return;const observer=new ResizeObserver(()=>{const {width:w,height:h}=el.getBoundingClientRect();if(!w||!h)return;const mobile=window.matchMedia('(max-width: 700px)').matches,dpr=Math.min(devicePixelRatio||1,w<700?1.6:2);if(size.current.w===w&&size.current.h===h&&size.current.mobile===mobile&&initialized.current)return;const previous=size.current;size.current={w,h,dpr,mobile};if(canvas.current){canvas.current.width=Math.round(w*dpr);canvas.current.height=Math.round(h*dpr);}if(!initialized.current||(previous.mobile!==mobile&&data.current.focus))fit(data.current.focus??undefined,false);else change({...camera.current,x:camera.current.x+(w-previous.w)/2,y:camera.current.y+(h-previous.h)/2});initialized.current=true;});observer.observe(el);return()=>{observer.disconnect();cancelAnimationFrame(frame.current);frame.current=0;stopAnimation();};},[]);
  useEffect(()=>{if(initialized.current)fit(data.current.focus??undefined,false);setHover(null);schedule();},[graph,mode]);
  useEffect(()=>{setHover(null);schedule();},[focus,selected]);
  useEffect(()=>{
