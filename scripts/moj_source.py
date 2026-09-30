@@ -136,10 +136,13 @@ def parse_law_all(raw_html, code, expected_name, *, retrieved,
         while lines and lines[-1].tag == 'br' and not (lines[-1].tail or '').strip():
             lines.pop()
         if not lines or (body.text or '').strip() or any(
-            n.tag != 'div' or not any(re.fullmatch(r'line-\d+', c) for c in n.get('class', '').split())
+            n.tag != 'div' or not any(c == 'text-pre' or re.fullmatch(r'line-\d+', c) for c in n.get('class', '').split())
             or (n.tail or '').strip() for n in lines
         ):
             raise ValueError('Unrecognized official article line structure: ' + no)
+        # Never silently flatten a native table or lose an image/formula asset.
+        if body.xpath('.//table|.//img|.//svg|.//math|.//canvas|.//iframe'):
+            raise ValueError('Official article contains structured media requiring an asset-preserving importer: ' + no)
         text = '\n'.join(_text(line, trim=False) for line in lines)
         if not text.strip():
             raise ValueError('Empty official article: ' + no)
