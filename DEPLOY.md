@@ -32,7 +32,7 @@ npm run typecheck
 npm run check
 ```
 
-Windows 若使用 `python` 啟動器，將上述 `python3` 換成對應指令即可。上述流程與 `.github/workflows/validate.yml` 的驗證步驟對應。`npm run build` 會準備資料、建置 `dist/`、產生法規靜態頁、PWA、單檔 HTML 及 `dist/openlawtw-source.zip`。只修改程式或說明文件不必執行官方同步；資料維護後的版本封存及其他核對要求見 [CONTRIBUTING.md](CONTRIBUTING.md)。
+Windows 若使用 `python` 啟動器，將上述 `python3` 換成對應指令即可。上述流程與 `.github/workflows/validate.yml` 的驗證步驟對應。`npm run build` 會準備資料、建置 `dist/`、產生法規靜態頁、PWA、單檔 HTML 及 `artifacts/openlawtw-source.zip`。只修改程式或說明文件不必執行官方同步；資料維護後的版本封存及其他核對要求見 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## GitHub Desktop → Pull Request → Vercel
 
@@ -96,3 +96,10 @@ v0.18.0 收錄 1,013 部索引、983 部條文全文、19,441 條／點及 30 �
 程式依 [LICENSE](LICENSE) 採 MIT，保留原作者及 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。官方資料、PDF 與圖片的使用依據見 [DATA_LICENSE.md](DATA_LICENSE.md) 及[文件權利清單](data/documents/RIGHTS.md)，不因放在公開儲存庫或網站上就改採 MIT。引用與知識庫整合請見 [CITING.md](CITING.md)。
 
 Git 提交作者與網站品牌是不同設定。需要信箱隱私時，使用 GitHub 帳號實際提供的 noreply 地址，只修改這個專案的 local 設定；不要編造地址或覆寫共同歷史。ZIP 不包含 `.git`，忽略規則及本次檔案檢查也不等於完整歷史憑證稽核。官方操作方式見 [GitHub 提交信箱說明](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)。
+
+
+## 部署儲存精簡
+
+網站輸出僅使用 `dist/`；完整原始碼 ZIP 改放 `artifacts/openlawtw-source.zip`，由 GitHub Actions 的 `openlawtw-review` 建置產物提供（保留 7 天，下載須登入 GitHub）。網站的原始碼入口連至 GitHub 儲存庫，可使用 Code → Download ZIP 取得原始專案。一般下載不必開啟舊部署。
+
+嵌入卡片的第二次 Vite 建置不再複製 public 全目錄，避免把僅供作者使用的 canonical JSON 重複加入網站。法規分片、官方 PDF、版本證據、靜態法規頁、PWA 與單檔 HTML 保留；不刪除 Vercel 歷史部署，也不改帳號方案或部署存取權限。
