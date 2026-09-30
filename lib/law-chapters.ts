@@ -35,3 +35,18 @@ export function visibleLawArticles(articles:Article[],chapters:LawChapter[],chap
  if(chapter===ALL_CHAPTERS)return articles;
  return chapters.find(item=>item.id===chapter)?.articles||articles;
 }
+
+/** Display the actual first/last records, never an arithmetic article count. */
+export function articleRange(articles:Article[]):string{
+ if(!articles.length)return '';
+ const first=articles[0].no.replace(/\s+/g,''),last=articles.at(-1)!.no.replace(/\s+/g,'');
+ if(first===last)return first;
+ const a=/^第([0-9一二三四五六七八九十百千零〇兩]+)(條|點)$/.exec(first),b=/^第([0-9一二三四五六七八九十百千零〇兩]+)(條|點)$/.exec(last);
+ return a&&b&&a[2]===b[2]?`第${a[1]}–${b[1]}${a[2]}`:`${first}–${last}`;
+}
+/** Full ancestry avoids merging identically named sections in different chapters. */
+export function lawPathRanges(articles:Article[]):Map<string,string>{
+ const groups=new Map<string,Article[]>();
+ for(const a of articles)for(let depth=1;depth<=a.path.length;depth++){const key=JSON.stringify(a.path.slice(0,depth));groups.set(key,[...(groups.get(key)||[]),a]);}
+ return new Map([...groups].map(([key,list])=>[key,articleRange(list)]));
+}
