@@ -51,7 +51,7 @@ const moduleCode=ts.transpileModule(fs.readFileSync('components/legal-reference-
 const deps={
  '@/lib/catalog':{data:{laws}},'@/lib/citations':{createCitationMatcher},
  '@/data/runtime-citations.json':targets,'@/lib/routes':{lawHref:(id,no)=>'/laws/'+id+'#'+no,legacyLawHash:()=>''},
- '@/lib/portable':{isPortable:()=>false},'./legal-inline-preview.css':{},
+ '@/lib/portable':{isPortable:()=>false},'./legal-inline-preview.css':{},'./legal-inline-preview':{default:()=>null},
 };
 Function('require','exports',moduleCode)(name=>deps[name]??require(name),exports);
 const sample={no:'第 999 條',path:[],text:'私設通路；私設通路。依建築法第73條第2項辦理。\n道路 & <原文>。'};
@@ -61,3 +61,29 @@ const decode=s=>s.replace(/&(amp|lt|gt|quot|#x27);/g,(_,key)=>({amp:'&',lt:'<',g
 assert.equal(decode(html.replace(/<[^>]*>/g,'')),sample.text);
 assert.equal((html.match(/aria-label="私設通路：/g)||[]).length,1);
 assert(html.includes('class="legal-reference"'));assert(!html.includes('legal-preview-body'));
+
+assert(!fs.readdirSync('dist/assets').some(name=>/^legal-inline-preview.*\.js$/.test(name)),'Standalone HTML must not depend on a split preview module');
+
+// Exercise the actual preview's loading/error/ready rendering with deterministic
+// hook state. Focus trapping and viewport behavior require separate browser QA.
+const previewSource=fs.readFileSync('components/legal-inline-preview.tsx','utf8');
+const previewCode=ts.transpileModule(previewSource,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText;
+function previewState(states){let cursor=0;const result={};const box=({children})=>createElement('div',null,children);
+ const dependencies={react:{useEffect:()=>{},useState:initial=>[states[cursor++]??initial,()=>{}]},'radix-ui':{Dialog:{Root:box,Portal:box,Overlay:()=>null,Content:box,Title:box,Description:box,Close:box}},'lucide-react':{X:()=>null,ExternalLink:()=>null,ArrowUpRight:()=>null},'../lib/data-client':{loadLaw:()=>{throw Error('No render-time load');}},'../lib/routes':{lawHref:()=>'/verified-target',legacyLawHash:()=>''},'../lib/portable':{isPortable:()=>false},'./legal-table':{LegalTextWithTables:({text})=>text},'./legal-inline-preview.css':{}};
+ Function('require','exports',previewCode)(name=>dependencies[name]??require(name),result);
+ return renderToStaticMarkup(createElement(result.default,{selection:{kind:'citation',reference:find('建築法第73條')[0],trigger:{}},onClose:()=>{},onChoose:()=>{}}));
+}
+assert(previewState([]).includes('正在載入官方原文'));
+const failure=previewState([null,true]);assert(failure.includes('原文暫時無法載入')&&failure.includes('重試')&&failure.includes('官方來源'));
+const ready=previewState([building,false]);assert(ready.includes('閱讀完整法條')&&ready.includes('快照：'));
+assert(previewSource.includes('controller.abort()')&&previewSource.includes("e.name!=='AbortError'"));
+assert(previewSource.includes('focus({preventScroll:true})'));
+// A prior paragraph's named foreign law never becomes the default scope of the
+// next paragraph. Use a synthetic fixture; these records are not added to data.
+const procedure={...building,id:'procedure-test',name:'刑事訴訟法',articles:[{no:'第 253-1 條',path:[],text:''},{no:'第 323 條',path:[],text:''}]};
+const criminal={...building,id:'criminal-test',name:'刑法',articles:[{no:'第 83 條',path:[],text:''},{no:'第 323 條',path:[],text:''}]};
+const scoped=createCitationMatcher([procedure,criminal],{'procedure-test':{'253-1':['第 253-1 條',[[],[],[],[]]],'323':['第 323 條',[[]]]},'criminal-test':{'83':['第 83 條',[[],[],[]]],'323':['第 323 條',[[]]]}});
+const paragraphs='依刑法第83條第3項辦理。\n第323條第1項但書。';
+assert.deepEqual(scoped(paragraphs,procedure,procedure.articles[0]).map(r=>r.law.id),['criminal-test'],'Bare next-paragraph reference stays plain rather than inheriting foreign law');
+const explicitLocal='依刑法第83條第3項辦理。\n依第323條第1項但書辦理。';
+assert.deepEqual(scoped(explicitLocal,procedure,procedure.articles[0]).map(r=>r.law.id),['criminal-test','procedure-test'],'Verified local context resets at the paragraph boundary');
