@@ -1,0 +1,1156 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-09-30",
+  "scope": "Current public/data/laws.json; complete glyph census, representative live official HTML verification, available-cache ingestion review. Not exhaustive visual verification of every source attachment.",
+  "corpusSha256": "1d3dc41619ddeaf595491d8027cf5cfeed5c9f7fafcd53fa495d6443954b4c8e",
+  "counts": {
+    "laws": 1024,
+    "articles": 19680,
+    "lawsWithBoxDrawing": 42,
+    "articlesWithBoxDrawing": 192,
+    "articlesByLexicalType": {
+      "closed-grid-containing": 162,
+      "line-or-operator-only": 25,
+      "open-grid-diagram": 1,
+      "formula-root": 3,
+      "rounded-formula": 1
+    },
+    "articlesByGlyphSet": {
+      "─│┌┐└┘├┤┬┴┼": 161,
+      "─": 18,
+      "─│┼": 1,
+      "╳": 3,
+      "─┌": 1,
+      "─│┌┐└┘├┤┬┴┼╲": 1,
+      "─│┌": 2,
+      "─│╭╮╯╰": 1,
+      "╱": 4
+    },
+    "attachmentLinks": 1536,
+    "lawsWithAttachments": 575
+  },
+  "classificationNote": "Lexical categories describe articles, not parser success. U+2500–U+257F includes equation operators and diagrams; do not assume every match is a table.",
+  "officialSamples": [
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0060006&flno=13",
+      "retrievedAt": "2026-09-30T08:53:59.758214+00:00",
+      "sha256": "59fcd8447383e4a6f1f1fdcec9cacc5a82d39b632c7d6ffb7ef6f07a88be63e6",
+      "file": "D0060006-13.html",
+      "lawId": "D0060006",
+      "articleNo": "第 13 條",
+      "articleTextFile": "D0060006-13.article.txt",
+      "articleTextSha256": "64ef2fc66daab5c888262defa7b0811f0085e59080c3fc357c735c9ad72224a7",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "root-formula",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 1,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070071&flno=3",
+      "retrievedAt": "2026-09-30T08:54:01.429119+00:00",
+      "sha256": "08b4a0186fdfaef451008089156a88dc669076dc73c6b92144160ef4e8b35891",
+      "file": "D0070071-3.html",
+      "lawId": "D0070071",
+      "articleNo": "第 3 條",
+      "articleTextFile": "D0070071-3.article.txt",
+      "articleTextSha256": "466b9a6c3c672b8110fbe6a05bd12f9512592842d7e141ef39a455c5b3f84dfb",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "root-and-fraction-formula",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 1,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070114&flno=3-3",
+      "retrievedAt": "2026-09-30T08:53:59.863399+00:00",
+      "sha256": "96d61fbf5077c27c6433f0f32b6c7825af3094ff850349305996912faacfa5c5",
+      "file": "D0070114-3-3.html",
+      "lawId": "D0070114",
+      "articleNo": "第 3-3 條",
+      "articleTextFile": "D0070114-3-3.article.txt",
+      "articleTextSha256": "759aec76e3dfe74c42becabd395eae28f7381283d1d3efc0336d4c9f1bb3da43",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "merged-row-and-column-grid",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 1,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=261",
+      "retrievedAt": "2026-09-30T08:53:59.736739+00:00",
+      "sha256": "0158d2f11af6679560ff0cfee91adbe44f5db4e16e12738377a8ca12b1d009b8",
+      "file": "D0070115-261.html",
+      "lawId": "D0070115",
+      "articleNo": "第 261 條",
+      "articleTextFile": "D0070115-261.article.txt",
+      "articleTextSha256": "ebedddd1a08f9135050f9d57eb3bf9ece8e6875c2580979d13d6343b4fc618a0",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "open-slope-diagram-and-formulas",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 3,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=92",
+      "retrievedAt": "2026-09-30T08:51:26.750835+00:00",
+      "sha256": "5a64a87d79ca8cc4a2e7b1e7dfac4ae80ecded01e1bb9e874f5f02208c896e64",
+      "file": "D0070115-92.html",
+      "lawId": "D0070115",
+      "articleNo": "第 92 條",
+      "retrievalNote": "Copied from previously downloaded raw official response; timestamp is cached-file mtime.",
+      "articleTextFile": "D0070115-92.article.txt",
+      "articleTextSha256": "e03738324b272dce9542b9d54f04f2ab4be21a3cc58ae826ef2aa06d71b75074",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "corridor-grid",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 1,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0120013&flno=8",
+      "retrievedAt": "2026-09-30T08:53:59.371492+00:00",
+      "sha256": "afa85f2219e65f1e14bc4aa005fe13dd98c43579614911f20635411e08b4c42b",
+      "file": "D0120013-8.html",
+      "lawId": "D0120013",
+      "articleNo": "第 8 條",
+      "articleTextFile": "D0120013-8.article.txt",
+      "articleTextSha256": "694a5bd86e6bd687597e2922e0c16c0800efcfb19ef406d44df73879096be48c",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "diagonal-headers-and-merged-cells",
+      "matchesCorpusExactly": true,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 4,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=O0030006&flno=2",
+      "retrievedAt": "2026-09-30T08:54:01.336816+00:00",
+      "sha256": "b29b67da3b815031aa1d0e4be77f0383d36ae94a2b6e1493ec47d2cd4396097f",
+      "file": "O0030006-2.html",
+      "lawId": "O0030006",
+      "articleNo": "第 2 條",
+      "articleTextFile": "O0030006-2.article.txt",
+      "articleTextSha256": "6c51955eee754424699157908f3e1134c27d916ead9c4d447eac7e05a9daa303",
+      "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+      "pattern": "rounded-formula-brackets",
+      "matchesCorpusExactly": false,
+      "matchesCorpusIgnoringLineLeadingWhitespace": true,
+      "textPreBlocks": 2,
+      "allTextPreBlocksVerbatimInCorpus": true,
+      "nativeHtmlTables": 0,
+      "inlineImages": 0
+    }
+  ],
+  "ingestionFindings": [
+    {
+      "component": "scripts/moj_source.py",
+      "finding": "Original parser safely rejected direct text-pre blocks. This update accepts direct div.text-pre alongside line-NNNN, preserving text verbatim, and explicitly rejects nested table/img/svg/math/canvas/iframe instead of silently flattening structured media.",
+      "recommendation": "Keep unsupported structured media as an explicit import error until an asset-preserving importer exists."
+    },
+    {
+      "component": "scripts/sync-laws.py central XML",
+      "finding": "Reads 條文內容 with findtext and retains attachment name/URL. Cannot recover layout absent from supplied plain text. Retained laws.zip is a 150-byte 502 HTML response, not a ZIP; no retained original XML is available for retrospective full audit."
+    },
+    {
+      "component": "scripts/sync-laws.py local gettext",
+      "finding": "text_content preserves characters but does not preserve arbitrary nested table cell boundaries, rowspan/colspan, or image source/alt as structured content. This is a prospective risk, not an established missing-content count."
+    },
+    {
+      "component": "available source cache",
+      "finding": "Nine cached central LawAll files (213 articles) contain no nested article tables/images/text-pre blocks. Two cached local pages have no semantic nested data tables or inline article images; Taichung GL003092 outer table is article layout. No actual current-corpus image/table loss was proven by this limited cache."
+    },
+    {
+      "component": "attachments",
+      "finding": "1536 links across 575 laws are retained as external source links. Tables/images within these linked files are outside plain article conversion and were not exhaustively inspected."
+    }
+  ],
+  "articles": [
+    {
+      "lawId": "D0070114",
+      "articleNo": "第 3-3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 26 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 33 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 42 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 44 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 56 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 59 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 69 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 70 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 88 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 92 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 116-3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 119 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 124-1 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 131 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 164 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 167-3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 167-5 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 167-7 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 261 條",
+      "type": "open-grid-diagram"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 262 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 264 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 265 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 268 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 302 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 308 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 308-1 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 309 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 310 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 311 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070115",
+      "articleNo": "第 312 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 11 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 12 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 13 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 14 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 15 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 25 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070116",
+      "articleNo": "第 26 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 37 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 56 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 58 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 68 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 77 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 102 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 111 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070117",
+      "articleNo": "第 115 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070208",
+      "articleNo": "第 4 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070208",
+      "articleNo": "第 6 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070208",
+      "articleNo": "第 7 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060014",
+      "articleNo": "第 59 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060014",
+      "articleNo": "第 64 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 131 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 260 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 268 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 269 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 300 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 302 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 312 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "N0060009",
+      "articleNo": "第 313 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070156",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070150",
+      "articleNo": "第 18 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "K0110021",
+      "articleNo": "第 14 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "K0110021",
+      "articleNo": "第 15 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "K0110021",
+      "articleNo": "第 18 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "K0110021",
+      "articleNo": "第 19 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070012",
+      "articleNo": "第 34 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0060053",
+      "articleNo": "第 236 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0060053",
+      "articleNo": "第 243 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0060053",
+      "articleNo": "第 244 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0060006",
+      "articleNo": "第 13 條",
+      "type": "formula-root"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 48 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 66 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 70 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 72 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 73 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 76 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 99 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 102 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 111 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 114 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 118 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 120 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 121 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 122 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 133 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 146 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 146-1 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 146-2 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 157 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 160 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 162 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 163 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 164 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 165 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 166 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 174 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 186 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120029",
+      "articleNo": "第 213 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 21 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 25 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 30 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 39 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 66 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120025",
+      "articleNo": "第 67 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120046",
+      "articleNo": "第 5 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120013",
+      "articleNo": "第 5 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120013",
+      "articleNo": "第 7 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120013",
+      "articleNo": "第 8 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120013",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0120073",
+      "articleNo": "第 15 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 16 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 17 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 18 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 23 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 25 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 41 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 73 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 84 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 85 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "農業部-FL014521",
+      "articleNo": "第 96 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 18 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 22 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 23 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 26 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 28 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 33 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 36 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070066",
+      "articleNo": "第 41 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 2 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 3 條",
+      "type": "formula-root"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 7 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 8 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 20 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 22 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 26 條",
+      "type": "formula-root"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 29 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 37 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 39 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 42 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 43 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 44 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 45 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 46 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 47 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "D0070071",
+      "articleNo": "第 53 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 2 條",
+      "type": "rounded-formula"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 4 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 5 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 6 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 7 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 8 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0030006",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "O0130005",
+      "articleNo": "第 2 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "H0070041",
+      "articleNo": "第 20 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "南投縣-FL021920",
+      "articleNo": "第 5 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "嘉義市-FL022468",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "嘉義市-FL022468",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "嘉義市-FL022468",
+      "articleNo": "第 10 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "嘉義市-FL035266",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "嘉義縣-FL053530",
+      "articleNo": "第二點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "屏東縣-FL026596",
+      "articleNo": "第3條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "屏東縣-FL026596",
+      "articleNo": "第9條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "屏東縣-FL026596",
+      "articleNo": "第10條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "彰化縣-FL042572",
+      "articleNo": "第 4 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "彰化縣-FL031576",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "彰化縣-FL031576",
+      "articleNo": "第 8 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "彰化縣-FL031576",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新北市-C0150111",
+      "articleNo": "第 9 點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新北市-C0150057",
+      "articleNo": "第 2 點",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "新北市-C0150057",
+      "articleNo": "第 3 點",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "新北市-C0150057",
+      "articleNo": "第 5 點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新北市-C0150057",
+      "articleNo": "第 8 點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新北市-C0150057",
+      "articleNo": "第 12 點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新北市-C0150165",
+      "articleNo": "第 1 點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "新竹縣-FL023013",
+      "articleNo": "第二三點",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "澎湖縣-FL022474",
+      "articleNo": "第三條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "澎湖縣-FL022474",
+      "articleNo": "第九條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "澎湖縣-FL022474",
+      "articleNo": "第十條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "臺北市-FL004154",
+      "articleNo": "第 5 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "臺北市-FL004154",
+      "articleNo": "第 6 條",
+      "type": "line-or-operator-only"
+    },
+    {
+      "lawId": "臺東縣-FL023882",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "臺東縣-FL023882",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "臺東縣-FL023882",
+      "articleNo": "第 10 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "花蓮縣-FL026597",
+      "articleNo": "第十五點",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "苗栗縣-FL033508",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "苗栗縣-FL033508",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "苗栗縣-FL033508",
+      "articleNo": "第 10 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "金門縣-FL030823",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "金門縣-FL030823",
+      "articleNo": "第 7 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "雲林縣-FL028271",
+      "articleNo": "第 3 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "雲林縣-FL028271",
+      "articleNo": "第 9 條",
+      "type": "closed-grid-containing"
+    },
+    {
+      "lawId": "雲林縣-FL028271",
+      "articleNo": "第 10 條",
+      "type": "closed-grid-containing"
+    }
+  ],
+  "rendererAudit": {
+    "implementation": "lib/legal-tables.ts",
+    "sourceSha256": "032db13baac36e9a89691d8605620054ff88aa888ac563e5db0a52233d8db814",
+    "articles": 192,
+    "candidateBlocks": 255,
+    "semanticTables": 171,
+    "semanticTablesWithMergedCells": 82,
+    "rawFallbackBlocks": 84
+  }
+}

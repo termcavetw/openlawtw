@@ -39,6 +39,7 @@ const code=ts.transpileModule(read('components/article-text.tsx'),{compilerOptio
 const empty=()=>null;
 const dependencies={
  'lucide-react':{Copy:empty,Link2:empty,ChevronDown:empty},
+ './legal-table':{LegalTextWithTables:({text,renderText})=>renderText(text)},
  './law-navigation':{Highlight:({text})=>text},
  './legal-reference-text':{LegalReferenceText:({text,renderText})=>renderText(text)},
  '@/lib/routes':{unitAnchor:id=>'unit-'+id,lawHref:()=>''},

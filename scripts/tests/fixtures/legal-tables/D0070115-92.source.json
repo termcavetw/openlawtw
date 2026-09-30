@@ -1,0 +1,19 @@
+{
+  "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=92",
+  "retrievedAt": "2026-09-30T08:51:26.750835+00:00",
+  "sha256": "5a64a87d79ca8cc4a2e7b1e7dfac4ae80ecded01e1bb9e874f5f02208c896e64",
+  "file": "D0070115-92.html",
+  "lawId": "D0070115",
+  "articleNo": "第 92 條",
+  "retrievalNote": "Copied from previously downloaded raw official response; timestamp is cached-file mtime.",
+  "articleTextFile": "D0070115-92.article.txt",
+  "articleTextSha256": "e03738324b272dce9542b9d54f04f2ab4be21a3cc58ae826ef2aa06d71b75074",
+  "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+  "pattern": "corridor-grid",
+  "matchesCorpusExactly": true,
+  "matchesCorpusIgnoringLineLeadingWhitespace": true,
+  "textPreBlocks": 1,
+  "allTextPreBlocksVerbatimInCorpus": true,
+  "nativeHtmlTables": 0,
+  "inlineImages": 0
+}

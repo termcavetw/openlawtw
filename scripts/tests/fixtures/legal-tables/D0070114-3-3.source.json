@@ -1,0 +1,18 @@
+{
+  "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070114&flno=3-3",
+  "retrievedAt": "2026-09-30T08:53:59.863399+00:00",
+  "sha256": "96d61fbf5077c27c6433f0f32b6c7825af3094ff850349305996912faacfa5c5",
+  "file": "D0070114-3-3.html",
+  "lawId": "D0070114",
+  "articleNo": "第 3-3 條",
+  "articleTextFile": "D0070114-3-3.article.txt",
+  "articleTextSha256": "759aec76e3dfe74c42becabd395eae28f7381283d1d3efc0336d4c9f1bb3da43",
+  "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+  "pattern": "merged-row-and-column-grid",
+  "matchesCorpusExactly": true,
+  "matchesCorpusIgnoringLineLeadingWhitespace": true,
+  "textPreBlocks": 1,
+  "allTextPreBlocksVerbatimInCorpus": true,
+  "nativeHtmlTables": 0,
+  "inlineImages": 0
+}

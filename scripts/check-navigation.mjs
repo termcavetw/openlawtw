@@ -38,7 +38,7 @@ for(const law of laws){
  const html=await read('dist'+lawHref(law.id));pages.set(law.id,html);
  const embedded=JSON.parse(html.match(/<script type="application\/json" id="openlawtw-law-snapshot">([\s\S]*?)<\/script>/)[1]);assert.deepEqual(embedded,law);
  assert(html.includes(`<link rel="canonical" href="https://openlawtw.vercel.app${lawHref(law.id)}"/>`));
- const texts=[...html.matchAll(/<div class="static-text">([\s\S]*?)<\/div>/g)].map(m=>decode(m[1].replace(/<[^>]*>/g,'')));
+ const texts=[...html.matchAll(/<div class="static-text">([\s\S]*?)<\/div>/g)].map(m=>decode(m[1].replace(/<figure class="legal-table-block"[\s\S]*?<\/figure>/g,figure=>{const raw=figure.match(/<pre class="legal-table-raw">([\s\S]*?)<\/pre>/);assert(raw,'Every table retains exact source');return raw[1];}).replace(/<[^>]*>/g,'')));
  assert.deepEqual(texts,law.articles.map(a=>a.text),law.id+' no-JavaScript original-text fidelity');textArticles+=texts.length;
  if(law.preamble)assert.equal(decode(html.match(/<div class="static-preamble"[^>]*>([\s\S]*?)<\/div>/)[1]),law.preamble,law.id+' preamble fidelity');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>decode(m[1]));assert.equal(new Set(ids).size,ids.length,law.id+' unique HTML anchors');anchors.set(law.id,new Set(ids));

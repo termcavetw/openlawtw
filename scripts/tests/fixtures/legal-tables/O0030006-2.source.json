@@ -1,0 +1,18 @@
+{
+  "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=O0030006&flno=2",
+  "retrievedAt": "2026-09-30T08:54:01.336816+00:00",
+  "sha256": "b29b67da3b815031aa1d0e4be77f0383d36ae94a2b6e1493ec47d2cd4396097f",
+  "file": "O0030006-2.html",
+  "lawId": "O0030006",
+  "articleNo": "第 2 條",
+  "articleTextFile": "O0030006-2.article.txt",
+  "articleTextSha256": "6c51955eee754424699157908f3e1134c27d916ead9c4d447eac7e05a9daa303",
+  "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+  "pattern": "rounded-formula-brackets",
+  "matchesCorpusExactly": false,
+  "matchesCorpusIgnoringLineLeadingWhitespace": true,
+  "textPreBlocks": 2,
+  "allTextPreBlocksVerbatimInCorpus": true,
+  "nativeHtmlTables": 0,
+  "inlineImages": 0
+}

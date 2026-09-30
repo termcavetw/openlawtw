@@ -99,6 +99,20 @@ class MojSourceTests(unittest.TestCase):
         self.assertEqual(doc['articles'][0]['path'], ['第 一 編 總則', '第 一 章 通則', '第 一 節 範圍'])
         self.assertEqual(doc['articles'][1]['path'], ['第 一 編 總則', '第 二 章 其他'])
 
+    def test_preformatted_table_whitespace_and_media_fail_closed(self):
+        tree = html.fromstring((FIX/'J0030099.html').read_bytes())
+        body = tree.xpath('//*[@id="pnLawFla"]//div[@class="law-article"]')[0]
+        table = html.fromstring('<div class="text-pre">    ┌──┬──┐\n    │甲  │乙  │\n    └──┴──┘</div>')
+        body.append(table)
+        doc = self.parse(raw=html.tostring(tree, encoding='utf-8'))
+        self.assertTrue(doc['articles'][0]['text'].endswith('\n'+table.text_content()))
+        for markup in ['<table><tr><td>甲</td><td>乙</td></tr></table>', '<img src="official.png" alt="尺寸圖">', '<math><mi>x</mi></math>']:
+            media=html.fromstring(markup)
+            table.append(media)
+            with self.assertRaisesRegex(ValueError, 'structured media'):
+                self.parse(raw=html.tostring(tree, encoding='utf-8'))
+            table.remove(media)
+
     def test_retrieval_time_required_and_raw_bytes_only(self):
         raw = (FIX/'J0030099.html').read_bytes()
         with self.assertRaises(ValueError): parse_law_all(raw, 'J0030099', NAME, retrieved='2026-09-30')

@@ -1,0 +1,18 @@
+{
+  "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0120013&flno=8",
+  "retrievedAt": "2026-09-30T08:53:59.371492+00:00",
+  "sha256": "afa85f2219e65f1e14bc4aa005fe13dd98c43579614911f20635411e08b4c42b",
+  "file": "D0120013-8.html",
+  "lawId": "D0120013",
+  "articleNo": "第 8 條",
+  "articleTextFile": "D0120013-8.article.txt",
+  "articleTextSha256": "694a5bd86e6bd687597e2922e0c16c0800efcfb19ef406d44df73879096be48c",
+  "extraction": "Join direct law-article child div text_content with newline; preserve text-pre whitespace.",
+  "pattern": "diagonal-headers-and-merged-cells",
+  "matchesCorpusExactly": true,
+  "matchesCorpusIgnoringLineLeadingWhitespace": true,
+  "textPreBlocks": 4,
+  "allTextPreBlocksVerbatimInCorpus": true,
+  "nativeHtmlTables": 0,
+  "inlineImages": 0
+}
