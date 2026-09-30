@@ -9,7 +9,7 @@ const root=fileURLToPath(new URL('../',import.meta.url)),dist=join(root,'dist');
 const read=p=>readFile(join(root,p),'utf8').then(JSON.parse);
 const manifest=await read('data/runtime-manifest.json'),catalog=await read('data/runtime-catalog.json'),targets=await read('data/runtime-citations.json');
 const template=await readFile(join(dist,'index.html'),'utf8');
-const findReferences=createCitationMatcher(catalog.laws,targets);
+const findReferences=createCitationMatcher(catalog.laws,targets,await read('data/runtime-citation-context.json'));
 const nav=`<nav><a class="static-brand" href="/">openlawtw</a><a href="/laws/index.html">全台法規目錄</a></nav>`;
 const footer='<footer class="static-footer">openlawtw · 本庫收錄快照不代表完整或現行適用範圍。請核對官方原文及附件。</footer>';
 function page(meta,content,law=null,interactive=true){

@@ -15,7 +15,7 @@ assert.equal(ref('建築技術規則建築設計施工編第164條之1第1項第
 assert.equal(ref('建築技術規則建築設計施工編第一百六十四之一條第一項第二款').unit,'D0070115/a:164-1/p:1/i:2');
 assert.equal(find('本法第73條第2項',building)[0].unit,'D0070109/a:73/p:2');
 assert.equal(find('應依第73條辦理。',building)[0].article,'第 73 條');
-assert.equal(find('本法第73條',design).length,0,'本法 in a regulation must not become that regulation');
+assert.equal(find('本法第73條',design)[0].law.id,building.id,'General provisions explicitly declare the parent law; never bind to the regulation');
 assert.equal(find('本法第73條').length,0,'A ruling does not infer a law from an open reading panel');
 assert.equal(find('依未收錄自治條例第73條辦理。',building).length,0);
 assert.equal(find('未收錄條例所稱依第73條辦理。',building).length,0);

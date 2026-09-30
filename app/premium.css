@@ -59,3 +59,18 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #00
 .welcome-suggestions button{min-height:36px}.welcome-footnote>button{min-height:36px}
 @media(max-width:899px){.welcome-eyebrow{font-size:10px}.welcome-section-heading>span,.welcome-suggestions,.welcome-law small,.workspace-welcome .welcome-workbench p,.welcome-footnote,.workspace-welcome .welcome-footnote p{font-size:12px}.workspace-welcome .welcome-intro>p{font-size:14px}.welcome-footnote>button{margin-left:0}.welcome-workbench>button{min-height:36px}}
 .welcome-eyebrow,.welcome-suggestions,.welcome-suggestions button,.welcome-section-heading>span,.welcome-law-number,.welcome-law small,.workspace-welcome .welcome-workbench p,.welcome-footnote,.welcome-footnote>button,.workspace-welcome .welcome-footnote p{color:#626268}
+
+/* Let nested flex/grid readers shrink to the viewport instead of the longest
+   label. Wide legal tables keep their own horizontal scroll containers. */
+#root,.app,.reader-first .workspace,.reader-first .reader-tabroot,.reader-first .reader-scroll{min-width:0;max-width:100%}
+.reading-column{min-width:0}
+.reader-first .reader-headingline{flex-wrap:wrap}
+.reader-first .reader-breadcrumb,.reader-first .law-badges,.law-title>span,.search-group-title h3{min-width:0;overflow-wrap:anywhere}
+.source-document-scroll{min-width:0;overscroll-behavior-x:contain}
+@media(max-width:899px){
+  .reader-first .reader-scroll{overscroll-behavior-x:none}
+  /* Four nowrap tabs plus three fixed 26px gaps exceeded narrow readers,
+     especially the document label and multi-digit ruling count. */
+  .reader-first .reader-tabbar [data-slot=tabs-list]{min-width:0;max-width:100%;gap:clamp(6px,2vw,14px)!important}
+  .reader-first .reader-tabbar [data-slot=tabs-trigger]{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.4}
+}

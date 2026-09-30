@@ -28,3 +28,5 @@ public/data/embed-index.json
 
 # CI/source downloads are kept outside the web deployment.
 artifacts/
+
+data/runtime-citation-context.json
