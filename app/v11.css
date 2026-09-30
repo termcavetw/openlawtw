@@ -30,10 +30,10 @@
 .search-group mark{background:#f1e5bd;color:inherit;padding:1px 0;border-radius:2px}
 .reader-first .reader h2{color:#253e4a}
 .reader-first .article-section{grid-template-columns:94px minmax(0,1fr);gap:22px;padding-block:24px}
-.reader-first .article-text{line-height:1.85;letter-spacing:.025em;color:#2d4049}
-.article-text .legal-unit--paragraph{display:block;margin-block:0 .8em;white-space:pre-line}
+.reader-first .article-text{line-height:1.7;letter-spacing:.025em;color:#2d4049}
+.article-text .legal-unit--paragraph{display:block;margin-block:0 .45em;white-space:pre-line}
 .article-text .legal-unit--paragraph:last-of-type{margin-bottom:0}
-.article-text .legal-unit--item,.article-text .legal-unit--subitem{display:block;padding-left:2.2em;text-indent:-2.2em;margin-block:.4em;white-space:pre-line}
+.article-text .legal-unit--item,.article-text .legal-unit--subitem{display:block;padding-left:2.2em;text-indent:-2.2em;margin-block:.15em;white-space:pre-line}
 .article-text .legal-unit--subitem{padding-left:2.7em;text-indent:-2.7em}
 .article-text .legal-unit--item>.legal-unit,.article-text .legal-unit--subitem>.legal-unit{text-indent:0}
 .pair-return{display:flex;gap:8px;align-items:center;min-height:44px;width:100%;padding:10px 22px;border-bottom:1px solid #dce3df;background:#edf1ed;color:#365869;font-size:12px;cursor:pointer}
@@ -44,5 +44,5 @@
 .ruling-panel-content .ruling-fulltext{font-size:15px;line-height:1.9}
 .reader-first .unit-tools{color:#526a75}
 @media(min-width:900px) and (max-width:1150px){.reader-first{--navigation-width:310px}.reader-first .article-section{grid-template-columns:86px minmax(0,1fr);gap:15px}}
-@media(max-width:899px){.reader-first .workspace{display:block}.reader-first .article-section{display:block;padding-block:20px}.reader-first .article-heading{margin-bottom:10px}.reader-first .article-text{line-height:1.85}.pair-return{display:none}.search-group-title h3{font-size:15px}.search-article-hit p{font-size:13px}.search-article-hit{min-height:44px}.search-group-more{min-height:44px}.article-text .legal-unit--item{padding-left:1.8em;text-indent:-1.8em}.article-text .legal-unit--subitem{padding-left:2.2em;text-indent:-2.2em}.reader-first .article-section.comparing{margin-inline:0;padding-inline:0}}
+@media(max-width:899px){.reader-first .workspace{display:block}.reader-first .article-section{display:block;padding-block:20px}.reader-first .article-heading{margin-bottom:10px}.reader-first .article-text{line-height:1.7}.pair-return{display:none}.search-group-title h3{font-size:15px}.search-article-hit p{font-size:13px}.search-article-hit{min-height:44px}.search-group-more{min-height:44px}.article-text .legal-unit--item{padding-left:1.8em;text-indent:-1.8em}.article-text .legal-unit--subitem{padding-left:2.2em;text-indent:-2.2em}.reader-first .article-section.comparing{margin-inline:0;padding-inline:0}}
 @media(prefers-reduced-motion:reduce){.search-group *{transition:none!important}}
