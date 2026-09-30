@@ -25,3 +25,12 @@
 @media(max-width:599px){.law-chapter-nav{padding:12px;margin-bottom:18px}.law-chapter-nav label{display:block}.law-chapter-nav select{display:block;margin-top:7px;font-size:15px}.law-chapter-meta{align-items:flex-start;gap:8px}.law-chapter-paging button{min-height:38px;padding:5px 7px}.law-history{font-size:15px}.law-chapter-search-status{align-items:flex-start}.law-history-original>div{padding:10px}}
 
 .chapter-range{font-size:10px;font-weight:400;color:#858b94;margin-left:8px;white-space:nowrap;letter-spacing:0}.chapter-heading>span{display:inline-block}.chapter-tree summary{flex-wrap:wrap}.chapter-tree summary>.chapter-range{margin-left:auto}
+
+/* Chapter paths/ranges are content, not a minimum width for the reader. */
+.law-chapter-nav,.law-chapter-nav label{min-width:0;max-width:100%}
+.law-chapter-nav select{max-width:100%}
+.law-chapter-meta,.law-chapter-search-status{flex-wrap:wrap}
+.chapter-heading{overflow-wrap:anywhere}
+.chapter-heading>span{max-width:100%}
+.chapter-heading .chapter-range,.chapter-tree summary>.chapter-range{white-space:normal;overflow-wrap:anywhere}
+.chapter-tree details>summary{min-width:0;overflow-wrap:anywhere}
