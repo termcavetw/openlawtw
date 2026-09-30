@@ -279,6 +279,12 @@
 .universe-entry{background:#202023!important;border-color:#414148!important;color:#f1f1f3;box-shadow:none}.universe-entry svg,.universe-top-button svg{color:currentColor}
 .universe-shortcuts button:hover{background:#ffffff08;border-color:#676770}.universe-tooltip span{color:#bfbfc8}
 @media(max-width:700px){.universe-inspector{background:#151517f5}.universe-mobile-selection{background:#19191ceb;border-color:#44444c}.universe-mobile-selection strong{color:#eeeef2}}
+/* At 320px, reserve space for both map mode and the complete return action. */
+@media(max-width:374px){
+ .universe-header{gap:6px}
+ .universe-header .universe-eyebrow{display:none}
+ .universe-header-actions{flex:none}
+}
 
 /* Topic colors remain on the planets; chrome and relationship lines stay neutral. */
 .universe-legend .legend-law{background:#62d9f7;box-shadow:none}
