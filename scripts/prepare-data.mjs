@@ -6,7 +6,7 @@ import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
 import {join} from './paths.mjs';
 import {buildIndex} from '../lib/inverted.ts';
 import {normalize} from '../lib/search.ts';
-import {makeCitationTargets} from '../lib/citations.ts';
+import {makeCitationTargets,makeCitationContext} from '../lib/citations.ts';
 import {enrichLaw,sha} from './schema.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),dir=join(root,'public/data/v2');
 const read=p=>readFile(join(root,p),'utf8').then(JSON.parse);
@@ -61,6 +61,10 @@ manifest.universeRulings=await emit('universe-rulings',universe.rulings);
 manifest.files=[...files.values()];
 // The starter catalogue carries counts, not every chapter/article or full text.
 const slim={...catalog,version:pkg.version,laws:catalog.laws.map(l=>({...l,articles:[],articleCount:l.articles.length,history:'',note:'',preamble:'',attachments:[]}))};
+// A loaded law already contains its own declarations. Only cross-volume
+// general-provision evidence must be carried by the lightweight app shell.
+const externalCitationContext=Object.fromEntries(Object.entries(makeCitationContext(enriched)).map(([id,scope])=>[id,Object.fromEntries(Object.entries(scope).map(([alias,rows])=>[alias,rows.filter(row=>row.sourceLaw!==id)]).filter(([,rows])=>rows.length))]).filter(([,scope])=>Object.keys(scope).length));
+await writeFile(join(root,'data/runtime-citation-context.json'),JSON.stringify(externalCitationContext));
 await writeFile(join(root,'data/runtime-citations.json'),JSON.stringify(makeCitationTargets(enriched)));
 await writeFile(join(root,'data/runtime-catalog.json'),JSON.stringify(slim));
 await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(manifest));
