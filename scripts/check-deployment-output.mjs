@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+for(const name of ['data/laws','data/laws.json','data/rulings.json','data/search.json','openlawtw-source.zip'])assert(!fs.existsSync('dist/'+name),'Authoring-only output must not be deployed: '+name);
+assert(fs.statSync('artifacts/openlawtw-source.zip').size>1000000,'Complete source artifact remains available to CI');
+assert(fs.readFileSync('.github/workflows/validate.yml','utf8').includes('artifacts/openlawtw-source.zip'));
+const manifest=JSON.parse(fs.readFileSync('public/data/manifest.json','utf8'));
+for(const file of manifest.files)assert(fs.existsSync('dist'+decodeURI(file.url)),file.url);
+assert.equal(fs.readdirSync('dist/laws').filter(name=>name.endsWith('.html')).length,1028);
+assert(fs.existsSync('dist/data/versions/assets'));
+assert(fs.statSync('openlawtw.html').size>1000000,'Standalone complete HTML remains generated');
+const component=fs.readFileSync('components/data-sources.tsx','utf8');assert(!component.includes('/openlawtw-source.zip'));assert(component.includes('https://github.com/termcavetw/openlawtw'));
+const size=dir=>fs.readdirSync(dir,{withFileTypes:true}).reduce((total,entry)=>total+(entry.isDirectory()?size(path.join(dir,entry.name)):fs.statSync(path.join(dir,entry.name)).size),0);
+console.log(JSON.stringify({deploymentBytes:size('dist'),sourceZipBytes:fs.statSync('artifacts/openlawtw-source.zip').size,canonicalDuplicates:'excluded',lawShards:'present',staticPages:1028,officialAssets:'preserved',standaloneHTML:'preserved',sourceArtifact:'retained in CI'}));

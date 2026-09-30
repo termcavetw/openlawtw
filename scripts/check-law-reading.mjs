@@ -1,3 +1,4 @@
+import {articleRange,lawPathRanges} from '../lib/law-chapters.ts';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {ALL_CHAPTERS,chapterForArticle,initialLawChapter,lawChapters,visibleLawArticles} from '../lib/law-chapters.ts';
@@ -49,3 +50,12 @@ assert(entries[1].text.includes('條條文；並自發布日施行'),'Official h
 assert.deepEqual(lawHistoryEntries(''),[]);
 assert.equal(lawHistoryEntries('地方政府公告\n第一段\n  1. 附註').length,1,'An indented numbered subitem is not a new history record.');
 console.log(JSON.stringify({laws:laws.length,chapters:chapterCount,originalArticles:articleCount,historyTextPreservation:historyCount,deepLinks:'passed',crossChapterSearch:'passed',readingResume:'passed'}));
+
+const numbered=(nos,path=[])=>nos.map(no=>({no,text:'',path}));
+assert.equal(articleRange(numbered(['第 7 條','第 8 條','第 14 條'])),'第7–14條');
+assert.equal(articleRange(numbered(['第 7-1 條','第 14 條'])),'第7-1條–第14條');
+assert.equal(articleRange(numbered(['第 7 條'])),'第7條');assert.equal(articleRange([]),'');
+assert.equal(articleRange(numbered(['第 七 點','第 十四 點'])),'第七–十四點');
+const nested=[...numbered(['第 7 條','第 7-1 條'],['第二章','第一節']),...numbered(['第 14 條'],['第二章','第二節']),...numbered(['第 15 條'],['第三章','第一節'])];
+nested[2].text='（刪除）';const ranges=lawPathRanges(nested);
+assert.equal(ranges.get(JSON.stringify(['第二章'])),'第7–14條');assert.equal(ranges.get(JSON.stringify(['第二章','第一節'])),'第7條–第7-1條');assert.equal(ranges.get(JSON.stringify(['第三章','第一節'])),'第15條');

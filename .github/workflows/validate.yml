@@ -31,6 +31,6 @@ jobs:
         with:
           name: openlawtw-review
           path: |
-            dist/openlawtw-source.zip
+            artifacts/openlawtw-source.zip
             openlawtw.html
           retention-days: 7

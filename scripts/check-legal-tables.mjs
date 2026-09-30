@@ -108,8 +108,10 @@ const empty=()=>null;
 const reader=component('../components/article-text.tsx',{
   'lucide-react':{Copy:empty,Link2:empty,ChevronDown:empty},
   './legal-table':legal,
+  '@/lib/legal-tables':{splitLegalText},
+  '@/lib/legal-definitions':{definitionOccurrences:()=>[]},
   './law-navigation':{Highlight:({text})=>text},
-  './legal-reference-text':{LegalReferenceText:({text,renderText})=>renderText(text)},
+  './legal-reference-text':{findLegalReferences:()=>[],LegalReferenceText:({text,renderText})=>renderText(text)},
   '@/lib/routes':{unitAnchor:id=>'unit-'+id,lawHref:()=>''},
   '@/lib/portable':{shareURL:()=>''},
   './casebook':{AddEvidenceButton:empty},
