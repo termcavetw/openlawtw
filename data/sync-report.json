@@ -1,14 +1,63 @@
 {
-  "fetchedAt": "2026-09-29T04:34:53+00:00",
+  "fetchedAt": "2026-09-30T07:59:19+00:00",
   "missingCentral": [
     "建築物防火避難設施及設備安全標準檢查簽證專業機構或人員認可辦法"
   ],
-  "localFailures": [
+  "localFailures": [],
+  "checks": [
     {
-      "name": "彰化縣政府受理違章建築檢舉要點",
-      "reason": "無法識別條文段落，保留連結待核對：彰化縣政府(以下簡稱本府)為考量違章建築管理人力及端正社會風氣，避免以",
-      "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439"
+      "name": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "產業創新條例",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0040051",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "工廠管理輔導法施行細則",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030068",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "工廠從事物品製造加工範圍及面積電力容量熱能規模認定標準",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030117",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "工廠設立許可或核准登記附加負擔辦法",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030119",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "特定工廠登記辦法",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030152",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "特定工廠申請變更編定為特定目的事業用地審查辦法",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030153",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "申請工廠設立許可及登記事項收費標準",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030044",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
+    },
+    {
+      "name": "農業用地變更回饋金撥繳及分配利用辦法",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0020018",
+      "type": "central-html",
+      "reason": "Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import"
     }
-  ],
-  "checks": []
+  ]
 }

@@ -79,3 +79,5 @@ CI 會驗證資料、索引搜尋、搜尋品質案例、型別、離線包與�
 ## 介面文字
 
 網站自行撰寫的內文、按鈕與提示不使用 emoji；使用清楚文字或既有 SVG 圖示。不得為了介面風格刪改官方原文。
+
+官方批次 XML 暫時無法取得時，可用 `--add-only --central-html data/industrial-central-sources.json` 明示加入已核對的 MOJ HTML 來源；保留 LawAll 與 LawHistory 的獨立原始 hash、日期及生效提示，並執行 parser 單元測試與 `validate-data.py --cache ... --source-ids ...` 完整來源比對。這條路徑不將既有批次快照換成 HTML。

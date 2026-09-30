@@ -68,7 +68,7 @@ function bodyOf(a:{text:string}){let text=normalizedText.get(a);if(text===undefi
 const corpusMaps=new WeakMap<SearchDoc[],Map<string,SearchDoc['articles']>>();
 function corpusMap(corpus:SearchDoc[]){let map=corpusMaps.get(corpus);if(!map){map=new Map(corpus.map(d=>[d.id,d.articles]));corpusMaps.set(corpus,map);}return map;}
 const headings=new WeakMap<Law,string[]>();
-function lawFields(law:Law){let fields=headings.get(law);if(!fields){fields=[normalize(law.name),normalize(law.region),...law.keywords.map(normalize)];headings.set(law,fields);}return fields;}
+function lawFields(law:Law){let fields=headings.get(law);if(!fields){fields=[normalize(law.name),normalize(law.region),normalize(law.id),...law.keywords.map(normalize)];headings.set(law,fields);}return fields;}
 function namedTerm(t:Term){return !!aliases[t.literal]||/(法|條例|辦法|規則|編)$/.test(t.value);}
 function excerptOf(text:string,terms:Term[]){
  const words=terms.flatMap(t=>[t.literal,t.value,...t.parts]);
@@ -127,7 +127,7 @@ export function searchLaws(laws:Law[],corpus:SearchDoc[],query:string,articleMod
   const titleMatch=matches(terms,fields);
   // Category membership is a filter, never a spurious title match.
   if(titleMatch&&!article&&!articleMode){
-   const exact=terms.length===1&&(terms[0].value===name||terms[0].literal===name);
+   const exact=terms.length===1&&(terms[0].value===name||terms[0].literal===name||terms[0].literal===normalize(law.id));
    results.push({law,type:'laws',score:exact?600:terms.some(t=>matchTerm(t,[name])===2)?400:240});continue;
   }
   for(const a of index.get(law.id)||law.articles){

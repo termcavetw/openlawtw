@@ -47,7 +47,7 @@ self.addEventListener('message',event=>{
 self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);if(req.method!=='GET'||url.origin!==self.location.origin)return;
  let lawId='';try{lawId=decodeURIComponent(url.pathname.match(/^\/laws\/([^/]+)\.html$/)?.[1]||'');}catch{}
- if(req.mode==='navigate'&&(url.pathname==='/'||url.pathname==='/index.html'||Object.prototype.hasOwnProperty.call(MANIFEST.laws,lawId))){event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match('/index.html'))||fetch(req)));return;}
+ if(req.mode==='navigate'&&(url.pathname==='/'||url.pathname==='/index.html'||url.pathname==='/laws/index.html'||Object.prototype.hasOwnProperty.call(MANIFEST.laws,lawId))){event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match('/index.html'))||fetch(req)));return;}
  if(PATHS.has(url.pathname)){event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match(url.pathname))||fetch(req)));return;}
  const file=FILES.get(url.pathname);if(file)event.respondWith((async()=>{const cache=await caches.open(DATA),saved=await cache.match(file.url);if(saved)return saved;const r=await verified(file);try{await cache.put(file.url,r.clone());}catch{/* Pack installation reports quota failures; online reading can continue. */}return r;})());
 });

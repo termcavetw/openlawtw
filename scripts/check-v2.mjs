@@ -15,7 +15,7 @@ const different=await loadLaw('D0070115');assert.equal(calls,3,'a different law 
 const provenance=await read('data/provenance.json');
 assert.equal(law.sourceRecordId,'CF','Existing central law keeps its original bulk source');
 assert.equal(different.sourceRecordId,'CM','Existing central order keeps its original bulk source');
-for(const [id,source] of Object.entries(provenance.sources).filter(([,source])=>source.format==='xml'&&source.bulkKey)){
+for(const [id,source] of Object.entries(provenance.sources).filter(([,source])=>(source.format==='xml'&&source.bulkKey)||source.parser==='moj-lawall-html')){
  const document=await read('public'+manifest.laws[id].url);
  assert.equal(document.sourceRecordId,id,'Added central law must resolve to its own source observation: '+id);
  assert.equal(provenance.sources[document.sourceRecordId].observedAt,original[id].retrieved,'Source reference retains the actual retrieval date: '+id);

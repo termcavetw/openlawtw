@@ -2341,6 +2341,127 @@
         "source": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000109",
         "text": "彰化縣政府辦理都市計畫農業區已建築供居住使用之合法建築物基地認定作業要點"
       }
+    },
+    {
+      "kind": "law",
+      "query": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030099"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "J0030099",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030099"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "毗連",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030099"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "毗連"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "工業擴廠",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030099"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "非都市土地 擴展",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030099"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "非都市土地 擴展"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "特定工廠申請變更編定",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0030153"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030153",
+        "text": "特定工廠申請變更編定"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "產業創新條例",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "J0040051"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0040051",
+        "text": "產業創新條例"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "J0030099 第5條",
+      "region": "全台",
+      "top": 1,
+      "expected": [
+        {
+          "law": "J0030099",
+          "article": "第5條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0030099",
+        "text": "原廠及擴展工業均屬低污染事業。"
+      }
     }
   ]
 }
