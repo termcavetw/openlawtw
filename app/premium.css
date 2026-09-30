@@ -74,3 +74,15 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #00
   .reader-first .reader-tabbar [data-slot=tabs-list]{min-width:0;max-width:100%;gap:clamp(6px,2vw,14px)!important}
   .reader-first .reader-tabbar [data-slot=tabs-trigger]{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.4}
 }
+
+/* A reading pane is vertical-only. Horizontal panning belongs to the table
+   viewport, not to the page containing it (including iOS standalone mode). */
+@media(max-width:899px){
+ html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+ @supports(overflow:clip){html,body{overflow-x:clip}}
+ .reader-first .reader-scroll{overflow-x:hidden;overflow-y:auto}
+ .reader-first .reader-tabbar [role=tablist]{overflow-x:hidden;overscroll-behavior-x:none}
+ .reader-first .article-section,.reader-first .article-section>.article-text{min-width:0;max-width:100%}
+ .reader-first .reader-tabbar [data-slot=tabs-trigger]{flex-wrap:wrap;justify-content:center;column-gap:5px;row-gap:0}
+ .reader-first .reader-tabbar [data-slot=tabs-trigger] .tab-count{white-space:nowrap;flex-shrink:0;overflow-wrap:normal}
+}

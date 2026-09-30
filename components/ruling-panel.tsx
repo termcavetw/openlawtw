@@ -1,5 +1,6 @@
+import {ThinkingOrb} from './thinking-orb';
 import {useEffect,useMemo,useRef,useState} from 'react';
-import {ArrowLeft,ChevronDown,FileText,LoaderCircle,Search,X} from 'lucide-react';
+import {ArrowLeft,ChevronDown,FileText,Search,X} from 'lucide-react';
 import {RulingCard,RulingReader} from './rulings';
 import {loadHeads,loadRuling} from '../lib/data-client';
 import {searchRulings} from '../lib/search';
@@ -21,13 +22,13 @@ export function RulingPanel({law,article,items,initial,count,summariesLoading,su
   <p className="ruling-panel-law">{law.name}</p>
   <div className="ruling-panel-list" ref={list} hidden={!!selection}>
    <p className="ruling-panel-intro">{article?'依原文明示條號連結。點選後在此閱讀，原條文保留在旁。':'此法規已連結的解釋函令。'}</p>
-   {summariesLoading?<p className="ruling-list-message" role="status"><LoaderCircle size={18}/>正在載入相關函釋…</p>:summariesError?<div className="ruling-list-message" role="alert"><p>相關函釋尚未下載，請連線後重試。</p><button className="plain-button" onClick={onRetry}>重新載入函釋</button></div>:<><label className="ruling-search"><Search size={15}/><input autoComplete="off" value={query} onChange={e=>{setQuery(e.target.value);setLimit(20);}} aria-label="搜尋此條相關函釋" placeholder="搜尋主旨、字號或引用文字"/>{query&&<button onClick={()=>setQuery('')} aria-label="清除並讀搜尋"><X size={14}/></button>}</label>
+   {summariesLoading?<p className="ruling-list-message" role="status"><ThinkingOrb/>正在載入相關函釋…</p>:summariesError?<div className="ruling-list-message" role="alert"><p>相關函釋尚未下載，請連線後重試。</p><button className="plain-button" onClick={onRetry}>重新載入函釋</button></div>:<><label className="ruling-search"><Search size={15}/><input autoComplete="off" value={query} onChange={e=>{setQuery(e.target.value);setLimit(20);}} aria-label="搜尋此條相關函釋" placeholder="搜尋主旨、字號或引用文字"/>{query&&<button onClick={()=>setQuery('')} aria-label="清除並讀搜尋"><X size={14}/></button>}</label>
    <div className="ruling-result-count" role="status">{found.length} 筆函釋</div>
    {found.slice(0,limit).map(r=><RulingCard key={r.id} ruling={r} onClick={()=>openRuling(r)}/>)}
    {found.length>limit&&<button className="load-more" onClick={()=>setLimit(n=>n+20)}>載入更多<ChevronDown size={15}/></button>}
    {!found.length&&<div className="empty-state"><FileText size={24}/>沒有符合的已收錄函釋。</div>}</>}
   </div>
-  {selection&&(loading||error)&&<div className="ruling-panel-pending"><button className="plain-button" onClick={back}><ArrowLeft size={14}/>返回函釋清單</button>{loading?<p role="status"><LoaderCircle size={18}/>正在載入函釋全文…</p>:<><p role="alert">這份函釋全文尚未下載，請連線後重試。</p><button className="plain-button" onClick={()=>setRetry(n=>n+1)}>重新載入</button><a href={selection.url} target="_blank" rel="noreferrer">官方原函</a></>}</div>}
+  {selection&&(loading||error)&&<div className="ruling-panel-pending"><button className="plain-button" onClick={back}><ArrowLeft size={14}/>返回函釋清單</button>{loading?<p role="status"><ThinkingOrb/>正在載入函釋全文…</p>:<><p role="alert">這份函釋全文尚未下載，請連線後重試。</p><button className="plain-button" onClick={()=>setRetry(n=>n+1)}>重新載入</button><a href={selection.url} target="_blank" rel="noreferrer">官方原函</a></>}</div>}
   {selection&&full&&!loading&&!error&&<RulingReader ruling={full} items={heads} lawById={lawById} onBack={back} backLabel={history.length?'上一則函釋':'函釋清單'} onOpen={openRuling} onChoose={onChoose} onCopy={onCopy} saved={saved.includes(full.id)} onSave={()=>onSave(full.id)} reference={{law:law.id,article:article?.no||''}}/>}
  </div>;
 }
