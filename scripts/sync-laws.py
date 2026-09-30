@@ -280,6 +280,13 @@ with ThreadPoolExecutor(max_workers=3) as pool:
  for doc in pool.map(getlocal,jobs):
   if doc:laws.append(doc); print(doc['name'],doc['coverage'],len(doc['articles']),flush=True)
 
+# Explicit reviewed formal sources are maintained independently of MOJ/local HTML.
+for formal in json.loads((ROOT/'data/formal-laws.json').read_text(encoding='utf-8')):
+ if formal['id'] not in {law['id'] for law in laws}:laws.append(formal)
+for law in laws:
+ words=json.loads((ROOT/'data/law-keywords.json').read_text(encoding='utf-8')).get(law['id'],[])
+ law['keywords']=list(dict.fromkeys(law.get('keywords',[])+words))
+
 report['missingCentral']=[n for n in NAMES if not any(l['name']==n for l in laws)]
 # Relationships are accepted only with explicit article evidence. Never derive from browsing categories.
 byname={l['name']:l for l in laws};relations=[]
