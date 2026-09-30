@@ -4,7 +4,7 @@
 
 程式採 MIT；法規、函釋、PDF 與圖表依各自來源與權利說明處理，不因收錄於本庫而改採 MIT。引用時可依 [CITING.md](CITING.md) 保存官方來源、條號／字號、資料日期與版本；附件及裁圖的逐檔紀錄見 [資料文件清單](data/documents/RIGHTS.md)。
 
-v0.24.0：參照引線的法條辨識與預覽方式，支援正式簡稱、母法語境、同段代名詞、裸條號重置、列舉／範圍與點制；顯示整條並標示已核實項款，桌機滑過預覽、點擊固定，手機點開底部面板。修正手機章節／分頁列的橫向溢位，保留表格局部捲動。
+v0.24.1：參照引線的法條辨識與預覽方式，支援正式簡稱、母法語境、同段代名詞、裸條號重置、列舉／範圍與點制；顯示整條並標示已核實項款，桌機滑過預覽、點擊固定，手機點開底部面板。修正手機章節／分頁列的橫向溢位，保留表格局部捲動。
 
 v0.23.0：條文內正式定義與法條引用以細底線提示，點開才顯示官方原文與來源。名詞僅使用同一法規的明定定義，每條最多六個、同詞只標一次；不明確的引用維持原文。章節名稱旁列出實際條號範圍；詳見 [閱讀更新與驗證](INLINE-READING-2026-09-30.md)。
 
@@ -140,3 +140,9 @@ python3 scripts/validate-data.py
 別名與查找詞彙分別放在 `data/aliases.json`、`data/search-vocabulary.json`，可直接用 PR 補充；建置同時輸出引線共用資料。已附 PR 驗證及每週同步草稿 PR，維護者覆核後合併。
 
 `SCHEMA.md` 說明資料結構；`CONTRIBUTING.md` 說明貢獻；`VALIDATION.md` 記錄驗證界線。程式 MIT 不覆蓋資料及第三方授權，見 `DATA_LICENSE.md` 與 `THIRD_PARTY_NOTICES.md`。
+
+### 20px loading indicator
+
+Real law/ruling fetches and offline-pack downloads use a small monochrome Thinking Orbs Canvas2D preset. It unmounts when loading ends, uses a static frame with reduced motion, and pauses offscreen/in hidden tabs. Existing loading text, download progress, errors and retries remain authoritative. See `THIRD_PARTY_NOTICES.md` for the retained MIT license.
+
+Mobile table isolation: the outer reading pane scrolls vertically only; semantic and original-text table viewports retain local horizontal scrolling. Table intrinsic sizing is contained, and the static fallback follows the same rule. Regression reference: design/construction volume article 116-3 on iPhone standalone mode. Desktop narrow-window geometry is not a substitute for real-device iOS gesture verification.
