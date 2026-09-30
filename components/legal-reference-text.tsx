@@ -1,4 +1,4 @@
-import {lazy,Suspense,useEffect,useMemo,useState,type ReactNode} from 'react';
+import {useEffect,useMemo,useState,type ReactNode} from 'react';
 import {data} from '@/lib/catalog';
 import {createCitationMatcher,type CitationTargets,type LegalReference} from '@/lib/citations';
 import targets from '@/data/runtime-citations.json';
@@ -6,9 +6,8 @@ import {lawHref,legacyLawHash,type ChooseLaw} from '@/lib/routes';
 import {isPortable} from '@/lib/portable';
 import type {Law} from '@/lib/law-types';
 import type {DefinitionOccurrence} from '@/lib/legal-definitions';
-import type {InlineSelection} from './legal-inline-preview';
+import LegalInlinePreview,{type InlineSelection} from './legal-inline-preview';
 import './legal-inline-preview.css';
-const LegalInlinePreview=lazy(()=>import('./legal-inline-preview'));
 export const findLegalReferences=createCitationMatcher(data.laws,targets as unknown as CitationTargets);
 export function LegalReferenceText({text,law,onChoose,renderText=(text:string)=>text,definitions=[],sourceOffset=0,references}:{text:string;law?:Law;onChoose:ChooseLaw;renderText?:(text:string)=>ReactNode;definitions?:DefinitionOccurrence[];sourceOffset?:number;references?:LegalReference[]}){
  const found=useMemo(()=>references?references.filter(r=>r.start>=sourceOffset&&r.end<=sourceOffset+text.length).map(r=>({...r,start:r.start-sourceOffset,end:r.end-sourceOffset})):findLegalReferences(text,law),[references,text,law,sourceOffset]);
@@ -26,5 +25,5 @@ export function LegalReferenceText({text,law,onChoose,renderText=(text:string)=>
   at=hit.end;
  }
  if(at<text.length)parts.push(<span key={'t'+at}>{renderText(text.slice(at))}</span>);
- return <>{parts}{selection&&<Suspense fallback={null}><LegalInlinePreview selection={selection} onClose={()=>setSelection(null)} onChoose={onChoose}/></Suspense>}</>;
+ return <>{parts}{selection&&<LegalInlinePreview selection={selection} onClose={()=>setSelection(null)} onChoose={onChoose}/>}</>;
 }
