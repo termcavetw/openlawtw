@@ -389,5 +389,18 @@
     "retrieved": "2026-09-29T04:29:53+00:00",
     "versionNote": "官方頁面正文快照；保留表格、原始標題及編號順序。未重新編排為條文；獨立附表與圖說仍請核對官方附件。",
     "textMethod": "HTML 本文全部文字與表格列、欄合併逐一核對；移除站台樣式及可執行內容。"
+  },
+  "NCC-FL096222": {
+    "format": "pdf",
+    "file": "data/documents/NCC-FL096222.pdf",
+    "source": "https://gazette2.nat.gov.tw/EG_FileManager/eguploadpub/eg027032/ch06/type1/gov53/num16/images/BB.pdf",
+    "sourcePage": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+    "sha256": "65c88eb06104af0274eec53047175f6f8c71b6f03d51fae694aff1f703cf0d08",
+    "hashScope": "downloaded-pdf-file",
+    "bytes": 5069051,
+    "pages": 177,
+    "retrieved": "2026-09-30T10:32:25+00:00",
+    "versionNote": "110年2月22日通傳基礎字第11063002172號公告訂定，自即日生效。收錄行政院公報所附177頁完整規範原始PDF，保留規範內附表、圖示及附錄，並非另增一般實務資料。文字抽取僅供搜尋；尺寸、表格、公式以原始PDF為準。",
+    "textMethod": "pdftotext -layout 原生文字抽取；無OCR、未重建圖表。"
   }
 }
