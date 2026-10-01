@@ -22,9 +22,14 @@
 .article-tools-trigger{flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;min-height:36px;padding:0;border:0;background:none;color:#74747d;border-radius:5px;cursor:pointer}
 .article-tools-trigger:hover,.article-tools-trigger[aria-expanded=true]{background:#eeeeef;color:#222}
 .article-tools-panel{z-index:45;width:220px;max-width:calc(100vw - 24px);max-height:var(--radix-popover-content-available-height);overflow-y:auto;padding:8px;border:1px solid #ddd;border-radius:9px;background:#fff;box-shadow:0 6px 24px #00000018;color:#444;font:13px/1.6 system-ui}
-.article-tools-panel :is(button,a,summary){display:flex;align-items:center;gap:8px;width:100%;min-height:38px;margin:0;padding:8px 10px;border:0;background:none;border-radius:5px;text-align:left;text-decoration:none;font:inherit;color:inherit;white-space:normal;cursor:pointer}
+.article-tools-panel :is(button,a,summary){display:flex;align-items:center;justify-content:flex-start;gap:8px;width:100%;min-height:38px;margin:0;padding:8px 10px;border:0;background:none;border-radius:5px;text-align:left;text-decoration:none;font:inherit;color:inherit;white-space:normal;cursor:pointer}
 .article-tools-panel :is(button,a,summary):hover{background:#f2f2f3;color:#222}
-.article-tools-panel .article-source-tools{display:block}.article-tools-panel .article-copy::after{content:'複製引用'}.article-tools-panel .article-resources{margin:0}
+.article-tools-panel .article-source-tools{display:block}.article-tools-panel .article-resources{margin:0}
 .article-tools-panel :is(.casebook-inline-status,.reference-error){display:block;font-size:12px;padding:6px;overflow-wrap:anywhere}
 .article-tools-arrow{fill:#fff}
 @media(max-width:899px){.reader-first .reader .article-heading{justify-content:space-between}.reader-first .reader .article-heading .article-no{flex:0 1 auto}.article-tools-trigger{width:36px;min-height:36px}.article-tools-panel :is(button,a,summary){min-height:44px}}
+
+.article-tools-panel :is(button,a,summary)>svg:first-child{width:16px;height:16px;flex:0 0 16px}
+.law-print-dialog [data-slot=dialog-title]{padding-right:32px}
+.law-print-dialog [data-slot=dialog-close]{display:flex;align-items:center;justify-content:center;width:44px;height:44px;top:8px;right:8px}
+.law-print-return{min-height:44px;border:1px solid #d5d5da;border-radius:7px;background:#fff;color:#444;font:14px/1.5 system-ui;cursor:pointer}
