@@ -17,8 +17,9 @@
 
 /* A short article's height follows its text, never its collection of actions. */
 .reader-first .reader .article-section{grid-template-columns:108px minmax(0,1fr)}
-.reader-first .reader .article-heading{display:flex;flex-wrap:nowrap;align-items:center;gap:4px}
+.reader-first .reader .article-heading{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .reader-first .reader .article-heading .article-no{flex:1;min-width:0}
+.reader-first .reader .article-heading>.article-rulings-trigger{order:3;flex-basis:100%;margin:0;min-height:30px;justify-content:flex-start}
 .article-tools-trigger{flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;min-height:36px;padding:0;border:0;background:none;color:#74747d;border-radius:5px;cursor:pointer}
 .article-tools-trigger:hover,.article-tools-trigger[aria-expanded=true]{background:#eeeeef;color:#222}
 .article-tools-panel{z-index:45;width:220px;max-width:calc(100vw - 24px);max-height:var(--radix-popover-content-available-height);overflow-y:auto;padding:8px;border:1px solid #ddd;border-radius:9px;background:#fff;box-shadow:0 6px 24px #00000018;color:#444;font:13px/1.6 system-ui}
@@ -27,7 +28,7 @@
 .article-tools-panel .article-source-tools{display:block}.article-tools-panel .article-resources{margin:0}
 .article-tools-panel :is(.casebook-inline-status,.reference-error){display:block;font-size:12px;padding:6px;overflow-wrap:anywhere}
 .article-tools-arrow{fill:#fff}
-@media(max-width:899px){.reader-first .reader .article-heading{justify-content:space-between}.reader-first .reader .article-heading .article-no{flex:0 1 auto}.article-tools-trigger{width:36px;min-height:36px}.article-tools-panel :is(button,a,summary){min-height:44px}}
+@media(max-width:899px){.reader-first .reader .article-heading{flex-wrap:nowrap;justify-content:space-between}.reader-first .reader .article-heading .article-no{flex:1;white-space:nowrap}.reader-first .reader .article-heading>.article-rulings-trigger{order:0;flex:0 0 auto;min-height:36px;margin-right:6px}.article-tools-trigger{width:36px;min-height:36px}.article-tools-panel :is(button,a,summary){min-height:44px}}
 
 .article-tools-panel :is(button,a,summary)>svg:first-child{width:16px;height:16px;flex:0 0 16px}
 .law-print-dialog [data-slot=dialog-title]{padding-right:32px}

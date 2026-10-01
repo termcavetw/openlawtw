@@ -21,10 +21,19 @@ with sync_playwright() as p:
   page.goto(base+'/laws/D0070115.html#a-116-3',wait_until='load')
   target=page.locator('.reader [data-article="第 116-3 條"]')
   target.wait_for(timeout=20000);target.scroll_into_view_if_needed()
+  rulings=target.locator('.article-heading>.article-rulings-trigger')
+  expect(rulings).to_be_visible();expect(rulings).to_be_enabled()
+  assert rulings.locator('b').inner_text()=='2'
+  rulings.click()
+  close_rulings=page.get_by_role('button',name='關閉函釋並讀',exact=True)
+  expect(close_rulings).to_be_visible();close_rulings.click();close_rulings.wait_for(state='detached')
+  expect(rulings).to_be_focused()
+  assert target.locator('.article-heading').bounding_box()['height']<=(76 if width>=900 else 44)
   target.get_by_role('button',name='第 116-3 條操作',exact=True).click()
   menu=page.get_by_role('dialog',name='第 116-3 條操作',exact=True)
   assert menu.locator('.article-source-tools a').get_attribute('href').endswith('pcode=D0070115&flno=116-3')
-  expect(menu.locator('.article-rulings-trigger')).to_be_enabled()
+  assert menu.locator('.article-rulings-trigger').count()==0
+  expect(rulings).to_be_visible()
   menu.evaluate('(el)=>Promise.all(el.getAnimations().map(a=>a.finished))')
   # Measure the open menu, including inherited casebook/copy button styles.
   alignment=menu.evaluate("""el=>[...el.querySelectorAll('button,a')].map(row=>{
@@ -33,7 +42,7 @@ with sync_playwright() as p:
    let node,label;while(node=walker.nextNode())if(node.textContent.trim()&&!node.parentElement.closest('svg')){const range=document.createRange();range.selectNodeContents(node);label=range.getBoundingClientRect().left;break;}
    const box=row.getBoundingClientRect();return {icon:icon?.getBoundingClientRect().left,label,height:box.height,left:box.left,right:box.right};
   })""")
-  assert len(alignment)==6,alignment
+  assert len(alignment)==5,alignment
   assert max(r['icon'] for r in alignment)-min(r['icon'] for r in alignment)<=1,alignment
   assert max(r['label'] for r in alignment)-min(r['label'] for r in alignment)<=1,alignment
   assert all(r['left']>=0 and r['right']<=width and r['height']>=(44 if width<500 else 38) for r in alignment),alignment
