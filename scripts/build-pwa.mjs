@@ -17,7 +17,7 @@ const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/up
 // The social preview image is crawler metadata, not an offline UI asset. Keep it
 // deployed for link previews without charging every PWA installation for it.
 // /laws/index.html uses the same offline app shell as /; do not cache its duplicate catalogue HTML.
-const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')&&!p.includes('/documents/article-supplements/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.
@@ -33,7 +33,7 @@ const script=html.match(/<script\b[^>]*src="([^"]+)"[^>]*><\/script>/);if(!scrip
 const js=await readFile(join(dist,script[1]),'utf8');
 const styles=[...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)];
 for(const match of styles){const path=match[0].match(/href="([^"]+)"/)[1];const css=await readFile(join(dist,path),'utf8');html=html.replace(match[0],()=>'<style>'+ css.replace(/<\/style/gi,'<\\/style')+'</style>');}
-const payload={};for(const path of files.filter(p=>(p.endsWith('.json')||p.endsWith('.bin'))&&p.includes('/data/v2/'))){const bytes=await readFile(path);payload['/'+path.slice(dist.length+1)]=JSON.parse((path.endsWith('.bin')?gunzipSync(bytes):bytes).toString());}
+const payload={};for(const path of files.filter(p=>(p.endsWith('.json')||p.endsWith('.bin'))&&(p.includes('/data/v2/')||p.includes('/data/article-supplements/')))){const bytes=await readFile(path);payload['/'+path.slice(dist.length+1)]=JSON.parse((path.endsWith('.bin')?gunzipSync(bytes):bytes).toString());}
 const data=gzipSync(Buffer.from(JSON.stringify(payload))).toString('base64');
 html=html.replace(script[0],'');
 html=html.replace(/<link\b[^>]*rel="(?:manifest|modulepreload|apple-touch-icon|icon)"[^>]*>/g,'');
