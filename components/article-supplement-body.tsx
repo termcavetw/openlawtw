@@ -1,6 +1,10 @@
-import {useMemo,useState} from 'react';
+import {useMemo,useState,type ReactNode} from 'react';
 import {ChevronLeft,ChevronRight,ExternalLink,ZoomIn} from 'lucide-react';
 import {supplementAssetURL,type ArticleSupplement} from '@/lib/article-supplements';
+
+export function SupplementMessage({failed,retry,children}:{failed?:boolean;retry?:()=>void;children?:ReactNode}){
+ return <div className="supp-message" role={failed?'alert':'status'}>{failed?<><p>圖例載入失敗，可重試或開啟官方原檔。</p><button type="button" onClick={retry}>重新載入圖例</button>{children}</>:'正在載入圖例…'}</div>;
+}
 
 export function ArticleSupplementBody({record}:{record:ArticleSupplement}){
  return <><SupplementPages record={record}/><details className="supp-source"><summary>來源與版本 · 官方原檔</summary><div>
@@ -34,7 +38,7 @@ function SupplementImage({src,width,height,alt,zoom}:{src:string;width:number;he
  const [status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),[attempt,setAttempt]=useState(0);
  const url=supplementAssetURL(src,location.protocol,location.origin);
  return <div className="supp-canvas" role="region" tabIndex={0} aria-label={alt+'，可左右及上下捲動'}>
-  {status==='loading'&&<p className="supp-message" role="status">正在載入圖例…</p>}
-  {status==='error'?<div className="supp-message" role="alert"><p>圖例載入失敗，可重試或開啟官方原檔。</p><button type="button" onClick={()=>{setStatus('loading');setAttempt(value=>value+1);}}>重新載入圖例</button></div>:<img key={attempt} src={url+(attempt?'?retry='+attempt:'')} width={width} height={height} alt={alt} decoding="async" onLoad={()=>setStatus('ready')} onError={()=>setStatus('error')} style={zoom?{width:Math.max(width,1000),maxWidth:'none'}:undefined}/>}
+  {status!=='ready'&&<SupplementMessage failed={status==='error'} retry={()=>{setStatus('loading');setAttempt(value=>value+1);}}/>}
+  {status!=='error'&&<img key={attempt} src={url+(attempt?'?retry='+attempt:'')} width={width} height={height} alt={alt} decoding="async" onLoad={()=>setStatus('ready')} onError={()=>setStatus('error')} style={zoom?{width:Math.max(width,1000),maxWidth:'none'}:undefined}/>}
  </div>;
 }
