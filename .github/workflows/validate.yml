@@ -34,7 +34,9 @@ jobs:
           python -m pip install playwright==1.58.0
           python -m playwright install --with-deps chromium
       - name: Check reading and printing in browser
-        run: python scripts/check-law-print-browser.py artifacts/browser-check
+        run: |
+          python scripts/check-law-print-browser.py artifacts/browser-check
+          python scripts/check-article-supplements-browser.py artifacts/browser-check/supplements
       - name: Save browser evidence
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
