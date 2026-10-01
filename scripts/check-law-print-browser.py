@@ -49,6 +49,7 @@ with sync_playwright() as p:
   assert dialog.get_by_label('法條',exact=True).input_value()=='第 116-3 條'
   # Phone users need visible, tappable exits; Escape alone does not cover them.
   for name in ['關閉','返回條文']:
+   dialog.evaluate('(el)=>Promise.all(el.getAnimations().map(a=>a.finished))')
    close=dialog.get_by_role('button',name=name,exact=True)
    box=close.bounding_box();assert box['width']>=(150 if name=='返回條文' else 44) and box['height']>=44,box
    if width<500:close.tap()
