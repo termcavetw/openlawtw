@@ -71,11 +71,16 @@ with sync_playwright() as p:
         assert dialog.locator('.supp-source').inner_text().find(records['2']['retrieved'][:10]) >= 0
         # Repeat open/close through Escape, the accessible X, and the visible return button.
         for close_name in [None, '關閉', '關閉圖例，返回條文']:
+            # Visible includes the opening zoom animation; measure the final touch target.
+            dialog.evaluate('(el)=>Promise.all(el.getAnimations().map(a=>a.finished))')
             if close_name is None: page.keyboard.press('Escape')
             else:
                 close = dialog.get_by_role('button', name=close_name, exact=True)
                 if width < 500:
-                    assert close.bounding_box()['height'] >= 44
+                    close_box = close.bounding_box()
+                    if close_box['height'] < 44:
+                        page.screenshot(path=str(output / f'close-target-failure-{width}.png'))
+                    assert close_box['height'] >= 44, {'button': close_name, 'box': close_box}
                     close.tap()
                 else: close.click()
             dialog.wait_for(state='detached')
