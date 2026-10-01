@@ -11,6 +11,11 @@ globalThis.window={};globalThis.fetch=async url=>new Response(await readFile(new
 for(const guide of guides)for(const ref of guide.refs){const law=laws[ref.law];assert(law,ref.law);const text=ref.article?law.articles.find(a=>normalize(a.no)===normalize(ref.article))?.text:law.name;assert(text?.includes(ref.contains),guide.id+' source evidence');assert(/^https:\/\//.test(law.url));}
 const rows=[];
 for(const test of suite.cases){
+ if(test.basis.contains)for(const expected of test.expected){
+  const law=laws[expected.law];
+  const source=expected.article?law?.articles.find(a=>normalize(a.no)===normalize(expected.article))?.text:law?.name;
+  assert(source?.includes(test.basis.contains),test.query+' expected official passage');
+ }
  let results=[],passed=false;
  if(test.kind==='guide'){results=searchGuides(test.query).map(g=>({guide:g.id}));passed=test.expected.some(e=>results.some(r=>r.guide===e.guide));}
  else if(test.kind==='ruling'){const found=await indexedRulings(test.query);assert.equal(found.missing,0);results=found.items.slice(0,test.top).map(r=>({ruling:r.id}));passed=test.expected.some(e=>results.some(r=>r.ruling===e.ruling));assert.equal(found.items[0]?.numberKey,test.query,'exact serial must rank before other rulings that cite it');}
