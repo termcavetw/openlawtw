@@ -82,8 +82,14 @@ with sync_playwright() as p:
    popup.pdf(path=str(root/'article-116-3.pdf'),prefer_css_page_size=True)
    popup.screenshot(path=str(root/'print-preview.png'),full_page=True)
   popup.close()
-  page.keyboard.press('Escape');assert not dialog.is_visible()
-  assert menu.get_by_role('button',name='列印第 116-3 條',exact=True).evaluate('(el)=>el===document.activeElement')
+  page.keyboard.press('Escape');dialog.wait_for(state='detached')
+  # Radix restores focus in its deferred unmount callback. Assert the same exact
+  # target after cleanup, as in the visible close-button cases above.
+  try:expect(menu.get_by_role('button',name='列印第 116-3 條',exact=True)).to_be_focused()
+  except AssertionError:
+   page.screenshot(path=str(root/f'print-focus-failure-{width}.png'))
+   print('Print focus return failure:',page.evaluate('document.activeElement?.outerHTML.slice(0,800)'),flush=True)
+   raise
   page.keyboard.press('Escape')
   # Search must not trim the selected chapter's print output.
   page.get_by_placeholder('本法規內搜尋／條號').fill('安全維護')
