@@ -174,7 +174,11 @@ with sync_playwright() as p:
   return_url=page.url
   popup.get_by_role('link',name='返回條文',exact=True).click()
   popup.wait_for_url(return_url)
-  popup.locator('.reader [data-article="第 116-2 條"]').wait_for(timeout=20000)
+  try:popup.locator('.reader [data-article="第 116-2 條"]').wait_for(timeout=20000)
+  except Exception:
+   popup.screenshot(path=str(root/f'return-failure-{width}.png'))
+   print('Return failure:',popup.url,popup.title(),popup.locator('body').inner_text()[:1000],flush=True)
+   raise
   dialog.wait_for(state='detached');popup.close()
   assert not errors,errors
   results.append({'width':width,'geometry':geometry,'menuAlignment':alignment,'chapterArticles':chapter_count,'errors':errors})

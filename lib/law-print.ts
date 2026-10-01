@@ -63,7 +63,13 @@ export function openLawPrint(law:Law,scope:PrintScope,orientation:PrintOrientati
   event.preventDefault();onReturn?.();popup.close();
   // Some standalone browsers keep the preview in a window they will not close.
   // Reuse the reading URL, including its article anchor, in that case.
-  if(!popup.closed)popup.location.replace(returnURL);
+  if(!popup.closed){
+   // document.open() may give the preview the caller's URL. Navigating to its
+   // existing fragment then stays in the preview, so reload that document.
+   const sameDocument=popup.location.href.split('#')[0]===returnURL.split('#')[0];
+   popup.location.replace(returnURL);
+   if(sameDocument)popup.location.reload();
+  }
  });
  popup.addEventListener('beforeprint',fit);
  return true;
