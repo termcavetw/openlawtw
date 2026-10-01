@@ -6,9 +6,10 @@ assert(fs.statSync('artifacts/openlawtw-source.zip').size>1000000,'Complete sour
 assert(fs.readFileSync('.github/workflows/validate.yml','utf8').includes('artifacts/openlawtw-source.zip'));
 const manifest=JSON.parse(fs.readFileSync('public/data/manifest.json','utf8'));
 for(const file of manifest.files)assert(fs.existsSync('dist'+decodeURI(file.url)),file.url);
-assert.equal(fs.readdirSync('dist/laws').filter(name=>name.endsWith('.html')).length,1028);
+const expectedPages=['index.html',...Object.keys(manifest.laws).map(id=>id+'.html')].sort();
+assert.deepEqual(fs.readdirSync('dist/laws').filter(name=>name.endsWith('.html')).sort(),expectedPages,'Every indexed source has exactly one static page; no missing or stale pages');
 assert(fs.existsSync('dist/data/versions/assets'));
 assert(fs.statSync('openlawtw.html').size>1000000,'Standalone complete HTML remains generated');
 const component=fs.readFileSync('components/data-sources.tsx','utf8');assert(!component.includes('/openlawtw-source.zip'));assert(component.includes('https://github.com/termcavetw/openlawtw'));
 const size=dir=>fs.readdirSync(dir,{withFileTypes:true}).reduce((total,entry)=>total+(entry.isDirectory()?size(path.join(dir,entry.name)):fs.statSync(path.join(dir,entry.name)).size),0);
-console.log(JSON.stringify({deploymentBytes:size('dist'),sourceZipBytes:fs.statSync('artifacts/openlawtw-source.zip').size,canonicalDuplicates:'excluded',lawShards:'present',staticPages:1028,officialAssets:'preserved',standaloneHTML:'preserved',sourceArtifact:'retained in CI'}));
+console.log(JSON.stringify({deploymentBytes:size('dist'),sourceZipBytes:fs.statSync('artifacts/openlawtw-source.zip').size,canonicalDuplicates:'excluded',lawShards:'present',staticPages:expectedPages.length,officialAssets:'preserved',standaloneHTML:'preserved',sourceArtifact:'retained in CI'}));
