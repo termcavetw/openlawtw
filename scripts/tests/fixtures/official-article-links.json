@@ -1,0 +1,35 @@
+[
+  {
+    "observedAt": "2026-10-01",
+    "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=116-3",
+    "sha256": "add4bdd15b4580231d194e2e657517bf082345a96c6449938898f0d31c905be6",
+    "observedLinks": [
+      {
+        "text": "友善列印",
+        "href": "LawSingle.aspx?media=print&pcode=D0070115&flno=116-3"
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-10-01",
+    "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0170005",
+    "sha256": "cbcfa3d3d1fe89bb231f7565945754d76ffcb424c786a3a1877b48c039724225",
+    "observedLinks": [
+      {
+        "text": "第 3 條",
+        "href": "FLAWDOC01.aspx?fcode=C0170005&flno=3"
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-10-01",
+    "source": "https://web.law.ntpc.gov.tw/Scripts/FLAWDAT0202.aspx?fcode=C0150108",
+    "sha256": "dab367c85ee3aa7b5e55c41623f4a013e7551e341f6247735fb7357e9db5887b",
+    "observedLinks": [
+      {
+        "text": "第 39-1 條",
+        "href": "FLAWDOC01.aspx?fcode=C0150108&flno=39-1"
+      }
+    ]
+  }
+]

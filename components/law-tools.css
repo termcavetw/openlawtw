@@ -1,0 +1,16 @@
+.reader-first .reader-actions{gap:6px 16px;flex-wrap:wrap}
+.reader-first .reader-actions :is(a,button){min-height:36px;white-space:nowrap}
+.reader-tools-menu{z-index:100;min-width:174px;max-width:calc(100vw - 24px);padding:6px;border:1px solid #ddd;border-radius:10px;background:#fff;color:#333;box-shadow:0 8px 28px #00000014;font:13px/1.5 system-ui}
+.reader-tools-item{display:flex;align-items:center;gap:9px;padding:10px;border-radius:5px;cursor:pointer;outline:none}
+.reader-tools-item[data-highlighted]{background:#f1f1f3;color:#111}
+.reader-tools-menu [data-orientation=horizontal]{height:1px;background:#e6e6e8;margin:4px}
+.reader-first .article-heading .article-source-tools{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 10px;min-width:0;max-width:100%}
+.article-source-tools :is(a,button){display:inline-flex;align-items:center;gap:4px;font:11px/1.5 system-ui;color:#63636c;background:none;border:0;padding:4px 0;min-height:30px;text-decoration:none;cursor:pointer}
+.article-source-tools :is(a,button):hover{text-decoration:underline;text-underline-offset:3px;color:#222}
+.law-print-dialog{width:calc(100vw - 32px)!important;max-width:460px!important;max-height:calc(100dvh - 40px);overflow-y:auto;color:#29292e;background:#fff}
+.law-print-dialog label{display:grid;gap:7px;font:13px/1.6 system-ui;min-width:0}
+.law-print-dialog select{width:100%;max-width:100%;min-width:0;font:16px/1.5 system-ui;padding:10px 12px;border:1px solid #d5d5da;border-radius:7px;background:#fff;color:#333}
+.law-print-note{font:12px/1.8 system-ui;color:#686872;margin:0}
+.law-print-submit{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:44px;padding:10px 16px;background:#28282d;color:#fff;border:0;border-radius:7px;font:14px/1.5 system-ui;text-decoration:none;cursor:pointer}
+.law-print-error{font:13px/1.7 system-ui;color:#983d32}
+@media(max-width:899px){.reader-first .reader-actions{gap:3px 13px}.reader-first .reader-actions :is(a,button){min-height:40px}.article-source-tools :is(a,button){min-height:36px}.law-print-dialog{padding:22px!important}}
