@@ -31,5 +31,5 @@
 
 .article-tools-panel :is(button,a,summary)>svg:first-child{width:16px;height:16px;flex:0 0 16px}
 .law-print-dialog [data-slot=dialog-title]{padding-right:32px}
-.law-print-dialog [data-slot=dialog-close]{display:flex;align-items:center;justify-content:center;width:44px;height:44px;top:8px;right:8px}
+.law-print-dialog [data-slot=dialog-close]:not(.law-print-return){display:flex;align-items:center;justify-content:center;width:44px;height:44px;top:8px;right:8px}
 .law-print-return{min-height:44px;border:1px solid #d5d5da;border-radius:7px;background:#fff;color:#444;font:14px/1.5 system-ui;cursor:pointer}
