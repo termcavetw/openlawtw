@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Printer,ExternalLink} from 'lucide-react';
-import {Dialog,DialogContent,DialogTitle,DialogDescription} from './ui/dialog';
+import {Dialog,DialogClose,DialogContent,DialogTitle,DialogDescription} from './ui/dialog';
 import {lawChapters,chapterForArticle} from '../lib/law-chapters';
 import {openLawPrint,printSelection,type PrintScope,type PrintOrientation} from '../lib/law-print';
 import {officialArticleSource} from '../lib/official-source';
@@ -15,7 +15,7 @@ export function LawPrintDialog({law,initial,onClose,onRestoreFocus}:{law:Law;ini
  const scope:PrintScope=kind==='article'?{kind,article}:kind==='chapter'?{kind,chapter}:{kind:'law'};
  let count=0;try{count=printSelection(law,scope).articles.length;}catch{}
  function preview(){setError('');setNotice('');try{
-  if(!openLawPrint(law,scope,orientation))setError('預覽視窗未能開啟，請允許此網站開啟新視窗後重試。');
+  if(!openLawPrint(law,scope,orientation,onClose))setError('預覽視窗未能開啟，請允許此網站開啟新視窗後重試。');
   else setNotice('列印預覽已開啟，可在預覽頁列印或儲存為 PDF。');
  }catch(e){setError(e instanceof Error?e.message:'無法建立列印預覽，請重試。');}}
  return <Dialog open onOpenChange={v=>{if(!v)onClose();}}><DialogContent className="law-print-dialog" onCloseAutoFocus={event=>{event.preventDefault();onRestoreFocus();}}><DialogTitle>友善列印</DialogTitle><DialogDescription>{law.name}</DialogDescription>
@@ -27,5 +27,6 @@ export function LawPrintDialog({law,initial,onClose,onRestoreFocus}:{law:Law;ini
  <p className="law-print-note">共 {count} 條原文，包含條號、來源與日期。搜尋條件不會刪減所選章節或全文；正文下的官方圖表會一併列印，其餘附件請另開原檔。</p>
  <button type="button" className="law-print-submit" disabled={!count} onClick={preview}><Printer size={16}/>開啟列印預覽</button>
  </>}{error&&<p role="alert" className="law-print-error">{error}</p>}{notice&&<p role="status" className="law-print-note">{notice}</p>}
+ <DialogClose asChild><button type="button" className="law-print-return">返回條文</button></DialogClose>
  </DialogContent></Dialog>;
 }
