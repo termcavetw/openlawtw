@@ -244,6 +244,55 @@
       "id": "NCC-FL096222",
       "query": "弱電系統",
       "page": 110
+    },
+    {
+      "id": "NLMA-976",
+      "page": 1,
+      "query": "綠化總固碳當量",
+      "source": "https://www.nlma.gov.tw/uploads/files/570f0fafb4e7fc5fd174a4f184618467.pdf",
+      "basis": "綠化總固碳當量；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "NLMA-961",
+      "page": 1,
+      "query": "基地保水指標",
+      "source": "https://www.nlma.gov.tw/uploads/files/0f741327224b557bd4f672ad1d610c46.pdf",
+      "basis": "基地保水指標；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "NLMA-6187",
+      "page": 1,
+      "query": "外牆平均熱傳透率",
+      "source": "https://www.nlma.gov.tw/uploads/files/ad1d46151d95afce37ddf77954111364.pdf",
+      "basis": "外牆平均熱傳透率；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "NLMA-936",
+      "page": 1,
+      "query": "雨水貯留利用設施",
+      "source": "https://www.nlma.gov.tw/uploads/files/f0687f5a9a597f7f033ab1a2b62e7c1b.pdf",
+      "basis": "雨水貯留利用設施；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "NLMA-937",
+      "page": 1,
+      "query": "再生水資源利用量",
+      "source": "https://water.moenv.gov.tw/Public/Download/dom_sewage/%E5%BB%BA%E7%AF%89%E7%89%A9%E7%94%9F%E6%B4%BB%E9%9B%9C%E6%8E%92%E6%B0%B4%E5%9B%9E%E6%94%B6%E5%86%8D%E5%88%A9%E7%94%A8%E8%A8%AD%E8%A8%88%E6%8A%80%E8%A1%93%E8%A6%8F%E7%AF%84%E4%BF%AE%E6%AD%A3%E8%A6%8F%E5%AE%9A.pdf",
+      "basis": "再生水資源利用量；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "NLMA-170",
+      "page": 1,
+      "query": "綠建材使用面積",
+      "source": "https://www.nlma.gov.tw/uploads/files/088e237ac521f3c0990afd300b16fb93.pdf",
+      "basis": "綠建材使用面積；官方原始PDF第1頁，按原生文字逐頁核對。"
+    },
+    {
+      "id": "ABRI-330726",
+      "page": 1,
+      "query": "候選建築能效證書",
+      "source": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTQ1MS8zMzA3MjYvODMzYWMwODctOTUxZS00ZTZjLTlmYzUtMDhlYjcwMmJjYWJiLnBkZg%3d%3d&n=5YiK55m76LOH5paZMy3ntqDlu7rnr4nmqJnnq6Dlj4rlu7rnr4nog73mlYjmqJnnpLrnlLPoq4vlr6nmoLjoqo3lj6%2flj4rkvb%2fnlKjkvZzmpa3opoHpu54oMTE0LjA3LjE4ICkucGRm",
+      "basis": "候選建築能效證書；官方原始PDF第1頁，按原生文字逐頁核對。"
     }
   ]
 }
