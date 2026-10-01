@@ -130,3 +130,52 @@
 - [2026年版綠建築評估手冊-住宿類(EEWH-RS)](https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339047)：書目與連結；手冊全文及圖表個別權利未核清
 - [2026年版綠建築評估手冊-廠房類(EEWH-GF)](https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339046)：書目與連結；手冊全文及圖表個別權利未核清
 - [2026年版綠建築評估手冊-既有建築及其改善類(EEWH-EB&RN)](https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339048)：書目與連結；手冊全文及圖表個別權利未核清
+## 逐條補充圖例（2026-10-01）
+
+此次另收錄《建築技術規則建築設計施工編》`D0070115` 的 **24 份官方補充圖例 PDF（43 頁）及 1 個官方 JPG 原檔**，由全國法規資料庫目前列出的精確附件標題對應至 24 個條號。所有 43 個原始 PDF／DOC／JPG 名稱及連結保存在 [逐條目錄](article-supplements/catalog.json)；18 個 DOC 僅保留外部連結，未複製或個別檢視其內容。這些逐條檔案與上方整份法規文件、116-2 條完整條文表格分開保存。
+
+### 本批次使用依據及查核範圍
+
+- 已於 2026-10-01 查閱來源網站本身的[全國法規資料庫政府網站資料開放宣告](https://law.moj.gov.tw/Service/Copyright.aspx)：其可授權的著作權範圍採政府資料開放授權條款第 1 版，允許重製、改作、編輯及公開傳輸，要求註明出處；特別聲明須經同意的圖像等內容不在範圍內，並保留第三人及其他智慧財產權注意事項。本次並未以其他機關網站宣告代替 MOJ 來源網站的宣告。
+- 來源為官方法規附件清單中的「補充圖例」，[官方沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115)亦記錄部分圖例的發布、修正及停止適用事項。依其官方命令／公文內容性質，一併參照[著作權法第 9 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0070017&flno=9)。不據此主張所有政府網站圖片或其他說明文件均適用同一結論。
+- 已逐頁目視檢視本批次 43 頁及 JPG：内容為法規技術圖、附表、尺寸、公式、圖说及原附註；未見另列的攝影、商標、第三方著作署名或特別使用限制。保留所有原始頁面、原註解與來源；未重繪、未裁圖、未以 AI 或 OCR 改寫法律內容。這是本次收錄範圍的具體觀察，並非對未知權利的概括保證。
+- 原始 PDF/JPG 的取得時間、大小及 SHA-256 見 [download-manifest.json](article-supplements/download-manifest.json)。全部 PDF 轉成 43 張完整頁面無損 WebP，JPG 保持原始位元組；輸出 hash、頁碼、全頁範圍及尺寸見 [catalog.json](article-supplements/catalog.json)。[visual-review.json](article-supplements/visual-review.json)保存逐條目視核對；[source-text.json](article-supplements/source-text.json)保存可抽取的原生文字和來源文件屬性，未作 OCR。
+- 官方全文、沿革、資料開放宣告及著作權法第 9 條的原始 HTML 證據、擷取時間及 hash 見 [sources/manifest.json](article-supplements/sources/manifest.json)。本專案 MIT 不重新授權本批次官方內容，也不宣稱主管機關為本網站背書。
+
+### 版本差異及限制
+
+第 1、60、107、110 條的官方沿革記載過圖例修正及部分原圖例停止適用；目錄保留沿革連結與註記，不以圖號、擷取日期或 PDF 建檔日期推定歷史版本或生效日期。第 1 條的另列 JPG 圖 1-3-(8) 仍獨立保存。第 39-1 條的訂定及生效資訊僅按沿革第 81 點記載，不推及其他附件。
+
+第 144 條特別記錄：官方附件名稱及兩頁實際圖说為第 144 條，但 PDF 內部 Title 解碼為「Microsoft Word - 第117條補充圖例」。依官方精確附件標題對應第 144 條，不依文件屬性猜測改映射。PDF 建檔資訊為 2018 年，沿革另載 2026 年第 144 條修正；未宣稱此圖例已同步更新，使用時仍須核對官方原文。第 3-1 條圖內無明確條號，對應亦完全依官方附件標題。
+
+### 逐檔來源（均於 2026-10-01 擷取）
+
+| 精確官方附件名稱 | 官方條文頁 | 官方原檔 | 實體頁數／格式 |
+| --- | --- | --- | --- |
+| 第 1 條補充圖例.PDF | [第 1 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=1) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011573) | 7 頁 |
+| 第 1 條補充圖例圖1-3-(8).JPG | [第 1 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=1) | [JPG](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000018218) | 322 × 227 像素 |
+| 第 2 條補充圖例.PDF | [第 2 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=2) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234929) | 2 頁 |
+| 第 3-1 條補充圖例.PDF | [第 3-1 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=3-1) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234930) | 1 頁 |
+| 第 8 條補充圖例.PDF | [第 8 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=8) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234943) | 1 頁 |
+| 第 14 條補充圖例.PDF | [第 14 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=14) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234933) | 3 頁 |
+| 第 16 條補充圖例.PDF | [第 16 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=16) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234934) | 2 頁 |
+| 第 19 條補充圖例.PDF | [第 19 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=19) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234935) | 1 頁 |
+| 第 23 條補充圖例.PDF | [第 23 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=23) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234936) | 1 頁 |
+| 第 24 條補充圖例.PDF | [第 24 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=24) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234937) | 1 頁 |
+| 第 26 條補充圖例.PDF | [第 26 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=26) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234938) | 2 頁 |
+| 第 28 條補充圖例.PDF | [第 28 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=28) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234939) | 1 頁 |
+| 第 33 條補充圖例.PDF | [第 33 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=33) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234940) | 1 頁 |
+| 第 39-1 條補充圖例.PDF | [第 39-1 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=39-1) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000220371) | 5 頁 |
+| 第 42 條補充圖例.PDF | [第 42 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=42) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234941) | 2 頁 |
+| 第 45 條補充圖例.PDF | [第 45 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=45) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234942) | 1 頁 |
+| 第 60 條補充圖例.PDF | [第 60 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=60) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000235454) | 1 頁 |
+| 第 89 條補充圖例.PDF | [第 89 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=89) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234944) | 1 頁 |
+| 第 90 條補充圖例.PDF | [第 90 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=90) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234945) | 1 頁 |
+| 第 107 條補充圖例.PDF | [第 107 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=107) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011574) | 1 頁 |
+| 第 110 條補充圖例.PDF | [第 110 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=110) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011575) | 2 頁 |
+| 第 117 條補充圖例.PDF | [第 117 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=117) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234931) | 1 頁 |
+| 第 118 條補充圖例.PDF | [第 118 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=118) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234932) | 1 頁 |
+| 第 121 條補充圖例.PDF | [第 121 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=121) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087271) | 2 頁 |
+| 第 144 條補充圖例.PDF | [第 144 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=144) | [PDF](https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000215836) | 2 頁 |
+
+此節只增加上述已核對的 25 個原檔，不改變先前其他文件的「待核」狀態。再利用時仍需保留原出處、版本差異及必要頁碼；如果日後發現第三方權利或特別使用限制，應先停用有疑慮的本機影像並保留官方連結供核對。
