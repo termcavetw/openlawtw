@@ -1,0 +1,104 @@
+import http.server,threading,functools,json,shutil,tempfile,sys
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+repo=Path(__file__).resolve().parent.parent
+root=Path(sys.argv[1]) if len(sys.argv)>1 else Path(tempfile.mkdtemp(prefix='openlawtw-print-qa-'))
+root.mkdir(parents=True,exist_ok=True)
+class Handler(http.server.SimpleHTTPRequestHandler):
+ def log_message(self,*a):pass
+ def do_GET(self):
+  if self.path.startswith("/laws/") and not Path(self.translate_path(self.path)).exists():self.path="/index.html"
+  super().do_GET()
+server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Handler,directory=str(repo/'dist')))
+threading.Thread(target=server.serve_forever,daemon=True).start()
+base='http://127.0.0.1:'+str(server.server_port)
+results=[]
+with sync_playwright() as p:
+ browser=p.chromium.launch(executable_path=shutil.which('chromium'),headless=True,args=['--no-sandbox'])
+ for width in [1280,390,320]:
+  context=browser.new_context(viewport={'width':width,'height':900},device_scale_factor=1)
+  page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+  page.goto(base+'/laws/D0070115.html#a-116-3',wait_until='load')
+  target=page.locator('.reader [data-article="第 116-3 條"]')
+  target.wait_for(timeout=20000);target.scroll_into_view_if_needed()
+  assert target.locator('.article-source-tools a').get_attribute('href').endswith('pcode=D0070115&flno=116-3')
+  geometry=page.evaluate('''()=>({viewport:innerWidth,root:document.documentElement.scrollWidth,reader:document.querySelector('.reader').getBoundingClientRect().width})''')
+  assert geometry['root']<=width,geometry
+  page.screenshot(path=str(root/f'reader-{width}.png'))
+  target.get_by_role('button',name='列印第 116-3 條',exact=True).click()
+  dialog=page.get_by_role('dialog',name='友善列印')
+  assert dialog.get_by_label('列印範圍',exact=True).input_value()=='article'
+  assert dialog.get_by_label('法條',exact=True).input_value()=='第 116-3 條'
+  dialog.evaluate('(el)=>Promise.all(el.getAnimations().map(a=>a.finished))');page.screenshot(path=str(root/f'dialog-{width}.png'))
+  with page.expect_popup() as info:dialog.get_by_role('button',name='開啟列印預覽').click()
+  popup=info.value;popup.on('pageerror',lambda e:print('POPUP ERROR',str(e),flush=True));popup.wait_for_function('!document.querySelector("#print-law").disabled')
+  assert popup.locator('.print-article').count()==1
+  assert popup.locator('.print-article h2').inner_text()=='第 116-3 條'
+  assert popup.evaluate('window.opener===null')
+  assert popup.locator('table').count()>0
+  assert popup.locator('.print-source').count()==2
+  assert popup.evaluate('''()=>[...document.querySelectorAll('.print-table,.print-raw')].every(t=>t.getBoundingClientRect().right<=document.querySelector('main').getBoundingClientRect().right+1)''')
+  popup.evaluate('()=>{window.printCount=0;window.print=()=>window.printCount++;}')
+  popup.get_by_role('button',name='列印／儲存為 PDF').click();assert popup.evaluate('window.printCount')==1
+  if width==1280:
+   popup.pdf(path=str(root/'article-116-3.pdf'),prefer_css_page_size=True)
+   popup.screenshot(path=str(root/'print-preview.png'),full_page=True)
+  popup.close()
+  page.keyboard.press('Escape');assert not dialog.is_visible()
+  assert target.get_by_role('button',name='列印第 116-3 條',exact=True).evaluate('(el)=>el===document.activeElement')
+  # Search must not trim the selected chapter's print output.
+  page.get_by_placeholder('本法規內搜尋／條號').fill('安全維護')
+  page.locator('.reader-actions').get_by_role('button',name='列印',exact=True).click()
+  assert dialog.get_by_label('列印範圍',exact=True).input_value()=='chapter'
+  with page.expect_popup() as info:dialog.get_by_role('button',name='開啟列印預覽').click()
+  popup=info.value;popup.on('pageerror',lambda e:print('POPUP ERROR',str(e),flush=True));popup.wait_for_function('!document.querySelector("#print-law").disabled')
+  chapter_count=popup.locator('.print-article').count();assert chapter_count>1
+  popup.close()
+  if width==1280:
+   dialog.get_by_label('列印範圍',exact=True).select_option('law')
+   dialog.get_by_label('紙張方向',exact=True).select_option('landscape')
+   with page.expect_popup() as info:dialog.get_by_role('button',name='開啟列印預覽').click()
+   popup=info.value;popup.on('pageerror',lambda e:print('POPUP ERROR',str(e),flush=True));popup.wait_for_function('!document.querySelector("#print-law").disabled')
+   laws=json.loads((repo/'public/data/laws.json').read_text())
+   assert popup.locator('.print-article').count()==len(laws['D0070115']['articles'])
+   assert popup.evaluate('''()=>[...document.querySelectorAll('.print-table,.print-raw')].every(t=>t.getBoundingClientRect().right<=document.querySelector('main').getBoundingClientRect().right+1)''')
+   popup.pdf(path=str(root/'full-law-landscape.pdf'),prefer_css_page_size=True)
+   popup.close()
+  page.keyboard.press('Escape')
+  page.get_by_placeholder('本法規內搜尋／條號').fill('')
+  # New previews use only already-loaded data, including when offline.
+  page.locator('.reader-actions').get_by_role('button',name='列印',exact=True).click()
+  context.set_offline(True)
+  with page.expect_popup() as info:dialog.get_by_role('button',name='開啟列印預覽').click()
+  popup=info.value;popup.wait_for_function('!document.querySelector("#print-law").disabled')
+  assert popup.locator('.print-article').count()==chapter_count
+  popup.close();context.set_offline(False)
+  page.evaluate('()=>{window.originalOpen=window.open;window.open=()=>null;}')
+  dialog.get_by_role('button',name='開啟列印預覽').click()
+  assert dialog.get_by_role('alert').inner_text().startswith('預覽視窗未能開啟')
+  page.evaluate('()=>{window.open=window.originalOpen;}')
+  page.keyboard.press('Escape')
+  page.get_by_role('button',name='更多法規操作').click()
+  assert page.get_by_role('menuitem',name='複製連結').is_visible()
+  page.keyboard.press('Escape')
+  assert not errors,errors
+  results.append({'width':width,'geometry':geometry,'chapterArticles':chapter_count,'errors':errors})
+  print(json.dumps(results[-1],ensure_ascii=False),flush=True)
+  context.close()
+ # Unsupported source shows its official full-page fallback explicitly.
+ context=browser.new_context(viewport={'width':390,'height':900})
+ page=context.new_page()
+ page.goto(base+'/laws/臺北市-FL038035.html#a-3',wait_until='load')
+ target=page.locator('.reader [data-article="第 3 條"]');target.wait_for(timeout=20000)
+ assert target.locator('.article-source-tools a').inner_text()=='官方全文'
+ assert target.locator('.article-source-tools a').get_attribute('href')=='https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL038035'
+ page.goto(base+'/laws/內政部-GL000734.html',wait_until='load')
+ page.locator('.reader-actions').get_by_role('button',name='列印',exact=True).click(timeout=20000)
+ dialog=page.get_by_role('dialog',name='友善列印')
+ assert dialog.get_by_role('link',name='開啟官方原檔').is_visible()
+ assert dialog.get_by_role('combobox').count()==0
+ context.close()
+ browser.close()
+server.shutdown()
+print('Browser artifacts:',root)
+(root/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
