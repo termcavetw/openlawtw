@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {normalize, parseQuery, searchLaws, searchRulings} from '../lib/search.ts';
+import {normalize, parseQuery, searchLaws, searchRulings, highlightTerms} from '../lib/search.ts';
+import {searchGuides} from '../lib/search-guidance.ts';
 const data=JSON.parse(fs.readFileSync(new URL('../data/catalog.json',import.meta.url),'utf8'));
 const archive=JSON.parse(fs.readFileSync(new URL('../public/data/rulings.json',import.meta.url),'utf8'));
 const rulings=archive.items;
@@ -61,3 +62,16 @@ console.log('Long Chinese queries, precise law/article binding, serials, multi-k
 // Official HTML can carry invisible formatting in article headings.
 assert.equal(normalize('\u200B\u200B第十二條'),'第12條');
 assert.equal(parseQuery('雲林縣建築管理自治條例 \u200B第十二條').article,'第12條');
+
+// Curated segmentation keeps every qualifier; it is not a legal synonym engine.
+for(const q of ['工業用地增建絕不存在詞彙','消防設備檢修申報 絕不存在詞彙','電信室設置絕不存在詞彙']){
+ assert.equal(searchLaws(data.laws,corpus,q).length,0,q+' cannot drop an unknown suffix or AND term');
+ assert.equal(searchRulings(rulings,q).length,0,q+' ruling precision');
+}
+assert(highlightTerms('電信室設置').includes('電信室'));
+assert(highlightTerms('電信室設置').includes('設置'));
+assert(!searchLaws(data.laws,corpus,'既有建築消防改善').some(h=>h.law.id==='D0070150'),'Existing does not imply originally lawful');
+assert.equal(searchGuides('既有建築消防改善')[0]?.id,'existing-building-fire');
+assert.equal(searchGuides('既有建築耐震改善').length,0,'A fire guide needs a fire query');
+assert.equal(searchGuides('工業地增建')[0]?.id,'industrial-extension');
+assert.equal(searchGuides('住宅增建').length,0,'Do not infer industrial land');
