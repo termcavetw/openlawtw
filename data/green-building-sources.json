@@ -149,7 +149,24 @@
       "sha256": "d11c886b18d19605b59cfdbc03a06e78f4306c803f9a736b8d577b98c479587b",
       "bytes": 2430820,
       "pages": 19,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textExtractionReview": {
+        "hashScope": "UTF-8 serialized page-text JSON; pdftotext -layout -enc UTF-8 -eol unix; page text stripped only at page boundaries",
+        "canonical": {
+          "extractor": "Poppler pdftotext 25.03.0",
+          "sha256": "a652782217c01f8cefad6b8b335072e970a1df04f591b1ba52a7d7325a89ab22",
+          "bytes": 48197
+        },
+        "alternatives": [
+          {
+            "extractor": "Poppler pdftotext 24.02.0 (Ubuntu 24.02.0-1ubuntu9.9)",
+            "sha256": "6705689b5b13ed36499f33435be66cfe14be622d68c8060e50d3738136d95e6d",
+            "bytes": 48310
+          }
+        ],
+        "reviewedAt": "2026-10-01",
+        "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      }
     },
     {
       "id": "NLMA-937",
@@ -190,7 +207,24 @@
       "sha256": "7dba4381954572758197698f41a41da1c55c065f98b2f3f542d6f8d7cb1668d2",
       "bytes": 2031296,
       "pages": 13,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textExtractionReview": {
+        "hashScope": "UTF-8 serialized page-text JSON; pdftotext -layout -enc UTF-8 -eol unix; page text stripped only at page boundaries",
+        "canonical": {
+          "extractor": "Poppler pdftotext 25.03.0",
+          "sha256": "2a4588ca33004695f68575abcd89f768a1d760d4fc1eca8712d143e7235da52a",
+          "bytes": 27430
+        },
+        "alternatives": [
+          {
+            "extractor": "Poppler pdftotext 24.02.0 (Ubuntu 24.02.0-1ubuntu9.9)",
+            "sha256": "a4157874412667cf497a9ee8eb1e04f3eaef25efa514e87581508602ef7d4beb",
+            "bytes": 27602
+          }
+        ],
+        "reviewedAt": "2026-10-01",
+        "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      }
     },
     {
       "id": "NLMA-170",
