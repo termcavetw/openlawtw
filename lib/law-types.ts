@@ -1,5 +1,6 @@
+export type ArticleFigure={title:string;source:string;sourcePage:string;sha256:string;retrieved:string;versionNote:string;pdf:string;images:{src:string;width:number;height:number;page:number;alt:string;sha256:string;sourceRect:number[]}[]};
 export type LegalUnit = {id:string;kind:'paragraph'|'item'|'subitem';number:number;start:number;end:number;children:LegalUnit[]};
-export type Article = { no: string; text: string; path: string[];id?:string;anchor?:string;contentHash?:string;structure?:{status:'parsed'|'unparsed';method:string;units:LegalUnit[];reason?:string};officialAmendedAt?:string|null };
+export type Article = { figures?:ArticleFigure[]; no: string; text: string; path: string[];id?:string;anchor?:string;contentHash?:string;structure?:{status:'parsed'|'unparsed';method:string;units:LegalUnit[];reason?:string};officialAmendedAt?:string|null };
 export type Attachment = { title: string; url: string };
 export type Law = {
   id: string; name: string; region: string; category: string; kind: string;

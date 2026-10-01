@@ -1,3 +1,4 @@
+import {prepareArticleFigures} from './prepare-article-figures.mjs';
 import {prepareDocumentReaders} from './prepare-document-readers.mjs';
 import {fileURLToPath} from 'node:url';
 import {makeUniverseData} from './universe-data.mjs';
@@ -32,9 +33,10 @@ const docs=Object.values(raw).sort((a,b)=>a.id.localeCompare(b.id));
 if(history.archive)await cp(join(root,'data/versions'),join(root,'public/data/versions'),{recursive:true});
 const heads=archive.items.map(r=>({...r,body:'',summaryOnly:true,refs:r.refs,attachments:[]}));
 manifest.rulingHeads=await emit('ruling-heads',heads);
+const articleFigures=await prepareArticleFigures(root,raw);
 const rulingCounts={},enriched=[];
 for(const law of docs){
- const document=enrichLaw(law,history.laws[law.id],provenance.sources);enriched.push(document);
+ const document=enrichLaw(law,history.laws[law.id],provenance.sources);for(const article of document.articles){const figures=articleFigures[law.id]?.[article.no];if(figures)article.figures=figures;}enriched.push(document);
  manifest.laws[law.id]=await emit('law',document);
  const related=heads.filter(r=>r.refs.some(ref=>ref.law===law.id));
  if(related.length)manifest.related[law.id]=await emit('related',related);

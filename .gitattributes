@@ -10,3 +10,6 @@ data/versions/** -text
 
 # Official HTML regression fixtures also retain exact downloaded bytes.
 scripts/tests/fixtures/** -text
+
+# Source evidence hashes refer to exact downloaded bytes.
+data/documents/article-figures/**/source.html -text

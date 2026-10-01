@@ -1,0 +1,37 @@
+[
+  {
+    "lawId": "D0070115",
+    "article": "第 116-2 條",
+    "articleText": "前條安全維護裝置應依下表規定設置：",
+    "title": "安全維護裝置設置表",
+    "file": "data/documents/article-figures/D0070115-116-2/original.pdf",
+    "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000295580",
+    "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=116-2",
+    "sourceHTML": "data/documents/article-figures/D0070115-116-2/source.html",
+    "sourceHTMLSha256": "04047560d48572bf870031aa99e35967556fa5fcd574f4abb12ce3c84a85c6b2",
+    "sha256": "956c90cfd549cdcb52315f7025c122fd85bb4fb7ccaba6a86d57055f543a9ce2",
+    "bytes": 438542,
+    "pages": 2,
+    "retrieved": "2026-10-01T10:59:03+08:00",
+    "versionNote": "全國法規資料庫第 116-2 條所附完整條文；原檔為行政院公報第027卷第133期（2021-07-19）兩頁節錄，第1頁另含其他條文，第2頁為本條表格及符號說明。",
+    "textMethod": "原檔表格為影像；直接擷取第2頁唯一嵌入圖像，未 OCR、未重繪、未轉寫法律內容。",
+    "images": [
+      {
+        "file": "data/documents/article-figures/D0070115-116-2/table.jpeg",
+        "sha256": "79cb7bc0b47b5490d48560a94cd65343eadd3bd721e6f93daee1956fd944d694",
+        "mime": "image/jpeg",
+        "width": 1079,
+        "height": 1651,
+        "page": 2,
+        "sourceRect": [
+          126.6217269897461,
+          99.0001220703125,
+          486.734130859375,
+          649.9720458984375
+        ],
+        "xref": 5,
+        "alt": "第 116-2 條安全維護裝置設置表，含所有空間類別、裝置欄位及下方圓圈與三角形符號說明。"
+      }
+    ]
+  }
+]

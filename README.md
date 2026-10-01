@@ -1,6 +1,6 @@
 # openlawtw
 
-臺灣建築法規查找與閱讀工具 · **v0.25.0**
+臺灣建築法規查找與閱讀工具 · **v0.25.1**
 
 [使用網站](https://openlawtw.vercel.app/) · [GitHub 原始碼](https://github.com/termcavetw/openlawtw) · [引用指南](CITING.md) · [資料來源與權利](DATA_LICENSE.md)
 
@@ -9,6 +9,8 @@
 程式採 MIT；法規、函釋、PDF 與圖表依各自來源與權利說明處理，不因收錄於本庫而改採 MIT。附件與裁圖的逐檔紀錄見 [資料文件清單](data/documents/RIGHTS.md)，第三方程式聲明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 本版更新
+
+v0.25.1 修正短條文被左側操作撐高：條號旁收成「⋯」，函釋、加入案件、分享、複製、官方原文及列印改為點開操作。第 116-2 條補上官方 PDF 第 2 頁的完整表格影像與符號說明，支援局部橫滑、列印及離線，並保留兩頁原始 PDF 下載。未改寫條文文字；本次附件來源與核對紀錄見 [逐條表格目錄](data/documents/article-figures/catalog.json)及[文件權利清單](data/documents/RIGHTS.md)。
 
 v0.25.0 新增友善列印：可選單一法條、章節或整部法規，以 A4 直式／橫式預覽，使用瀏覽器列印或儲存 PDF。保留完整條文、表格、條號與來源日期，隱藏操作介面及搜尋標示；原始附件需另開列印。預覽在新視窗開啟，已載入的條文可離線使用。
 
@@ -38,7 +40,7 @@ schema v2 保留官方文字、穩定條文 ID、可確認的項款範圍及來�
 
 `npm run build` 產生的 `openlawtw.html` 內嵌全部收錄資料，可直接開啟；網站 PWA 需 HTTPS 或 localhost。尚未下載的資料、官方外部附件與連結仍需要網路。瀏覽器封鎖或清除本機儲存會影響收藏、案件與閱讀位置，請自行保管匯出資料。
 
-本版沒有重新擷取官方資料。各法規沿用自己的來源日期；最近增補見 [工業用地來源](INDUSTRIAL-LAND-2026-09-30.md) 與 [電信／消防來源](TELECOM-FIRE-2026-09-30.md)。國土署函釋為既有 9,054 筆，其中 9,012 筆有本文、42 筆僅主旨／字號。
+本版僅補取第 116-2 條的官方附件，未重新同步整庫法規。各法規沿用自己的來源日期；最近增補見 [工業用地來源](INDUSTRIAL-LAND-2026-09-30.md) 與 [電信／消防來源](TELECOM-FIRE-2026-09-30.md)。國土署函釋為既有 9,054 筆，其中 9,012 筆有本文、42 筆僅主旨／字號。
 
 ## 開發與驗證
 
@@ -55,7 +57,7 @@ npm run typecheck
 npm run check
 ```
 
-以上與 `.github/workflows/validate.yml` 對應。開發預覽使用 `npm run dev`，正式建置預覽使用 `npm run preview`；`npm run check` 需先完成建置。搜尋品質可單獨執行 `npm run check:quality`，案例是開發者整理的來源查找期待，不是法律適用判斷或外部盲測精準率。
+以上與 `.github/workflows/validate.yml` 的資料／程式檢查對應。CI 另安裝 Playwright Chromium，執行 `scripts/check-law-print-browser.py`，驗證 1280／390／320px 的條文操作及列印並保存截圖／PDF。開發預覽使用 `npm run dev`，正式建置預覽使用 `npm run preview`；`npm run check` 需先完成建置。搜尋品質可單獨執行 `npm run check:quality`，案例是開發者整理的來源查找期待，不是法律適用判斷或外部盲測精準率。
 
 只修改程式、搜尋詞彙或說明文件不必重新同步官方資料。資料維護後執行 `npm run snapshot` 再重新建置；完整同步、來源逐字核對與 PDF 驗證方式見 [CONTRIBUTING.md](CONTRIBUTING.md)，資料結構見 [SCHEMA.md](SCHEMA.md)。
 
