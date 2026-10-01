@@ -1,3 +1,4 @@
+import {prepareArticleSupplements} from './prepare-article-supplements.mjs';
 import {prepareArticleFigures} from './prepare-article-figures.mjs';
 import {prepareDocumentReaders} from './prepare-document-readers.mjs';
 import {fileURLToPath} from 'node:url';
@@ -11,6 +12,8 @@ import {makeCitationTargets,makeCitationContext} from '../lib/citations.ts';
 import {enrichLaw,sha} from './schema.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),dir=join(root,'public/data/v2');
 const read=p=>readFile(join(root,p),'utf8').then(JSON.parse);
+await prepareArticleSupplements(root);
+await import('./check-article-supplements.mjs');
 const raw=await read('public/data/laws.json'),archive=await read('public/data/rulings.json'),catalog=await read('data/catalog.json'),pkg=await read('package.json'),provenance=await read('data/provenance.json');
 let history;try{history=await read('data/history.json');}catch{throw Error('Run npm run snapshot once to create the observation baseline.');}
 // This directory contains only generated build output.

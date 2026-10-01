@@ -16,3 +16,5 @@ data/documents/article-figures/**/source.html -text
 
 # Green-building publication evidence hashes also require original HTML bytes.
 data/formal-sources/green-building/*.html -text -diff
+# Supplement attachment/source evidence hashes refer to exact downloaded bytes.
+data/documents/article-supplements/sources/** -text -diff

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "copyright",
+    "source": "https://law.moj.gov.tw/Service/Copyright.aspx",
+    "file": "data/documents/article-supplements/sources/copyright.html",
+    "bytes": 35230,
+    "sha256": "5b095f05f1707c85d19b682d41b21038e13d58891613550f89b0ac16c01959a9",
+    "retrieved": "2026-10-01T09:23:37.468481+00:00"
+  },
+  {
+    "id": "copyright-act-9",
+    "source": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0070017&flno=9",
+    "file": "data/documents/article-supplements/sources/copyright-act-9.html",
+    "bytes": 44669,
+    "sha256": "0ea22472ceb6af64e56bde9fa63252cfec66eb250c9f812d71a64cda3ad968de",
+    "retrieved": "2026-10-01T09:23:37.842506+00:00"
+  },
+  {
+    "id": "law-history",
+    "source": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+    "file": "data/documents/article-supplements/sources/law-history.html",
+    "bytes": 114784,
+    "sha256": "e36582bcd9d0d8c4a46e1fd85d09208654ed273846e8d9f43bde04e897f85f01",
+    "retrieved": "2026-10-01T09:23:37.930779+00:00"
+  },
+  {
+    "id": "law-all",
+    "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+    "file": "data/documents/article-supplements/sources/law-all.html",
+    "bytes": 439030,
+    "sha256": "2b4fb16e44c7725cb037b6c7ed3b560101366cfd49c9fd0683ff6d782a43f314",
+    "retrieved": "2026-10-01T09:23:42.089868+00:00"
+  }
+]
