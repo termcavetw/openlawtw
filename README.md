@@ -1,6 +1,6 @@
 # openlawtw
 
-臺灣建築法規查找與閱讀工具 · **v0.25.4**
+臺灣建築法規查找與閱讀工具 · **v0.25.5**
 
 [使用網站](https://openlawtw.vercel.app/) · [GitHub 原始碼](https://github.com/termcavetw/openlawtw) · [引用指南](CITING.md) · [資料來源與權利](DATA_LICENSE.md)
 
@@ -9,6 +9,8 @@
 程式採 MIT；法規、函釋、PDF 與圖表依各自來源與權利說明處理，不因收錄於本庫而改採 MIT。附件與裁圖的逐檔紀錄見 [資料文件清單](data/documents/RIGHTS.md)，第三方程式聲明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 本版更新
+
+v0.25.5 手機「圖例」移至正文下方「項款引用」旁，搭配小圖示、淡色底與稍強字重，保持 44px 點按範圍。桌面位置保留；項款引用展開時仍使用正文全寬。
 
 v0.25.4 在建築技術規則建築設計施工編已核對的 24 個條號旁加入小型「圖例」。點開才載入當頁官方補充圖例，可前後翻頁、放大與局部捲動，關閉返回原條文；保留全部 43 個 PDF／DOC／JPG 原檔連結。顯示 43 頁完整 PDF 原圖及第 1 條另附 JPG，不改寫條文，也不把第 116-2 條既有表格當成補充圖例。來源、版本差異與逐頁審查見 [補充圖例紀錄](data/documents/article-supplements/README.md)。
 
