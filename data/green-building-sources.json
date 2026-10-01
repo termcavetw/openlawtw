@@ -1,0 +1,794 @@
+{
+  "reviewedAt": "2026-10-01",
+  "note": "五項綠建築議題對應六份獨立技術規範；手冊採逐版官方連結，與法規及公文原檔分開。",
+  "documents": [
+    {
+      "id": "NLMA-976",
+      "name": "建築基地綠化設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/976",
+      "kind": "技術規範",
+      "source": "內政部國土管理署",
+      "modified": "2019-12-19",
+      "effective": "2021-01-01",
+      "effectiveNote": "108年12月19日台內營字第1080822863號令修正；108年12月31日台內營字第1080824127號令將生效日改為110年1月1日。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。另有109年11月12日內授營建管字第1090819751號函勘誤；本站保留來源PDF原貌，未自行合併改寫勘誤，引用時請併閱官方勘誤表。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "基地綠化",
+        "綠化量",
+        "固碳當量",
+        "植栽",
+        "綠化規範"
+      ],
+      "attachments": [
+        {
+          "title": "109年11月12日官方勘誤函及勘誤表（請併閱）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg026219/ch02/type7/gov10/num5/Eg.htm"
+        }
+      ],
+      "documentSource": "https://www.nlma.gov.tw/uploads/files/570f0fafb4e7fc5fd174a4f184618467.pdf",
+      "file": "data/documents/NLMA-976.pdf",
+      "sha256": "0165adc29a9dad8e43229b50753e4f179089d334a5eae7ca281ffbf07124e4f7",
+      "bytes": 1187928,
+      "pages": 15,
+      "retrieved": "2026-10-01T05:59:00+00:00"
+    },
+    {
+      "id": "NLMA-961",
+      "name": "建築基地保水設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/961",
+      "kind": "技術規範",
+      "source": "內政部國土管理署",
+      "modified": "2019-12-19",
+      "effective": "2021-01-01",
+      "effectiveNote": "108年12月19日台內營字第1080822863號令修正；108年12月31日台內營字第1080824127號令將生效日改為110年1月1日。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。另有109年11月12日內授營建管字第1090819751號函勘誤；本站保留來源PDF原貌，未自行合併改寫勘誤，引用時請併閱官方勘誤表。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "基地保水",
+        "保水指標",
+        "透水鋪面",
+        "滲透",
+        "保水規範"
+      ],
+      "attachments": [
+        {
+          "title": "109年11月12日官方勘誤函及勘誤表（請併閱）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg026219/ch02/type7/gov10/num5/Eg.htm"
+        }
+      ],
+      "documentSource": "https://www.nlma.gov.tw/uploads/files/0f741327224b557bd4f672ad1d610c46.pdf",
+      "file": "data/documents/NLMA-961.pdf",
+      "sha256": "d16f425435f2761a67b1137a870c7f2a39b30d5a903a29c95398a8fe134f8789",
+      "bytes": 1795674,
+      "pages": 20,
+      "retrieved": "2026-10-01T05:59:00+00:00"
+    },
+    {
+      "id": "NLMA-6187",
+      "name": "建築物節約能源設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/6187",
+      "kind": "技術規範",
+      "source": "內政部國土管理署",
+      "modified": "2019-12-04",
+      "effective": "2021-01-01",
+      "effectiveNote": "108年12月4日台內營字第1080820114號令訂定；108年12月31日台內營字第1080824127號令將生效日改為110年1月1日。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。另有109年11月12日內授營建管字第1090819913號函勘誤；本站保留來源PDF原貌，未自行合併改寫勘誤，引用時請併閱官方勘誤表。本站內嵌及搜尋範圍為33頁本規範；附錄一至五保留官方附件連結，未宣稱已收錄附錄全文。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "建築節能",
+        "外殼節能",
+        "節能規範",
+        "熱傳透率",
+        "ENVLOAD",
+        "日射取得量"
+      ],
+      "attachments": [
+        {
+          "title": "109年11月12日官方勘誤函及勘誤表（請併閱）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg026219/ch02/type7/gov10/num6/Eg.htm"
+        },
+        {
+          "title": "附錄一 建築外殼構造熱傳透率計算規定（官方PDF）",
+          "url": "https://www.nlma.gov.tw/uploads/files/1064df32ca017caff1f8b529c8cd8d57.pdf"
+        },
+        {
+          "title": "附錄二 外遮陽與玻璃對日射遮蔽之計算規定（官方PDF）",
+          "url": "https://www.nlma.gov.tw/uploads/files/6ae0d314fe0c6674acb78be3c02e9b47.pdf"
+        },
+        {
+          "title": "附錄三 建築物自然通風空調節能評估法（官方PDF）",
+          "url": "https://www.nlma.gov.tw/uploads/files/1860ada30044d9e4098432b693707872.pdf"
+        },
+        {
+          "title": "附錄四 建築節能設計應附表格文件（官方PDF）",
+          "url": "https://www.nlma.gov.tw/uploads/files/08b08bcbfdc573fb1a3e36e665d9185a.pdf"
+        },
+        {
+          "title": "附錄五 建築節約能源設計計算實例（官方PDF）",
+          "url": "https://www.nlma.gov.tw/uploads/files/2a8914e1a2d52f71e0efea9f547a62e6.pdf"
+        }
+      ],
+      "documentSource": "https://www.nlma.gov.tw/uploads/files/ad1d46151d95afce37ddf77954111364.pdf",
+      "file": "data/documents/NLMA-6187.pdf",
+      "sha256": "a47a314330097be45dfcb785aa6366eda386cbfa947641f0db77cca41b68f9d9",
+      "bytes": 1598317,
+      "pages": 33,
+      "retrieved": "2026-10-01T05:59:00+00:00"
+    },
+    {
+      "id": "NLMA-936",
+      "name": "建築物雨水貯留利用設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/936",
+      "kind": "技術規範",
+      "source": "內政部國土管理署",
+      "modified": "2012-06-27",
+      "effective": "2012-07-01",
+      "effectiveNote": "101年6月27日台內營字第1010805787號令修正，自101年7月1日生效。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。雨水貯留與生活雜排水回收分屬兩份官方規範。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "雨水回收",
+        "雨水貯留",
+        "雨水利用",
+        "水資源",
+        "雨水回收規範"
+      ],
+      "attachments": [
+        {
+          "title": "101年6月27日修正發布令（101年7月1日生效）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg018123/ch02/type2/gov10/num6/OEg.pdf"
+        }
+      ],
+      "documentSource": "https://www.nlma.gov.tw/uploads/files/f0687f5a9a597f7f033ab1a2b62e7c1b.pdf",
+      "file": "data/documents/NLMA-936.pdf",
+      "sha256": "d11c886b18d19605b59cfdbc03a06e78f4306c803f9a736b8d577b98c479587b",
+      "bytes": 2430820,
+      "pages": 19,
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textExtractionReview": {
+        "hashScope": "UTF-8 serialized page-text JSON; pdftotext -layout -enc UTF-8 -eol unix; page text stripped only at page boundaries",
+        "canonical": {
+          "extractor": "Poppler pdftotext 25.03.0",
+          "sha256": "a652782217c01f8cefad6b8b335072e970a1df04f591b1ba52a7d7325a89ab22",
+          "bytes": 48197
+        },
+        "alternatives": [
+          {
+            "extractor": "Poppler pdftotext 24.02.0 (Ubuntu 24.02.0-1ubuntu9.9)",
+            "sha256": "6705689b5b13ed36499f33435be66cfe14be622d68c8060e50d3738136d95e6d",
+            "bytes": 48310
+          }
+        ],
+        "reviewedAt": "2026-10-01",
+        "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      }
+    },
+    {
+      "id": "NLMA-937",
+      "name": "建築物生活雜排水回收再利用設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/937",
+      "kind": "技術規範",
+      "source": "內政部國土管理署／環境部官方轉載",
+      "modified": "2012-06-27",
+      "effective": "2012-07-01",
+      "effectiveNote": "101年6月27日台內營字第1010805787號令修正，自101年7月1日生效。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。雨水貯留與生活雜排水回收分屬兩份官方規範。原檔取自環境部水質保護網官方轉載，國土署現行索引及原附件另列。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "生活雜排水",
+        "雜排水回收",
+        "中水回收",
+        "灰水回收",
+        "再生水",
+        "水資源"
+      ],
+      "attachments": [
+        {
+          "title": "101年6月27日修正發布令（101年7月1日生效）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg018123/ch02/type2/gov10/num6/OEg.pdf"
+        },
+        {
+          "title": "國土署官方原附件",
+          "url": "https://www.nlma.gov.tw/uploads/files/e52b228ca853ae327f4ddc61189c0e39.pdf"
+        },
+        {
+          "title": "環境部原檔發布頁",
+          "url": "https://water.moenv.gov.tw/Public/CHT/Pollution/dom_sewage.aspx"
+        }
+      ],
+      "documentSource": "https://water.moenv.gov.tw/Public/Download/dom_sewage/%E5%BB%BA%E7%AF%89%E7%89%A9%E7%94%9F%E6%B4%BB%E9%9B%9C%E6%8E%92%E6%B0%B4%E5%9B%9E%E6%94%B6%E5%86%8D%E5%88%A9%E7%94%A8%E8%A8%AD%E8%A8%88%E6%8A%80%E8%A1%93%E8%A6%8F%E7%AF%84%E4%BF%AE%E6%AD%A3%E8%A6%8F%E5%AE%9A.pdf",
+      "file": "data/documents/NLMA-937.pdf",
+      "sha256": "7dba4381954572758197698f41a41da1c55c065f98b2f3f542d6f8d7cb1668d2",
+      "bytes": 2031296,
+      "pages": 13,
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textExtractionReview": {
+        "hashScope": "UTF-8 serialized page-text JSON; pdftotext -layout -enc UTF-8 -eol unix; page text stripped only at page boundaries",
+        "canonical": {
+          "extractor": "Poppler pdftotext 25.03.0",
+          "sha256": "2a4588ca33004695f68575abcd89f768a1d760d4fc1eca8712d143e7235da52a",
+          "bytes": 27430
+        },
+        "alternatives": [
+          {
+            "extractor": "Poppler pdftotext 24.02.0 (Ubuntu 24.02.0-1ubuntu9.9)",
+            "sha256": "a4157874412667cf497a9ee8eb1e04f3eaef25efa514e87581508602ef7d4beb",
+            "bytes": 27602
+          }
+        ],
+        "reviewedAt": "2026-10-01",
+        "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      }
+    },
+    {
+      "id": "NLMA-170",
+      "name": "綠建材設計技術規範",
+      "url": "https://www.nlma.gov.tw/ch/legislation/regsearch/170",
+      "kind": "技術規範",
+      "source": "內政部國土管理署",
+      "modified": "2019-12-19",
+      "effective": "2021-01-01",
+      "effectiveNote": "108年12月19日台內營字第1080822863號令修正；108年12月31日台內營字第1080824127號令將生效日改為110年1月1日。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。另有109年11月12日內授營建管字第1090819751號函勘誤；本站保留來源PDF原貌，未自行合併改寫勘誤，引用時請併閱官方勘誤表。",
+      "keywords": [
+        "綠建築",
+        "綠建築基準",
+        "綠建材",
+        "綠建材使用率",
+        "室內綠建材",
+        "戶外綠建材",
+        "綠建材規範"
+      ],
+      "attachments": [
+        {
+          "title": "109年11月12日官方勘誤函及勘誤表（請併閱）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg026219/ch02/type7/gov10/num5/Eg.htm"
+        }
+      ],
+      "documentSource": "https://www.nlma.gov.tw/uploads/files/088e237ac521f3c0990afd300b16fb93.pdf",
+      "file": "data/documents/NLMA-170.pdf",
+      "sha256": "8d8b2b9be4a7483052d4f1441de1342ec944ed544b11e751b7e0663fd02f32dc",
+      "bytes": 960592,
+      "pages": 17,
+      "retrieved": "2026-10-01T05:59:00+00:00"
+    },
+    {
+      "id": "ABRI-330726",
+      "name": "綠建築標章及建築能效標示申請審核認可及使用作業要點",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=748&s=330726",
+      "kind": "行政規則",
+      "source": "內政部建築研究所",
+      "modified": "2025-07-18",
+      "effective": "2025-07-18",
+      "effectiveNote": "114年7月18日台內建研字第1147638520號令修正部分規定，自即日生效；官方網頁114年8月13日刊載日不是修正日。",
+      "note": "收錄官方原始PDF及逐頁搜尋文字；表格、公式與圖示以原檔為準，未重新編造條號。採建研所公布之114年7月18日九頁完整整合版；原名稱「綠建築標章申請審核認可及使用作業要點」於112年5月31日修正。",
+      "keywords": [
+        "綠建築",
+        "綠建築標章",
+        "綠建築標章申請審核認可及使用作業要點",
+        "候選綠建築證書",
+        "建築能效標示",
+        "候選建築能效證書",
+        "EEWH",
+        "BERS",
+        "標章申請",
+        "標章審核"
+      ],
+      "attachments": [
+        {
+          "title": "114年7月18日修正發布令及部分規定（自即日生效）",
+          "url": "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031134/ch02/type2/gov10/num2/Eg.htm"
+        }
+      ],
+      "documentSource": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTQ1MS8zMzA3MjYvODMzYWMwODctOTUxZS00ZTZjLTlmYzUtMDhlYjcwMmJjYWJiLnBkZg%3d%3d&n=5YiK55m76LOH5paZMy3ntqDlu7rnr4nmqJnnq6Dlj4rlu7rnr4nog73mlYjmqJnnpLrnlLPoq4vlr6nmoLjoqo3lj6%2flj4rkvb%2fnlKjkvZzmpa3opoHpu54oMTE0LjA3LjE4ICkucGRm",
+      "file": "data/documents/ABRI-330726.pdf",
+      "sha256": "784e2efd2f5772e1bae20e3407273dc71119bd84bb7fb14af08c4b780daf03e8",
+      "bytes": 193571,
+      "pages": 9,
+      "retrieved": "2026-10-01T05:59:00+00:00"
+    }
+  ],
+  "manuals": [
+    {
+      "id": "ABRI-EEWH-BC-2023",
+      "name": "綠建築評估手冊-基本型2023年版(官網下載版)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=322425",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2023,
+      "modified": "",
+      "effective": "2023-07-01",
+      "effectiveNote": "111年12月12日建研環字第1117638716號函頒，自112年7月1日（2023-07-01）實施；日常節能指標部分規定另於114年5月15日建研環字第1147638356號函修正，自114年7月1日（2025-07-01）實施。2026年版已公布，2030-07-01起實施，之前得自願提前採用。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "基本型",
+        "EEWH-BC",
+        "建築能效"
+      ],
+      "attachments": [
+        {
+          "title": "綠建築評估手冊-基本型2023年版(官網下載版)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMjI0MjUvMjFmYzFjMzgtYTA2Ny00MDI2LTkxOGYtOWU1MjYwZmFkZjY4LnBkZg%3d%3d&n=57ag5bu656%2bJ6KmV5Lyw5omL5YaKLeWfuuacrOWeizIwMjPlubTniYgo5a6Y57ay5LiL6LyJ54mIKS5wZGY%3d"
+        },
+        {
+          "title": "2023年版原始實施日及2025年日常節能指標修正實施函",
+          "url": "https://www.stsp.gov.tw/attached/rule/1748324433620.pdf"
+        },
+        {
+          "title": "2023年版基本型及住宿類日常節能指標修正對照表（官方下載頁）",
+          "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=328149"
+        },
+        {
+          "title": "2026年版實施日期及過渡規定",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-BC-2023.html",
+        "sha256": "a63bb6851937577c0fb32b07185be511c30184d99768d8866bf9a2039a4640e4",
+        "bytes": 78193,
+        "title": "綠建築評估手冊-基本型2023年版(官網下載版)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-RS-2023",
+      "name": "綠建築評估手冊-住宿類2023年版(官網下載版)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=322426",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2023,
+      "modified": "",
+      "effective": "2023-07-01",
+      "effectiveNote": "111年12月12日建研環字第1117638716號函頒，自112年7月1日（2023-07-01）實施；日常節能指標部分規定另於114年5月15日建研環字第1147638356號函修正，自114年7月1日（2025-07-01）實施。2026年版已公布，2030-07-01起實施，之前得自願提前採用。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "住宿類",
+        "EEWH-RS",
+        "住宅"
+      ],
+      "attachments": [
+        {
+          "title": "綠建築評估手冊-住宿類2023年版(官網下載版)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMjI0MjYvYjRhMTg2MTAtZjMxOC00MTZhLTgwYTgtMzdiYzUxODg1NWMxLnBkZg%3d%3d&n=57ag5bu656%2bJ6KmV5Lyw5omL5YaKLeS9j%2bWuv%2bmhnjIwMjPlubTniYgo5a6Y57ay5LiL6LyJ54mIKS5wZGY%3d"
+        },
+        {
+          "title": "2023年版原始實施日及2025年日常節能指標修正實施函",
+          "url": "https://www.stsp.gov.tw/attached/rule/1748324433620.pdf"
+        },
+        {
+          "title": "2023年版基本型及住宿類日常節能指標修正對照表（官方下載頁）",
+          "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=328149"
+        },
+        {
+          "title": "2026年版實施日期及過渡規定",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-RS-2023.html",
+        "sha256": "1561ecf0ef9456f01d046a8253c92674c5d0e12939ccf0d6ec48b93205eae770",
+        "bytes": 78141,
+        "title": "綠建築評估手冊-住宿類2023年版(官網下載版)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-GF-2025",
+      "name": "2025年版綠建築評估手冊-廠房類(EEWH-GF 2025)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=745&s=324329",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2025,
+      "modified": "",
+      "effective": "2025-07-01",
+      "effectiveNote": "113年12月26日建研環字第1137639013號函頒，自114年7月1日（2025-07-01）實施；實施日前可自願採用。 2026年版廠房類另已公布，2030-07-01起實施，此前可自願採用；2026年公告中的「現行2023年版」概括文字不改寫本手冊實際版次。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "廠房類",
+        "EEWH-GF",
+        "工廠"
+      ],
+      "attachments": [
+        {
+          "title": "2025年版綠建築評估手冊-廠房類(EEWH-GF 2025)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTQ1MS8zMjQzMjkvZTQ0ZDUyNjUtZDY0NC00NzhjLWFjZTEtYWZiNmY1NDgzYjIxLnBkZg%3d%3d&n=MjAyNeW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3lu6DmiL%2fpoZ4oRUVXSC1HRiAyMDI1KS5wZGY%3d"
+        },
+        {
+          "title": "建築研究簡訊第125期：出版2025年版綠建築評估手冊-廠房類及社區類（含函頒與實施日期）",
+          "url": "https://www.abri.gov.tw/PeriodicalDetail.aspx?isShowAll=false&key=114&n=861&s=3050"
+        },
+        {
+          "title": "2026年版實施日期及過渡規定",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-GF-2025.html",
+        "sha256": "63f54179d64269d6b4f9151f00678c66bd033cae8ee1f30dcf771561d83969d9",
+        "bytes": 79575,
+        "title": "本所出版品：2025年版「綠建築評估手冊－廠房類（GF）」及「綠建築評估手冊－社區類（EC）」徵求代售單位"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-EC-2025",
+      "name": "2025年版綠建築評估手冊-社區類(EEWH-EC 2025)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=745&s=324329",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2025,
+      "modified": "",
+      "effective": "2025-07-01",
+      "effectiveNote": "113年12月26日建研環字第1137639013號函頒，自114年7月1日（2025-07-01）實施；實施日前可自願採用。 社區類不在2026年四類修訂手冊名單內。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "社區類",
+        "EEWH-EC",
+        "生態社區"
+      ],
+      "attachments": [
+        {
+          "title": "2025年版綠建築評估手冊-社區類(EEWH-EC 2025)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTQ1MS8zMjQzMjkvMDNmYmYzOTMtNWE2ZC00ZGI2LWJhZmMtMWI0NjI5ODM0MjJjLnBkZg%3d%3d&n=MjAyNeW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3npL7ljYDpoZ4oRUVXSC1FQyAyMDI1KS5wZGY%3d"
+        },
+        {
+          "title": "建築研究簡訊第125期：出版2025年版綠建築評估手冊-廠房類及社區類（含函頒與實施日期）",
+          "url": "https://www.abri.gov.tw/PeriodicalDetail.aspx?isShowAll=false&key=114&n=861&s=3050"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-EC-2025.html",
+        "sha256": "63f54179d64269d6b4f9151f00678c66bd033cae8ee1f30dcf771561d83969d9",
+        "bytes": 79575,
+        "title": "本所出版品：2025年版「綠建築評估手冊－廠房類（GF）」及「綠建築評估手冊－社區類（EC）」徵求代售單位"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-EB-2022",
+      "name": "2022年版綠建築評估手冊－既有建築類EEWH-EB",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323045",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2022,
+      "modified": "",
+      "effective": "2022-01-01",
+      "effectiveNote": "110年12月函頒，自111年1月1日（2022-01-01）實施。2026年版將既有建築類與舊建築改善類整併為EB&RN，2030-07-01起實施，之前可自願提前採用；本筆保留原獨立EB版。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "既有建築類",
+        "EEWH-EB",
+        "既有建築",
+        "建築能效"
+      ],
+      "attachments": [
+        {
+          "title": "2022年版綠建築評估手冊－既有建築類EEWH-EB",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMjMwNDUvZDNkYzQyODgtNTBmYi00NDIxLTg2NTItNGEyZjlmNmExOGQ4LnBkZg%3d%3d&n=MjAyMuW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGiu%2b8jeaXouacieW7uueviemhnkVFV0gtRUIucGRm"
+        },
+        {
+          "title": "內政部建築研究所建築簡訊：既有建築類及建築能效評估系統於111年1月1日實施",
+          "url": "https://www.abri.gov.tw/PeriodicalDetail.aspx?isShowAll=true&key=117&n=861&s=3170"
+        },
+        {
+          "title": "2026年版整併及過渡規定",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-EB-2022.html",
+        "sha256": "3de549dd5b86b2e8fec04ad91cbfb12e510ca433207680018f73d1e5fe753fbd",
+        "bytes": 77406,
+        "title": "2022年版綠建築評估手冊－既有建築類EEWH-EB"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-RN-2019",
+      "name": "綠建築評估手冊-舊建築改善類(2019)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323053",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2019,
+      "modified": "",
+      "effective": "2021-01-01",
+      "effectiveNote": "2019年版系列配合綠建築基準專章法規，自110年1月1日（2021-01-01）開始施行；年份2019為手冊版次，不是實施年份。 2026年版整併RN與EB為既有建築及其改善類，2030-07-01起實施，之前可自願提前採用；本筆保留原獨立RN版。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "舊建築改善類",
+        "EEWH-RN",
+        "既有建築改善"
+      ],
+      "attachments": [
+        {
+          "title": "2019綠建築評估手冊舊建築改善類RN",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMjMwNTMvY2Y4Zjg4YWEtODE3ZS00M2NjLTkwNGEtYzI1Y2E1NzFiZTIwLnBkZg%3d%3d&n=MjAxOee2oOW7uuevieipleS8sOaJi%2bWGiuiIiuW7uuevieaUueWWhOmhnlJOLnBkZg%3d%3d"
+        },
+        {
+          "title": "內政部建築研究所建築簡訊：2019年六類手冊於110年1月1日實施",
+          "url": "https://www.abri.gov.tw/PeriodicalDetail.aspx?isShowAll=true&key=117&n=861&s=3170"
+        },
+        {
+          "title": "2026年版整併及過渡規定",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-RN-2019.html",
+        "sha256": "d3cef26bbb3220d60f718dc870bc32fdbba42495b2d1981a872d68dd97831ba6",
+        "bytes": 77393,
+        "title": "綠建築評估手冊-舊建築改善類(2019)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-OS-2019",
+      "name": "綠建築評估手冊-境外版(2019)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323054",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2019,
+      "modified": "",
+      "effective": "2021-01-01",
+      "effectiveNote": "2019年版系列配合綠建築基準專章法規，自110年1月1日（2021-01-01）開始施行；年份2019為手冊版次，不是實施年份。 境外版不在2026年四類修訂手冊名單內。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "境外版",
+        "EEWH-OS",
+        "境外建築"
+      ],
+      "attachments": [
+        {
+          "title": "2019綠建築評估手冊境外版OS",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMjMwNTQvYzE1ZTY3MTEtY2M2OS00NTE4LTg0NDgtZDVkZTgyODhiMjIwLnBkZg%3d%3d&n=MjAxOee2oOW7uuevieipleS8sOaJi%2bWGiuWig%2bWklueJiE9TLnBkZg%3d%3d"
+        },
+        {
+          "title": "內政部建築研究所建築簡訊：2019年六類手冊於110年1月1日實施",
+          "url": "https://www.abri.gov.tw/PeriodicalDetail.aspx?isShowAll=true&key=117&n=861&s=3170"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-OS-2019.html",
+        "sha256": "672d4384e1562dbfee151a8ab549c9eabc7d25cf522b8cff6650aac30d04a601",
+        "bytes": 77339,
+        "title": "綠建築評估手冊-境外版(2019)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-BC-2026",
+      "name": "2026年版綠建築評估手冊-基本型(EEWH-BC)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339049",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2026,
+      "modified": "",
+      "effective": "2030-07-01",
+      "effectiveNote": "115年6月11日建研環字第1157638425號函公告，自119年7月1日（2030-07-01）起實施；此前得自願採2026年版。2026-10-01為已公布、可提前採用之過渡版本，不標示為全面現行版本。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "基本型",
+        "EEWH-BC",
+        "建築能效",
+        "低蘊含碳"
+      ],
+      "attachments": [
+        {
+          "title": "2026年版綠建築評估手冊-基本型(EEWH-BC)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMzkwNDkvOTQ1NDNlMGItNjI4My00NjkzLWE2NGEtNGVhYTg3MGRjNGQ4LnBkZg%3d%3d&n=MjAyNuW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3ln7rmnKzlnosoRUVXSC1CQykucGRm"
+        },
+        {
+          "title": "2026年版四類手冊實施日期及過渡規定（115年6月11日建研環字第1157638425號函）",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-BC-2026.html",
+        "sha256": "59e7f300426f760d295e7e426a4ac96d6285ee69faff94310fd2637e0467986d",
+        "bytes": 77164,
+        "title": "2026年版綠建築評估手冊-基本型(EEWH-BC)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-RS-2026",
+      "name": "2026年版綠建築評估手冊-住宿類(EEWH-RS)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339047",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2026,
+      "modified": "",
+      "effective": "2030-07-01",
+      "effectiveNote": "115年6月11日建研環字第1157638425號函公告，自119年7月1日（2030-07-01）起實施；此前得自願採2026年版。2026-10-01為已公布、可提前採用之過渡版本，不標示為全面現行版本。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "住宿類",
+        "EEWH-RS",
+        "住宅",
+        "建築能效"
+      ],
+      "attachments": [
+        {
+          "title": "2026年版綠建築評估手冊-住宿類(EEWH-RS)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMzkwNDcvYTY3ZWM4YmMtNDc2MC00MDdiLWIwNzktYTcwOTU4MzAwM2NhLnBkZg%3d%3d&n=MjAyNuW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3kvY%2flrr%2fpoZ4oRUVXSC1SUykucGRm"
+        },
+        {
+          "title": "2026年版四類手冊實施日期及過渡規定（115年6月11日建研環字第1157638425號函）",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-RS-2026.html",
+        "sha256": "d30290a70bfcedfa33c7bae2416ac033af4232b4d7f99150e769cf226ec62208",
+        "bytes": 77466,
+        "title": "2026年版綠建築評估手冊-住宿類(EEWH-RS)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-GF-2026",
+      "name": "2026年版綠建築評估手冊-廠房類(EEWH-GF)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339046",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2026,
+      "modified": "",
+      "effective": "2030-07-01",
+      "effectiveNote": "115年6月11日建研環字第1157638425號函公告，自119年7月1日（2030-07-01）起實施；此前得自願採2026年版。2026-10-01為已公布、可提前採用之過渡版本，不標示為全面現行版本。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "廠房類",
+        "EEWH-GF",
+        "工廠",
+        "低蘊含碳"
+      ],
+      "attachments": [
+        {
+          "title": "2026年版綠建築評估手冊-廠房類(EEWH-GF)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMzkwNDYvODE2M2MwMmEtOTI1Zi00N2JkLTgxZWItMzI2NWY4N2M4NDA5LnBkZg%3d%3d&n=MjAyNuW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3lu6DmiL%2fpoZ4oRUVXSC1HRikucGRm"
+        },
+        {
+          "title": "2026年版四類手冊實施日期及過渡規定（115年6月11日建研環字第1157638425號函）",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-GF-2026.html",
+        "sha256": "f2abbe32031446bdca722e92ce55972f9ef0244296b953d0e0c4ee4f81024659",
+        "bytes": 77556,
+        "title": "2026年版綠建築評估手冊-廠房類(EEWH-GF)"
+      }
+    },
+    {
+      "id": "ABRI-EEWH-EB-RN-2026",
+      "name": "2026年版綠建築評估手冊-既有建築及其改善類(EEWH-EB&RN)",
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339048",
+      "kind": "技術手冊（官方連結）",
+      "source": "內政部建築研究所",
+      "edition": 2026,
+      "modified": "",
+      "effective": "2030-07-01",
+      "effectiveNote": "115年6月11日建研環字第1157638425號函公告，自119年7月1日（2030-07-01）起實施；此前得自願採2026年版。2026-10-01為已公布、可提前採用之過渡版本，不標示為全面現行版本。 本版整併既有建築類（EB）與舊建築改善類（RN）。本站僅收錄書目與官方連結，未收錄手冊全文。",
+      "note": "官方公開下載；本站僅提供來源連結，全文及圖表再利用須核對原出版品權利聲明。",
+      "keywords": [
+        "EEWH",
+        "綠建築",
+        "綠建築手冊",
+        "綠建築評估手冊",
+        "既有建築及其改善類",
+        "EEWH-EB&RN",
+        "既有建築",
+        "建築改善"
+      ],
+      "attachments": [
+        {
+          "title": "2026年版綠建築評估手冊-既有建築及其改善類(EEWH-EB RN)",
+          "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTUxMi8zMzkwNDgvYTc5ZmQ4ZmEtNTQyMS00NjVjLTliZTktNjhkNmQwNGQzZDJmLnBkZg%3d%3d&n=MjAyNuW5tOeJiOe2oOW7uuevieipleS8sOaJi%2bWGii3ml6LmnInlu7rnr4nlj4rlhbbmlLnlloTpoZ4oRUVXSC1FQiBSTikucGRm"
+        },
+        {
+          "title": "2026年版四類手冊實施日期及過渡規定（115年6月11日建研環字第1157638425號函）",
+          "url": "https://www.kljs.klcg.gov.tw/wSite/public/Attachment/00103/f1781574109305.pdf"
+        },
+        {
+          "title": "建研所政府網站資料開放宣告及例外",
+          "url": "https://www.abri.gov.tw/cp.aspx?n=790"
+        }
+      ],
+      "retrieved": "2026-10-01T06:03:00+00:00",
+      "publicationSource": {
+        "file": "data/formal-sources/green-building/ABRI-EEWH-EB-RN-2026.html",
+        "sha256": "50c71276af023015208e9bdc3dbd67fe27361d6e99bbda0af7cb17a283982693",
+        "bytes": 77610,
+        "title": "2026年版綠建築評估手冊-既有建築及其改善類(EEWH-EB&RN)"
+      }
+    }
+  ]
+}

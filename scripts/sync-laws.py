@@ -281,8 +281,9 @@ with ThreadPoolExecutor(max_workers=3) as pool:
   if doc:laws.append(doc); print(doc['name'],doc['coverage'],len(doc['articles']),flush=True)
 
 # Explicit reviewed formal sources are maintained independently of MOJ/local HTML.
-for formal in json.loads((ROOT/'data/formal-laws.json').read_text(encoding='utf-8')):
- if formal['id'] not in {law['id'] for law in laws}:laws.append(formal)
+for source_file in ['data/formal-laws.json', 'data/green-building-laws.json']:
+ for formal in json.loads((ROOT/source_file).read_text(encoding='utf-8')):
+  if formal['id'] not in {law['id'] for law in laws}:laws.append(formal)
 for law in laws:
  words=json.loads((ROOT/'data/law-keywords.json').read_text(encoding='utf-8')).get(law['id'],[])
  law['keywords']=list(dict.fromkeys(law.get('keywords',[])+words))

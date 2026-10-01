@@ -6113,6 +6113,168 @@
         "scope": "第六點附件七",
         "verification": "官方公報發布令及消防署修正公告；未將附件抽字冒充正文。"
       }
+    },
+    "NLMA-976": {
+      "url": "https://www.nlma.gov.tw/uploads/files/570f0fafb4e7fc5fd174a4f184618467.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/976",
+      "format": "pdf",
+      "file": "data/documents/NLMA-976.pdf",
+      "sha256": "0165adc29a9dad8e43229b50753e4f179089d334a5eae7ca281ffbf07124e4f7",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "NLMA-961": {
+      "url": "https://www.nlma.gov.tw/uploads/files/0f741327224b557bd4f672ad1d610c46.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/961",
+      "format": "pdf",
+      "file": "data/documents/NLMA-961.pdf",
+      "sha256": "d16f425435f2761a67b1137a870c7f2a39b30d5a903a29c95398a8fe134f8789",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "NLMA-6187": {
+      "url": "https://www.nlma.gov.tw/uploads/files/ad1d46151d95afce37ddf77954111364.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/6187",
+      "format": "pdf",
+      "file": "data/documents/NLMA-6187.pdf",
+      "sha256": "a47a314330097be45dfcb785aa6366eda386cbfa947641f0db77cca41b68f9d9",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "NLMA-936": {
+      "url": "https://www.nlma.gov.tw/uploads/files/f0687f5a9a597f7f033ab1a2b62e7c1b.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/936",
+      "format": "pdf",
+      "file": "data/documents/NLMA-936.pdf",
+      "sha256": "d11c886b18d19605b59cfdbc03a06e78f4306c803f9a736b8d577b98c479587b",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "NLMA-937": {
+      "url": "https://water.moenv.gov.tw/Public/Download/dom_sewage/%E5%BB%BA%E7%AF%89%E7%89%A9%E7%94%9F%E6%B4%BB%E9%9B%9C%E6%8E%92%E6%B0%B4%E5%9B%9E%E6%94%B6%E5%86%8D%E5%88%A9%E7%94%A8%E8%A8%AD%E8%A8%88%E6%8A%80%E8%A1%93%E8%A6%8F%E7%AF%84%E4%BF%AE%E6%AD%A3%E8%A6%8F%E5%AE%9A.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/937",
+      "format": "pdf",
+      "file": "data/documents/NLMA-937.pdf",
+      "sha256": "7dba4381954572758197698f41a41da1c55c065f98b2f3f542d6f8d7cb1668d2",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "NLMA-170": {
+      "url": "https://www.nlma.gov.tw/uploads/files/088e237ac521f3c0990afd300b16fb93.pdf",
+      "sourcePage": "https://www.nlma.gov.tw/ch/legislation/regsearch/170",
+      "format": "pdf",
+      "file": "data/documents/NLMA-170.pdf",
+      "sha256": "8d8b2b9be4a7483052d4f1441de1342ec944ed544b11e751b7e0663fd02f32dc",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "ABRI-330726": {
+      "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA0L3JlbGZpbGUvOTQ1MS8zMzA3MjYvODMzYWMwODctOTUxZS00ZTZjLTlmYzUtMDhlYjcwMmJjYWJiLnBkZg%3d%3d&n=5YiK55m76LOH5paZMy3ntqDlu7rnr4nmqJnnq6Dlj4rlu7rnr4nog73mlYjmqJnnpLrnlLPoq4vlr6nmoLjoqo3lj6%2flj4rkvb%2fnlKjkvZzmpa3opoHpu54oMTE0LjA3LjE4ICkucGRm",
+      "sourcePage": "https://www.abri.gov.tw/News_Content.aspx?n=748&s=330726",
+      "format": "pdf",
+      "file": "data/documents/ABRI-330726.pdf",
+      "sha256": "784e2efd2f5772e1bae20e3407273dc71119bd84bb7fb14af08c4b780daf03e8",
+      "hashScope": "downloaded-pdf-file",
+      "observedAt": "2026-10-01T05:59:00+00:00"
+    },
+    "ABRI-EEWH-BC-2023": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=322425",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-BC-2023.html",
+      "format": "html",
+      "sha256": "a63bb6851937577c0fb32b07185be511c30184d99768d8866bf9a2039a4640e4",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-RS-2023": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=322426",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-RS-2023.html",
+      "format": "html",
+      "sha256": "1561ecf0ef9456f01d046a8253c92674c5d0e12939ccf0d6ec48b93205eae770",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-GF-2025": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=745&s=324329",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-GF-2025.html",
+      "format": "html",
+      "sha256": "63f54179d64269d6b4f9151f00678c66bd033cae8ee1f30dcf771561d83969d9",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-EC-2025": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=745&s=324329",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-EC-2025.html",
+      "format": "html",
+      "sha256": "63f54179d64269d6b4f9151f00678c66bd033cae8ee1f30dcf771561d83969d9",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-EB-2022": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323045",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-EB-2022.html",
+      "format": "html",
+      "sha256": "3de549dd5b86b2e8fec04ad91cbfb12e510ca433207680018f73d1e5fe753fbd",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-RN-2019": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323053",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-RN-2019.html",
+      "format": "html",
+      "sha256": "d3cef26bbb3220d60f718dc870bc32fdbba42495b2d1981a872d68dd97831ba6",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-OS-2019": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=323054",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-OS-2019.html",
+      "format": "html",
+      "sha256": "672d4384e1562dbfee151a8ab549c9eabc7d25cf522b8cff6650aac30d04a601",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-BC-2026": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339049",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-BC-2026.html",
+      "format": "html",
+      "sha256": "59e7f300426f760d295e7e426a4ac96d6285ee69faff94310fd2637e0467986d",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-RS-2026": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339047",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-RS-2026.html",
+      "format": "html",
+      "sha256": "d30290a70bfcedfa33c7bae2416ac033af4232b4d7f99150e769cf226ec62208",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-GF-2026": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339046",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-GF-2026.html",
+      "format": "html",
+      "sha256": "f2abbe32031446bdca722e92ce55972f9ef0244296b953d0e0c4ee4f81024659",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
+    },
+    "ABRI-EEWH-EB-RN-2026": {
+      "url": "https://www.abri.gov.tw/News_Content.aspx?n=20916&s=339048",
+      "observedAt": "2026-10-01T06:03:00+00:00",
+      "file": "data/formal-sources/green-building/ABRI-EEWH-EB-RN-2026.html",
+      "format": "html",
+      "sha256": "50c71276af023015208e9bdc3dbd67fe27361d6e99bbda0af7cb17a283982693",
+      "hashScope": "downloaded-publication-page-html",
+      "note": "僅收錄書目與官方來源連結；雜湊對應出版頁HTML，不是手冊PDF，未下載或重製手冊全文。"
     }
   }
 }
