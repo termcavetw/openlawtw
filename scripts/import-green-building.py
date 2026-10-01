@@ -20,6 +20,37 @@ def encoded(path, value):
         return json.dumps(value, ensure_ascii=False, separators=(',', ':'))
     return json.dumps(value, ensure_ascii=False, indent=2) + '\n'
 
+def reviewed_text_snapshot(item, pages):
+    """Accept only exact, reviewed extractor outputs; never normalize source text.
+
+    Poppler 24.02 and 25.03 differ on overprinted bold text in two originals.
+    Keep the reviewed 25.03 snapshot instead of rewriting it with duplicate
+    glyphs on 24.02. Both the alternative extraction and retained snapshot must
+    match their independent byte hashes. Unknown changes still fail closed.
+    """
+    value = {'pages': pages}
+    review = item.get('textExtractionReview')
+    if not review:
+        return value
+    path = item['file'].replace('.pdf', '-text.json')
+    raw = encoded(path, value).encode('utf-8')
+    digest = hashlib.sha256(raw).hexdigest()
+    canonical = review['canonical']
+    if digest == canonical['sha256'] and len(raw) == canonical['bytes']:
+        return value
+    assert any(digest == variant['sha256'] and len(raw) == variant['bytes']
+               for variant in review['alternatives']), (
+        f"Unreviewed PDF text extraction: {item['id']} ({digest}); "
+        'inspect the pdftotext version and source before changing review hashes')
+    snapshot = ROOT / path
+    assert snapshot.is_file(), (
+        f'Missing canonical text snapshot: {path}; regenerate with '
+        + canonical['extractor'])
+    raw = snapshot.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == canonical['sha256'] and len(raw) == canonical['bytes'], (
+        'Canonical text snapshot changed: ' + path)
+    return json.loads(raw)
+
 def build(check=False):
     inputs = read('data/green-building-sources.json')
     documents = read('data/documents/catalog.json')
@@ -40,13 +71,13 @@ def build(check=False):
             digest = hashlib.sha256(raw).hexdigest()
             assert raw.startswith(b'%PDF') and digest == item['sha256'], item['id']
             assert len(raw) == item['bytes'], item['id']
-            text = subprocess.check_output(['pdftotext', '-layout', str(ROOT / item['file']), '-']).decode('utf-8')
+            text = subprocess.check_output(['pdftotext', '-layout', '-enc', 'UTF-8', '-eol', 'unix', str(ROOT / item['file']), '-']).decode('utf-8')
             parts = text.split('\f')
             assert not parts[-1].strip(), item['id']
             pages = [{'page': n + 1, 'text': part.strip()} for n, part in enumerate(parts[:-1])]
             assert len(pages) == item['pages'] and all(p['text'] for p in pages), item['id']
             assert ''.join(item['name'].split()) in ''.join(pages[0]['text'].split()), item['id']
-            outputs[item['file'].replace('.pdf', '-text.json')] = {'pages': pages}
+            outputs[item['file'].replace('.pdf', '-text.json')] = reviewed_text_snapshot(item, pages)
             doc = dict(format='pdf', file=item['file'], source=item['documentSource'],
                        sourcePage=item['url'], sha256=digest, hashScope='downloaded-pdf-file',
                        bytes=len(raw), pages=len(pages), retrieved=item['retrieved'],
