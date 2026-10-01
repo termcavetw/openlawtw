@@ -30,3 +30,7 @@ public/data/embed-index.json
 artifacts/
 
 data/runtime-citation-context.json
+
+data/runtime-article-supplements.json
+data/runtime-article-supplement-index.json
+public/data/article-supplements/
