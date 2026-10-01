@@ -1,0 +1,223 @@
+{
+  "reviewed": "2026-10-01",
+  "method": "逐頁檢視全部 43 頁官方 PDF 渲染圖及輸出 WebP 聯絡表；第 121 條第 2 頁與第 144 條第 1 頁另放大核對。另直接檢視完整原始 JPG。沒有 OCR、重新繪圖、裁圖、手動改寫尺寸或刪除註解。",
+  "rightsObservation": "本次檢視內容均是官方法規附件之技術圖、表格、公式與註解；未見另列攝影、商標、第三方著作署名或特別使用限制。此檢視不概括其他附件或所有政府網站素材。",
+  "articles": {
+    "1": {
+      "sourceSha256": "ddf07a4a4158fa984cdd0cf264f07dab2e241ab62027673437dc4e7c4f86ba93",
+      "reviewedPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "fullPageVerified": true,
+      "notes": "7 頁均為原掃描整頁；依序保留圖 1-3-(1) 至 (7)、1-8、1-13、1-15、1-18、1-36、1-39 圖示與尺寸及說明；掃描黑邊和污點也是原始影像。另列 JPG 未併入 PDF。"
+    },
+    "2": {
+      "sourceSha256": "f09d7e3cee90f876766b58baf5066d7853b571d6acd18b83db7cb5850021fba6",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁圖說為第 2 條圖 2-(1) 至 (4)；保留全部空地配置、剖面、尺寸和註解。"
+    },
+    "3-1": {
+      "sourceSha256": "79a03a0f88d22375ac39721d61858b42e229edff3dd6e767a5a2d95e96dd5e91",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁含圓形／切角道路示意與文字；頁內沒有清楚的條號標題，對應僅依官方附件的精確標題，不以圖中語意推測其他條號。"
+    },
+    "8": {
+      "sourceSha256": "835a355b7b5b9c3fa173b66095a8f8dbfc84a2e37322b6625e18d3d46e95b9c7",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 8 條圖 8；包含平面、立面及公式註解。"
+    },
+    "14": {
+      "sourceSha256": "a286d6c18695a74041c82a48e9ad377be35e09638bcec480a4a01e3d08b9039f",
+      "reviewedPages": [
+        1,
+        2,
+        3
+      ],
+      "fullPageVerified": true,
+      "notes": "3 頁圖說為第 14 條圖 14-(1) 至 (5)；保留高度、道路寬度及所有底部說明。"
+    },
+    "16": {
+      "sourceSha256": "9783fc3ba71aea6f6b9238aa89e213f368f1c9fc1908367edd91decec435795f",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁圖說為第 16 條圖 16-(1) 至 (3)；原公式、陰影圖例與側邊尺寸未裁切。"
+    },
+    "19": {
+      "sourceSha256": "f9435b23aa65b050f60548f6fec9ab2f9782e6dff36fcb057b8b6a74066c98ad",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 19 條圖 19-(1)、(2)；兩組平面和下方文字均完整。"
+    },
+    "23": {
+      "sourceSha256": "a4581c38515a5eaa23e5edc2af6952cf052680b4ea0986d4a3e3f7b42a084c41",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 23 條圖 23-(1)、(2)；原跨条引用與說明完整保留。"
+    },
+    "24": {
+      "sourceSha256": "79afb52a6b0b6c1d0ca9479909de8d5e705ebb252da73c4f256cb6ad5f7fec51",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 24 條圖 24；圖中符號、公式及下方定義均保留。"
+    },
+    "26": {
+      "sourceSha256": "248d33ec0316b5afb78e31bafe9b44a31a0dafc0d25751afa06d632fdf513406",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁圖說為第 26 條圖 26-(1) 至 (4)；左右欄及底部附註完整保留。"
+    },
+    "28": {
+      "sourceSha256": "d13f94df5236c8148cd1733d16f21bad2d16d2065a75ced7e0f5a0b6510b85a1",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 28 條圖 28；全部陰影鍵及說明段落完整保留。"
+    },
+    "33": {
+      "sourceSha256": "cbc647e535bd73a3f6e3ebba2b06a3e97d4e119b3d60f41f71befb1c905d848c",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 33 條圖 33；圖面、室內外方向、原序號說明完整。"
+    },
+    "39-1": {
+      "sourceSha256": "dbae4195730a3502deeb636f978c49f2b4c28803d68f046d65ffc6ac939f5625",
+      "reviewedPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fullPageVerified": true,
+      "notes": "5 頁全部核對：首頁標題為第三十九條之一，含完整太陽方位表、圖 39-1-(1)；其餘頁含圖 (2) 至 (6)、北向、角度、尺寸及附註，未刪空白或原頁碼。"
+    },
+    "42": {
+      "sourceSha256": "009c9b0f5f7dac099898ca7bc506076eea4fc1e1566b10fc904163260d6b5fe9",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁圖說為第 42 條圖 42-(1)、(2)；密集的底部公式註解均在整頁範圍內。"
+    },
+    "45": {
+      "sourceSha256": "b473daa60688419fa3f99a81d41a7344767179108433198de177a1d5fc5b5875",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 45 條圖 45；上半部雨遮圖及 50 cm 等原註解完整。"
+    },
+    "60": {
+      "sourceSha256": "b38d62abaec315a9b6359084be0280abf76346977dacbe4fd3437f3db3c85955",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁完整停車配置圖、5 項說明及圖 60 圖說；原生文字特殊字型符號未轉寫，以整頁影像為準。"
+    },
+    "89": {
+      "sourceSha256": "13c0cc2e9b8179e71ac398612a314e6b875155c522552b92f2d8be5f7a74ccfa",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 89 條圖 89-(1)、(2)；包含上下平面及右側立面與附註。"
+    },
+    "90": {
+      "sourceSha256": "3087af66971e8e19f0de6cc1a321bff9906386493ec932484d9bb7d62d7e41ff",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 90 條圖 90-(1) 至 (3)；全部圖及跨条引用附註完整。"
+    },
+    "107": {
+      "sourceSha256": "3efc47970b211d5d4830cfb67653ff67fe2154147dec5c314e9371eed82aeed6",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁掃描，圖說為第 107 條圖 107；防火門、樓梯、昇降機圖及文字完整保留。"
+    },
+    "110": {
+      "sourceSha256": "0b1cd39e18cdde0c0d0ea34e0fa874315547888b74a52f9c16871cbdb5eaa178",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁掃描，圖說為第 110 條圖 110-(1) 至 (6)；完整保留界線、開口尺寸、間距及原說明。"
+    },
+    "117": {
+      "sourceSha256": "b47f5f63c574e5c7f5b3a292305916ef86447885fed4d40b39aac9f318cba223",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 117 條圖 117；上方平面與下方面積說明均保留。"
+    },
+    "118": {
+      "sourceSha256": "e57e929cca827a95d90a11e836a5f8ecf7b7f3c038c106a7d4453b4660593ddf",
+      "reviewedPages": [
+        1
+      ],
+      "fullPageVerified": true,
+      "notes": "1 頁圖說為第 118 條圖 118；面前道路寬度及出入口相關尺寸和說明完整。"
+    },
+    "121": {
+      "sourceSha256": "61bca686d41cd3dac5ef15f23b75a67a794290cb5902ddc2b6994227b4f6fc69",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁均標為第 121 條圖 121；第二頁為第一頁接續計算及說明（含 122、130 條引用），未誤認另一條附件。已放大核對第二頁末尾圖說。"
+    },
+    "144": {
+      "sourceSha256": "866c270453381435d0c7c213550574b50b757b207afbf637de29945eeefe539b",
+      "reviewedPages": [
+        1,
+        2
+      ],
+      "fullPageVerified": true,
+      "notes": "2 頁實際圖說為第 144 條圖 144-(1)、(2)、(3)。PDF 內部 Title 是十六進位字串，Big5 解碼成 Microsoft Word - 第117條補充圖例；與官方附件名稱及圖說不同。保留差異，對應依官方精確標題，不依 PDF Title 猜測。PDF 建檔日期為 2018 年；官方沿革另載 115 年修正本條，未推定附件同步更新或判定現行效力。"
+    }
+  },
+  "supplementalJpg": {
+    "sha256": "29074c6ab9562bffac3e0f2ad4e45887711ece2546d76173a68b6b6531210d44",
+    "reviewed": true,
+    "notes": "原圖為 322×227 JPEG，圖說為第 1 條圖 1-3-(8) 遮陽版之透空率計算方式；藍色手寫式尺寸符號已存在於官方原圖，全部原樣保存，未補繪或重壓縮。"
+  }
+}

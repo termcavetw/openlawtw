@@ -1,0 +1,489 @@
+{
+  "method": "PDF native text extraction only, no OCR; most scanned pages have no native text. PDF dates are metadata, not effective dates.",
+  "records": [
+    {
+      "article": "1",
+      "sha256": "ddf07a4a4158fa984cdd0cf264f07dab2e241ab62027673437dc4e7c4f86ba93",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Avision NetDeliver",
+        "Producer": "Avision NetDeliver @V2000",
+        "CreationDate": "D:20040316144902+08'00'",
+        "ModDate": "D:20040316144926+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        },
+        {
+          "page": 3,
+          "text": ""
+        },
+        {
+          "page": 4,
+          "text": ""
+        },
+        {
+          "page": 5,
+          "text": ""
+        },
+        {
+          "page": 6,
+          "text": ""
+        },
+        {
+          "page": 7,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "2",
+      "sha256": "f09d7e3cee90f876766b58baf5066d7853b571d6acd18b83db7cb5850021fba6",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142140+08'00'",
+        "ModDate": "D:20181023142140+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "3-1",
+      "sha256": "79a03a0f88d22375ac39721d61858b42e229edff3dd6e767a5a2d95e96dd5e91",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142141+08'00'",
+        "ModDate": "D:20181023142141+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "8",
+      "sha256": "835a355b7b5b9c3fa173b66095a8f8dbfc84a2e37322b6625e18d3d46e95b9c7",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142157+08'00'",
+        "ModDate": "D:20181023142157+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "14",
+      "sha256": "a286d6c18695a74041c82a48e9ad377be35e09638bcec480a4a01e3d08b9039f",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142145+08'00'",
+        "ModDate": "D:20181023142145+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": " "
+        },
+        {
+          "page": 2,
+          "text": " "
+        },
+        {
+          "page": 3,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "16",
+      "sha256": "9783fc3ba71aea6f6b9238aa89e213f368f1c9fc1908367edd91decec435795f",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142146+08'00'",
+        "ModDate": "D:20181023142146+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "19",
+      "sha256": "f9435b23aa65b050f60548f6fec9ab2f9782e6dff36fcb057b8b6a74066c98ad",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142147+08'00'",
+        "ModDate": "D:20181023142147+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "23",
+      "sha256": "a4581c38515a5eaa23e5edc2af6952cf052680b4ea0986d4a3e3f7b42a084c41",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142149+08'00'",
+        "ModDate": "D:20181023142149+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "24",
+      "sha256": "79afb52a6b0b6c1d0ca9479909de8d5e705ebb252da73c4f256cb6ad5f7fec51",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142150+08'00'",
+        "ModDate": "D:20181023142150+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "26",
+      "sha256": "248d33ec0316b5afb78e31bafe9b44a31a0dafc0d25751afa06d632fdf513406",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142151+08'00'",
+        "ModDate": "D:20181023142151+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "28",
+      "sha256": "d13f94df5236c8148cd1733d16f21bad2d16d2065a75ced7e0f5a0b6510b85a1",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142152+08'00'",
+        "ModDate": "D:20181023142152+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "33",
+      "sha256": "cbc647e535bd73a3f6e3ebba2b06a3e97d4e119b3d60f41f71befb1c905d848c",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142154+08'00'",
+        "ModDate": "D:20181023142154+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "39-1",
+      "sha256": "dbae4195730a3502deeb636f978c49f2b4c28803d68f046d65ffc6ac939f5625",
+      "pdfMetadata": {
+        "Title": "Microsoft Word - æŠ¥ç–§æ¢šæŒ⁄39-1æ¢š-è£œå––åœŒä¾‰",
+        "Creator": "",
+        "Producer": "Microsoft: Print To PDF",
+        "CreationDate": "D:20180611113914+08'00'",
+        "ModDate": "D:20180611113914+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": " 1 \r\n建築技術規則建築設計施工編第三十九條之一補充圖例\r\n附表 ：φ＝23.5o冬至日平均太陽時之太陽方位\r\n地區 時 7 8 9 10 11 12 13 14 15 16 17 \r\n23.5 o 方位 -62.59 -55.41 -46.13 -33.93 -18.29 0.0 18.29 33.93 46.13 55.41 62.59\r\n度/hr 7.18 9.28 12.2 15.64 18.29 18.29 15.64 12.2 9.28 7.18 \r\n最大（度/hr） 18.7\r\n平均（度/hr） 12.52（取 12.5o）"
+        },
+        {
+          "page": 2,
+          "text": " 2 "
+        },
+        {
+          "page": 3,
+          "text": " 3 "
+        },
+        {
+          "page": 4,
+          "text": " 4 "
+        },
+        {
+          "page": 5,
+          "text": " 5 "
+        }
+      ]
+    },
+    {
+      "article": "42",
+      "sha256": "009c9b0f5f7dac099898ca7bc506076eea4fc1e1566b10fc904163260d6b5fe9",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142155+08'00'",
+        "ModDate": "D:20181023142155+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "45",
+      "sha256": "b473daa60688419fa3f99a81d41a7344767179108433198de177a1d5fc5b5875",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142156+08'00'",
+        "ModDate": "D:20181023142156+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "60",
+      "sha256": "b38d62abaec315a9b6359084be0280abf76346977dacbe4fd3437f3db3c85955",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023143446+08'00'",
+        "ModDate": "D:20181023143446+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": "1.車道、、車位數均未達五十輛，車道得為單車道寬度\r\n。\r\n2.車道、、合計車位數未達五十輛，車道得為單車道\r\n寬度。\r\n3.主要車道服務之車位數為車道、、、之合計達五十\r\n輛以上，應為雙車道寬度。\r\n4.○S 每輛停車位為寬二點五公尺，長五點五公尺。\r\n○L 停車位角度在三十度以下者，停車位長度為六公尺。\r\n○S1五分之ㄧ車位數，每輛停車位寬度得寬減二十公分。但停\r\n車位長邊鄰接牆壁者，不得寬減，且寬減之停車位不得連\r\n續設置。\r\n5.停車位角度超過六十度者，其停車位前方應留設深六公尺，\r\n寬五公尺以上之空間。\r\n圖 60"
+        }
+      ]
+    },
+    {
+      "article": "89",
+      "sha256": "13c0cc2e9b8179e71ac398612a314e6b875155c522552b92f2d8be5f7a74ccfa",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142158+08'00'",
+        "ModDate": "D:20181023142158+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": " "
+        }
+      ]
+    },
+    {
+      "article": "90",
+      "sha256": "3087af66971e8e19f0de6cc1a321bff9906386493ec932484d9bb7d62d7e41ff",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142200+08'00'",
+        "ModDate": "D:20181023142200+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "107",
+      "sha256": "3efc47970b211d5d4830cfb67653ff67fe2154147dec5c314e9371eed82aeed6",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Avision NetDeliver",
+        "Producer": "Avision NetDeliver @V2000",
+        "CreationDate": "D:20040316145023+08'00'",
+        "ModDate": "D:20040316145038+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "110",
+      "sha256": "0b1cd39e18cdde0c0d0ea34e0fa874315547888b74a52f9c16871cbdb5eaa178",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Avision NetDeliver",
+        "Producer": "Avision NetDeliver @V2000",
+        "CreationDate": "D:20040316145055+08'00'",
+        "ModDate": "D:20040316145109+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "117",
+      "sha256": "b47f5f63c574e5c7f5b3a292305916ef86447885fed4d40b39aac9f318cba223",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142142+08'00'",
+        "ModDate": "D:20181023142142+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "118",
+      "sha256": "e57e929cca827a95d90a11e836a5f8ecf7b7f3c038c106a7d4453b4660593ddf",
+      "pdfMetadata": {
+        "Title": "",
+        "Creator": "Microsoft® Office Word 2007",
+        "Producer": "Microsoft® Office Word 2007",
+        "CreationDate": "D:20181023142144+08'00'",
+        "ModDate": "D:20181023142144+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "121",
+      "sha256": "61bca686d41cd3dac5ef15f23b75a67a794290cb5902ddc2b6994227b4f6fc69",
+      "pdfMetadata": {
+        "Title": "Microsoft Word - 第121條補充圖例 _1_",
+        "Creator": "PScript5.dll Version 5.2.2",
+        "Producer": "Acrobat Distiller 10.1.16 (Windows)",
+        "CreationDate": "D:20180419100811+08'00'",
+        "ModDate": "D:20180419100811+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": ""
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "article": "144",
+      "sha256": "866c270453381435d0c7c213550574b50b757b207afbf637de29945eeefe539b",
+      "pdfMetadata": {
+        "Title": "<4D6963726F736F667420576F7264202D20B2C4313137B1F8B8C9A552B9CFA8D2>",
+        "Creator": "PScript5.dll Version 5.2.2",
+        "Producer": "Acrobat Distiller 10.1.16 (Windows)",
+        "CreationDate": "D:20180419110552+08'00'",
+        "ModDate": "D:20180419110552+08'00'"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "text": " "
+        },
+        {
+          "page": 2,
+          "text": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1417 @@
+{
+  "schemaVersion": 1,
+  "lawId": "D0070115",
+  "lawName": "建築技術規則建築設計施工編",
+  "sourcePage": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115",
+  "retrieved": "2026-10-01T09:23:48.552507+00:00",
+  "method": {
+    "renderer": "pypdfium2",
+    "rendererVersion": "5.3.0",
+    "pdfiumVersion": "145.0.7616.0",
+    "scale": 2.0,
+    "dpi": 144.0,
+    "encoding": "WebP lossless",
+    "crop": "none; complete PDF physical page",
+    "textMethod": "No OCR or reconstructed diagram text; images are the source content."
+  },
+  "records": [
+    {
+      "id": "D0070115-1",
+      "lawId": "D0070115",
+      "article": "1",
+      "articleNo": "第 1 條",
+      "title": "第 1 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011573",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=1",
+      "originalFile": "data/documents/article-supplements/originals/1.pdf",
+      "bytes": 171973,
+      "sha256": "ddf07a4a4158fa984cdd0cf264f07dab2e241ab62027673437dc4e7c4f86ba93",
+      "retrieved": "2026-10-01T09:22:03.843454+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。官方沿革第 50 點記載民國 93 年 3 月 10 日修正本條補充圖例，並停止適用部分原圖例；請一併核對沿革，勿以相同圖號推定為舊版或現行適用結論。沿革第 51 點另記載增訂圖 1-3-(8)，另列 JPG 原檔，不併入本 PDF。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-001-0d6cb545a7b3.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 47538,
+          "sha256": "0d6cb545a7b3edce8e3a82dae6689d7f4dffb698d5912ee49a2c31e991a0d5fe",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-002-d81fb6348e2e.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 53792,
+          "sha256": "d81fb6348e2ef3ba715c5f33e2df7ab148a6438de31a2da8c1621bfde3ae6f07",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        },
+        {
+          "page": 3,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-003-1762da430494.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 47984,
+          "sha256": "1762da43049448dbef98347c7f9ba110da1364dabc187e395bdb9308672b3aa5",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 3 頁完整原圖"
+        },
+        {
+          "page": 4,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-004-4f3d1dd5ca77.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 44808,
+          "sha256": "4f3d1dd5ca77e39faba2ef2fa75336307b0ff38299f088603ebf679014b05c6a",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 4 頁完整原圖"
+        },
+        {
+          "page": 5,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-005-11e0fa1b4836.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 58604,
+          "sha256": "11e0fa1b483671b04c1ff55cd2a890570814b55e7911329d0fa17a140f3515de",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 5 頁完整原圖"
+        },
+        {
+          "page": 6,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-006-f7db2d6895f2.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 56044,
+          "sha256": "f7db2d6895f2d478b53f77bbddf541664b35bc24245ffb3b79ec8eb3f41716fd",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 6 頁完整原圖"
+        },
+        {
+          "page": 7,
+          "src": "/documents/article-supplements/D0070115/1/ddf07a4a4158-page-007-8643bd36be27.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 22108,
+          "sha256": "8643bd36be275c597035e77f04f06f7c85029ed3c1c3245707d481ef0dbdddb1",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 1 條補充圖例.PDF，官方 PDF 第 7 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 1 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011573",
+          "format": "PDF"
+        },
+        {
+          "title": "第 1 條補充圖例圖1-3-(8).JPG",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000018218",
+          "format": "JPG"
+        }
+      ],
+      "supplementalFiles": [
+        {
+          "title": "第 1 條補充圖例圖1-3-(8).JPG",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000018218",
+          "article": "1",
+          "format": "JPG",
+          "originalFile": "data/documents/article-supplements/originals/1-1-3-8.jpg",
+          "bytes": 13430,
+          "sha256": "29074c6ab9562bffac3e0f2ad4e45887711ece2546d76173a68b6b6531210d44",
+          "retrieved": "2026-10-01T09:22:02.433601+00:00",
+          "src": "/documents/article-supplements/D0070115/1/figure-1-3-8-29074c6ab956.jpg",
+          "width": 322,
+          "height": 227,
+          "versionNote": "官方另列之第 1 條補充圖例圖 1-3-(8)，原始 JPG 位元組直接保存，未合併或重繪。"
+        }
+      ]
+    },
+    {
+      "id": "D0070115-2",
+      "lawId": "D0070115",
+      "article": "2",
+      "articleNo": "第 2 條",
+      "title": "第 2 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234929",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=2",
+      "originalFile": "data/documents/article-supplements/originals/2.pdf",
+      "bytes": 112424,
+      "sha256": "f09d7e3cee90f876766b58baf5066d7853b571d6acd18b83db7cb5850021fba6",
+      "retrieved": "2026-10-01T09:22:03.074177+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/2/f09d7e3cee90-page-001-cd62f1dab98b.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 118924,
+          "sha256": "cd62f1dab98b70b0155627425e05f415dae2fb177aa0d196c493931f3512aebc",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 2 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/2/f09d7e3cee90-page-002-033fad22a862.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 116476,
+          "sha256": "033fad22a8627042ea1ed652955d08462bc67a0e8f3ecce941356383d31dcf06",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 2 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 2 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234929",
+          "format": "PDF"
+        },
+        {
+          "title": "第 2 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087267",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-3-1",
+      "lawId": "D0070115",
+      "article": "3-1",
+      "articleNo": "第 3-1 條",
+      "title": "第 3-1 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234930",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=3-1",
+      "originalFile": "data/documents/article-supplements/originals/3-1.pdf",
+      "bytes": 29809,
+      "sha256": "79a03a0f88d22375ac39721d61858b42e229edff3dd6e767a5a2d95e96dd5e91",
+      "retrieved": "2026-10-01T09:22:02.531502+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/3-1/79a03a0f88d2-page-001-695c9d63946e.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 39550,
+          "sha256": "695c9d63946ec293513e813697d29afaf0ed83ed6d6697e9683e5911659af6be",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 3-1 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 3-1 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234930",
+          "format": "PDF"
+        },
+        {
+          "title": "第 3-1 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087268",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-8",
+      "lawId": "D0070115",
+      "article": "8",
+      "articleNo": "第 8 條",
+      "title": "第 8 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234943",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=8",
+      "originalFile": "data/documents/article-supplements/originals/8.pdf",
+      "bytes": 40209,
+      "sha256": "835a355b7b5b9c3fa173b66095a8f8dbfc84a2e37322b6625e18d3d46e95b9c7",
+      "retrieved": "2026-10-01T09:22:17.285601+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/8/835a355b7b5b-page-001-8d091930999e.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 53656,
+          "sha256": "8d091930999ea99420369b8681eb473669c27e34408761a7563183d6788a4b08",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 8 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 8 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234943",
+          "format": "PDF"
+        },
+        {
+          "title": "第 8 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087283",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-14",
+      "lawId": "D0070115",
+      "article": "14",
+      "articleNo": "第 14 條",
+      "title": "第 14 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234933",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=14",
+      "originalFile": "data/documents/article-supplements/originals/14.pdf",
+      "bytes": 150763,
+      "sha256": "a286d6c18695a74041c82a48e9ad377be35e09638bcec480a4a01e3d08b9039f",
+      "retrieved": "2026-10-01T09:22:18.213860+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/14/a286d6c18695-page-001-aae39a16cde2.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 129436,
+          "sha256": "aae39a16cde244e276ab4c46571360e8672c7a4c1e34bb28d89c60ad923f60c6",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 14 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/14/a286d6c18695-page-002-82af1613cb9e.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 103310,
+          "sha256": "82af1613cb9ebe473ef069c8b031c8cc5097c05e003037dcfe22f764fd89faa7",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 14 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        },
+        {
+          "page": 3,
+          "src": "/documents/article-supplements/D0070115/14/a286d6c18695-page-003-1b0fe26e20db.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 138466,
+          "sha256": "1b0fe26e20db9b59757226b9ad3df30a36e3c694a0a7d6707dbf8e087b119fc0",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 14 條補充圖例.PDF，官方 PDF 第 3 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 14 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234933",
+          "format": "PDF"
+        },
+        {
+          "title": "第 14 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087272",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-16",
+      "lawId": "D0070115",
+      "article": "16",
+      "articleNo": "第 16 條",
+      "title": "第 16 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234934",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=16",
+      "originalFile": "data/documents/article-supplements/originals/16.pdf",
+      "bytes": 83920,
+      "sha256": "9783fc3ba71aea6f6b9238aa89e213f368f1c9fc1908367edd91decec435795f",
+      "retrieved": "2026-10-01T09:22:17.827901+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/16/9783fc3ba71a-page-001-7b3501d37778.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 77454,
+          "sha256": "7b3501d377786e83999685471e736f900a04a675f68395c80dbfbed868c847f0",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 16 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/16/9783fc3ba71a-page-002-ee68a0b5aff7.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 79496,
+          "sha256": "ee68a0b5aff79e0951e868b2a8b752f41569afa065345e49704b035222183e97",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 16 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 16 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234934",
+          "format": "PDF"
+        },
+        {
+          "title": "第 16 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087273",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-19",
+      "lawId": "D0070115",
+      "article": "19",
+      "articleNo": "第 19 條",
+      "title": "第 19 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234935",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=19",
+      "originalFile": "data/documents/article-supplements/originals/19.pdf",
+      "bytes": 65079,
+      "sha256": "f9435b23aa65b050f60548f6fec9ab2f9782e6dff36fcb057b8b6a74066c98ad",
+      "retrieved": "2026-10-01T09:22:17.904324+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/19/f9435b23aa65-page-001-7cd2bd47dcbf.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 115572,
+          "sha256": "7cd2bd47dcbf124946c494c9d5511d55eb2a9e43d4ff8575923735001fa6aee9",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 19 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 19 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234935",
+          "format": "PDF"
+        },
+        {
+          "title": "第 19 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087274",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-23",
+      "lawId": "D0070115",
+      "article": "23",
+      "articleNo": "第 23 條",
+      "title": "第 23 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234936",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=23",
+      "originalFile": "data/documents/article-supplements/originals/23.pdf",
+      "bytes": 63557,
+      "sha256": "a4581c38515a5eaa23e5edc2af6952cf052680b4ea0986d4a3e3f7b42a084c41",
+      "retrieved": "2026-10-01T09:22:46.424821+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/23/a4581c38515a-page-001-9b33b7c7f539.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 112748,
+          "sha256": "9b33b7c7f539567893e4a42a25e7829253e2fa19eabbefd808075384b6e0cb69",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 23 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 23 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234936",
+          "format": "PDF"
+        },
+        {
+          "title": "第 23 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087275",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-24",
+      "lawId": "D0070115",
+      "article": "24",
+      "articleNo": "第 24 條",
+      "title": "第 24 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234937",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=24",
+      "originalFile": "data/documents/article-supplements/originals/24.pdf",
+      "bytes": 34921,
+      "sha256": "79afb52a6b0b6c1d0ca9479909de8d5e705ebb252da73c4f256cb6ad5f7fec51",
+      "retrieved": "2026-10-01T09:22:47.789642+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/24/79afb52a6b0b-page-001-383fb901aa8d.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 40862,
+          "sha256": "383fb901aa8d39818784ad177ad6b06303bca775385061ae85a6daf2df5e92f9",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 24 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 24 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234937",
+          "format": "PDF"
+        },
+        {
+          "title": "第 24 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087276",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-26",
+      "lawId": "D0070115",
+      "article": "26",
+      "articleNo": "第 26 條",
+      "title": "第 26 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234938",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=26",
+      "originalFile": "data/documents/article-supplements/originals/26.pdf",
+      "bytes": 113597,
+      "sha256": "248d33ec0316b5afb78e31bafe9b44a31a0dafc0d25751afa06d632fdf513406",
+      "retrieved": "2026-10-01T09:22:47.392179+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/26/248d33ec0316-page-001-2e6c9e73d88d.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 70774,
+          "sha256": "2e6c9e73d88daedfb7af90186cbc5b925212614847e7faa0d541f77530b87044",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 26 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/26/248d33ec0316-page-002-7c1b67683500.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 162748,
+          "sha256": "7c1b6768350014f6539e2bbefcb55061bcef074496e399ba000aa58a9f9d0f58",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 26 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 26 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234938",
+          "format": "PDF"
+        },
+        {
+          "title": "第 26 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087277",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-28",
+      "lawId": "D0070115",
+      "article": "28",
+      "articleNo": "第 28 條",
+      "title": "第 28 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234939",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=28",
+      "originalFile": "data/documents/article-supplements/originals/28.pdf",
+      "bytes": 58762,
+      "sha256": "d13f94df5236c8148cd1733d16f21bad2d16d2065a75ced7e0f5a0b6510b85a1",
+      "retrieved": "2026-10-01T09:22:46.622046+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/28/d13f94df5236-page-001-c31ae7ceace5.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 103432,
+          "sha256": "c31ae7ceace56f8ca56589d2878809b7f080021cb8c027434cfd00dd342c5a75",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 28 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 28 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234939",
+          "format": "PDF"
+        },
+        {
+          "title": "第 28 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087278",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-33",
+      "lawId": "D0070115",
+      "article": "33",
+      "articleNo": "第 33 條",
+      "title": "第 33 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234940",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=33",
+      "originalFile": "data/documents/article-supplements/originals/33.pdf",
+      "bytes": 42346,
+      "sha256": "cbc647e535bd73a3f6e3ebba2b06a3e97d4e119b3d60f41f71befb1c905d848c",
+      "retrieved": "2026-10-01T09:23:02.224643+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/33/cbc647e535bd-page-001-406cae1729c8.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 61122,
+          "sha256": "406cae1729c82538947599019485809a462e9003970deabb77a0efd8ecaa3fe2",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 33 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 33 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234940",
+          "format": "PDF"
+        },
+        {
+          "title": "第 33 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087279",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-39-1",
+      "lawId": "D0070115",
+      "article": "39-1",
+      "articleNo": "第 39-1 條",
+      "title": "第 39-1 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000220371",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=39-1",
+      "originalFile": "data/documents/article-supplements/originals/39-1.pdf",
+      "bytes": 1520722,
+      "sha256": "dbae4195730a3502deeb636f978c49f2b4c28803d68f046d65ffc6ac939f5625",
+      "retrieved": "2026-10-01T09:23:10.369581+00:00",
+      "versionNote": "官方沿革第 81 點記載民國 107 年 6 月 14 日訂定本條補充圖例，自民國 109 年 7 月 1 日生效；此日期僅按該項記載，不能推及其他附件。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/39-1/dbae4195730a-page-001-ca6f22b2238c.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 123134,
+          "sha256": "ca6f22b2238c0734b2cc478f0b185037352609707cdf197823d3b490d1771660",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 39-1 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/39-1/dbae4195730a-page-002-a1706f62edec.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 108742,
+          "sha256": "a1706f62edece408dc0124f0b69b27851928e1fc33b600ed7e3cf18b50557935",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 39-1 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        },
+        {
+          "page": 3,
+          "src": "/documents/article-supplements/D0070115/39-1/dbae4195730a-page-003-2f880bd3acca.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 171214,
+          "sha256": "2f880bd3accaf8a14cb0b73cc5bc849e903f54d55ef943b580f576376e32c07f",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 39-1 條補充圖例.PDF，官方 PDF 第 3 頁完整原圖"
+        },
+        {
+          "page": 4,
+          "src": "/documents/article-supplements/D0070115/39-1/dbae4195730a-page-004-676d02be8e82.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 120306,
+          "sha256": "676d02be8e8200872a6fa354644c62f7f2242bea558b6e4fc32ce6fae8dd5fb5",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 39-1 條補充圖例.PDF，官方 PDF 第 4 頁完整原圖"
+        },
+        {
+          "page": 5,
+          "src": "/documents/article-supplements/D0070115/39-1/dbae4195730a-page-005-ca673a6b1f5b.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 90430,
+          "sha256": "ca673a6b1f5b09145d1eab80be98a511dcfc3d9b607feff3ab8b3643d9fae6de",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 39-1 條補充圖例.PDF，官方 PDF 第 5 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 39-1 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000220371",
+          "format": "PDF"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-42",
+      "lawId": "D0070115",
+      "article": "42",
+      "articleNo": "第 42 條",
+      "title": "第 42 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234941",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=42",
+      "originalFile": "data/documents/article-supplements/originals/42.pdf",
+      "bytes": 173715,
+      "sha256": "009c9b0f5f7dac099898ca7bc506076eea4fc1e1566b10fc904163260d6b5fe9",
+      "retrieved": "2026-10-01T09:23:03.006247+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/42/009c9b0f5f7d-page-001-2c463600e88f.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 197066,
+          "sha256": "2c463600e88fc4772725a426d7ade217329d1aaaa670a4df667de5ccfaa2e2da",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 42 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/42/009c9b0f5f7d-page-002-5e69924ec8bd.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 186322,
+          "sha256": "5e69924ec8bda64b566c966a8f1202e27a0732ab398848419df0884703091d6a",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 42 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 42 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234941",
+          "format": "PDF"
+        },
+        {
+          "title": "第 42 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087280",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-45",
+      "lawId": "D0070115",
+      "article": "45",
+      "articleNo": "第 45 條",
+      "title": "第 45 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234942",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=45",
+      "originalFile": "data/documents/article-supplements/originals/45.pdf",
+      "bytes": 27552,
+      "sha256": "b473daa60688419fa3f99a81d41a7344767179108433198de177a1d5fc5b5875",
+      "retrieved": "2026-10-01T09:23:01.896161+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/45/b473daa60688-page-001-76501133244a.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 21412,
+          "sha256": "76501133244a61b0335438b313f3575f3c0ba9c34d6f8c39931ab62abbc3c38b",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 45 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 45 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234942",
+          "format": "PDF"
+        },
+        {
+          "title": "第 45 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087281",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-60",
+      "lawId": "D0070115",
+      "article": "60",
+      "articleNo": "第 60 條",
+      "title": "第 60 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000235454",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=60",
+      "originalFile": "data/documents/article-supplements/originals/60.pdf",
+      "bytes": 163561,
+      "sha256": "b38d62abaec315a9b6359084be0280abf76346977dacbe4fd3437f3db3c85955",
+      "retrieved": "2026-10-01T09:23:15.684215+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。官方沿革第 50 點記載民國 93 年 3 月 10 日修正本條補充圖例，並停止適用部分原圖例；請一併核對沿革，勿以相同圖號推定為舊版或現行適用結論。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/60/b38d62abaec3-page-001-fccf012a6c1b.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 160304,
+          "sha256": "fccf012a6c1b443258aa21ad4b1ac19694c02a6c8fda8fdb680a20214d3e5f53",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 60 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 60 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000235454",
+          "format": "PDF"
+        },
+        {
+          "title": "第 60 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000123860",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-89",
+      "lawId": "D0070115",
+      "article": "89",
+      "articleNo": "第 89 條",
+      "title": "第 89 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234944",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=89",
+      "originalFile": "data/documents/article-supplements/originals/89.pdf",
+      "bytes": 51404,
+      "sha256": "13c0cc2e9b8179e71ac398612a314e6b875155c522552b92f2d8be5f7a74ccfa",
+      "retrieved": "2026-10-01T09:23:15.522648+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/89/13c0cc2e9b81-page-001-9ec82faccc8a.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 79428,
+          "sha256": "9ec82faccc8aeecd57343eab6d796cc0b3143bed6696028d7eaaa3c7b4ce8e49",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 89 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 89 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234944",
+          "format": "PDF"
+        },
+        {
+          "title": "第 89 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087284",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-90",
+      "lawId": "D0070115",
+      "article": "90",
+      "articleNo": "第 90 條",
+      "title": "第 90 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234945",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=90",
+      "originalFile": "data/documents/article-supplements/originals/90.pdf",
+      "bytes": 67506,
+      "sha256": "3087af66971e8e19f0de6cc1a321bff9906386493ec932484d9bb7d62d7e41ff",
+      "retrieved": "2026-10-01T09:23:15.425534+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/90/3087af66971e-page-001-4e53eefce375.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 120398,
+          "sha256": "4e53eefce375771378f466c654063cab0ce2e726428f3574bca8e156358869e5",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 90 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 90 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234945",
+          "format": "PDF"
+        },
+        {
+          "title": "第 90 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087285",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-107",
+      "lawId": "D0070115",
+      "article": "107",
+      "articleNo": "第 107 條",
+      "title": "第 107 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011574",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=107",
+      "originalFile": "data/documents/article-supplements/originals/107.pdf",
+      "bytes": 20157,
+      "sha256": "3efc47970b211d5d4830cfb67653ff67fe2154147dec5c314e9371eed82aeed6",
+      "retrieved": "2026-10-01T09:23:15.314861+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。官方沿革第 50 點記載民國 93 年 3 月 10 日修正本條補充圖例，並停止適用部分原圖例；請一併核對沿革，勿以相同圖號推定為舊版或現行適用結論。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/107/3efc47970b21-page-001-89ac1b8e08ff.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 28822,
+          "sha256": "89ac1b8e08ffbd57fd1b060ac915624971b34325e1a47aa442c4de7f82085fe6",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 107 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 107 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011574",
+          "format": "PDF"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-110",
+      "lawId": "D0070115",
+      "article": "110",
+      "articleNo": "第 110 條",
+      "title": "第 110 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011575",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=110",
+      "originalFile": "data/documents/article-supplements/originals/110.pdf",
+      "bytes": 75126,
+      "sha256": "0b1cd39e18cdde0c0d0ea34e0fa874315547888b74a52f9c16871cbdb5eaa178",
+      "retrieved": "2026-10-01T09:23:28.824434+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。官方沿革第 50 點記載民國 93 年 3 月 10 日修正本條補充圖例，並停止適用部分原圖例；請一併核對沿革，勿以相同圖號推定為舊版或現行適用結論。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/110/0b1cd39e18cd-page-001-f621fb5e07fc.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 110332,
+          "sha256": "f621fb5e07fcd1379ced73d1f4f414cf23873686f869c4378af6361fa58bc46f",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 110 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/110/0b1cd39e18cd-page-002-4b161989605f.webp",
+          "width": 1220,
+          "height": 1682,
+          "bytes": 61862,
+          "sha256": "4b161989605f2729cfdbf7c61195a3973e391375c77e8580c64560ff2b06e340",
+          "sourceRect": [
+            0,
+            0,
+            610.0,
+            841.0
+          ],
+          "originalPage": true,
+          "alt": "第 110 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 110 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000011575",
+          "format": "PDF"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-117",
+      "lawId": "D0070115",
+      "article": "117",
+      "articleNo": "第 117 條",
+      "title": "第 117 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234931",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=117",
+      "originalFile": "data/documents/article-supplements/originals/117.pdf",
+      "bytes": 33874,
+      "sha256": "b47f5f63c574e5c7f5b3a292305916ef86447885fed4d40b39aac9f318cba223",
+      "retrieved": "2026-10-01T09:23:28.633318+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/117/b47f5f63c574-page-001-b45b07162928.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 39208,
+          "sha256": "b45b07162928b1e48d8c62d296fa1353cca06f7b6d18651e918560ff8effe5bf",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 117 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 117 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234931",
+          "format": "PDF"
+        },
+        {
+          "title": "第 117 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087269",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-118",
+      "lawId": "D0070115",
+      "article": "118",
+      "articleNo": "第 118 條",
+      "title": "第 118 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234932",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=118",
+      "originalFile": "data/documents/article-supplements/originals/118.pdf",
+      "bytes": 49171,
+      "sha256": "e57e929cca827a95d90a11e836a5f8ecf7b7f3c038c106a7d4453b4660593ddf",
+      "retrieved": "2026-10-01T09:23:29.093401+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/118/e57e929cca82-page-001-44d8129bf38b.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 78600,
+          "sha256": "44d8129bf38b8e23ba7226c0caf0ec1ba97dca3f9fe3393d6b099a4f11758eb6",
+          "sourceRect": [
+            0,
+            0,
+            595.32,
+            841.92
+          ],
+          "originalPage": true,
+          "alt": "第 118 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 118 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000234932",
+          "format": "PDF"
+        },
+        {
+          "title": "第 118 條補充圖例.DOC",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087270",
+          "format": "DOC"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-121",
+      "lawId": "D0070115",
+      "article": "121",
+      "articleNo": "第 121 條",
+      "title": "第 121 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087271",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=121",
+      "originalFile": "data/documents/article-supplements/originals/121.pdf",
+      "bytes": 138318,
+      "sha256": "61bca686d41cd3dac5ef15f23b75a67a794290cb5902ddc2b6994227b4f6fc69",
+      "retrieved": "2026-10-01T09:23:29.330295+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/121/61bca686d41c-page-001-b142cf64dfb0.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 135734,
+          "sha256": "b142cf64dfb08de5be1c9413553a3837b7bebc064bacabad93c0004dfd17ac16",
+          "sourceRect": [
+            0,
+            0,
+            595.22,
+            842.0
+          ],
+          "originalPage": true,
+          "alt": "第 121 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/121/61bca686d41c-page-002-621d84c8207b.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 172692,
+          "sha256": "621d84c8207b8f58750eaf6c5eae2f588e2ec53287d4c44843b38d5bac883bb5",
+          "sourceRect": [
+            0,
+            0,
+            595.22,
+            842.0
+          ],
+          "originalPage": true,
+          "alt": "第 121 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 121 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000087271",
+          "format": "PDF"
+        }
+      ],
+      "supplementalFiles": []
+    },
+    {
+      "id": "D0070115-144",
+      "lawId": "D0070115",
+      "article": "144",
+      "articleNo": "第 144 條",
+      "title": "第 144 條補充圖例.PDF",
+      "source": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000215836",
+      "sourcePage": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070115&flno=144",
+      "originalFile": "data/documents/article-supplements/originals/144.pdf",
+      "bytes": 55811,
+      "sha256": "866c270453381435d0c7c213550574b50b757b207afbf637de29945eeefe539b",
+      "retrieved": "2026-10-01T09:23:48.552507+00:00",
+      "versionNote": "依全國法規資料庫目前所列補充圖例附件保存；附件未標示完整版本日期，擷取日及 PDF 建檔日期均不作為修正或生效日期。官方沿革第 88 點另記載民國 115 年修正本條條文；PDF 建檔資訊為 2018 年，未據此宣稱附件已隨本次修正更新。PDF 屬性標題解碼為「Microsoft Word - 第117條補充圖例」，但官方附件名稱與兩頁實際圖說均為第 144 條；保留此來源差異，依官方附件名稱對應，使用前請核對官方原文。",
+      "versionSource": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0070115",
+      "pages": [
+        {
+          "page": 1,
+          "src": "/documents/article-supplements/D0070115/144/866c27045338-page-001-de3a2b0bb181.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 89048,
+          "sha256": "de3a2b0bb181a48bf04a2c5619796cc07b5530f3efb006385e9a42612a9c8a3d",
+          "sourceRect": [
+            0,
+            0,
+            595.22,
+            842.0
+          ],
+          "originalPage": true,
+          "alt": "第 144 條補充圖例.PDF，官方 PDF 第 1 頁完整原圖"
+        },
+        {
+          "page": 2,
+          "src": "/documents/article-supplements/D0070115/144/866c27045338-page-002-e895de7bfa3a.webp",
+          "width": 1191,
+          "height": 1684,
+          "bytes": 92494,
+          "sha256": "e895de7bfa3ada5d4a889a1bc1ce8a6923114b863312b67af880ea436f7b466d",
+          "sourceRect": [
+            0,
+            0,
+            595.22,
+            842.0
+          ],
+          "originalPage": true,
+          "alt": "第 144 條補充圖例.PDF，官方 PDF 第 2 頁完整原圖"
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "第 144 條補充圖例.PDF",
+          "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000215836",
+          "format": "PDF"
+        }
+      ],
+      "supplementalFiles": []
+    }
+  ]
+}
