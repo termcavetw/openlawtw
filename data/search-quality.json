@@ -2608,6 +2608,215 @@
       "basis": {
         "text": "導向已核對正式條文，非法律適用結論"
       }
+    },
+    {
+      "kind": "article",
+      "query": "工業用地增建",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070009",
+          "article": "第 6 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070009",
+        "text": "工業用地證明書",
+        "contains": "工業用地證明書"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "工業區建蔽率",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070012",
+          "article": "第 32 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070012",
+        "text": "工業區：百分之七十",
+        "contains": "工業區：百分之七十"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "臺北工業區建蔽率",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "臺北市-FL003962",
+          "article": "第 37 條"
+        }
+      ],
+      "basis": {
+        "source": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL003962",
+        "text": "工業區內建築物之建蔽率及容積率",
+        "contains": "工業區內建築物之建蔽率及容積率"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "丁種建築用地容積率",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0060013",
+          "article": "第 9 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060013",
+        "text": "丁種建築用地",
+        "contains": "丁種建築用地"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "原有合法建築物消防改善",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0070150",
+          "article": "第 25 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070150",
+        "text": "消防設備依下列規定改善",
+        "contains": "消防設備依下列規定改善"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防設備檢修申報",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120054"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120054",
+        "text": "消防安全設備檢修及申報辦法",
+        "contains": "消防安全設備檢修及申報辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "消防設備檢修申報辦法",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "D0120054"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120054",
+        "text": "消防安全設備檢修及申報辦法",
+        "contains": "消防安全設備檢修及申報辦法"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信室設置",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "K0060159"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0060159",
+        "text": "建築物電信設備及空間設置使用管理規則",
+        "contains": "建築物電信設備及空間設置使用管理規則"
+      }
+    },
+    {
+      "kind": "law",
+      "query": "電信室設置",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "NCC-FL096222"
+        }
+      ],
+      "basis": {
+        "source": "https://ncclaw.ncc.gov.tw/FLAW/FLAWDAT01.aspx?id=FL096222",
+        "text": "建築物屋內外電信設備設置技術規範",
+        "contains": "建築物屋內外電信設備設置技術規範"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "電信室設置",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "K0060159",
+          "article": "第 4 條"
+        }
+      ],
+      "basis": {
+        "source": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0060159",
+        "text": "並預留裝置電信設備之電信室及其他空間",
+        "contains": "並預留裝置電信設備之電信室及其他空間"
+      }
+    },
+    {
+      "kind": "article",
+      "query": "消防圖說審查",
+      "region": "全台",
+      "top": 5,
+      "expected": [
+        {
+          "law": "內政部-GL001203",
+          "article": "第二點"
+        }
+      ],
+      "basis": {
+        "source": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL001203",
+        "text": "圖說審查",
+        "contains": "圖說審查"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "工業地增建",
+      "region": "全台",
+      "expected": [
+        {
+          "guide": "industrial-extension"
+        }
+      ],
+      "basis": {
+        "text": "查找方向與精確結果分開；來源片段另由 guide refs 驗證，不推定案件適用。"
+      }
+    },
+    {
+      "kind": "guide",
+      "query": "既有建築消防改善",
+      "region": "全台",
+      "expected": [
+        {
+          "guide": "existing-building-fire"
+        }
+      ],
+      "basis": {
+        "text": "查找方向與精確結果分開；來源片段另由 guide refs 驗證，不推定案件適用。"
+      }
     }
   ]
 }
