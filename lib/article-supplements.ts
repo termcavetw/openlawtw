@@ -7,7 +7,7 @@ export type SupplementFile=Attachment&{src?:string;width?:number;height?:number}
 export type ArticleSupplement={id:string;lawId:string;article:string;articleNo:string;title:string;source:string;sourcePage:string;retrieved:string;versionNote:string;versionSource?:string;pages:SupplementPage[];alternatives:Attachment[];supplementalFiles:SupplementFile[]};
 export type ArticleSupplementIndex=Pick<ArticleSupplement,'id'|'lawId'|'article'|'articleNo'|'alternatives'>;
 export const supplementViewFile=raw.file;
-export const articleSupplements:ArticleSupplementIndex[]=(raw.records as [string,[string,string][]][]).map(([article,files])=>({id:raw.lawId+'-'+article,lawId:raw.lawId,article,articleNo:'第 '+article+' 條',alternatives:files.map(([suffix,fileId])=>({title:'第 '+article+' 條補充圖例'+suffix,url:'https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId='+fileId}))}));
+export const articleSupplements:ArticleSupplementIndex[]=(raw.records as [string,[number,number][]][]).map(([article,files])=>({id:raw.lawId+'-'+article,lawId:raw.lawId,article,articleNo:'第 '+article+' 條',alternatives:files.map(([suffix,fileId])=>({title:'第 '+article+' 條補充圖例'+raw.suffixes[suffix],url:'https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId='+String(fileId).padStart(10,'0')}))}));
 const byArticle=new Map(articleSupplements.map(record=>[record.lawId+'/'+record.article,record]));
 
 /** Only a reviewed record whose exact original attachment links still match is shown. */
