@@ -21,11 +21,15 @@ with sync_playwright() as p:
   page.goto(base+'/laws/D0070115.html#a-116-3',wait_until='load')
   target=page.locator('.reader [data-article="第 116-3 條"]')
   target.wait_for(timeout=20000);target.scroll_into_view_if_needed()
-  assert target.locator('.article-source-tools a').get_attribute('href').endswith('pcode=D0070115&flno=116-3')
+  target.get_by_role('button',name='第 116-3 條操作',exact=True).click()
+  menu=page.get_by_role('dialog',name='第 116-3 條操作',exact=True)
+  assert menu.locator('.article-source-tools a').get_attribute('href').endswith('pcode=D0070115&flno=116-3')
   geometry=page.evaluate('''()=>({viewport:innerWidth,root:document.documentElement.scrollWidth,reader:document.querySelector('.reader').getBoundingClientRect().width})''')
   assert geometry['root']<=width,geometry
+  page.keyboard.press('Escape')
   page.screenshot(path=str(root/f'reader-{width}.png'))
-  target.get_by_role('button',name='列印第 116-3 條',exact=True).click()
+  target.get_by_role('button',name='第 116-3 條操作',exact=True).click()
+  menu.get_by_role('button',name='列印第 116-3 條',exact=True).click()
   dialog=page.get_by_role('dialog',name='友善列印')
   assert dialog.get_by_label('列印範圍',exact=True).input_value()=='article'
   assert dialog.get_by_label('法條',exact=True).input_value()=='第 116-3 條'
@@ -45,7 +49,8 @@ with sync_playwright() as p:
    popup.screenshot(path=str(root/'print-preview.png'),full_page=True)
   popup.close()
   page.keyboard.press('Escape');assert not dialog.is_visible()
-  assert target.get_by_role('button',name='列印第 116-3 條',exact=True).evaluate('(el)=>el===document.activeElement')
+  assert menu.get_by_role('button',name='列印第 116-3 條',exact=True).evaluate('(el)=>el===document.activeElement')
+  page.keyboard.press('Escape')
   # Search must not trim the selected chapter's print output.
   page.get_by_placeholder('本法規內搜尋／條號').fill('安全維護')
   page.locator('.reader-actions').get_by_role('button',name='列印',exact=True).click()
@@ -81,6 +86,47 @@ with sync_playwright() as p:
   page.get_by_role('button',name='更多法規操作').click()
   assert page.get_by_role('menuitem',name='複製連結').is_visible()
   page.keyboard.press('Escape')
+  page.goto(base+'/laws/D0070115.html#a-116-1',wait_until='load')
+  short=page.locator('.reader [data-article="第 116-1 條"]');short.wait_for()
+  assert short.locator('.article-heading button').count()==1
+  heading_height=short.locator('.article-heading').bounding_box()['height']
+  assert heading_height<=40,heading_height
+  if width==1280:
+   short.get_by_role('button',name='第 116-1 條操作',exact=True).click()
+   actions=page.get_by_role('dialog',name='第 116-1 條操作',exact=True)
+   actions.get_by_role('button',name='將建築技術規則建築設計施工編 第 116-1 條加入案件',exact=True).click()
+   capture=page.get_by_role('dialog',name='加入案件引用',exact=True)
+   capture.get_by_role('textbox',name='引用註記',exact=True).fill('介面測試，未儲存')
+   capture.get_by_role('button',name='關閉加入案件',exact=True).click();capture.wait_for(state='detached')
+   if not actions.is_visible():short.get_by_role('button',name='第 116-1 條操作',exact=True).click()
+   actions.get_by_role('button',name='分享或嵌入建築技術規則建築設計施工編 第 116-1 條',exact=True).click()
+   share=page.get_by_role('dialog',name='讓每一份引用，都找得到依據',exact=True)
+   share.wait_for();share.get_by_role('button',name='關閉',exact=True).click();share.wait_for(state='detached')
+   if actions.is_visible():page.keyboard.press('Escape')
+  short.scroll_into_view_if_needed()
+  page.screenshot(path=str(root/f'compact-article-{width}.png'))
+  missing=page.locator('.reader [data-article="第 116-2 條"]')
+  figure=missing.locator('.official-article-figure img');figure.wait_for()
+  assert figure.evaluate('(img)=>img.complete&&img.naturalWidth===1079&&img.naturalHeight===1651')
+  missing.scroll_into_view_if_needed()
+  assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+  if width<500:
+   region=missing.locator('.official-figure-scroll')
+   assert region.evaluate('(el)=>el.scrollWidth>el.clientWidth')
+   region.evaluate('(el)=>el.scrollLeft=el.scrollWidth')
+   assert region.evaluate('(el)=>el.scrollLeft>0')
+   region.evaluate('(el)=>el.scrollLeft=0')
+  page.screenshot(path=str(root/f'official-table-{width}.png'))
+  missing.get_by_role('button',name='第 116-2 條操作',exact=True).click()
+  actions=page.get_by_role('dialog',name='第 116-2 條操作',exact=True)
+  actions.get_by_role('button',name='列印第 116-2 條',exact=True).click()
+  dialog=page.get_by_role('dialog',name='友善列印')
+  context.set_offline(True)
+  with page.expect_popup() as info:dialog.get_by_role('button',name='開啟列印預覽').click()
+  popup=info.value;popup.wait_for_function('!document.querySelector("#print-law").disabled')
+  assert popup.locator('.print-official-figure img').evaluate('(img)=>img.complete&&img.naturalWidth===1079')
+  if width==1280:popup.pdf(path=str(root/'article-116-2.pdf'),prefer_css_page_size=True)
+  popup.close();context.set_offline(False)
   assert not errors,errors
   results.append({'width':width,'geometry':geometry,'chapterArticles':chapter_count,'errors':errors})
   print(json.dumps(results[-1],ensure_ascii=False),flush=True)
@@ -90,8 +136,10 @@ with sync_playwright() as p:
  page=context.new_page()
  page.goto(base+'/laws/臺北市-FL038035.html#a-3',wait_until='load')
  target=page.locator('.reader [data-article="第 3 條"]');target.wait_for(timeout=20000)
- assert target.locator('.article-source-tools a').inner_text()=='官方全文'
- assert target.locator('.article-source-tools a').get_attribute('href')=='https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL038035'
+ target.get_by_role('button',name='第 3 條操作',exact=True).click()
+ menu=page.get_by_role('dialog',name='第 3 條操作',exact=True)
+ assert menu.locator('.article-source-tools a').inner_text()=='官方全文'
+ assert menu.locator('.article-source-tools a').get_attribute('href')=='https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL038035'
  page.goto(base+'/laws/內政部-GL000734.html',wait_until='load')
  page.locator('.reader-actions').get_by_role('button',name='列印',exact=True).click(timeout=20000)
  dialog=page.get_by_role('dialog',name='友善列印')

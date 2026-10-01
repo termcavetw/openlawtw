@@ -24,7 +24,7 @@ export function LawPrintDialog({law,initial,onClose,onRestoreFocus}:{law:Law;ini
  {kind==='article'&&<label>法條<select aria-label="法條" value={article} onChange={e=>setArticle(e.target.value)}>{law.articles.map(a=><option key={a.no} value={a.no}>{a.no}</option>)}</select></label>}
  {kind==='chapter'&&<label>章節<select aria-label="章節" value={chapter} onChange={e=>setChapter(e.target.value)}>{chapters.map(c=><option key={c.id} value={c.id}>{c.title} · {c.articles.length} 條</option>)}</select></label>}
  <label>紙張方向<select aria-label="紙張方向" value={orientation} onChange={e=>setOrientation(e.target.value as PrintOrientation)}><option value="portrait">A4 直式</option><option value="landscape">A4 橫式 · 適合寬表</option></select></label>
- <p className="law-print-note">共 {count} 條原文，包含條號、來源與日期。搜尋條件不會刪減所選章節或全文；附件內容需另開原檔列印。</p>
+ <p className="law-print-note">共 {count} 條原文，包含條號、來源與日期。搜尋條件不會刪減所選章節或全文；正文下的官方圖表會一併列印，其餘附件請另開原檔。</p>
  <button type="button" className="law-print-submit" disabled={!count} onClick={preview}><Printer size={16}/>開啟列印預覽</button>
  </>}{error&&<p role="alert" className="law-print-error">{error}</p>}{notice&&<p role="status" className="law-print-note">{notice}</p>}
  </DialogContent></Dialog>;

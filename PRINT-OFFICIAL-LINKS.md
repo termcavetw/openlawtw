@@ -35,4 +35,4 @@
 - Chromium 實際操作 1280／390／320px：根頁寬不超出視窗；單條、章節、全文範圍正確；更多選單、焦點回復、離線預覽、封鎖新視窗提示、臺北市全文降級連結、PDF 原檔入口通過，無頁面 JavaScript 錯誤。
 - 建築設計施工編第 116-3 條直式 PDF 為 1 頁；整部 389 條的橫式 PDF 為 171 頁，末條第 323 條存在。兩份 PDF 所抽取文字區塊均在紙張邊界內，已目視核對單條表格與手機對話框。
 
-可在完成建置後另外執行 `python3 scripts/check-law-print-browser.py /tmp/openlawtw-print-qa` 重跑互動檢查並保存截圖與 PDF；需安裝 Python `playwright`，以及系統 Chromium 或 `python3 -m playwright install chromium`。這項瀏覽器檢查目前不屬於 GitHub CI 的 npm 測試。iPhone 主畫面 PWA 的橫向拖動、原生列印及分享介面仍需實機確認；桌機窄視窗不能替代真機。
+可在完成建置後另外執行 `python3 scripts/check-law-print-browser.py /tmp/openlawtw-print-qa` 重跑互動檢查並保存截圖與 PDF；需安裝 Python `playwright`，以及系統 Chromium 或 `python3 -m playwright install chromium`。自 v0.25.1 起，GitHub CI 在 npm 測試後另跑此瀏覽器檢查，並保存截圖與 PDF。iPhone 主畫面 PWA 的橫向拖動、原生列印及分享介面仍需實機確認；桌機窄視窗不能替代真機。
