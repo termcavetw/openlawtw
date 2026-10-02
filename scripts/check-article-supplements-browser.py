@@ -19,8 +19,8 @@ base = 'http://127.0.0.1:' + str(server.server_port)
 reports = []
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path=shutil.which('chromium'), headless=True, args=['--no-sandbox'])
-    for width in [1280, 390, 320]:
-        context = browser.new_context(viewport={'width': width, 'height': 900}, has_touch=width < 500)
+    for width in [1280, 900, 899, 390, 320]:
+        context = browser.new_context(viewport={'width': width, 'height': 900}, has_touch=width < 900)
         page = context.new_page()
         errors, requests, metadata_requests = [], [], []
         page.on('pageerror', lambda error: errors.append(str(error)))
@@ -49,7 +49,12 @@ with sync_playwright() as p:
             assert touch['height'] >= 44 and touch['width'] >= 44, touch
             assert quote_box['height'] >= 44, quote_box
             assert abs(touch['y'] - quote_box['y']) <= 1, (touch, quote_box)
-            assert quote_box['x'] + quote_box['width'] <= touch['x'], (touch, quote_box)
+            assert touch['x'] + touch['width'] <= quote_box['x'], (touch, quote_box)
+            assert row.locator(':scope > button, :scope > details').evaluate_all('(els)=>els.map(el=>el.tagName)') == ['BUTTON', 'DETAILS']
+            trigger.press('Tab')
+            expect(summary).to_be_focused()
+            summary.press('Shift+Tab')
+            expect(trigger).to_be_focused()
             assert trigger.evaluate("el=>getComputedStyle(el).fontWeight") == '600'
             for _ in range(2):
                 summary.click()
@@ -66,6 +71,7 @@ with sync_playwright() as p:
             trigger.scroll_into_view_if_needed()
             assert article2.locator('.article-text').evaluate("el=>getComputedStyle(el).fontSize") == '22px'
             assert abs(trigger.bounding_box()['y'] - summary.bounding_box()['y']) <= 1
+            assert trigger.bounding_box()['x'] + trigger.bounding_box()['width'] <= summary.bounding_box()['x']
             assert page.evaluate('document.documentElement.scrollWidth') <= width
             page.screenshot(path=str(output / f'control-large-type-{width}.png'))
             for _ in range(2): page.get_by_role('button', name='縮小條文字級', exact=True).click()
@@ -114,7 +120,7 @@ with sync_playwright() as p:
             if close_name is None: page.keyboard.press('Escape')
             else:
                 close = dialog.get_by_role('button', name=close_name, exact=True)
-                if width < 500:
+                if width < 900:
                     close_box = close.bounding_box()
                     if close_box['height'] < 44:
                         page.screenshot(path=str(output / f'close-target-failure-{width}.png'))
@@ -158,6 +164,16 @@ with sync_playwright() as p:
             assert page.locator('.reader [data-article="第 ' + article + ' 條"] .supp-trigger').count() == 0
         table = page.locator('.reader [data-article="第 116-2 條"] .official-article-figure img')
         assert table.count() == 1, 'The existing official legal table is retained'
+        # Match the user's article 89 example as well as the shorter article 2.
+        article89 = page.locator('.reader [data-article="第 89 條"]')
+        trigger89 = article89.get_by_role('button', name='第 89 條補充圖例', exact=True)
+        trigger89.scroll_into_view_if_needed()
+        if width < 900:
+            summary89 = article89.locator('.unit-actions summary')
+            box89, quote89 = trigger89.bounding_box(), summary89.bounding_box()
+            assert box89['x'] + box89['width'] <= quote89['x'], (box89, quote89)
+            assert abs(box89['y'] - quote89['y']) <= 1, (box89, quote89)
+        page.screenshot(path=str(output / f'control-89-{width}.png'))
         # Article 1 has multiple PDF pages and a separately attributed official JPG.
         first_trigger = page.get_by_role('button', name='第 1 條補充圖例', exact=True)
         first_trigger.click()
