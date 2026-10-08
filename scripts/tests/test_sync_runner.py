@@ -235,9 +235,10 @@ class RunnerTests(unittest.TestCase):
 
 
 class WorkflowContractTests(unittest.TestCase):
-    def test_narrow_push_trigger_and_default_branch_only_draft_pr(self):
+    def test_no_temporary_push_trigger_and_default_branch_only_draft_pr(self):
         workflow = (SCRIPTS.parent / '.github/workflows/sync.yml').read_text()
-        self.assertIn("branches: ['fix/official-sync-recovery']", workflow)
+        self.assertNotIn("fix/official-sync-recovery", workflow)
+        self.assertNotIn("  push:", workflow)
         self.assertIn("cron: '23 20 * * 0'", workflow)
         self.assertIn("vars.ENABLE_LAW_SYNC == 'true'", workflow)
         pr_step = workflow.split('name: Propose verified data updates', 1)[1].split('- name:', 1)[0]

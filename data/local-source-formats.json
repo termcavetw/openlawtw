@@ -1,0 +1,14 @@
+{
+  "高雄市-GL002088": {"parser": "sectioned-points"},
+  "彰化縣-GL000439": {"parser": "decimal-dom-list"},
+  "嘉義市-FL030697": {"parser": "parenthesized-points"},
+  "嘉義市-FL022993": {"parser": "bold-article-headings"},
+  "嘉義市-FL031633": {"parser": "bold-article-headings"},
+  "嘉義市-GL000016": {"parser": "attachment-only"},
+  "嘉義市-GL000289": {"parser": "attachment-only"},
+  "嘉義市-GL000521": {"parser": "attachment-only"},
+  "嘉義市-GL000015": {"parser": "attachment-only"},
+  "嘉義市-GL000522": {"parser": "attachment-only"},
+  "嘉義市-GL000524": {"parser": "attachment-only"},
+  "嘉義市-GL000014": {"parser": "attachment-only"}
+}

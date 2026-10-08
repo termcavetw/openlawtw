@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from lxml import html
 from local_source import validate_local_text
+from local_formats import parse_reviewed, FORMATS
 from official_fetch import HostCircuitBreaker, SourceCircuitOpen, atomic_write
 from central_refresh import refresh_bulk, read_bulk
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
@@ -198,7 +199,13 @@ def getlocal(job):
   articles=[];path=[]
   chars=r'\d一二三四五六六七八九十百千零〇兩ㄧ六'
   article_re=r'(第?[\s'+chars+r']+條(?:之[\s'+chars+r']+)?)'
-  if site=='臺北市':
+  reviewed=parse_reviewed(tree,sid,doc['name'])
+  if reviewed is not None:
+   articles=reviewed
+   provenance['sources'][sid]['parser']='local-reviewed-v1'
+   if FORMATS[sid]['parser']=='attachment-only':
+    report['checks'].append({'name':name,'url':url,'type':'attachment-only','reason':'Official body contains only the verified title; legal content remains in official attachments.'})
+  elif site=='臺北市':
    containers=tree.xpath('//ul[@class="law law-content"]')
    if not containers:raise ValueError('無臺北法規條文容器')
    for row in containers[0].xpath('./li'):
@@ -254,7 +261,7 @@ def getlocal(job):
      path=title_path+[compact(m.group('chapter'))];continue
     text=blob[m.end():matches[i+1].start() if i+1<len(matches) else len(blob)].strip()
     if text:articles.append({'no':compact(m.group('article')),'text':text,'path':path[:]})
-  if not articles and not table:
+  if reviewed is None and not articles and not table:
    bodies=tree.xpath('//*[contains(@id,"divLawContent08")]')
    if bodies:
     blob=gettext(bodies[0]);title_path=[]
@@ -269,7 +276,7 @@ def getlocal(job):
      text=blob[m.end():points[i+1].start() if i+1<len(points) else len(blob)].strip()
      if text:articles.append({'no':'第'+m.group(1)+('之'+m.group(2) if m.group(2) else '')+'點','text':text,'path':title_path[:]})
   if len({norm(a['no']) for a in articles})!=len(articles):raise ValueError('重複條號，保留連結待核對')
-  if not articles and site not in ['內政部','農業部']:raise ValueError('未解析到條文')
+  if not articles and site not in ['內政部','農業部'] and not (reviewed is not None and FORMATS[sid]['parser']=='attachment-only'):raise ValueError('未解析到條文')
   if articles and doc['region']!='中央':validate_local_text(tree,{**doc,'articles':articles})
   modified=tree.xpath('//tr[th[contains(.,"修正日期")]]/td'); status=compact(tree.text_content())
   attachments=[{'title':compact(el.text_content()),'url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx")]')]
@@ -286,6 +293,8 @@ def getlocal(job):
   for kind in ['自治條例','自治規則','行政規則']:
    if kind in type_text:doc['kind']=kind
   doc.update(coverage='full' if articles else 'link',retrieved=provenance['sources'][sid]['observedAt'],modified=compact(modified[0].text_content()) if modified else '',status='來源現行頁',articles=articles,attachments=list({x['url']:x for x in attachments}.values()),note='地方資料取自官方頁面；附件保留原站連結。')
+  if reviewed is not None and FORMATS[sid]['parser']=='attachment-only':
+   doc['note']='官方頁面僅提供附件；未列為條文全文。附件文件保留各自版本與擷取日期。'
   if site in ['內政部','農業部']:
    doc['kind']=val.get('kind','技術規範');doc['note']=val.get('note','技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。')
   return doc
@@ -355,7 +364,8 @@ for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_te
  for law in laws:
   if law['id']==doc_id:
    law['document']={k:doc_source[k] for k in ['pages','source','sourcePage','sha256','versionNote','retrieved','format','startPage','endPage'] if k in doc_source}
-   law['note']=doc_source['versionNote']
+   if law['coverage']!='full' or law['id'] not in FORMATS:law['note']=doc_source['versionNote']
+   if FORMATS.get(law['id'],{}).get('parser')=='attachment-only':law['note']='官方頁面僅提供附件；未列為條文全文。'+doc_source['versionNote']
    law['attachments']=[{'title':'已收錄官方原文文件（版本見規範頁）','url':doc_source['source']}]+[a for a in law['attachments'] if a['url']!=doc_source['source']]
 
 (ROOT/'public/data/laws.json').write_text(json.dumps({l['id']:l for l in laws},ensure_ascii=False,separators=(',',':')),encoding='utf-8')

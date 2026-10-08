@@ -66,6 +66,9 @@ if args.cache:
   raw=cache/(law['id']+'.html')
   if not raw.exists():continue
   tree=html.fromstring(raw.read_bytes());tables=tree.xpath('//table[contains(@id,"tableLawArticle")]')
+  from local_formats import validate_reviewed
+  if validate_reviewed(tree,read_law(law['id'])):
+   body_checked+=len(law['articles']);checked+=1;continue
   if law['region']=='臺北市':
    rows=tree.xpath('//ul[@class="law law-content"]/li[.//div[@class="law-articlepre"]]');expected=len(rows)
    bodies=[row.xpath('.//div[@class="law-articlepre"]')[0].text_content() for row in rows]

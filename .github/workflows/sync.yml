@@ -3,9 +3,6 @@ on:
   schedule:
     - cron: '23 20 * * 0' # Monday 04:23 Asia/Taipei; GitHub may delay jobs.
   workflow_dispatch:
-  # Temporary, exact-branch validation route; remove after recovery is reviewed.
-  push:
-    branches: ['fix/official-sync-recovery']
 permissions:
   contents: write
   pull-requests: write
@@ -16,8 +13,7 @@ jobs:
   sync:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' && vars.ENABLE_LAW_SYNC == 'true') ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/fix/official-sync-recovery')
+      (github.event_name == 'schedule' && vars.ENABLE_LAW_SYNC == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

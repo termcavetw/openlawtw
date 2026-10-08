@@ -49,7 +49,7 @@ branch validation cannot open data PRs or merge/deploy updates.
 
 The original Monday 04:23 Asia/Taipei schedule and ENABLE_LAW_SYNC gate remain.
 A temporary exact recovery-branch push trigger is used for real-run validation,
-and is removed after the test. No broad permanent branch trigger is intended.
+and has now been removed after the test. No broad permanent branch trigger is intended.
 
 ## Unresolved configuration
 
@@ -85,3 +85,41 @@ Additional regressions reject duplicate scalar/body fields and nested legal text
 Stage process groups are terminated before rollback, so a surviving descendant
 cannot overwrite restored canonical data. Reports checkpoint source failures and
 central source hashes during fetching, before the importer has finished.
+
+
+## Local-source results and bounded parser fixes
+
+Real run 37853919318 completed on 2026-10-08 and was correctly blocked by the
+source guard. It downloaded 234 MOJ records and 9,056 NLMA rulings. No candidate
+data was published: canonical files were restored, and a fresh diagnostic
+artifact was uploaded. 490 local failures were reported: 38 exhausted transport
+attempts, 312 explicitly unattempted URLs after host failures, 66 TLS-chain
+failures (Keelung), 62 HTTP 403 responses (Yunlin/Lienchiang), and 12 parser cases.
+The separate unresolved central label also remains blocking.
+
+A temporary three-OS connectivity probe (run 37856677482) made one standard,
+TLS-verified request per representative Taoyuan/Tainan/Hsinchu County URL on
+Ubuntu, macOS and Windows. All nine failed to connect. It did not probe denied
+403 sites or bypass TLS. The temporary probe workflow has been removed.
+
+Twelve accessible official pages were independently retrieved and preserved as
+raw regression fixtures with URLs and SHA-256 hashes in
+`scripts/tests/fixtures/local-reviewed/manifest.json`. Five require full-text
+parser corrections: Kaohsiung's spaced tens produce 67 points and nine chapters;
+Changhua's nested decimal DOM lists produce six points; three Chiayi records
+produce ten parenthesized points and 24/six styled articles, retaining duplicated
+plain-text headings inside their bodies. Seven other Chiayi pages are verified
+title-only attachment sources and remain link coverage, with all download URLs.
+Their existing curated PDFs were independently re-downloaded and matched exactly;
+existing document hashes/dates are not relabelled as new versions.
+
+The new handlers are restricted to the twelve reviewed IDs, reject unsupported
+structures and numbering, and independently check complete source-character
+preservation. Production-importer regression tests also verify metadata, coverage,
+all attachment URLs, source hashes and zero retained-source failures for these
+fixtures. Repository law data has not been updated by this code repair.
+
+The complete local refresh is still blocked by external connectivity, explicit
+HTTP denial and TLS failures. Do not weaken source checks, bypass these failures,
+or interpret passing code CI as a successful all-local refresh. The PR remains
+a draft and must not be merged under the current all-local completion condition.
