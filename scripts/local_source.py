@@ -1,7 +1,9 @@
 """Reject incomplete local HTML parses before advertising full-text coverage."""
 import re
+from local_formats import validate_reviewed
 
 def validate_local_text(tree, doc):
+ if validate_reviewed(tree,doc):return
  squash=lambda s:re.sub(r'\s+','',s)
  articles=doc['articles'];region=doc['region'];tables=tree.xpath('//table[contains(@id,"tableLawArticle")]')
  if region=='臺北市':

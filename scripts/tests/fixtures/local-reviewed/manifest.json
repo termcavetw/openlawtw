@@ -1,0 +1,86 @@
+[
+  {
+    "id": "高雄市-GL002088",
+    "url": "https://outlaw.kcg.gov.tw/LawContent.aspx?id=GL002088",
+    "sha256": "1bbb6b1a4fea9f57767358af802237b427802b54601214218779d6934d6d194a",
+    "observedDate": "2026-10-08",
+    "articles": 67
+  },
+  {
+    "id": "彰化縣-GL000439",
+    "url": "https://lawsearch.chcg.gov.tw/GLRSNEWSOUT/LawContent.aspx?id=GL000439",
+    "sha256": "ab6a2ed7a18a7dcf006ac57fdcf3c01eae3eeb7234530334e6424b12f5c3f431",
+    "observedDate": "2026-10-08",
+    "articles": 6
+  },
+  {
+    "id": "嘉義市-FL030697",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL030697",
+    "sha256": "846c66d424c63cb7e406f7cb5cb2f56432fd6f03ce0d48929f5df25d0bee804c",
+    "observedDate": "2026-10-08",
+    "articles": 10
+  },
+  {
+    "id": "嘉義市-FL022993",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL022993",
+    "sha256": "4ca670a23bc74181587014fe131fc236022fac2d12ffca182e7c6703ad01a883",
+    "observedDate": "2026-10-08",
+    "articles": 24
+  },
+  {
+    "id": "嘉義市-FL031633",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=FL031633",
+    "sha256": "d44c1b90a841aaff643ca2722577818c55ddcd5c18b8e007b2c0e846292131f1",
+    "observedDate": "2026-10-08",
+    "articles": 6
+  },
+  {
+    "id": "嘉義市-GL000016",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000016",
+    "sha256": "02ef68b92086453f3be1dd206b416e1282dc72d0bfc6b3759d79a4fd218df191",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000289",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000289",
+    "sha256": "44f417bc4b275d17edcb0164c01e2bb4607cf20b49b7a413eee155f7e7923962",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000521",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000521",
+    "sha256": "e42db5bd7783e7815729910253ecfe3ff76e1579010441e930561b63fec8d507",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000015",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000015",
+    "sha256": "460786014f0ae615c7abbd5bc32965fcbf33ab87298505b9f2c445cc604bc95e",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000522",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000522",
+    "sha256": "c7edf5d081f0ef328d07ff50d517f84721b980dcd7549e38b9ec2e70cd91364d",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000524",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000524",
+    "sha256": "650ff1d553a4529547301fcc9c31bcb6c1d3e6613dcd4de9c4a110d4974f1af4",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  },
+  {
+    "id": "嘉義市-GL000014",
+    "url": "https://law.chiayi.gov.tw/LawContent.aspx?id=GL000014",
+    "sha256": "99946b99c9f4e4e61ce6be6e8cc09850b9ec125bff0c8d6fbaacb26c3000c1f5",
+    "observedDate": "2026-10-08",
+    "articles": 0
+  }
+]

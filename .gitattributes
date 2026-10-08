@@ -18,3 +18,6 @@ data/documents/article-figures/**/source.html -text
 data/formal-sources/green-building/*.html -text -diff
 # Supplement attachment/source evidence hashes refer to exact downloaded bytes.
 data/documents/article-supplements/sources/** -text -diff
+
+# Preserve captured official HTML bytes, including original CRLF and whitespace.
+scripts/tests/fixtures/local-reviewed/*.html -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab

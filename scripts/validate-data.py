@@ -66,6 +66,9 @@ if args.cache:
   raw=cache/(law['id']+'.html')
   if not raw.exists():continue
   tree=html.fromstring(raw.read_bytes());tables=tree.xpath('//table[contains(@id,"tableLawArticle")]')
+  from local_formats import validate_reviewed
+  if validate_reviewed(tree,read_law(law['id'])):
+   body_checked+=len(law['articles']);checked+=1;continue
   if law['region']=='臺北市':
    rows=tree.xpath('//ul[@class="law law-content"]/li[.//div[@class="law-articlepre"]]');expected=len(rows)
    bodies=[row.xpath('.//div[@class="law-articlepre"]')[0].text_content() for row in rows]
@@ -133,6 +136,10 @@ if args.cache:
    path=source_path(cache,id,source)
    if source_ids is not None:assert path.is_file(),(id,'selected raw source is missing',str(path))
    if path.exists():assert source_digest(path)==source['sha256'],(id,'raw source SHA-256 mismatch');verified+=1
+   if source.get('schema')=='moj-openapi-v1' and path.exists():
+    schema=path.parent/'schema.csv';archive=path.parent.parent/(path.parent.name+'.zip')
+    assert schema.is_file() and source_digest(schema)==source['schemaSha256'],(id,'API schema SHA-256 mismatch')
+    assert archive.is_file() and source_digest(archive)==source['archiveSha256'],(id,'API archive SHA-256 mismatch')
    if source.get('history'):
     hp=cache/(id+'-history.html')
     if source_ids is not None:assert hp.is_file(),(id,'selected history source is missing')
@@ -198,8 +205,9 @@ if args.cache:
  for bulk_key,relative_path in XML_PATHS.items():
   path=cache/relative_path
   if not path.exists():continue
-  for item in ET.parse(path).getroot().findall('法規'):
-   url=(item.findtext('法規網址') or '').strip();id=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
+  xml_root=ET.parse(path).getroot();is_api=xml_root.tag=='Laws'
+  for item in xml_root.findall('Law' if is_api else '法規'):
+   url=(item.findtext('LawURL' if is_api else '法規網址') or '').strip();id=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
    if source_ids is not None and id not in source_ids:continue
    if id not in bundle or bundle[id]['source']!='全國法規資料庫':continue
    specific=sources.get(id)
@@ -210,10 +218,59 @@ if args.cache:
     assert source_digest(path)==specific['sha256'],(id,'per-law XML snapshot SHA-256 mismatch')
    elif sources.get(bulk_key):
     assert source_digest(path)==sources[bulk_key]['sha256'],(id,'legacy XML snapshot SHA-256 mismatch')
-   official=[(a.findtext('條文內容') or '').strip() for a in item.findall('法規內容/條文') if (a.findtext('條號') or '').strip() and (a.findtext('條文內容') or '').strip()]
-   assert official==[a['text'] for a in bundle[id]['articles']],id
+   if is_api:
+    for field in ['LawLevel','LawName','LawURL','LawModifiedDate','LawEffectiveDate','LawEffectiveNote','LawAbandonNote','LawHistories','LawForeword']:
+     nodes=item.findall(field)
+     assert len(nodes)==1 and not len(nodes[0]),(id,'API missing/duplicate/structured scalar',field)
+    assert len(item.findall('LawArticles'))==1 and len(item.findall('LawAttachements'))==1,(id,'API duplicate/missing container')
+    for row in item.findall('LawArticles/Article'):
+     for field in ['ArticleType','ArticleNo']:
+      nodes=row.findall(field)
+      assert len(nodes)==1 and not len(nodes[0]),(id,'API invalid article scalar',field)
+     fields=row.findall('ArticleConctent')+row.findall('ArticleContent')
+     assert len(fields)==1 and not len(fields[0]),(id,'API missing/duplicate/structured article body')
+    for attachment in item.findall('LawAttachements/File'):
+     for field in ['FileName','FileURL']:
+      nodes=attachment.findall(field)
+      assert len(nodes)==1 and not len(nodes[0]),(id,'API invalid attachment scalar',field)
+    rows=[a for a in item.findall('LawArticles/Article') if (a.findtext('ArticleType') or '').strip()=='A']
+    official=[]
+    for row in rows:
+     fields=row.findall('ArticleConctent')+row.findall('ArticleContent')
+     assert len(fields)==1,(id,'API article text field')
+     no=re.sub(r'\s+',' ',row.findtext('ArticleNo') or '').strip();text=(fields[0].text or '').strip()
+     assert no and text,(id,'API empty article')
+     official.append({'no':no,'text':text})
+    assert official==[{'no':a['no'],'text':a['text']} for a in bundle[id]['articles']],(id,'API original article number/text')
+    assert (item.findtext('LawName') or '').strip()==bundle[id]['name'],(id,'API law name')
+    assert (item.findtext('LawHistories') or '').strip()==bundle[id]['history'],(id,'API original history')
+    assert (item.findtext('LawEffectiveNote') or '').strip()==bundle[id]['effectiveNote'],(id,'API effective notice')
+    for field,key in [('LawModifiedDate','modified'),('LawEffectiveDate','effective')]:
+     value=(item.findtext(field) or '').strip();value=f'{value[:4]}-{value[4:6]}-{value[6:8]}' if re.fullmatch(r'\d{8}',value) else value
+     assert value==bundle[id][key],(id,'API date',field)
+    attachments=[{'title':a.findtext('FileName') or '附件','url':a.findtext('FileURL') or ''} for a in item.findall('LawAttachements/File')]
+    assert attachments==bundle[id]['attachments'],(id,'API original attachments')
+    chapter_path=[];index=0
+    for row in item.findall('LawArticles/Article'):
+     kind=(row.findtext('ArticleType') or '').strip()
+     text=row.findtext('ArticleConctent') if row.find('ArticleConctent') is not None else row.findtext('ArticleContent')
+     if kind=='C':
+      label=re.sub(r'\s+',' ',text or '').strip();match=re.search('[編章節款目]',label)
+      level='編章節款目'.index(match.group()) if match else 1
+      chapter_path=[(n,t) for n,t in chapter_path if n<level]+[(level,label)]
+     else:
+      assert kind=='A',(id,'API unknown article kind')
+      assert bundle[id]['articles'][index]['path']==[t for _,t in chapter_path],(id,'API chapter path',index)
+      index+=1
+    level=(item.findtext('LawLevel') or '').strip()
+    assert bundle[id]['kind']==('法規命令' if level=='命令' else level),(id,'API law level')
+    assert not (item.findtext('LawAbandonNote') or '').strip(),(id,'API inactive law')
+    assert not (item.findtext('LawForeword') or '').strip(),(id,'API unimported foreword')
+   else:
+    official=[(a.findtext('條文內容') or '').strip() for a in item.findall('法規內容/條文') if (a.findtext('條號') or '').strip() and (a.findtext('條文內容') or '').strip()]
+    assert official==[a['text'] for a in bundle[id]['articles']],id
    checked_xml+=1;checked_xml_ids.add(id)
- if source_ids is not None:
-  expected={id for id in source_ids if laws[id]['source']=='全國法規資料庫'}
+ if source_ids is not None or args.cache:
+  expected={id for id in (source_ids if source_ids is not None else laws) if laws[id]['source']=='全國法規資料庫'}
   assert expected<=checked_xml_ids|checked_html_ids,('Selected laws missing from their official XML/HTML',sorted(expected-(checked_xml_ids|checked_html_ids)))
  print(f'Compared full official XML article text for {checked_xml} central laws.')
