@@ -4,12 +4,14 @@ Usage: python scripts/sync-laws.py --cache /path/to/cache
 """
 from pathlib import Path
 from copy import deepcopy
-import argparse, json, re, urllib.request, urllib.parse, zipfile, hashlib, unicodedata
+import argparse, json, re, urllib.request, urllib.parse, zipfile, hashlib, unicodedata, os, sys
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from lxml import html
 from local_source import validate_local_text
+from official_fetch import download, atomic_write
+from central_refresh import refresh_bulk, read_bulk
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -39,9 +41,8 @@ provenance=json.loads(provenance_path.read_text(encoding='utf-8')) if provenance
 def fetch(url,filename):
  path=CACHE/filename
  if path.exists() and not a.refresh:return path.read_bytes()
- req=urllib.request.Request(url,headers={'User-Agent':'OpenLawTW/0.10 (official source snapshot)'})
- with urllib.request.urlopen(req,timeout=20) as r:b=r.read()
- path.write_bytes(b)
+ b=download(url)
+ atomic_write(path,b)
  if a.refresh:path.with_suffix('.source.json').unlink(missing_ok=True)
  return b
 
@@ -58,7 +59,22 @@ def localcat(n):
  if any(t in n for t in ['廣告','使用','室內','容留']):return '使用與室內裝修'
  return '建築與設計'
 
-laws=[]; snapshots=[]; report={'fetchedAt':NOW,'missingCentral':[],'localFailures':[],'checks':[]}
+laws=[]; snapshots=[]; report={'status':'running','runId':os.environ.get('OPENLAW_SYNC_RUN_ID'),'fetchedAt':NOW,'missingCentral':[],'localFailures':[],'checks':[]}
+report_path=Path(os.environ.get('OPENLAW_SYNC_REPORT',str(ROOT/'data/sync-report.json')))
+def write_report():
+ report_path.parent.mkdir(parents=True,exist_ok=True)
+ atomic_write(report_path,(json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+def fatal_report(kind,value,traceback):
+ report['fatalError']={'type':kind.__name__,'reason':str(value)}
+ write_report()
+ sys.__excepthook__(kind,value,traceback)
+sys.excepthook=fatal_report
+write_report()
+if (not a.add_only or (a.add_central and not a.central_html)) and (a.refresh or any(not (CACHE/label/xml).exists() for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')])):
+ refresh_bulk(CACHE)
+ report['checks'].append({'type':'central-openapi-refresh','source':'https://law.moj.gov.tw/api/swagger/index.html','reason':'Official OpenAPI law/order XML archives; original XML and schema preserved.'})
+ write_report()
+
 for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
  if a.add_only and previous:
   if label=='laws':
@@ -69,13 +85,14 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   # A separate source record below identifies each newly added XML law.
   if not a.add_central or a.central_html:continue
  target=CACHE/label/xml
- if not target.exists() or a.refresh:
-  fetch('https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML',label+'.zip')
-  with zipfile.ZipFile(CACHE/(label+'.zip')) as z:z.extractall(CACHE/label)
- root=ET.parse(target).getroot(); snapshot=root.attrib.get('UpdateDate','');snapshots.append(snapshot)
- xml_source={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':datetime.fromtimestamp(target.stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),'snapshot':snapshot}
- if not a.add_only:
-  provenance['sources'][key]={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':NOW,'snapshot':snapshot}
+ root=read_bulk(target); snapshot=root.attrib.get('UpdateDate','');snapshots.append(snapshot)
+ source_meta=CACHE/label/'source.json'
+ if source_meta.exists():
+  xml_source=json.loads(source_meta.read_text(encoding='utf-8'))
+  if xml_source['sha256']!=hashlib.sha256(target.read_bytes()).hexdigest():raise ValueError('Official XML cache provenance mismatch: '+key)
+ else:
+  xml_source={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':datetime.fromtimestamp(target.stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),'snapshot':snapshot}
+ if not a.add_only:provenance['sources'][key]=xml_source
  for item in root.findall('法規'):
   get=lambda k:(item.findtext(k) or '').strip()
   name=get('法規名稱')
@@ -85,6 +102,7 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   if a.add_only and code in previous:continue
   if a.add_only:provenance['sources'][code]={**xml_source,'lawId':code,'bulkKey':key}
   elif code in provenance['sources']:provenance['sources'].pop(code)
+  if get('前言'):raise ValueError('Official central law foreword requires reviewed import: '+name)
   articles=[];path=[]
   for part in item.find('法規內容'):
    if part.tag=='編章節':
@@ -342,5 +360,7 @@ catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))
 (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 (ROOT/'public/data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 provenance_path.write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-(ROOT/'data/sync-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+report['status']='complete'
+write_report()
+if report_path!=ROOT/'data/sync-report.json':atomic_write(ROOT/'data/sync-report.json',report_path.read_bytes())
 print(json.dumps({'laws':len(laws),'full':len(fulls),'articles':sum(len(l['articles']) for l in laws),'relations':len(relations),'missing':report['missingCentral'],'failures':report['localFailures']},ensure_ascii=False),flush=True)

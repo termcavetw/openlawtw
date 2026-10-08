@@ -8,6 +8,7 @@ from urllib.parse import urljoin
 from datetime import datetime, timezone, timedelta
 from collections import Counter, defaultdict
 from lxml import html
+from official_fetch import download, atomic_write
 
 ROOT = Path(__file__).resolve().parents[1]
 FEED = 'https://www.nlma.gov.tw/sites/www.nlma.gov.tw/ch/main/interpcomp/list.json'
@@ -160,7 +161,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--cache',default='.rulings-cache');p.add_argument('--refresh',action='store_true');a=p.parse_args()
     cache=Path(a.cache);cache.mkdir(exist_ok=True,parents=True);source=cache/'interpcomp-list.json'
     if not source.exists() or a.refresh:
-        with urllib.request.urlopen(urllib.request.Request(FEED,headers={'User-Agent':'OpenLawTW/0.5 official legal archive'}),timeout=60) as response:source.write_bytes(response.read())
+        atomic_write(source,download(FEED,timeout=60))
     raw=source.read_bytes();archive=build(json.loads(raw),datetime.now(timezone.utc).date().isoformat(),hashlib.sha256(raw).hexdigest())
     (ROOT/'public/data/rulings.json').write_text(json.dumps(archive,ensure_ascii=False,separators=(',',':')))
     for path in [ROOT/'data/catalog.json',ROOT/'public/data/catalog.json']:
