@@ -10,7 +10,7 @@ import urllib.error
 import zipfile
 import xml.etree.ElementTree as ET
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from official_fetch import download, SourceUnavailable
+from official_fetch import download, SourceUnavailable, SourceCircuitOpen, HostCircuitBreaker
 from central_refresh import refresh_bulk, read_bulk
 
 FIX=Path(__file__).parent/'fixtures'/'moj-api.xml'
@@ -44,6 +44,35 @@ class TransportTests(unittest.TestCase):
         with self.assertRaises(ValueError):download('http://law.moj.gov.tw/')
 
 
+class CircuitTests(unittest.TestCase):
+    def test_distinct_failed_sources_open_host_but_never_return_cached_success(self):
+        calls=[]
+        def fail(url):calls.append(url);raise SourceUnavailable('connection timed out')
+        fetch=HostCircuitBreaker(fetch=fail)
+        for url in ['https://law.example.gov.tw/a','https://law.example.gov.tw/a','https://law.example.gov.tw/b']:
+            with self.assertRaises(SourceUnavailable):fetch(url)
+        with self.assertRaisesRegex(SourceCircuitOpen,'not attempted'):
+            fetch('https://law.example.gov.tw/c')
+        self.assertEqual(len(calls),3)
+        with self.assertRaises(SourceUnavailable):fetch('https://other.example.gov.tw/a')
+        self.assertEqual(len(calls),4)
+        # A subsequent run tries the source anew.
+        with self.assertRaises(SourceUnavailable):HostCircuitBreaker(fetch=fail)('https://law.example.gov.tw/c')
+        self.assertEqual(len(calls),5)
+
+    def test_success_resets_failures_and_http_404_does_not_block_host(self):
+        def response(url):
+            if url.endswith('success'):return b'official'
+            if url.endswith('missing'):raise urllib.error.HTTPError(url,404,'missing',{},None)
+            raise SourceUnavailable('timeout')
+        fetch=HostCircuitBreaker(fetch=response)
+        for path in ['a','success','missing','b','success']:
+            try:result=fetch('https://law.example.gov.tw/'+path)
+            except (SourceUnavailable,urllib.error.HTTPError):pass
+            else:self.assertEqual(result,b'official')
+        self.assertFalse(fetch.blocked)
+
+
 class BulkTests(unittest.TestCase):
     def test_actual_api_spelling_and_source_preservation(self):
         source=ET.parse(FIX).getroot()[0]
@@ -71,6 +100,20 @@ class BulkTests(unittest.TestCase):
             with tempfile.TemporaryDirectory() as d:
                 p=Path(d)/'bad.xml';ET.ElementTree(root).write(p,encoding='utf-8')
                 with self.assertRaises(ValueError):read_bulk(p)
+
+    def test_duplicate_and_nested_scalar_content_rejected(self):
+        for target in ['LawHistories','LawEffectiveNote','LawName','LawArticles/Article/ArticleNo',
+                       'LawArticles/Article/ArticleType','LawArticles/Article/ArticleConctent']:
+            for kind in ['duplicate','nested']:
+                with self.subTest(target=target,kind=kind):
+                    root=ET.parse(FIX).getroot();law=root.find('Law');field=law.find(target)
+                    if kind=='nested':ET.SubElement(field,'unexpected').text='Must not disappear'
+                    else:
+                        parent=law.find(target.rsplit('/',1)[0]) if '/' in target else law
+                        ET.SubElement(parent,field.tag).text='Must not disappear'
+                    with tempfile.TemporaryDirectory() as d:
+                        path=Path(d)/'bad.xml';ET.ElementTree(root).write(path,encoding='utf-8')
+                        with self.assertRaises(ValueError):read_bulk(path)
 
     def test_raw_bytes_hash_actual_endpoint_and_schema(self):
         raw=FIX.read_bytes()

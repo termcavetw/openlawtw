@@ -96,6 +96,29 @@ class BoundedLog:
         self.file.close()
 
 
+def stop_process_group(process):
+    """Stop the whole stage session before restoring files, even if its leader exited.
+
+    npm and shell steps can leave a child running after the immediate command has
+    stopped. Always escalate against the original process group, not only the
+    Popen leader, so an ignored SIGTERM cannot turn into a post-rollback write.
+    """
+    try:
+        os.killpg(process.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        pass
+    try:
+        process.wait(timeout=10)
+    except subprocess.TimeoutExpired:
+        pass
+    finally:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    process.wait(timeout=10)
+
+
 class SyncRun:
     def __init__(self, root=ROOT, run_dir=None):
         self.root = Path(root).resolve()
@@ -190,7 +213,8 @@ class SyncRun:
         process = None
         try:
             process = subprocess.Popen(command, cwd=self.root, env=env, stdout=subprocess.PIPE,
-                                       stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace')
+                                       stderr=subprocess.STDOUT, text=True, encoding='utf-8', errors='replace',
+                                       start_new_session=True)
             for line in process.stdout:
                 log.append(line)
                 # Prefix untrusted tool output so it cannot become an Actions command.
@@ -200,17 +224,12 @@ class SyncRun:
             if code == 0 and name == 'laws':
                 self.require_source_report(report)
         except BaseException as error:
-            if process is not None and process.poll() is None:
-                process.terminate()
-                try:
-                    process.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait()
             log.append(type(error).__name__ + ': ' + str(error) + '\n')
             step['error'] = redact(type(error).__name__ + ': ' + str(error))
             code = 130 if isinstance(error, KeyboardInterrupt) else 1
         finally:
+            if code and process is not None:
+                stop_process_group(process)
             if process is not None and process.stdout is not None:
                 process.stdout.close()
             log.close()

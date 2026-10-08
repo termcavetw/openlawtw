@@ -4,13 +4,13 @@ Usage: python scripts/sync-laws.py --cache /path/to/cache
 """
 from pathlib import Path
 from copy import deepcopy
-import argparse, json, re, urllib.request, urllib.parse, zipfile, hashlib, unicodedata, os, sys
+import argparse, json, re, urllib.request, urllib.parse, zipfile, hashlib, unicodedata, os, sys, threading
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 from lxml import html
 from local_source import validate_local_text
-from official_fetch import download, atomic_write
+from official_fetch import HostCircuitBreaker, SourceCircuitOpen, atomic_write
 from central_refresh import refresh_bulk, read_bulk
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
@@ -38,10 +38,11 @@ previous=json.loads((ROOT/'public/data/laws.json').read_text(encoding='utf-8')) 
 provenance_path=ROOT/'data/provenance.json'
 provenance=json.loads(provenance_path.read_text(encoding='utf-8')) if provenance_path.exists() else {'schemaVersion':2,'sources':{}}
 
+local_download=HostCircuitBreaker()
 def fetch(url,filename):
  path=CACHE/filename
  if path.exists() and not a.refresh:return path.read_bytes()
- b=download(url)
+ b=local_download(url)
  atomic_write(path,b)
  if a.refresh:path.with_suffix('.source.json').unlink(missing_ok=True)
  return b
@@ -61,9 +62,11 @@ def localcat(n):
 
 laws=[]; snapshots=[]; report={'status':'running','runId':os.environ.get('OPENLAW_SYNC_RUN_ID'),'fetchedAt':NOW,'missingCentral':[],'localFailures':[],'checks':[]}
 report_path=Path(os.environ.get('OPENLAW_SYNC_REPORT',str(ROOT/'data/sync-report.json')))
+report_lock=threading.Lock()
 def write_report():
- report_path.parent.mkdir(parents=True,exist_ok=True)
- atomic_write(report_path,(json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+ with report_lock:
+  report_path.parent.mkdir(parents=True,exist_ok=True)
+  atomic_write(report_path,(json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
 def fatal_report(kind,value,traceback):
  report['fatalError']={'type':kind.__name__,'reason':str(value)}
  write_report()
@@ -93,6 +96,8 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
  else:
   xml_source={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':datetime.fromtimestamp(target.stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),'snapshot':snapshot}
  if not a.add_only:provenance['sources'][key]=xml_source
+ report.setdefault('centralSources',{})[key]=xml_source
+ write_report()
  for item in root.findall('法規'):
   get=lambda k:(item.findtext(k) or '').strip()
   name=get('法規名稱')
@@ -132,6 +137,10 @@ if a.central_html:
   report['checks'].append({'name':name,'url':url,'type':'central-html','reason':'Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import'})
 
 report['missingCentral']=[n for n in NAMES if not any(l['name']==n for l in laws)]
+report['centralCount']=sum(l['source']=='全國法規資料庫' for l in laws)
+report['centralSnapshots']=snapshots[:]
+write_report()
+print('Central official records parsed: '+str(report['centralCount'])+'; snapshots: '+', '.join(snapshots),flush=True)
 regions=[{'name':n,'url':u,'kind':'GLRS'} for n,u in seed['hosts'].items() if n not in ['內政部','農業部']]
 regions += [{'name':n,'url':v['host'],'kind':v['kind']} for n,v in seed['sites'].items()]
 order=['臺北市','新北市','桃園市','臺中市','臺南市','高雄市','基隆市','新竹市','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義市','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣']
@@ -281,7 +290,9 @@ def getlocal(job):
    doc['kind']=val.get('kind','技術規範');doc['note']=val.get('note','技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。')
   return doc
  except Exception as e:
-  report['localFailures'].append({'name':name,'reason':str(e),'url':url})
+  report['localFailures'].append({'name':name,'reason':str(e),'url':url,'attempted':not isinstance(e,SourceCircuitOpen)})
+  write_report()
+  print('SOURCE FAILURE: '+name+' — '+str(e),flush=True)
   old=previous.get(sid)
   if old and old.get('coverage')=='full':
    return {**old,'note':'本次未能重新擷取；保留原官方快照，擷取日期未更新。'}

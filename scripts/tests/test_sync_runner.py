@@ -4,10 +4,14 @@ from contextlib import redirect_stdout
 import io
 import json
 import os
+import shutil
+import signal
+import subprocess
 from pathlib import Path
 import sys
 import tarfile
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -150,6 +154,78 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn('example-private-token', console.getvalue())
         self.assertIn('| [REDACTED]', console.getvalue())
         self.assertIn('console line truncated', console.getvalue())
+
+    @unittest.skipUnless(os.name == 'posix', 'GitHub sync runner uses POSIX process groups')
+    def test_cancellation_kills_delayed_descendants_before_rollback(self):
+        script = self.root / 'scripts/run-sync.py'
+        script.parent.mkdir()
+        shutil.copy2(SCRIPTS / 'run-sync.py', script)
+        for leader_exits_early in (False, True):
+            with self.subTest(leader_exits_early=leader_exits_early):
+                self.run.initialize()
+                ready = self.root / 'descendant-ready.json'
+                ready.unlink(missing_ok=True)
+                child_code = (
+                    'import json, os, signal, time; from pathlib import Path; '
+                    'signal.signal(signal.SIGTERM, signal.SIG_IGN); '
+                    'Path("descendant-ready.json").write_text(json.dumps({"group": os.getpgrp()})); '
+                    'time.sleep(2); Path("public/data/laws.json").write_text("late descendant write")'
+                )
+                parent_code = (
+                    'import subprocess, sys, time; '
+                    'subprocess.Popen([sys.executable, "-c", ' + repr(child_code) + ']); '
+                    + ('sys.exit(0)' if leader_exits_early else 'time.sleep(30)')
+                )
+                process = subprocess.Popen(
+                    [sys.executable, str(script), 'step', 'laws', '--', sys.executable, '-c', parent_code],
+                    cwd=self.root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                group = None
+                try:
+                    deadline = time.monotonic() + 5
+                    while not ready.exists() and process.poll() is None and time.monotonic() < deadline:
+                        time.sleep(0.01)
+                    self.assertTrue(ready.exists(), 'Descendant never reached the write-ready point')
+                    group = json.loads(ready.read_text())['group']
+                    self.assertNotEqual(group, os.getpgrp(), 'Stage must have an isolated process group')
+                    process.send_signal(signal.SIGTERM)
+                    output, _ = process.communicate(timeout=8)
+                    self.assertEqual(process.returncode, 130, output)
+                    self.assertTrue(self.run.load()['canonicalDataRestored'])
+                    self.assertEqual((self.root / 'public/data/laws.json').read_text(), '{"old":true}')
+                    # Outlast the child's delayed write, including SIGTERM-ignoring
+                    # descendants and a leader that exited before cancellation.
+                    time.sleep(2.2)
+                    self.assertEqual((self.root / 'public/data/laws.json').read_text(), '{"old":true}')
+                finally:
+                    if process.poll() is None:
+                        process.kill()
+                    process.communicate(timeout=5)
+                    if group is not None and group != os.getpgrp():
+                        try:
+                            os.killpg(group, signal.SIGKILL)
+                        except ProcessLookupError:
+                            pass
+
+    @unittest.skipUnless(os.name == 'posix', 'GitHub sync runner uses POSIX process groups')
+    def test_nonzero_exit_stops_background_writer_before_rollback(self):
+        child_code = (
+            'import os, signal, time; from pathlib import Path; '
+            'signal.signal(signal.SIGTERM, signal.SIG_IGN); '
+            'Path("descendant-ready").write_text(str(os.getpgrp())); '
+            'time.sleep(2); Path("public/data/laws.json").write_text("late failure write")'
+        )
+        parent_code = (
+            'import subprocess, sys, time; from pathlib import Path\n'
+            'subprocess.Popen([sys.executable, "-c", ' + repr(child_code) + '], '
+            'stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)\n'
+            'while not Path("descendant-ready").exists(): time.sleep(0.01)\n'
+            'raise SystemExit(7)'
+        )
+        code = self.run.run_step('laws', self.command(parent_code))
+        self.assertEqual(code, 7)
+        self.assertTrue(self.run.load()['canonicalDataRestored'])
+        time.sleep(2.2)
+        self.assertEqual((self.root / 'public/data/laws.json').read_text(), '{"old":true}')
 
     def test_redacts_urls_and_authorization_headers(self):
         value = runner.redact('https://user:pass@example.org/?token=secret&x=1 Authorization: Bearer abcdef', {})

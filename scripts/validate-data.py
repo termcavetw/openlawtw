@@ -216,10 +216,24 @@ if args.cache:
    elif sources.get(bulk_key):
     assert source_digest(path)==sources[bulk_key]['sha256'],(id,'legacy XML snapshot SHA-256 mismatch')
    if is_api:
+    for field in ['LawLevel','LawName','LawURL','LawModifiedDate','LawEffectiveDate','LawEffectiveNote','LawAbandonNote','LawHistories','LawForeword']:
+     nodes=item.findall(field)
+     assert len(nodes)==1 and not len(nodes[0]),(id,'API missing/duplicate/structured scalar',field)
+    assert len(item.findall('LawArticles'))==1 and len(item.findall('LawAttachements'))==1,(id,'API duplicate/missing container')
+    for row in item.findall('LawArticles/Article'):
+     for field in ['ArticleType','ArticleNo']:
+      nodes=row.findall(field)
+      assert len(nodes)==1 and not len(nodes[0]),(id,'API invalid article scalar',field)
+     fields=row.findall('ArticleConctent')+row.findall('ArticleContent')
+     assert len(fields)==1 and not len(fields[0]),(id,'API missing/duplicate/structured article body')
+    for attachment in item.findall('LawAttachements/File'):
+     for field in ['FileName','FileURL']:
+      nodes=attachment.findall(field)
+      assert len(nodes)==1 and not len(nodes[0]),(id,'API invalid attachment scalar',field)
     rows=[a for a in item.findall('LawArticles/Article') if (a.findtext('ArticleType') or '').strip()=='A']
     official=[]
     for row in rows:
-     fields=[row.find(tag) for tag in ('ArticleConctent','ArticleContent') if row.find(tag) is not None]
+     fields=row.findall('ArticleConctent')+row.findall('ArticleContent')
      assert len(fields)==1,(id,'API article text field')
      no=re.sub(r'\s+',' ',row.findtext('ArticleNo') or '').strip();text=(fields[0].text or '').strip()
      assert no and text,(id,'API empty article')

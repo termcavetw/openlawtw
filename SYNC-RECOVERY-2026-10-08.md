@@ -29,7 +29,12 @@ snapshots are independent; an XML download does not refresh their dates.
 ## Failure and review safety
 
 Downloads use at most two attempts, bounded timeouts and short backoff. A failed
-refresh never succeeds by substituting an old cache. Both central archives must
+refresh never succeeds by substituting an old cache. Two distinct sources exhausting
+transport retries on the same host open a per-run circuit: subsequent URLs are
+explicitly reported as not attempted, and the entire update is blocked. A new run
+probes again; HTTP 404 and parser errors do not open this transport circuit.
+This avoids hundreds of identical dead-host waits without claiming completion.
+Both central archives must
 validate before either extracted source is replaced. ZIP entries are read by
 exact expected member, without extracting arbitrary archive paths.
 
@@ -67,3 +72,16 @@ fresh reports, fail-closed source errors, interruption, rollback, log bounds and
 review artifacts. Full repository build/typecheck/check and real workflow run
 results are recorded in the pull request; a passing code suite alone is not a
 successful official-data refresh.
+
+
+Actual-archive compatibility audit (2026-10-08): all 234 configured MOJ records,
+11,018 articles / 1,910,039 original text characters, 1,027 chapter headings and
+547 attachments matched directly against both source XMLs, including histories,
+dates and effective notes. Original API XML hashes:
+- CF: `2fc8d589eaa12007a247207f5a5857a117bfa0f6f16bd14fb9b3b84d96bf614f`
+- CM: `d5ae6a3aa4ca53acf5a9862ccd02037447a2fac39854c05fbe6e0fdc0aef9d7b`
+
+Additional regressions reject duplicate scalar/body fields and nested legal text.
+Stage process groups are terminated before rollback, so a surviving descendant
+cannot overwrite restored canonical data. Reports checkpoint source failures and
+central source hashes during fetching, before the importer has finished.

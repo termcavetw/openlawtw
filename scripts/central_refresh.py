@@ -45,6 +45,14 @@ def refresh_bulk(cache, *, fetch=download):
         atomic_write(Path(cache) / label / 'source.json', (json.dumps(metadata, indent=2)+'\n').encode())
 
 
+
+def scalar(element, name):
+    fields = element.findall(name)
+    if len(fields) != 1 or len(fields[0]):
+        raise ValueError('Missing/duplicate/structured official XML field: ' + name)
+    return fields[0].text or ''
+
+
 def read_bulk(path):
     """Adapt field names in memory, preserving original source text verbatim."""
     root = ET.parse(path).getroot()
@@ -62,20 +70,19 @@ def read_bulk(path):
             raise ValueError('Unexpected element in official Laws XML: ' + law.tag)
         item = ET.SubElement(adapted, '法規')
         for source, target in mapping.items():
-            if law.find(source) is None:
-                raise ValueError('Missing official XML field: ' + source)
-            ET.SubElement(item, target).text = law.findtext(source)
-        articles = law.find('LawArticles')
+            ET.SubElement(item, target).text = scalar(law, source)
+        groups = law.findall('LawArticles')
+        articles = groups[0] if len(groups) == 1 else None
         if articles is None:
             raise ValueError('Missing official LawArticles')
         content = ET.SubElement(item, '法規內容')
         for article in articles:
             if article.tag != 'Article':
                 raise ValueError('Unknown official article element')
-            kind = (article.findtext('ArticleType') or '').strip()
+            kind = scalar(article, 'ArticleType').strip()
+            number = scalar(article, 'ArticleNo')
             # The live XML spells this ArticleConctent, unlike schema.csv.
-            fields = [article.find(tag) for tag in ('ArticleConctent','ArticleContent')]
-            texts = [field for field in fields if field is not None]
+            texts = article.findall('ArticleConctent') + article.findall('ArticleContent')
             if len(texts) != 1 or len(texts[0]):
                 raise ValueError('Missing/ambiguous/structured official article text')
             text = texts[0].text or ''
@@ -83,11 +90,12 @@ def read_bulk(path):
                 ET.SubElement(content,'編章節').text = text
             elif kind == 'A':
                 row = ET.SubElement(content,'條文')
-                ET.SubElement(row,'條號').text = article.findtext('ArticleNo')
+                ET.SubElement(row,'條號').text = number
                 ET.SubElement(row,'條文內容').text = text
             else:
                 raise ValueError('Unknown official article type: ' + kind)
-        attachments = law.find('LawAttachements')
+        groups = law.findall('LawAttachements')
+        attachments = groups[0] if len(groups) == 1 else None
         if attachments is None:
             raise ValueError('Missing official attachment list')
         files = ET.SubElement(item,'附件')
@@ -95,6 +103,6 @@ def read_bulk(path):
             if attachment.tag != 'File' or attachment.find('FileName') is None or attachment.find('FileURL') is None:
                 raise ValueError('Unknown official attachment format')
             file = ET.SubElement(files,'檔案')
-            ET.SubElement(file,'檔案名稱').text = attachment.findtext('FileName')
-            ET.SubElement(file,'下載網址').text = attachment.findtext('FileURL')
+            ET.SubElement(file,'檔案名稱').text = scalar(attachment, 'FileName')
+            ET.SubElement(file,'下載網址').text = scalar(attachment, 'FileURL')
     return adapted

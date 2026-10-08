@@ -34,3 +34,46 @@ def atomic_write(path, raw):
     temporary = path.with_name(path.name + '.tmp')
     temporary.write_bytes(raw)
     temporary.replace(path)
+
+
+class SourceCircuitOpen(SourceUnavailable):
+    """A source was not attempted after repeated host transport failures."""
+
+
+class HostCircuitBreaker:
+    """Fail closed quickly instead of repeating dead-host timeouts for every law.
+
+    Only exhausted transport retries count. A 404, parser error or other
+    non-transient HTTP failure does not open the host circuit. A new sync run
+    creates a new breaker and probes the host again. Every unattempted URL raises
+    explicitly and must appear as a failed source in the review report.
+    """
+    def __init__(self, fetch=download, threshold=2):
+        import threading
+        self.fetch = fetch
+        self.threshold = threshold
+        self.lock = threading.Lock()
+        self.failures = {}
+        self.blocked = {}
+
+    def __call__(self, url, **kwargs):
+        from urllib.parse import urlsplit
+        host = urlsplit(url).netloc
+        with self.lock:
+            reason = self.blocked.get(host)
+        if reason is not None:
+            raise SourceCircuitOpen(f'{url}: not attempted; {host} transport failed for '
+                                    f'{self.threshold} distinct sources in this run: {reason}')
+        try:
+            raw = self.fetch(url, **kwargs)
+        except SourceUnavailable as error:
+            with self.lock:
+                failures = self.failures.setdefault(host, {})
+                failures[url] = str(error)
+                if len(failures) >= self.threshold:
+                    self.blocked[host] = str(error)
+            raise
+        else:
+            with self.lock:
+                self.failures.pop(host, None)
+            return raw
