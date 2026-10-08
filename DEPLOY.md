@@ -103,3 +103,17 @@ Git 提交作者與網站品牌是不同設定。需要信箱隱私時，使用 
 網站輸出僅使用 `dist/`；完整原始碼 ZIP 改放 `artifacts/openlawtw-source.zip`，由 GitHub Actions 的 `openlawtw-review` 建置產物提供（保留 7 天，下載須登入 GitHub）。網站的原始碼入口連至 GitHub 儲存庫，可使用 Code → Download ZIP 取得原始專案。一般下載不必開啟舊部署。
 
 嵌入卡片的第二次 Vite 建置不再複製 public 全目錄，避免把僅供作者使用的 canonical JSON 重複加入網站。法規分片、官方 PDF、版本證據、靜態法規頁、PWA 與單檔 HTML 保留；不刪除 Vercel 歷史部署，也不改帳號方案或部署存取權限。
+## Vercel Web Analytics
+
+本專案使用 Vite + React，統計元件由 `main.tsx` 掛載一次，採用 `@vercel/analytics/react`。不需要 GA measurement ID、API key 或新增環境變數。
+
+1. 在 Vercel 的 openlawtw 專案中確認 Analytics 已啟用；若尚未啟用，請由管理者檢查方案／費用後啟用。本次程式修改不變更 Vercel 帳號設定。
+2. 依既有 PR、CI、合併與部署流程發布。只推送分支或開 PR 不會使正式站統計生效。
+3. 在 `https://openlawtw.vercel.app` 連線開啟首頁及任一法規頁，確認 `/_vercel/insights/script.js` 成功載入，並觀察統計請求。若回傳 404，檢查專案是否啟用 Analytics 及是否已重新部署。
+4. 核對 pageview 的頁面網址不包含 query、hash 或搜尋文字，再到 Vercel Analytics 查看資料；資料可能延遲，內容封鎖器也可能阻擋，不能只看 SDK 已安裝就視為驗收完成。
+
+統計限正式網域，預覽部署、本機、單檔離線 HTML、純靜態法規目錄及嵌入引用卡不載入。若日後使用自訂正式網域，需明確更新 `lib/analytics.ts` 的 origin 與隱私檢查。僅允許已知公開頁面，不傳送自訂事件、案件、筆記或收藏。線上 PWA 可計入瀏覽，離線事件捨棄，不補送。統計不是離線包的一部分，失敗不得阻礙閱讀。
+
+本機驗證：先 `npm run build`，再 `npm run typecheck`、`npm run check`；其中 `scripts/check-analytics.mjs` 檢查 URL 清理、事件封鎖、網域／離線限制與快取排除。正式站儀表板資料須另外驗收。
+
+官方參考：[開始使用](https://vercel.com/docs/analytics/quickstart)、[SDK 設定](https://vercel.com/docs/analytics/package)、[敏感資料清理](https://vercel.com/docs/analytics/redacting-sensitive-data)、[隱私](https://vercel.com/docs/analytics/privacy-policy)。

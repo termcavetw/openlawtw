@@ -79,6 +79,14 @@ v0.24.1 已限制外層橫向溢出、讓表格獨立橫滑，並避免頁籤數
 
 ## GitHub 與 Vercel
 
+### 網站流量統計
+
+正式網域 `https://openlawtw.vercel.app` 使用 Vercel Web Analytics 計算訪客及頁面瀏覽；程式採 `@vercel/analytics/react`（本專案是 Vite + React，不是 Next.js）。只傳送首頁及已收錄法規閱讀頁的公開網址，送出前移除 query 與 hash；不加入自訂事件，也不傳送搜尋文字、本機案件、筆記或收藏內容。條號切換、搜尋及函釋等 hash 狀態不拆成獨立統計頁面。
+
+本機開發、預覽網域、單檔離線 HTML、純靜態法規目錄與嵌入引用卡不載入統計；PWA 離線時不送事件，也不快取統計端點。網路或內容封鎖器阻擋統計時，閱讀功能仍可使用。Vercel 的一般瀏覽統計與處理方式見[官方隱私說明](https://vercel.com/docs/analytics/privacy-policy)；這不是完全沒有網路資料處理的離線模式。
+
+部署／驗收方式見 [DEPLOY.md 的 Web Analytics 說明](DEPLOY.md#vercel-web-analytics)。本次程式整合不代表 Vercel 儀表板已驗收到資料。
+
 原始專案提交至 [termcavetw/openlawtw](https://github.com/termcavetw/openlawtw)，經工作分支、PR 與 CI 驗證後合併至 `main`。不提交 `node_modules/`、`dist/`、生成分片或帳號設定；不改寫既有作者歷史、不強制推送。
 
 Vercel 使用 Node.js 24、`npm ci`、`npm run build`，部署輸出為 `dist/`。完整原始碼 ZIP 放在 `artifacts/openlawtw-source.zip`，可由 GitHub Actions 的 `openlawtw-review` 產物取得；不放入網站部署目錄。發布須核對遠端提交、該提交的 CI 與正式部署，不能只依頁面版本號判斷。

@@ -16,8 +16,10 @@ const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/up
 // The runtime bundle and worker already embed the manifest; do not download a duplicate at install.
 // The social preview image is crawler metadata, not an offline UI asset. Keep it
 // deployed for link previews without charging every PWA installation for it.
+// The Apple touch icon is installation metadata; manifest icons remain cached
+// for the offline PWA. Keep this duplicate out of the tight 3 MiB shell budget.
 // /laws/index.html uses the same offline app shell as /; do not cache its duplicate catalogue HTML.
-const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')&&!p.includes('/documents/article-supplements/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/icons/apple-touch-icon.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/assets/analytics-client-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')&&!p.includes('/documents/article-supplements/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.
