@@ -299,6 +299,33 @@ class SyncRun:
         self.save(report)
         print('All stages passed; verified data archive and diff saved for review.')
 
+    def summarize(self, report):
+        """A green execution is not a claim that all official sources are current."""
+        if not os.environ.get('GITHUB_STEP_SUMMARY'):
+            return
+        source = read_json(self.run_dir / 'laws-report.json')
+        rows = source.get('outcomes', [])
+        accepted = sum(row.get('status') in ('updated', 'unchanged') for row in rows)
+        failed = sum(row.get('status') in ('retained', 'unavailable') for row in rows)
+        untouched = sum(row.get('status') == 'not-attempted' for row in rows)
+        lines = ['## Official synchronization result']
+        if report.get('status') != 'verified':
+            lines.append('Run not verified. Candidate data was restored; no successful data update is claimed.')
+        elif not accepted and failed:
+            lines.append('**No laws updated. Every attempted law fetch/validation failed. Previous snapshots and successful-fetch dates were retained.**')
+        elif not accepted:
+            lines.append('No laws updated: no successful law fetch/validation was recorded.')
+        else:
+            lines.append(str(accepted) + ' law snapshots independently validated. This can include unchanged legal wording; it does not mean every source is current.')
+        lines.append(f'Accepted law snapshots: {accepted}; failed/retained: {failed}; not attempted: {untouched}.')
+        if not report.get('publishData'):
+            lines.append('**No data update PR is needed:** there are no verified content/source/ruling changes; attempt dates alone do not publish an update.')
+        elif report.get('status') == 'verified':
+            lines.append('Verified data changes may be proposed as a draft PR for human review. No automatic merge is performed.')
+        lines.append('A fatal ruling import or global build/integrity failure still stops the whole run. Full per-law failures and dates are in the run diagnostics.')
+        with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as output:
+            output.write('\n'.join(lines) + '\n')
+
     def finalize(self, outcome):
         report = self.load()
         if outcome != 'success' or not report.get('verified'):
@@ -313,6 +340,7 @@ class SyncRun:
         review = self.root / 'sync-pr.md'
         if review.exists():
             (self.run_dir / 'sync-pr.md').write_text(redact(review.read_text(encoding='utf-8')), encoding='utf-8')
+        self.summarize(report)
         print('Run finalized: ' + report['status'])
 
 

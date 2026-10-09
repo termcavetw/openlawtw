@@ -38,7 +38,9 @@ provenance cannot acquire a success date from their filesystem modification time
 
 Only independently verified changes produce the existing **draft** data PR; no
 auto-merge is added. All-failed/byte-unchanged runs without ruling/data changes retain
-diagnostics but do not open a timestamp-only PR. Human review must check actual
+diagnostics but do not open a timestamp-only PR. The Actions job summary
+explicitly says “No laws updated” when every attempted law fails, even if the
+validation process itself completed successfully. Human review must check actual
 legal changes against the official text. A substantial legitimate deletion or
 renumbering needs explicit manual review rather than automatic acceptance.
 
