@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_PATHS = (
     'data/catalog.json', 'data/sync-report.json', 'data/provenance.json',
     'data/history.json', 'data/versions', 'public/data/laws.json',
-    'public/data/catalog.json', 'public/data/rulings.json',
+    'public/data/catalog.json', 'public/data/rulings.json', 'public/data/laws',
 )
 REQUIRED_STAGES = (
     'dependencies-node', 'dependencies-python', 'dependencies-system', 'unit-tests', 'baseline',
@@ -250,7 +250,7 @@ class SyncRun:
         for field in ('missingCentral', 'localFailures', 'checks'):
             if not isinstance(source.get(field), list):
                 raise ValueError('Missing or invalid source report field: ' + field)
-        # Source failures are rejected by the guard, which also writes the review.
+        # The guard verifies accepted candidates and unchanged retained evidence.
         canonical = self.root / 'data/sync-report.json'
         if not canonical.exists() or read_json(canonical) != source:
             raise ValueError('Canonical source report does not match the fresh run report')
@@ -284,6 +284,16 @@ class SyncRun:
         review = self.root / 'sync-pr.md'
         if review.exists():
             shutil.copy2(review, self.run_dir / 'sync-pr.md')
+        # Attempt reports/catalog clocks alone do not justify a data PR. An
+        # all-failed or byte-unchanged run still leaves diagnostics for review.
+        changed = any((read_json(self.root / relative) if (self.root / relative).exists() else None) !=
+                      (read_json(self.state_dir / relative) if (self.state_dir / relative).exists() else None)
+                      for relative in ('public/data/laws.json', 'public/data/rulings.json', 'data/provenance.json')
+                      )
+        report['publishData'] = changed
+        if os.environ.get('GITHUB_OUTPUT'):
+            with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+                output.write('publish_data=' + str(changed).lower() + '\n')
         report.update(status='verified', verified=True, verifiedAt=now())
         report['verifiedArchiveSha256'] = hashlib.sha256((self.run_dir / 'verified-data.tar.gz').read_bytes()).hexdigest()
         self.save(report)

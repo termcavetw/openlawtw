@@ -1,3 +1,5 @@
+> Update: per-law isolation now supersedes the all-source publication gate described below. See [PARTIAL-SYNC.md](PARTIAL-SYNC.md). Historical diagnosis is retained.
+
 # Official snapshot transport recovery
 
 The 2026-10-05 scheduled job failed at its first `sendlaw.moj.gov.tw`

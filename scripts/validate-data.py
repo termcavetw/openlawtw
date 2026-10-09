@@ -1,7 +1,10 @@
 """Cross-check the reader, search corpus, chapter index and evidence links."""
 from pathlib import Path
 import json, re, argparse, hashlib, urllib.parse, xml.etree.ElementTree as ET
-p=argparse.ArgumentParser();p.add_argument("--cache",help="Optional directory of official raw HTML/XML for source completeness checks");p.add_argument('--source-ids',help='Comma-separated law IDs to restrict raw-source checks; core validation still covers every law');args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument("--cache",help="Optional directory of official raw HTML/XML for source completeness checks");p.add_argument('--source-ids',help='Comma-separated law IDs to restrict raw-source checks; core validation still covers every law');p.add_argument('--sync-report',type=Path,help='Completed per-law sync report; validate raw sources only for accepted outcomes');args=p.parse_args()
+if args.sync_report:
+ if not args.cache:p.error('--sync-report requires --cache')
+ if args.source_ids is not None:p.error('--sync-report cannot be combined with --source-ids')
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'));laws={x['id']:x for x in D['laws']}
 source_ids=None if args.source_ids is None else {id.strip() for id in args.source_ids.split(',') if id.strip()}
@@ -27,6 +30,44 @@ def legacy_xml_key(law):
  raise ValueError('Cannot identify legacy XML source for '+law['id'])
 def read_law(id):
  return bundle[id]
+
+report_sources=None
+if args.sync_report:
+ report=json.loads(args.sync_report.read_text(encoding='utf-8'))
+ assert isinstance(report,dict) and report.get('policy')=='per-law-v1' and report.get('status')=='complete','Incomplete or unsupported sync report'
+ outcomes=report.get('outcomes')
+ assert isinstance(outcomes,list),'Sync report requires outcomes'
+ assert all(isinstance(row,dict) and isinstance(row.get('id'),str) for row in outcomes),'Invalid sync outcome'
+ assert len({row['id'] for row in outcomes})==len(outcomes),'Duplicate sync outcome IDs'
+ assert set(laws)<={row['id'] for row in outcomes},'Sync outcomes must cover every current law exactly once'
+ assert all(row['id'] in laws or (row.get('status')=='unavailable' and row['id'] not in bundle) for row in outcomes),'Only unavailable unpublished candidates may have extra outcome IDs'
+ provenance=json.loads((ROOT/'data/provenance.json').read_text(encoding='utf-8'))['sources']
+ report_sources={}
+ for row in outcomes:
+  id=row['id']
+  assert isinstance(row.get('name'),str) and row['name'],(id,'missing sync outcome name')
+  assert 'attemptedAt' in row and 'lastSuccessfulFetch' in row,(id,'missing sync outcome timestamps')
+  if id not in laws:
+   assert row.get('lastSuccessfulFetch')=='' and row.get('candidateHash') is None and row.get('source') is None,(id,'unpublished candidate claims accepted data')
+   continue
+  doc=read_law(id)
+  assert row.get('name')==doc['name'],(id,'sync outcome name mismatch')
+  assert row.get('status') in {'updated','unchanged','retained','unavailable','not-attempted'},(id,'invalid sync outcome status')
+  assert row['lastSuccessfulFetch']==doc.get('retrieved',''),(id,'last successful fetch differs from accepted document')
+  actual=provenance.get(id)
+  if actual is None and doc['source']=='全國法規資料庫':actual=provenance.get(legacy_xml_key(doc))
+  if 'source' in row:
+   assert row['source']==actual,(id,'sync outcome source differs from provenance')
+  fingerprint=hashlib.sha256(json.dumps(doc,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+  if 'candidateHash' in row:
+   assert row['candidateHash']==fingerprint,(id,'accepted candidate fingerprint mismatch')
+  if row['status'] in {'updated','unchanged'}:
+   assert isinstance(row.get('source'),dict) and row['source'],(id,'accepted outcome requires source provenance')
+   assert isinstance(row.get('attemptedAt'),str) and row['attemptedAt'],(id,'accepted outcome requires attempt timestamp')
+   assert isinstance(row['lastSuccessfulFetch'],str) and row['lastSuccessfulFetch'],(id,'accepted outcome requires successful fetch timestamp')
+   assert row.get('candidateHash')==fingerprint,(id,'accepted candidate fingerprint mismatch')
+   report_sources[id]=row['source']
+ source_ids=set(report_sources)
 assert len(laws)==len(D['laws']), 'Duplicate canonical ids'
 assert len(D['regions'])==22 and len({r['name'] for r in D['regions']})==22
 assert (ROOT/'data/catalog.json').read_bytes()==(ROOT/'public/data/catalog.json').read_bytes()
@@ -126,7 +167,9 @@ if args.cache:
  if (ROOT/'data/provenance.json').exists():
   sources=json.loads((ROOT/'data/provenance.json').read_text(encoding='utf-8'))['sources']
   selected_sources=sources
-  if source_ids is not None:
+  if report_sources is not None:
+   selected_sources=report_sources
+  elif source_ids is not None:
    selected_sources={}
    for id in sorted(source_ids):
     key=id if id in sources else legacy_xml_key(laws[id]) if laws[id]['source']=='全國法規資料庫' else id
@@ -204,12 +247,14 @@ if args.cache:
  checked_xml=0;checked_xml_ids=set()
  for bulk_key,relative_path in XML_PATHS.items():
   path=cache/relative_path
+  if report_sources is not None and not any(source.get('format')=='xml' and source_path(cache,id,source)==path for id,source in report_sources.items()):continue
   if not path.exists():continue
   xml_root=ET.parse(path).getroot();is_api=xml_root.tag=='Laws'
   for item in xml_root.findall('Law' if is_api else '法規'):
    url=(item.findtext('LawURL' if is_api else '法規網址') or '').strip();id=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
    if source_ids is not None and id not in source_ids:continue
    if id not in bundle or bundle[id]['source']!='全國法規資料庫':continue
+   if report_sources is not None and bundle[id]['coverage']!='full':continue
    specific=sources.get(id)
    if specific and specific.get('parser')=='moj-lawall-html':continue
    if specific and specific.get('format')=='xml':
@@ -271,6 +316,6 @@ if args.cache:
     assert official==[a['text'] for a in bundle[id]['articles']],id
    checked_xml+=1;checked_xml_ids.add(id)
  if source_ids is not None or args.cache:
-  expected={id for id in (source_ids if source_ids is not None else laws) if laws[id]['source']=='全國法規資料庫'}
+  expected={id for id in (source_ids if source_ids is not None else laws) if laws[id]['source']=='全國法規資料庫' and (report_sources is None or laws[id]['coverage']=='full')}
   assert expected<=checked_xml_ids|checked_html_ids,('Selected laws missing from their official XML/HTML',sorted(expected-(checked_xml_ids|checked_html_ids)))
  print(f'Compared full official XML article text for {checked_xml} central laws.')

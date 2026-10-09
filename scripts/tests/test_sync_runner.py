@@ -140,6 +140,24 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(self.run.load()['status'], 'verified')
         self.assertTrue(new.exists())
 
+    def test_unchanged_run_has_no_timestamp_only_data_pr(self):
+        self.complete_source()
+        report=self.run.load()
+        for stage in report['stages'].values():stage['status']='succeeded'
+        self.run.save(report)
+        (self.root/'public/data/laws.json').write_text('{ "old": true }')
+        self.run.verify()
+        self.assertFalse(self.run.load()['publishData'])
+
+    def test_law_update_is_publishable_only_after_every_gate(self):
+        self.complete_source()
+        report=self.run.load()
+        for stage in report['stages'].values():stage['status']='succeeded'
+        self.run.save(report)
+        (self.root/'public/data/laws.json').write_text('{"new":true}')
+        self.run.verify()
+        self.assertTrue(self.run.load()['publishData'])
+
     def test_logs_are_bounded_keep_traceback_tail_and_redact_secrets(self):
         console = io.StringIO()
         with patch.dict(os.environ, {'EXAMPLE_API_TOKEN': 'example-private-token'}), redirect_stdout(console):

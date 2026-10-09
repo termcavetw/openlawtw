@@ -17,7 +17,9 @@ export type RulingStats = { count: number; retrieved: string; source: string; fe
 export type RulingArchive = { stats: RulingStats; items: Ruling[] };
 export type Region = { name: string; url: string; kind: string };
 export type Resource = { title: string; description: string; region: string; category: string; url: string };
-export type Catalog = { version: string; collected: string; snapshot: string; laws: Law[]; regions: Region[]; categories: string[]; relations: Relation[]; rulingStats: RulingStats; resources: Resource[]; notes: string[] };
+export type SyncOutcome = {id:string;name:string;status:'updated'|'unchanged'|'retained'|'unavailable'|'not-attempted';attemptedAt:string|null;lastSuccessfulFetch:string|null;reason?:string};
+export type SyncStatus = {attemptedAt:string;summary:Record<string,unknown>;outcomes:SyncOutcome[]};
+export type Catalog = { syncStatus?:SyncStatus; version: string; collected: string; snapshot: string; laws: Law[]; regions: Region[]; categories: string[]; relations: Relation[]; rulingStats: RulingStats; resources: Resource[]; notes: string[] };
 export type DataFile={url:string;sha256:string;bytes:number;encoding?:'gzip'};
-export type DataManifest={schemaVersion:2;release:string;collected:string;universe?:DataFile;universeRulings?:DataFile;documents?:Record<string,DataFile>;documentTexts?:Record<string,DataFile>;documentReaders?:Record<string,DataFile>;laws:Record<string,DataFile>;related:Record<string,DataFile>;rulings:Record<string,DataFile>;rulingHeads:DataFile;rulingCounts:DataFile;indexes:{kind:'laws'|'rulings';region:string;file:DataFile}[];packs:{id:string;label:string;lawCount:number;files:DataFile[];bytes:number}[];provenance:DataFile;history:DataFile;files:DataFile[]};
+export type DataManifest={syncStatus?:DataFile;schemaVersion:2;release:string;collected:string;universe?:DataFile;universeRulings?:DataFile;documents?:Record<string,DataFile>;documentTexts?:Record<string,DataFile>;documentReaders?:Record<string,DataFile>;laws:Record<string,DataFile>;related:Record<string,DataFile>;rulings:Record<string,DataFile>;rulingHeads:DataFile;rulingCounts:DataFile;indexes:{kind:'laws'|'rulings';region:string;file:DataFile}[];packs:{id:string;label:string;lawCount:number;files:DataFile[];bytes:number}[];provenance:DataFile;history:DataFile;files:DataFile[]};
 

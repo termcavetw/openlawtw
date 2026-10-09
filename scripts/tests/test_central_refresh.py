@@ -74,6 +74,28 @@ class CircuitTests(unittest.TestCase):
 
 
 class BulkTests(unittest.TestCase):
+    def test_partial_archives_keep_successful_neighbor(self):
+        with tempfile.TemporaryDirectory() as temp:
+            def fetch(url,**kwargs):
+                if '/order/' in url:raise ValueError('blocked order archive')
+                return archive('ChLaw.xml',FIX.read_bytes())
+            errors={};refresh_bulk(temp,fetch=fetch,failures=errors)
+            self.assertEqual(set(errors),{'CM'})
+            self.assertEqual((Path(temp)/'laws/FalV.xml').read_bytes(),FIX.read_bytes())
+            self.assertFalse((Path(temp)/'orders/MingLing.xml').exists())
+
+    def test_partial_adapter_retains_valid_law_among_malformed_records(self):
+        root=ET.parse(FIX).getroot()
+        import copy
+        bad=copy.deepcopy(root[0]);bad.find('LawName').text='Malformed neighboring law'
+        bad.remove(bad.find('LawArticles'));root.append(bad)
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/'raw.xml';ET.ElementTree(root).write(path,encoding='utf-8')
+            errors=[];adapted=read_bulk(path,failures=errors)
+            self.assertEqual(len(adapted),len(root)-1)
+            self.assertEqual(errors[0]['name'],'Malformed neighboring law')
+            with self.assertRaises(ValueError):read_bulk(path)
+
     def test_actual_api_spelling_and_source_preservation(self):
         source=ET.parse(FIX).getroot()[0]
         result=read_bulk(FIX)[0]

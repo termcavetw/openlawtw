@@ -2,6 +2,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {ExternalLink,Download,History,LoaderCircle} from 'lucide-react';
 import {loadFile,manifest} from '@/lib/data-client';
 import {archiveStatus,compareArchivedArticles,versionEvidence,type ArchivedAsset,type VersionLedger,type VersionObject} from '@/lib/version-evidence';
+import {useSyncStatus} from '@/lib/use-sync-status';
 import type {Law} from '@/lib/law-types';
 import './version-evidence.css';
 
@@ -13,7 +14,8 @@ export function VersionEvidence({law,summary,batchDate=''}:{law:Law;summary?:Law
  const [selected,setSelected]=useState(''),[archive,setArchive]=useState<VersionObject|null>(null),[busy,setBusy]=useState(false),[assetBusy,setAssetBusy]=useState('');
  const versions=history?.archive?.laws[law.id]||[];
  const chosen=selected===''?undefined:versions[Number(selected)];
- const rows=versionEvidence(law,summary||law,batchDate);
+ const {status:syncStatus,failed:syncFailed,retry:retrySync}=useSyncStatus();
+ const rows=versionEvidence(law,summary||law,batchDate,syncStatus?.outcomes.find(row=>row.id===law.id));
  const differences=useMemo(()=>archive?compareArchivedArticles(archive.law,law):[],[archive,law]);
  const documentChanged=archive?.originals.find(a=>a.role==='official-original')?.sha256!==law.document?.sha256;
  const portable=!!window.OPENLAWTW_OFFLINE;
@@ -22,6 +24,7 @@ export function VersionEvidence({law,summary,batchDate=''}:{law:Law;summary?:Law
  async function downloadAsset(asset:ArchivedAsset){setAssetBusy(asset.url);setError('');try{const response=await fetch(asset.url);if(!response.ok)throw Error('封存原檔尚未下載，請連線後重試。');const bytes=await response.arrayBuffer();if(!globalThis.crypto?.subtle)throw Error('目前環境無法驗證封存檔案，請使用 HTTPS 或本機預覽。');const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');if(hash!==asset.sha256)throw Error('封存檔案校驗不符，已停止下載。');saveBlob(new Blob([bytes],{type:'application/octet-stream'}),asset.filename);}catch(e){setError(e instanceof Error?e.message:'封存原檔下載失敗');}finally{setAssetBusy('');}}
  return <section className="version-evidence" aria-label="來源與版本證據">
   <h3 className="reader-subtitle">來源與更新證據</h3>
+  {syncFailed&&<p role="status">逐筆同步狀態尚未下載；以下為已保存的來源日期。<button className="plain-button" onClick={retrySync}>重試同步狀態</button></p>}
   <dl className="version-evidence-grid">{rows.map(row=><div key={row.label}><dt>{row.label}</dt><dd>{row.url?<a href={row.url} target="_blank" rel="noreferrer">{row.value}<ExternalLink size={12}/></a>:row.value}{row.detail&&<small>{row.detail}</small>}</dd></div>)}</dl>
   <div className="version-archive-heading"><History size={16}/><h3>本庫完整版本封存</h3></div>
   <p className="version-muted">保存本庫已收錄的正文與原始文件；來源頁面的其他附件不一定已收錄。</p>

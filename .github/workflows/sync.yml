@@ -37,15 +37,15 @@ jobs:
       - name: Run offline source and runner regression tests
         run: python scripts/run-sync.py step unit-tests -- python -m unittest discover -s scripts/tests -v
       - name: Keep a comparison baseline
-        run: python scripts/run-sync.py step baseline -- cp public/data/laws.json .sync-before.json
+        run: python scripts/run-sync.py step baseline -- bash -c "cp public/data/laws.json .sync-before.json && cp data/provenance.json .sync-before-provenance.json"
       - name: Fetch official law records
         run: python scripts/run-sync.py step laws -- python scripts/sync-laws.py --cache .law-cache --refresh
       - name: Fetch official ruling records
         run: python scripts/run-sync.py step rulings -- python scripts/sync-rulings.py --cache .rulings-cache --refresh
       - name: Reject incomplete or unexpectedly reduced imports
-        run: python scripts/run-sync.py step guard -- python scripts/sync-guard.py .sync-before.json
+        run: python scripts/run-sync.py step guard -- python scripts/sync-guard.py .sync-before.json --before-provenance .sync-before-provenance.json
       - name: Check laws against raw official sources
-        run: python scripts/run-sync.py step validate-laws -- python scripts/validate-data.py --cache .law-cache
+        run: python scripts/run-sync.py step validate-laws -- python scripts/validate-data.py --cache .law-cache --sync-report artifacts/sync-run/laws-report.json
       - name: Check rulings against raw official sources
         run: python scripts/run-sync.py step validate-rulings -- python scripts/check-rulings.py --cache .rulings-cache
       - run: python scripts/run-sync.py step snapshot -- npm run snapshot
@@ -53,9 +53,11 @@ jobs:
       - run: python scripts/run-sync.py step typecheck -- npm run typecheck
       - run: python scripts/run-sync.py step check -- npm run check
       - name: Save fully verified data and diff for human review
+        id: verify
         run: python scripts/run-sync.py verify
       - name: Propose verified data updates
         if: >-
+          steps.verify.outputs.publish_data == 'true' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
           (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8

@@ -1,3 +1,4 @@
+import {runtimeSyncStatus} from './runtime-sync-status.mjs';
 import {prepareArticleSupplements} from './prepare-article-supplements.mjs';
 import {prepareArticleFigures} from './prepare-article-figures.mjs';
 import {prepareDocumentReaders} from './prepare-document-readers.mjs';
@@ -21,6 +22,7 @@ await rm(dir,{recursive:true,force:true});await mkdir(dir,{recursive:true});
 const files=new Map();
 async function emit(kind,value){const compressed=kind==='index'||kind==='universe-rulings',body=compressed?gzipSync(JSON.stringify(value)):JSON.stringify(value),hash=sha(body),url='/data/v2/'+kind+'-'+hash+(compressed?'.bin':'.json');const f={url,sha256:hash,bytes:Buffer.byteLength(body),...(compressed?{encoding:'gzip'}:{})};if(!files.has(url)){await writeFile(join(root,'public',url),body);files.set(url,f);}return f;}
 const manifest={schemaVersion:2,release:pkg.version,collected:catalog.collected,laws:{},related:{},rulings:{},rulingHeads:null,rulingCounts:null,documents:{},documentTexts:{},indexes:[],packs:[],provenance:null,history:null,files:[]};
+if(catalog.syncStatus)manifest.syncStatus=await emit('sync-status',runtimeSyncStatus(catalog.syncStatus));
 const documentSources=await read('data/documents/catalog.json');
 const documentPages=new Map();
 for(const [id,source] of Object.entries(documentSources)){
@@ -65,7 +67,10 @@ manifest.universe=await emit('universe',universe.laws);
 manifest.universeRulings=await emit('universe-rulings',universe.rulings);
 manifest.files=[...files.values()];
 // The starter catalogue carries counts, not every chapter/article or full text.
-const slim={...catalog,version:pkg.version,laws:catalog.laws.map(l=>({...l,articles:[],articleCount:l.articles.length,history:'',note:'',preamble:'',attachments:[]}))};
+// Per-law status labels are unused by the lightweight catalogue; the full
+// law shard preserves them. Avoid duplicating them in every initial shell.
+const {syncStatus:_syncStatus,...runtimeCatalog}=catalog;
+const slim={...runtimeCatalog,version:pkg.version,laws:catalog.laws.map(l=>({...l,articles:[],articleCount:l.articles.length,history:'',note:'',status:'',preamble:'',attachments:[]}))};
 // A loaded law already contains its own declarations. Only cross-volume
 // general-provision evidence must be carried by the lightweight app shell.
 const externalCitationContext=Object.fromEntries(Object.entries(makeCitationContext(enriched)).map(([id,scope])=>[id,Object.fromEntries(Object.entries(scope).map(([alias,rows])=>[alias,rows.filter(row=>row.sourceLaw!==id)]).filter(([,rows])=>rows.length))]).filter(([,scope])=>Object.keys(scope).length));
