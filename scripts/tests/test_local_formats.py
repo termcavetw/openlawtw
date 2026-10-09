@@ -82,8 +82,8 @@ class LocalFormatTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as directory:
    cache=Path(directory);report={'localFailures':[],'checks':[]};provenance={'sources':{}}
    for source in MANIFEST:(cache/(source['id']+'.html')).write_bytes((FIX/(source['id']+'.html')).read_bytes())
-   scope=dict(ROOT=ROOT,CACHE=cache,report=report,provenance=provenance,previous=LAWS,seed=seed,
-    a=SimpleNamespace(add_only=False,refresh=True,only_sites='',skip_sites=''),
+   scope=dict(attempted_ids=set(),candidate_failures={},ROOT=ROOT,CACHE=cache,report=report,provenance=provenance,previous=LAWS,seed=seed,
+    a=SimpleNamespace(add_only=False,refresh=True,only_sites='',skip_sites='',only_laws=''),
     PARSING=json.loads((ROOT/'data/local-parsing.json').read_text()),FORMATS=FORMATS,
     parse_reviewed=parse_reviewed,validate_local_text=validate_local_text,SourceCircuitOpen=SourceCircuitOpen,
     re=re,json=json,hashlib=hashlib,unicodedata=unicodedata,urllib=urllib,html=html,deepcopy=deepcopy,

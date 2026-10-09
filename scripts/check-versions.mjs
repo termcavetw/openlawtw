@@ -24,6 +24,7 @@ try{
  const initialBytes=await readFile(join(root,'data/history.json')),first=await read('data/history.json'),version1=first.archive.laws[law.id][0],object1=await read(version1.file.url.slice(1));
  check(object1.law.articles[0].text==='第一版文字。','Archived complete law body');
  check(version1.recordedAt==='2026-02-01T01:00:00.000Z'&&version1.batchDate==='2026-01-10'&&version1.sourceRetrieved==='2026-01-05','Recording, batch, and source dates remain distinct');
+ await write('data/catalog.json',{collected:'2026-02-28',syncStatus:{attemptedAt:'2026-02-28',outcomes:[{id:law.id,status:'retained',attemptedAt:'2026-02-28',lastSuccessfulFetch:law.retrieved,reason:'HTTP 503'}]}});
  const noOp=await recordSnapshots(root,{recordedAt:'2026-03-01T00:00:00.000Z'});
  check(noOp.archived===0&&noOp.changes===0&&noOp.newObjects===0&&noOp.newAssets===0,'Unchanged rerun deduplicates all archived bytes');
  check((await readFile(join(root,'data/history.json'))).equals(initialBytes),'Unchanged rerun does not rewrite observed dates');
@@ -55,7 +56,20 @@ try{
  await writeFile(join(root,'data/documents/example.pdf'),changedOriginal);
  const evidence=versionEvidence({...law,retrieved:'misleading-derived-date'},law,'2026-01-10');
  check(evidence.find(row=>row.label==='資料所載擷取日期').value==='2026-01-05','UI uses input source evidence instead of overwritten enrichment date');
- check(evidence.find(row=>row.label==='官方再次核對').value.includes('尚未建立'),'UI never infers a live official-source check from snapshot time');
+ check(evidence.find(row=>row.label==='官方再次核對').value.includes('尚未載入'),'UI never infers a live official-source check from snapshot time');
+ const baselineLaw=JSON.stringify(law);
+ for(const status of ['updated','unchanged','retained','unavailable','not-attempted']){
+  const attempt=status==='not-attempted'?null:'2026-07-01T01:00:00Z';
+  const rows=versionEvidence(law,law,'2026-07-02',{id:law.id,name:law.name,status,attemptedAt:attempt,lastSuccessfulFetch:'misleading-report-date',reason:'來源狀態說明'});
+  check(rows.some(row=>row.label==='本次同步結果'&&row.detail==='來源狀態說明'),'UI exposes explicit per-law outcome: '+status);
+  check(rows.find(row=>row.label==='最近成功擷取日期').value===law.retrieved,'Last success uses actual law retrieval, never batch or report dates: '+status);
+  check(rows.find(row=>row.label==='本次擷取嘗試時間').value===(attempt||'本次未嘗試擷取'),'Attempt date remains separate and nullable: '+status);
+ }
+ check(JSON.stringify(law)===baselineLaw,'Rendering sync outcomes never mutates archived law data');
+ check(versionEvidence(law,law,'',{id:'different-law',status:'updated',attemptedAt:'2026-07-01',lastSuccessfulFetch:'2026-07-01'}).some(row=>row.label==='官方再次核對'),'Unrelated law outcome cannot claim a successful recheck');
+ const noDate={...law,retrieved:''};
+ check(versionEvidence(noDate,noDate,'2026-07-02',{id:law.id,status:'unavailable',attemptedAt:'2026-07-01',lastSuccessfulFetch:null}).find(row=>row.label==='最近成功擷取日期').value==='未保存成功擷取日期','Missing retrieval evidence remains unknown');
+
  check(versionEvidence({...law,modified:'',effective:'9999-12-31',retrieved:'',document:undefined}).some(row=>row.value==='依官方生效說明'),'Unspecified official effective dates remain explicit');
  check(archiveStatus([],true).includes('未保存可還原正文')&&archiveStatus([version1],true).includes('尚未收錄'),'Legacy hashes are not presented as reconstructed versions');
  // A migrated hash-only record may predate the full archive. It must never

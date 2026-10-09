@@ -13,10 +13,11 @@ from local_source import validate_local_text
 from local_formats import parse_reviewed, FORMATS
 from official_fetch import HostCircuitBreaker, SourceCircuitOpen, atomic_write
 from central_refresh import refresh_bulk, read_bulk
+from partial_sync import reconcile
 PARSING=json.loads((Path(__file__).resolve().parents[1]/'data/local-parsing.json').read_text(encoding='utf-8'))
 
 ROOT=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--add-central',action='store_true',help='With --add-only, add missing central records from official XML without changing existing snapshots');p.add_argument('--central-html',help='With --add-only, import central records from an explicit MOJ HTML source manifest instead of bulk XML');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--cache',default='.law-cache');p.add_argument('--refresh',action='store_true');p.add_argument('--add-only',action='store_true',help='Preserve existing full snapshots and retrieve missing local texts');p.add_argument('--add-central',action='store_true',help='With --add-only, add missing central records from official XML without changing existing snapshots');p.add_argument('--central-html',help='With --add-only, import central records from an explicit MOJ HTML source manifest instead of bulk XML');p.add_argument('--only-sites',default='',help='Update only these local sites');p.add_argument('--skip-sites',default='',help='Comma-separated unavailable official sites: retain previous snapshot or link');p.add_argument('--only-laws',default='',help='Comma-separated local IDs for bounded checks; use --add-only to preserve central records');a=p.parse_args()
 if a.add_only and a.refresh:p.error('--add-only and --refresh are mutually exclusive')
 if a.add_central and not a.add_only:p.error('--add-central requires --add-only')
 if a.central_html and not a.add_only:p.error('--central-html requires --add-only')
@@ -39,13 +40,18 @@ previous=json.loads((ROOT/'public/data/laws.json').read_text(encoding='utf-8')) 
 provenance_path=ROOT/'data/provenance.json'
 provenance=json.loads(provenance_path.read_text(encoding='utf-8')) if provenance_path.exists() else {'schemaVersion':2,'sources':{}}
 
+baseline=deepcopy(previous)
+old_sources=deepcopy(provenance['sources'])
+bulk_failures={}
+attempted_ids=set(); candidate_failures={}
 local_download=HostCircuitBreaker()
 def fetch(url,filename):
  path=CACHE/filename
  if path.exists() and not a.refresh:return path.read_bytes()
  b=local_download(url)
  atomic_write(path,b)
- if a.refresh:path.with_suffix('.source.json').unlink(missing_ok=True)
+ meta={'url':url,'sha256':hashlib.sha256(b).hexdigest(),'hashScope':'downloaded-html-file','observedAt':datetime.now(timezone.utc).isoformat(timespec='seconds')}
+ atomic_write(path.with_suffix('.source.json'),(json.dumps(meta)+'\n').encode())
  return b
 
 def date8(v):
@@ -75,7 +81,12 @@ def fatal_report(kind,value,traceback):
 sys.excepthook=fatal_report
 write_report()
 if (not a.add_only or (a.add_central and not a.central_html)) and (a.refresh or any(not (CACHE/label/xml).exists() for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')])):
- refresh_bulk(CACHE)
+ try:
+  refresh_bulk(CACHE,failures=bulk_failures)
+  if bulk_failures:report['centralFailures']=[{'source':key,'reason':value} for key,value in bulk_failures.items()]
+ except Exception as error:
+  bulk_failures.update(CF=str(error),CM=str(error))
+  report['centralFailures']=[{'reason':str(error)}]
  report['checks'].append({'type':'central-openapi-refresh','source':'https://law.moj.gov.tw/api/swagger/index.html','reason':'Official OpenAPI law/order XML archives; original XML and schema preserved.'})
  write_report()
 
@@ -88,15 +99,30 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   # Existing central records keep their original snapshot and provenance.
   # A separate source record below identifies each newly added XML law.
   if not a.add_central or a.central_html:continue
+ if key in bulk_failures:continue
  target=CACHE/label/xml
- root=read_bulk(target); snapshot=root.attrib.get('UpdateDate','');snapshots.append(snapshot)
+ try:
+  parse_failures=[]
+  root=read_bulk(target,failures=parse_failures)
+  report.setdefault('centralFailures',[]).extend(parse_failures)
+ except Exception as error:
+  report.setdefault('centralFailures',[]).append({'source':key,'reason':str(error)})
+  continue
+ snapshot=root.attrib.get('UpdateDate','');snapshots.append(snapshot)
  source_meta=CACHE/label/'source.json'
- if source_meta.exists():
-  xml_source=json.loads(source_meta.read_text(encoding='utf-8'))
-  if xml_source['sha256']!=hashlib.sha256(target.read_bytes()).hexdigest():raise ValueError('Official XML cache provenance mismatch: '+key)
- else:
-  xml_source={'url':'https://sendlaw.moj.gov.tw/PublicData/GetFile.ashx?AuData='+key+'&DType=XML','format':'xml','sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'hashScope':'downloaded-xml-file','observedAt':datetime.fromtimestamp(target.stat().st_mtime,timezone.utc).isoformat(timespec='seconds'),'snapshot':snapshot}
- if not a.add_only:provenance['sources'][key]=xml_source
+ try:
+  if source_meta.exists():
+   xml_source=json.loads(source_meta.read_text(encoding='utf-8'))
+   if xml_source['sha256']!=hashlib.sha256(target.read_bytes()).hexdigest():
+    report.setdefault('centralFailures',[]).append({'source':key,'reason':'Official XML cache provenance mismatch'})
+    continue
+  else:
+   raise ValueError('Cached official XML lacks verified fetch provenance; refetch required')
+  if not xml_source.get('observedAt'):raise ValueError('Official XML source fetch date missing')
+ except (KeyError,ValueError,OSError) as error:
+  report.setdefault('centralFailures',[]).append({'source':key,'reason':str(error)})
+  continue
+ # Shared legacy evidence remains immutable for retained central records.
  report.setdefault('centralSources',{})[key]=xml_source
  write_report()
  for item in root.findall('法規'):
@@ -106,11 +132,16 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
   url=get('法規網址');code=urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get('pcode',[''])[0]
   if not code:continue
   if a.add_only and code in previous:continue
-  if a.add_only:provenance['sources'][code]={**xml_source,'lawId':code,'bulkKey':key}
-  elif code in provenance['sources']:provenance['sources'].pop(code)
-  if get('前言'):raise ValueError('Official central law foreword requires reviewed import: '+name)
+  attempted_ids.add(code)
+  provenance['sources'][code]={**xml_source,'lawId':code,'bulkKey':key}
+  if get('前言'):
+   candidate_failures[code]='Official central law foreword requires reviewed import: '+name
+   continue
   articles=[];path=[]
-  for part in item.find('法規內容'):
+  content=item.find('法規內容')
+  if content is None:
+   candidate_failures[code]='Missing official law body';continue
+  for part in content:
    if part.tag=='編章節':
     label=compact(part.text or '')
     match=re.search('[編章節款目]',label); level='編章節款目'.index(match.group()) if match else 1
@@ -118,7 +149,9 @@ for label,key,xml in [('laws','CF','FalV.xml'),('orders','CM','MingLing.xml')]:
    elif part.tag=='條文':
     no=compact(part.findtext('條號') or '')
     text=(part.findtext('條文內容') or '').strip()
+    if not no or not text:candidate_failures[code]='Missing official article number or text'
     if no and text: articles.append({'no':no,'text':text,'path':[q[1] for q in path]})
+   else:candidate_failures[code]='Unknown official content element: '+part.tag
   att=[{'title':f.findtext('檔案名稱') or '附件','url':f.findtext('下載網址') or ''} for f in item.findall('附件/檔案')]
   laws.append(dict(id=code,name=name,region='中央',category=NAMES[name],kind='法規命令' if get('法規性質')=='命令' else get('法規性質'),url=url,source='全國法規資料庫',coverage='full',modified=date8(get('最新異動日期')),effective=date8(get('生效日期')),effectiveNote=get('生效內容'),snapshot=snapshot,retrieved=xml_source['observedAt'],status='來源未標廢止',articles=articles,history=get('沿革內容'),attachments=att,keywords=[]))
 if a.central_html:
@@ -133,6 +166,7 @@ if a.central_html:
   history_raw=fetch('https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode='+code,code+'-history.html')
   history_observed=datetime.fromtimestamp((CACHE/(code+'-history.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds')
   fields=parse_law_all(raw,code,name,retrieved=observed,history_html=history_raw,history_retrieved=history_observed)
+  attempted_ids.add(code)
   provenance['sources'][code]={**fields.pop('provenance'),'parser':'moj-lawall-html'}
   laws.append({**fields,'category':NAMES[name],'kind':item['kind']})
   report['checks'].append({'name':name,'url':url,'type':'central-html','reason':'Official MOJ LawAll HTML; bulk XML endpoint unavailable during this additive import'})
@@ -157,27 +191,30 @@ def gettext(node):
 
 def getlocal(job):
  name,val=job;site=val['site'];code=val['id'];sid=site+'-'+code
- if a.add_only and (previous.get(sid,{}).get('coverage')=='full' or previous.get(sid,{}).get('document')):return previous[sid]
+ if a.add_only and not a.only_laws and (previous.get(sid,{}).get('coverage')=='full' or previous.get(sid,{}).get('document')):return previous[sid]
  host=seed['hosts'].get(site) or seed['sites'].get(site,{}).get('host')
  if not host:return None
  if site=='臺中市':host='https://law.taichung.gov.tw'
  url=(host+'/Law/LawSearch/LawArticleContent/'+code if site=='臺北市' else host+'/Scripts/FLAWDAT0202.aspx?fcode='+code if site=='新北市' else host+'/LawContent.aspx?id='+code)
  doc=dict(id=sid,name=name,region='中央' if site in ['內政部','農業部'] else site,category=val.get('category',localcat(name)),kind='自治條例' if '自治條例' in name else '地方規定',url=url,source=site+'法規查詢系統',coverage='link',modified='',effective='',effectiveNote='',snapshot='',retrieved='',status='待核對',articles=[],history='',attachments=[],keywords=[],note='已核對官方索引連結；尚未完整收錄文字。')
+ if a.only_laws and sid not in a.only_laws.split(','):return previous.get(sid)
  if a.only_sites and site not in a.only_sites.split(','):
   return previous.get(sid)
+ attempted_ids.add(sid)
  raw=None;tree=None
  try:
   if site in a.skip_sites.split(','):raise ValueError('官方來源本次無法連線，保留快照或官方連結')
   raw=fetch(url,sid+'.html'); tree=html.fromstring(raw)
   provenance['sources'][sid]={'url':url,'format':'html','sha256':hashlib.sha256(raw).hexdigest(),'hashScope':'downloaded-html-file','observedAt':datetime.fromtimestamp((CACHE/(sid+'.html')).stat().st_mtime,timezone.utc).isoformat(timespec='seconds')}
   cache_meta=CACHE/(sid+'.source.json')
-  if cache_meta.exists() and not a.refresh:
+  if cache_meta.exists():
    meta=json.loads(cache_meta.read_text(encoding='utf-8'))
    if meta.get('url')!=url or meta.get('sha256')!=hashlib.sha256(raw).hexdigest():raise ValueError('快照來源紀錄不符')
    provenance['sources'][sid].update(hashScope=meta['hashScope'],observedAt=meta['observedAt'])
+  elif not a.refresh:raise ValueError('Cached source has no verified fetch date; refetch required')
   abolished=tree.xpath('//tr[th[contains(.,"廢止日期") or contains(.,"停止適用日期")]]/td')
   if abolished and compact(abolished[0].text_content()):
-   report.setdefault('excludedInactive',[]).append({'name':name,'url':url,'date':compact(abolished[0].text_content())});return None
+   raise ValueError('Official inactive marker requires manual review: '+compact(abolished[0].text_content()))
   rows=tree.xpath('//tr[th[contains(normalize-space(.),"法規名稱")]]/td')
   actual=compact(rows[0].text_content()) if rows else ''
   if site=='臺北市':
@@ -185,7 +222,7 @@ def getlocal(job):
   if site=='新北市':actual=re.sub(r'\s*[（(]民國.*$','',actual)
 
   if actual.startswith(('廢','停')):
-   report.setdefault('excludedInactive',[]).append({'name':name,'url':url,'reason':actual});return None
+   raise ValueError('Official inactive title requires manual review: '+actual)
   if norm(actual).removesuffix('英')!=norm(name):
    known={'桃園市政府受理興辦工業人利用非都市土地使用管制規則申請變更編定為丁種建築用地審查作業要點':'桃園市政府受理非都市土地使用管制規則申請變更編定為丁種建築用地審查作業要點'}
    if actual==known.get(name):doc['keywords']=[name];doc['name']=actual
@@ -277,7 +314,7 @@ def getlocal(job):
      if text:articles.append({'no':'第'+m.group(1)+('之'+m.group(2) if m.group(2) else '')+'點','text':text,'path':title_path[:]})
   if len({norm(a['no']) for a in articles})!=len(articles):raise ValueError('重複條號，保留連結待核對')
   if not articles and site not in ['內政部','農業部'] and not (reviewed is not None and FORMATS[sid]['parser']=='attachment-only'):raise ValueError('未解析到條文')
-  if articles and doc['region']!='中央':validate_local_text(tree,{**doc,'articles':articles})
+  if articles:validate_local_text(tree,{**doc,'articles':articles})
   modified=tree.xpath('//tr[th[contains(.,"修正日期")]]/td'); status=compact(tree.text_content())
   attachments=[{'title':compact(el.text_content()),'url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx")]')]
   if site=='臺北市':
@@ -299,16 +336,11 @@ def getlocal(job):
    doc['kind']=val.get('kind','技術規範');doc['note']=val.get('note','技術規範以官方檔案為準；圖表、公式及附錄請下載官方附件。')
   return doc
  except Exception as e:
-  report['localFailures'].append({'name':name,'reason':str(e),'url':url,'attempted':not isinstance(e,SourceCircuitOpen)})
+  report['localFailures'].append({'id':sid,'name':name,'reason':str(e),'url':url,'attempted':not isinstance(e,SourceCircuitOpen)})
   write_report()
   print('SOURCE FAILURE: '+name+' — '+str(e),flush=True)
-  old=previous.get(sid)
-  if old and old.get('coverage')=='full':
-   return {**old,'note':'本次未能重新擷取；保留原官方快照，擷取日期未更新。'}
-  if raw is not None and tree is not None:
-   doc.update(retrieved=provenance['sources'].get(sid,{}).get('observedAt',''),status='已取得官方頁面，待完整解析',note=str(e)+'；請查官方原文及附件。')
-   doc['attachments']=[{'title':compact(el.text_content()) or '官方附件','url':urllib.parse.urljoin(url,el.get('href'))} for el in tree.xpath('//a[contains(@href,"Download.ashx")]')]
-  return doc
+  candidate_failures[sid]=str(e)
+  return doc  # Reconciliation records the failed title, then restores/discards it.
 
 jobs=[(n,v) for n,v in seed['local'].items() if v['site'] not in ['內政部','農業部'] and not n.startswith('桃園縣') and '原繼續適用' not in n and not any(t in n for t in ['消費者','農作物污染'])]
 jobs += [(v['name'],v) for v in json.loads((ROOT/'data/technical-sources.json').read_text(encoding='utf-8'))]
@@ -328,17 +360,6 @@ for law in laws:
 
 report['missingCentral']=[n for n in NAMES if not any(l['name']==n for l in laws)]
 # Relationships are accepted only with explicit article evidence. Never derive from browsing categories.
-byname={l['name']:l for l in laws};relations=[]
-for child in laws:
- if not child['articles']:continue
- first=child['articles'][0]['text']
- match=re.search(r'(?:依|依據)([^，。；]{2,60}?)(?:（以下簡稱[^）]+）)?第([一二三四五六七八九十百千零〇兩\d]+)(?:條之([一二三四五六七八九十百\d]+))?條?',first)
- if not match:continue
- parentname=match.group(1).replace('（以下簡稱本法）','').replace('（以下簡稱本條例）','')
- parent=byname.get(parentname)
- if not parent or parent['id']==child['id']:continue
- article='第'+match.group(2)+'條'+('之'+match.group(3) if match.group(3) else '')
- relations.append({'parent':parent['id'],'child':child['id'],'article':article,'evidence':first,'source':child['url'],'label':'依據 '+article})
 # Four parts form one named regulation; grouping them is not a fabricated authorization edge.
 resources=[
  {'title':'全國法規資料庫','description':'中央法規現行條文、沿革與歷史版本。','region':'中央','category':'法規查詢','url':'https://law.moj.gov.tw/'},
@@ -355,9 +376,6 @@ ruling_stats=json.loads((ROOT/'public/data/rulings.json').read_text(encoding='ut
 laworder={n:i for i,n in enumerate(NAMES)}
 laws.sort(key=lambda l:(0 if l['region']=='中央' else 1,laworder.get(l['name'],999),l['name']))
 rawdir=ROOT/'public/data/laws';rawdir.mkdir(parents=True,exist_ok=True)
-validids={l['id'] for l in laws}
-for oldfile in rawdir.glob('*.json'):
- if oldfile.stem not in validids:oldfile.unlink()
 # Curated PDF snapshots are independent of refreshed HTML link records.
 # Keep their own source/version date; an HTML refresh is not a PDF update.
 for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_text(encoding='utf-8')).items():
@@ -368,6 +386,42 @@ for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_te
    if FORMATS.get(law['id'],{}).get('parser')=='attachment-only':law['note']='官方頁面僅提供附件；未列為條文全文。'+doc_source['versionNote']
    law['attachments']=[{'title':'已收錄官方原文文件（版本見規範頁）','url':doc_source['source']}]+[a for a in law['attachments'] if a['url']!=doc_source['source']]
 
+# A missing/failed official source is a per-law failure, never a deletion.
+for law_id, old in previous.items():
+ if old['source']=='全國法規資料庫' and not a.add_only:
+  attempted_ids.add(law_id)
+  if law_id not in {law['id'] for law in laws}:
+   candidate_failures[law_id]='Official central record unavailable, missing, inactive or unparseable'
+candidates={}
+for law in laws:
+ if law['id'] in candidates:
+  candidate_failures[law['id']]='Duplicate official candidate law ID; manual review required'
+  attempted_ids.add(law['id'])
+  continue
+ candidates[law['id']]=law
+merged, sources, outcomes=reconcile(baseline,candidates,old_sources,provenance['sources'],candidate_failures,NOW,attempted_ids)
+# Explicit curated sources can be initialized by an additive import, but the
+# scheduled refresh does not replace their independently reviewed evidence.
+for law_id, candidate in candidates.items():
+ if law_id not in previous and law_id not in attempted_ids:
+  raise ValueError('Unreviewed new independent source: '+law_id)
+laws=list(merged.values())
+laws.sort(key=lambda l:(0 if l['region']=='中央' else 1,laworder.get(l['name'],999),l['name']))
+provenance['sources']=sources
+report.update(policy='per-law-v1',attemptedAt=NOW,outcomes=outcomes)
+report['missingCentral']=[name for name in NAMES if not any(law['name']==name for law in laws)]
+report['summary']={status:sum(row['status']==status for row in outcomes) for status in ['updated','unchanged','retained','unavailable','not-attempted']}
+byname={l['name']:l for l in laws};relations=[]
+for child in laws:
+ if not child['articles']:continue
+ first=child['articles'][0]['text']
+ match=re.search(r'(?:依|依據)([^，。；]{2,60}?)(?:（以下簡稱[^）]+）)?第([一二三四五六七八九十百千零〇兩\d]+)(?:條之([一二三四五六七八九十百\d]+))?條?',first)
+ if not match:continue
+ parentname=match.group(1).replace('（以下簡稱本法）','').replace('（以下簡稱本條例）','')
+ parent=byname.get(parentname)
+ if not parent or parent['id']==child['id']:continue
+ article='第'+match.group(2)+'條'+('之'+match.group(3) if match.group(3) else '')
+ relations.append({'parent':parent['id'],'child':child['id'],'article':article,'evidence':first,'source':child['url'],'label':'依據 '+article})
 (ROOT/'public/data/laws.json').write_text(json.dumps({l['id']:l for l in laws},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 for law in laws:
  (ROOT/'public/data/laws'/ (law['id']+'.json')).write_text(json.dumps(law,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
@@ -377,7 +431,7 @@ summary=[]
 for law in laws:
  row={**law,'articleCount':len(law['articles']),'articles':[{'no':a['no'],'text':'','path':a['path']} for a in law['articles']],'history':''}
  summary.append(row)
-catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'collected':NOW,'snapshot':snapshots[0],'laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照或逐筆下載的全國法規資料庫頁面；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
+catalog={'version':json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version'],'collected':NOW,'syncStatus':{'attemptedAt':NOW,'summary':report['summary'],'outcomes':outcomes},'snapshot':snapshots[0] if snapshots else '','laws':summary,'regions':regions,'categories':list(GROUPS),'relations':relations,'rulingStats':ruling_stats,'resources':resources,'notes':['分類樹用於瀏覽，不代表法律授權或效力位階。','法源關係只呈現已由條文明示依據的連結，尚未完整盤點。','中央資料為官方批次快照或逐筆下載的全國法規資料庫頁面；地方資料為逐筆下載的官方頁面。','尚未收錄全台全部建築相關法規；未收錄不代表沒有規定。','附件、圖表與公式以官方連結為準。歷史版本請開啟官方原文查閱。']}
 (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 (ROOT/'public/data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 provenance_path.write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

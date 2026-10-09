@@ -1,3 +1,4 @@
+import {runtimeSyncStatus} from './runtime-sync-status.mjs';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {gunzipSync} from 'node:zlib';
@@ -13,8 +14,8 @@ const controller=new AbortController(),canceled=loadLaw('D0070109',controller.si
 assert.equal(law.articles.length,original.D0070109.articles.length);await loadLaw('D0070109');assert.equal(calls,2);
 const different=await loadLaw('D0070115');assert.equal(calls,3,'a different law downloads only its own shard');
 const provenance=await read('data/provenance.json');
-assert.equal(law.sourceRecordId,'CF','Existing central law keeps its original bulk source');
-assert.equal(different.sourceRecordId,'CM','Existing central order keeps its original bulk source');
+assert.equal(law.sourceRecordId,provenance.sources[law.id]?law.id:'CF','Central law resolves its retained bulk or successfully refreshed individual source');
+assert.equal(different.sourceRecordId,provenance.sources[different.id]?different.id:'CM','Central order resolves its retained bulk or successfully refreshed individual source');
 for(const [id,source] of Object.entries(provenance.sources).filter(([,source])=>(source.format==='xml'&&source.bulkKey)||source.parser==='moj-lawall-html')){
  const document=await read('public'+manifest.laws[id].url);
  assert.equal(document.sourceRecordId,id,'Added central law must resolve to its own source observation: '+id);
@@ -61,3 +62,20 @@ assert.deepEqual(await loadRulingCounts(),counts,'Portable counts are available 
 for(const item of archive.items)assert.equal((await loadRuling(item.id)).body,item.body);
 const offline=await indexedSearch(heads,'室內裝修');assert.equal(offline.missing,0);assert(offline.base.length>0&&offline.rulings.length>0);
 console.log(JSON.stringify({schemaArticles:checked,structuredArticles:parsed,rawArticles:raw,stableIds:ids.size,regressionQueries:queries.length,portableLaws:Object.keys(original).length,portableRulings:archive.items.length,worstComparisonMs:greatest}));
+
+// Audit-only fields must never inflate the initial application shell.
+const syncFixture={attemptedAt:'2026-10-08',summary:{retained:1},outcomes:[{id:'test',name:'測試',status:'retained',attemptedAt:'2026-10-08',lastSuccessfulFetch:'2026-01-01',reason:'HTTP 503',beforeHash:'a'.repeat(64),candidateHash:'b'.repeat(64),beforeSourceHash:'c'.repeat(64),source:{sha256:'d'.repeat(64),url:'https://example.gov.tw/'}}]};
+const syncBefore=JSON.stringify(syncFixture),projectedSync=runtimeSyncStatus(syncFixture);
+assert.deepEqual(Object.keys(projectedSync.outcomes[0]),['id','name','status','attemptedAt','lastSuccessfulFetch','reason']);
+assert.equal(projectedSync.outcomes[0].lastSuccessfulFetch,'2026-01-01');
+assert.equal(JSON.stringify(syncFixture),syncBefore,'Runtime projection leaves the complete audit report intact');
+assert.equal(runtimeSyncStatus(undefined),undefined);
+
+const runtimeCatalog=await read('data/runtime-catalog.json'),sourceCatalog=await read('data/catalog.json');
+assert(!runtimeCatalog.syncStatus,'Detailed outcomes are never embedded in the initial shell');
+assert(runtimeCatalog.laws.every(law=>law.status===''),'Unused summary status text is omitted; complete laws retain it');
+if(sourceCatalog.syncStatus){
+ assert(manifest.syncStatus,'Sync status has an immutable manifest reference');
+ assert(manifest.files.some(file=>file.url===manifest.syncStatus.url),'Status shard participates in checksum and portable data validation');
+ assert.deepEqual(await loadFile(manifest.syncStatus),runtimeSyncStatus(sourceCatalog.syncStatus),'Portable status evidence is complete without a network request');
+}
