@@ -382,6 +382,8 @@ for doc_id,doc_source in json.loads((ROOT/'data/documents/catalog.json').read_te
  for law in laws:
   if law['id']==doc_id:
    law['document']={k:doc_source[k] for k in ['pages','source','sourcePage','sha256','versionNote','retrieved','format','startPage','endPage'] if k in doc_source}
+   # The curated document is the reviewed text; never re-structure the refreshed page into articles.
+   law['coverage']='link';law['articles']=[]
    if law['coverage']!='full' or law['id'] not in FORMATS:law['note']=doc_source['versionNote']
    if FORMATS.get(law['id'],{}).get('parser')=='attachment-only':law['note']='官方頁面僅提供附件；未列為條文全文。'+doc_source['versionNote']
    law['attachments']=[{'title':'已收錄官方原文文件（版本見規範頁）','url':doc_source['source']}]+[a for a in law['attachments'] if a['url']!=doc_source['source']]
