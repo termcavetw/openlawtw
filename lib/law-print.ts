@@ -54,7 +54,7 @@ export function openLawPrint(law:Law,scope:PrintScope,orientation:PrintOrientati
   if(width>available&&available>0)pre.style.fontSize=(11*available/width)+'pt';
  }};
  const button=popup.document.getElementById('print-law') as HTMLButtonElement;
- button.disabled=true;
+ button.disabled=popup.document.images.length>0;
  Promise.all([Promise.race([popup.document.fonts?.ready,new Promise(r=>setTimeout(r,3000))]),...Array.from(popup.document.images,img=>img.decode())]).then(()=>{if(!popup.closed){fit();button.disabled=false;}}).catch(()=>{if(!popup.closed){button.textContent='圖表未能載入，請返回重試或開啟官方原檔';}});
  button.addEventListener('click',()=>{fit();popup.focus();popup.print();});
  const returnLink=popup.document.getElementById('return-law') as HTMLAnchorElement;
