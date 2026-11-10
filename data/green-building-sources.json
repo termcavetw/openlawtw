@@ -32,7 +32,13 @@
       "sha256": "0165adc29a9dad8e43229b50753e4f179089d334a5eae7ca281ffbf07124e4f7",
       "bytes": 1187928,
       "pages": 15,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textSnapshot": {
+        "file": "data/documents/NLMA-976-text.json",
+        "sha256": "a722cd4112cf18e19d081f3d72dafbadaf390b8b9a5dc7111a9f5a3fd9adc315",
+        "bytes": 29918,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
+      }
     },
     {
       "id": "NLMA-961",
@@ -64,7 +70,13 @@
       "sha256": "d16f425435f2761a67b1137a870c7f2a39b30d5a903a29c95398a8fe134f8789",
       "bytes": 1795674,
       "pages": 20,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textSnapshot": {
+        "file": "data/documents/NLMA-961-text.json",
+        "sha256": "61f37f891569241e79a0dd297619de17563b9e15c973ceee98d9def63cb23a89",
+        "bytes": 37551,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
+      }
     },
     {
       "id": "NLMA-6187",
@@ -117,7 +129,13 @@
       "sha256": "a47a314330097be45dfcb785aa6366eda386cbfa947641f0db77cca41b68f9d9",
       "bytes": 1598317,
       "pages": 33,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textSnapshot": {
+        "file": "data/documents/NLMA-6187-text.json",
+        "sha256": "43355130d3f2dd0136e33ecd6286984d9b73026dacf64718fad378fecbb9d6cf",
+        "bytes": 87754,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
+      }
     },
     {
       "id": "NLMA-936",
@@ -166,6 +184,12 @@
         ],
         "reviewedAt": "2026-10-01",
         "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      },
+      "textSnapshot": {
+        "file": "data/documents/NLMA-936-text.json",
+        "sha256": "a652782217c01f8cefad6b8b335072e970a1df04f591b1ba52a7d7325a89ab22",
+        "bytes": 48197,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
       }
     },
     {
@@ -224,6 +248,12 @@
         ],
         "reviewedAt": "2026-10-01",
         "note": "24.02對疊印粗體多抽出重複字，另有縮排差異；已比對各差異頁的25.03抽字，並核對原始PDF的疊印標題。僅接受所列完整輸出雜湊，保留25.03已審核文字快照，不刪字、不以空白正規化放寬比對；PDF原檔雜湊仍獨立嚴格檢查。"
+      },
+      "textSnapshot": {
+        "file": "data/documents/NLMA-937-text.json",
+        "sha256": "2a4588ca33004695f68575abcd89f768a1d760d4fc1eca8712d143e7235da52a",
+        "bytes": 27430,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
       }
     },
     {
@@ -256,7 +286,13 @@
       "sha256": "8d8b2b9be4a7483052d4f1441de1342ec944ed544b11e751b7e0663fd02f32dc",
       "bytes": 960592,
       "pages": 17,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textSnapshot": {
+        "file": "data/documents/NLMA-170-text.json",
+        "sha256": "5b93ebdee3e7a7cb0bb371125341e01032725ae73f1a69884453d4e2f26a00b0",
+        "bytes": 24930,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
+      }
     },
     {
       "id": "ABRI-330726",
@@ -291,7 +327,13 @@
       "sha256": "784e2efd2f5772e1bae20e3407273dc71119bd84bb7fb14af08c4b780daf03e8",
       "bytes": 193571,
       "pages": 9,
-      "retrieved": "2026-10-01T05:59:00+00:00"
+      "retrieved": "2026-10-01T05:59:00+00:00",
+      "textSnapshot": {
+        "file": "data/documents/ABRI-330726-text.json",
+        "sha256": "1fe232fdd9084bf1d5b6e2a933f025a44b714b1039bde51628afb396d567bbf5",
+        "bytes": 21061,
+        "note": "Reviewed pdftotext -layout output. CI checks this committed snapshot and never re-extracts while the PDF hash is unchanged."
+      }
     }
   ],
   "manuals": [

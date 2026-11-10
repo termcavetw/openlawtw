@@ -60,6 +60,33 @@ class GreenBuildingSources(unittest.TestCase):
     def test_import_is_reproducible(self):
         importer().build(check=True)
 
+    def test_check_uses_reviewed_snapshots_without_poppler(self):
+        # A runner image may ship any Poppler version (or none); unchanged PDFs must still verify.
+        module = importer()
+        with patch.object(module.subprocess, 'check_output', side_effect=AssertionError('pdftotext must not run')):
+            module.build(check=True)
+        for item in self.sources['documents']:
+            raw = (ROOT / item['textSnapshot']['file']).read_bytes()
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), item['textSnapshot']['sha256'])
+            self.assertEqual(len(raw), item['textSnapshot']['bytes'])
+
+    def test_changed_or_missing_text_snapshot_is_rejected(self):
+        module = importer()
+        pages = {'pages': [{'page': 1, 'text': '建築基地保水設計技術規範'}]}
+        with tempfile.TemporaryDirectory() as tmp, patch.object(module, 'ROOT', Path(tmp)):
+            snapshot = Path(tmp) / 'fixture-text.json'
+            snapshot.write_text(module.encoded('fixture-text.json', pages), encoding='utf-8')
+            raw = snapshot.read_bytes()
+            item = dict(id='fixture', file='fixture.pdf', textSnapshot=dict(
+                file='fixture-text.json', sha256=hashlib.sha256(raw).hexdigest(), bytes=len(raw)))
+            self.assertEqual(module.committed_text_snapshot(item), pages)
+            snapshot.write_bytes(raw.replace('保水'.encode(), '排水'.encode()))
+            with self.assertRaisesRegex(AssertionError, 'differs from the reviewed record'):
+                module.committed_text_snapshot(item)
+            snapshot.unlink()
+            with self.assertRaisesRegex(AssertionError, 'Missing reviewed PDF text snapshot'):
+                module.committed_text_snapshot(item)
+
     def test_reviewed_poppler_variants_preserve_exact_canonical_snapshot(self):
         module = importer()
         canonical = [{'page': 1, 'text': '1.依 據\n    規範'}]

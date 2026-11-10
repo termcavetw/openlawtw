@@ -26,7 +26,7 @@ DATA_PATHS = (
     'public/data/catalog.json', 'public/data/rulings.json', 'public/data/laws',
 )
 REQUIRED_STAGES = (
-    'dependencies-node', 'dependencies-python', 'dependencies-system', 'unit-tests', 'baseline',
+    'dependencies-node', 'dependencies-python', 'unit-tests', 'baseline',
     'laws', 'rulings', 'guard', 'validate-laws', 'validate-rulings',
     'snapshot', 'build', 'typecheck', 'check',
 )

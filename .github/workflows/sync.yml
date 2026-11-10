@@ -32,8 +32,6 @@ jobs:
         run: python scripts/run-sync.py step dependencies-node -- npm ci
       - name: Install Python dependencies
         run: python scripts/run-sync.py step dependencies-python -- python -m pip install -r requirements.txt
-      - name: Install PDF text extraction dependency
-        run: python scripts/run-sync.py step dependencies-system -- bash -c "sudo apt-get update && sudo apt-get install -y poppler-utils"
       - name: Run offline source and runner regression tests
         run: python scripts/run-sync.py step unit-tests -- python -m unittest discover -s scripts/tests -v
       - name: Keep a comparison baseline
