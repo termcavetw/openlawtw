@@ -3,6 +3,9 @@
 Offline/reproducible: never fetch or silently replace a source. To change a PDF,
 review its official publication, date and rights first, then update the manifest.
 PDF text is a faithful search aid, not newly invented article structure.
+The reviewed pdftotext output is committed and fingerprinted in the manifest;
+normal runs and CI verify that snapshot offline. Use --reextract (with Poppler
+installed) only when deliberately reviewing a new PDF or extractor version.
 """
 from pathlib import Path
 import argparse
@@ -51,7 +54,27 @@ def reviewed_text_snapshot(item, pages):
         'Canonical text snapshot changed: ' + path)
     return json.loads(raw)
 
-def build(check=False):
+def assert_reviewed_snapshot(item, raw):
+    """The committed text snapshot is the reviewed record; its bytes are pinned in the manifest."""
+    expected = item['textSnapshot']
+    assert expected['file'] == item['file'].replace('.pdf', '-text.json'), item['id']
+    assert hashlib.sha256(raw).hexdigest() == expected['sha256'] and len(raw) == expected['bytes'], (
+        f"PDF text snapshot differs from the reviewed record: {item['id']}; "
+        'review the new extraction before updating textSnapshot in data/green-building-sources.json')
+
+def committed_text_snapshot(item):
+    """Offline check: while the PDF hash is unchanged, reuse the reviewed text instead of re-extracting.
+
+    Re-running pdftotext makes the result depend on whichever Poppler the machine has,
+    so CI would fail whenever a runner image upgrades it even though no source changed.
+    """
+    path = ROOT / item['textSnapshot']['file']
+    assert path.is_file(), 'Missing reviewed PDF text snapshot: ' + item['textSnapshot']['file']
+    raw = path.read_bytes()
+    assert_reviewed_snapshot(item, raw)
+    return json.loads(raw)
+
+def build(check=False, reextract=False):
     inputs = read('data/green-building-sources.json')
     documents = read('data/documents/catalog.json')
     provenance = read('data/provenance.json')
@@ -71,13 +94,18 @@ def build(check=False):
             digest = hashlib.sha256(raw).hexdigest()
             assert raw.startswith(b'%PDF') and digest == item['sha256'], item['id']
             assert len(raw) == item['bytes'], item['id']
-            text = subprocess.check_output(['pdftotext', '-layout', '-enc', 'UTF-8', '-eol', 'unix', str(ROOT / item['file']), '-']).decode('utf-8')
-            parts = text.split('\f')
-            assert not parts[-1].strip(), item['id']
-            pages = [{'page': n + 1, 'text': part.strip()} for n, part in enumerate(parts[:-1])]
+            if reextract:
+                text = subprocess.check_output(['pdftotext', '-layout', '-enc', 'UTF-8', '-eol', 'unix', str(ROOT / item['file']), '-']).decode('utf-8')
+                parts = text.split('\f')
+                assert not parts[-1].strip(), item['id']
+                snapshot = reviewed_text_snapshot(item, [{'page': n + 1, 'text': part.strip()} for n, part in enumerate(parts[:-1])])
+                assert_reviewed_snapshot(item, encoded(item['textSnapshot']['file'], snapshot).encode('utf-8'))
+            else:
+                snapshot = committed_text_snapshot(item)
+            pages = snapshot['pages']
             assert len(pages) == item['pages'] and all(p['text'] for p in pages), item['id']
             assert ''.join(item['name'].split()) in ''.join(pages[0]['text'].split()), item['id']
-            outputs[item['file'].replace('.pdf', '-text.json')] = reviewed_text_snapshot(item, pages)
+            outputs[item['textSnapshot']['file']] = snapshot
             doc = dict(format='pdf', file=item['file'], source=item['documentSource'],
                        sourcePage=item['url'], sha256=digest, hashScope='downloaded-pdf-file',
                        bytes=len(raw), pages=len(pages), retrieved=item['retrieved'],
@@ -120,4 +148,7 @@ def build(check=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Verify deterministic output without writing')
-    build(parser.parse_args().check)
+    parser.add_argument('--reextract', action='store_true',
+                        help='Re-run pdftotext (needs Poppler) and require it to match the reviewed text snapshot')
+    args = parser.parse_args()
+    build(args.check, args.reextract)

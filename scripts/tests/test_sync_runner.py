@@ -275,7 +275,8 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn("github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'", pr_step)
         self.assertIn('draft: true', pr_step)
         self.assertIn('timeout-minutes: 30', workflow)
-        self.assertIn('sudo apt-get install -y poppler-utils', workflow)
+        # Reviewed PDF text is checked offline, so the sync must not depend on the runner's Poppler.
+        self.assertNotIn('poppler-utils', workflow)
         self.assertNotIn("github.event_name == 'push'", pr_step)
 
     def test_browser_checks_use_the_pinned_playwright_chromium(self):
@@ -288,6 +289,14 @@ class WorkflowContractTests(unittest.TestCase):
         workflow = (SCRIPTS.parent / '.github/workflows/validate.yml').read_text()
         self.assertIn('playwright==1.58.0', workflow)
         self.assertIn('playwright install --with-deps chromium', workflow)
+
+    def test_runner_image_is_pinned_and_free_of_unpinned_pdf_tools(self):
+        # ubuntu-latest moves to new OS releases on GitHub's schedule; upgrade the image deliberately instead.
+        for name in ('sync.yml', 'validate.yml'):
+            workflow = (SCRIPTS.parent / '.github/workflows' / name).read_text()
+            self.assertIn('runs-on: ubuntu-24.04', workflow, name)
+            self.assertNotIn('ubuntu-latest', workflow, name)
+            self.assertNotIn('poppler-utils', workflow, name)
 
     def test_always_uploads_only_fresh_run_artifacts_with_bounded_retention(self):
         workflow = (SCRIPTS.parent / '.github/workflows/sync.yml').read_text()
