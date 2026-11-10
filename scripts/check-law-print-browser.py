@@ -1,4 +1,4 @@
-import http.server,threading,functools,json,shutil,tempfile,sys
+import http.server,threading,functools,json,os,shutil,tempfile,sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 repo=Path(__file__).resolve().parent.parent
@@ -14,7 +14,7 @@ threading.Thread(target=server.serve_forever,daemon=True).start()
 base='http://127.0.0.1:'+str(server.server_port)
 results=[]
 with sync_playwright() as p:
- browser=p.chromium.launch(executable_path=shutil.which('chromium'),headless=True,args=['--no-sandbox'])
+ browser=p.chromium.launch(executable_path=os.environ.get('OPENLAWTW_CHROMIUM') or None,headless=True,args=['--no-sandbox'])
  for width in [1280,390,320]:
   context=browser.new_context(viewport={'width':width,'height':900},device_scale_factor=1,has_touch=width<500)
   page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
