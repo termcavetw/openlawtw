@@ -1,12 +1,12 @@
 # Offline fixture-based integration: no visitor data is sent to Vercel.
-import json,mimetypes,shutil
+import json,mimetypes,os,shutil
 from pathlib import Path
 from urllib.parse import urlsplit,unquote
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parent.parent
 stub="""(()=>{let filter=e=>e;window.__analytics=[];function view(){let e=filter({type:'pageview',url:location.href});if(e){window.__analytics.push(e);fetch('/_vercel/insights/view',{method:'POST',body:JSON.stringify(e)})}};for(const [k,v] of window.vaq||[])if(k==='beforeSend')filter=v;window.va=(k,v)=>{if(k==='beforeSend')filter=v;};const push=history.pushState.bind(history);history.pushState=(...args)=>{push(...args);view()};window.addEventListener('popstate',view);view()})();"""
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path=shutil.which('chromium'),headless=True,args=['--no-sandbox'])
+ b=p.chromium.launch(executable_path=os.environ.get('OPENLAWTW_CHROMIUM') or None,headless=True,args=['--no-sandbox'])
  for origin,portable,online in [('https://openlawtw.vercel.app',False,True),('https://openlawtw-preview.vercel.app',False,True),('http://localhost:4173',False,True),('https://openlawtw.vercel.app',True,True),('https://openlawtw.vercel.app',False,False)]:
   ctx=b.new_context(service_workers='block');page=ctx.new_page();requests=[];errors=[]
   page.on('pageerror',lambda e:errors.append(str(e)))

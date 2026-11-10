@@ -278,6 +278,17 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn('sudo apt-get install -y poppler-utils', workflow)
         self.assertNotIn("github.event_name == 'push'", pr_step)
 
+    def test_browser_checks_use_the_pinned_playwright_chromium(self):
+        # Runner images ship their own /usr/bin/chromium on a different release train; driving it
+        # with the pinned Playwright crashed the print popup ("Target crashed") on Chromium 156.
+        for name in ('check-analytics-browser.py', 'check-law-print-browser.py', 'check-article-supplements-browser.py'):
+            script = (SCRIPTS / name).read_text()
+            self.assertNotIn("which('chromium')", script, name)
+            self.assertIn("os.environ.get('OPENLAWTW_CHROMIUM') or None", script, name)
+        workflow = (SCRIPTS.parent / '.github/workflows/validate.yml').read_text()
+        self.assertIn('playwright==1.58.0', workflow)
+        self.assertIn('playwright install --with-deps chromium', workflow)
+
     def test_always_uploads_only_fresh_run_artifacts_with_bounded_retention(self):
         workflow = (SCRIPTS.parent / '.github/workflows/sync.yml').read_text()
         upload = workflow.split("name: Preserve this run's diagnostics", 1)[1]
