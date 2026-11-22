@@ -172,6 +172,8 @@ def load_rulings():
             parts = list(ex.map(lambda k: fetch_versioned(lambda: manifest()["rulings"][k]), keys))
         seen, out = set(), []
         for r in (r for p in parts for r in p):
+            if not r.get("date") or not r.get("number"):
+                fill_header(r)
             key = (r.get("numberKey"), r.get("date")) if r.get("numberKey") else ("id", r.get("id"))
             if key in seen:
                 continue
@@ -179,6 +181,32 @@ def load_rulings():
             out.append(r)
         _rulings = out
     return _rulings
+
+
+# Some letters start with an editor's note (※註：…) or a meeting title, so the
+# source left date/number empty. Recover them from the first lines of the body.
+HEADER_RE = re.compile(r"((?:內政部|行政院|司法院|考選部|財政部|經濟部|法務部|臺灣省政府|台灣省政府)[^\d\n（）()]{0,10}?)?"
+                       r"(\d{2,3})[.．](\d{1,2})[.．](\d{1,2})[.．]?\s*([^\s（）()「」，。]{1,24}?號)(函|令|代電|公告)?")
+
+
+def fill_header(r):
+    lines = [l.strip() for l in (r.get("body") or "").split("\n")]
+    lines = [l for l in lines if l and not re.match(r"^※?註[：:]", l)][:3]
+    for line in lines:
+        m = HEADER_RE.search(line)
+        if not m:
+            continue
+        agency, y, mo, d, no, kind = m.groups()
+        if not r.get("date"):
+            r["date"] = f"{int(y) + 1911}-{int(mo):02d}-{int(d):02d}"
+        if not r.get("number"):
+            r["number"] = re.sub(r"^x", "", f"{agency or ''}{y}.{mo}.{d}{no}{kind or ''}")
+            core = re.search(r"第(.+?)號", no) or re.search(r"字(.+?)號", no)
+            digits = re.sub(r"\D", "", cn_digits_to_arabic(core.group(1) if core else no))
+            if not r.get("numberKey") and len(digits) >= 4:
+                r["numberKey"] = digits
+            r["headerFromBody"] = True
+        return
 
 
 # ---------------------------------------------------------------- numbers
@@ -726,7 +754,7 @@ def cmd_rulings(a):
     if not out:
         print("本庫只收國土署（原營建署）函釋彙編，不含經濟部、農業部、消防署及各縣市政府的函釋；查不到不代表沒有函釋。")
     for r in out[: a.limit]:
-        print(f"\n■ [{r['id']}] {r.get('date', '')}　{r.get('number', '')}")
+        print(f"\n■ [{r['id']}] {r.get('date') or '日期不明'}　{r.get('number') or '字號不明'}" + ("（由正文推得）" if r.get("headerFromBody") else ""))
         print(f"  {r.get('title', '')}")
         if r.get("refs"):
             print(f"  涉及：{ruling_refs(r)}")
@@ -740,7 +768,9 @@ def cmd_rulings(a):
 def cmd_ruling(a):
     for r in load_rulings():
         if str(r.get("id")) == str(a.id):
-            print(f"{r.get('number', '')}（{r.get('date', '')}，{r.get('unit', '')}）")
+            print(f"{r.get('number') or '（字號不明）'}（{r.get('date') or '日期不明'}" + (f"，{r['unit']}" if r.get("unit") else "") + "）")
+            if r.get("headerFromBody"):
+                print("（原始資料缺字號與日期，以上是從正文推得，引用前請開原文確認）")
             print(r.get("title", ""))
             if r.get("refs"):
                 print(f"涉及：{ruling_refs(r)}")
@@ -841,18 +871,37 @@ def resolve_document(q, region=None):
 
 
 def clause_of(text, want):
-    """805.1 inside section 805: from its line to the next clause of the same or higher level."""
+    """805.1 inside section 805: from its heading line to the next heading of the same or higher level.
+    A heading is the number followed by a space or its CJK title, in the same section; wrapped
+    cross-references such as 「207.3.2)。」「202.4者」「207節規定」 are not headings."""
+    top = want.split(".")[0]
+
+    def head(line):
+        m = re.match(r"\s*(\d{3}(?:\.\d+)*)(?=[\s\u3400-\u9fff])(?![者之節條項款規及或與等公])", line)
+        return m.group(1) if m and m.group(1).split(".")[0] == top else None
+
     lines = text.split("\n")
-    start = next((i for i, l in enumerate(lines) if l.strip().startswith(want)), None)
+    start = next((i for i, l in enumerate(lines) if head(l) == want), None)
     if start is None:
         return None
     depth, end = want.count(".") + 1, len(lines)
     for i in range(start + 1, len(lines)):
-        m = re.match(r"\s*(\d{3}(?:\.\d+)*)\s?", lines[i])
-        if m and m.group(1).count(".") + 1 <= depth and not m.group(1).startswith(want + "."):
+        n = head(lines[i])
+        if n and n != want and n.count(".") + 1 <= depth and not n.startswith(want + "."):
             end = i
             break
     return "\n".join(lines[start:end])
+
+
+def unwrap_pdf(text):
+    """Join PDF soft line breaks (keep breaks after 。： and before clause numbers, figures, tables)."""
+    keep = re.compile(r"\s*(?:\d{3}(?:\.\d+)*(?=[\s\u3400-\u9fff])(?![\u8005\u4e4b\u7bc0\u689d\u9805\u6b3e\u898f\u53ca\u6216\u8207\u7b49\u516c])|[圖表]\s?\d|[一二三四五六七八九十]+、|（[一二三四五六七八九十]+）)")
+    lines, out = text.split("\n"), ""
+    for i, line in enumerate(lines):
+        if i and (out.endswith(("。", "：")) or keep.match(line)):
+            out += "\n"
+        out += line
+    return out
 
 
 def cmd_doc_search(a):
@@ -860,6 +909,16 @@ def cmd_doc_search(a):
     ks = [re.sub(r"\s+", "", k) for k in kws]
     names = {l["id"]: l for l in catalog()["laws"]}
     ids = doc_ids()
+    if not kws:
+        readers = manifest().get("documentReaders") or {}
+        regions = set(a.region.split(",")) if a.region else None
+        docs = [names.get(i, {"id": i, "name": i, "region": ""}) for i in ids]
+        docs = [l for l in docs if not regions or "全部" in regions or l["region"] in regions]
+        docs.sort(key=lambda l: (l["region"] != "中央", l["region"], l["name"]))
+        print(f"原文文件 {len(docs)} 份（給關鍵字就會搜尋內文）：")
+        for l in docs:
+            print(f"  {l['region']}｜{l['name']}　[{l['id']}]" + ("　可依節號讀" if l["id"] in readers else ""))
+        return
     if a.doc:
         ids = [resolve_document(a.doc, a.region)["id"]]
     elif a.region:
@@ -917,7 +976,7 @@ def cmd_doc(a):
                 pages = f"{sec.get('startPage')}" + (f"–{sec['endPage']}" if sec.get("endPage") and sec["endPage"] != sec.get("startPage") else "")
                 print(f"{law['name']}　{want if '.' in want else sec['title']}［{ch['title']}］　PDF 第 {pages} 頁")
                 print(cap(body))
-                exc = exceptions_of(body)
+                exc = exceptions_of(unwrap_pdf(body))
                 if exc:
                     print(f"【例外與但書】{len(exc)} 處（適用前要逐一確認是否符合）")
                     for _, kinds, t in exc[:10]:
@@ -986,7 +1045,7 @@ def main():
     s = sub.add_parser("ruling"); s.add_argument("id"); s.set_defaults(f=cmd_ruling)
     s = sub.add_parser("conflicts"); s.add_argument("law"); s.add_argument("article", nargs="?")
     s.add_argument("--region"); s.set_defaults(f=cmd_conflicts)
-    s = sub.add_parser("doc-search"); s.add_argument("keywords", nargs="+")
+    s = sub.add_parser("doc-search"); s.add_argument("keywords", nargs="*")
     s.add_argument("--doc", help="限定文件（名稱、簡稱或 ID）"); s.add_argument("--region")
     s.add_argument("--limit", type=int, default=10); s.add_argument("--any", action="store_true")
     s.set_defaults(f=cmd_doc_search)
