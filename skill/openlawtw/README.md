@@ -15,7 +15,7 @@ Agent:  ▸ openlaw.py article 設計施工編 107
 This skill runs on top of **[openlawtw](https://openlawtw.vercel.app)**, an open database of Taiwanese building, planning and land-use law:
 
 - **1,000+ laws**: central government plus all 22 cities and counties, split article by article
-- **9,000+ rulings (函釋)** from the National Land Management Agency, linked to the articles they interpret
+- **8,700+ rulings (函釋)** from the National Land Management Agency, linked to the articles they interpret
 - **Synced weekly** with 全國法規資料庫 and local government law portals
 
 ## What it does
@@ -26,11 +26,12 @@ This skill runs on top of **[openlawtw](https://openlawtw.vercel.app)**, an open
 | `search 緊急用昇降機 避難層` | Full-text search across all articles (central or any city) |
 | `rulings --law 設計施工編 --article 107` | Rulings linked to that article, newest first |
 | `rulings 農舍 解除套繪` | Keyword search across rulings |
+| `conflicts 設計施工編` | Deleted references, void notes, revoked and stale rulings |
 | `toc 建築法` | Chapter outline of a law |
 
 Common short names work too: 建技, 設計施工編, 變使, 室裝, 危老, 非都管制, 無障礙規範…
 
-It also flags **stale rulings**: when a ruling predates the latest amendment of the article it interprets (worked out from each law's amendment history), it prints a ⚠ so the agent checks it against the current text before citing it.
+It also flags what makes a citation unsafe: rulings **revoked** by a later ruling, rulings **older than the latest amendment** of the article they interpret, articles that **cite deleted articles**, "declared void" notes, and it lists each article's **exceptions and provisos** (但書、除外、免計). Prefer the [openlawtw MCP server](https://openlawtw-mcp.vercel.app) if your client supports MCP; the skill uses it automatically when its tools are available.
 
 The skill also sets ground rules for the agent: never cite from memory, quote the key sentence, link every source, flag repealed or not-yet-effective provisions, and check local rules when a city is involved.
 
@@ -69,7 +70,7 @@ export OPENLAW_DATA=/path/to/openlawtw
 
 讓 Claude、Codex 等 AI 助理回答臺灣建築法規問題時，**先查 openlawtw 的現行條文和函釋再回答**，附上條號、原文和連結，不再亂編條號。
 
-收錄中央與 22 縣市共 1,000 多部建築、都市計畫、土地使用相關法規，以及 9,000 多則國土署函釋，每週同步。
+收錄中央與 22 縣市共 1,000 多部建築、都市計畫、土地使用相關法規，以及 8,700 多則國土署函釋，每週同步。
 
 安裝方式見上方 Install。有問題或想要加哪些法規，歡迎開 issue，或到 Threads 找 [@termcavetw](https://www.threads.net/@termcavetw)。
 

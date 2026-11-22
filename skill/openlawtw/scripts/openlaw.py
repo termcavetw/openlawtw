@@ -13,6 +13,7 @@ Commands
   rulings   [keywords...] [--law L] [--article N] [--limit N]
                                            search 國土署 rulings (函釋)
   ruling    <id>                           print one ruling in full
+  conflicts <law> [<no>]                   deleted references, void notes, revoked and stale rulings
   info                                     data version and source
 
 Environment
@@ -133,16 +134,30 @@ def load_laws(ids):
         return list(ex.map(load_law, ids))
 
 
+_rulings = None
+
+
 def load_rulings():
-    shards = list(manifest()["rulings"].values())
-    with ThreadPoolExecutor(12) as ex:
-        parts = list(ex.map(lambda s: fetch(s["url"]), shards))
-    return [r for p in parts for r in p]
+    """All rulings, with letters listed twice (same number and date) removed."""
+    global _rulings
+    if _rulings is None:
+        shards = list(manifest()["rulings"].values())
+        with ThreadPoolExecutor(12) as ex:
+            parts = list(ex.map(lambda s: fetch(s["url"]), shards))
+        seen, out = set(), []
+        for r in (r for p in parts for r in p):
+            key = (r.get("numberKey"), r.get("date")) if r.get("numberKey") else ("id", r.get("id"))
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(r)
+        _rulings = out
+    return _rulings
 
 
 # ---------------------------------------------------------------- numbers
 
-CN = {"零": 0, "〇": 0, "一": 1, "二": 2, "兩": 2, "三": 3, "四": 4, "五": 5,
+CN = {"零": 0, "〇": 0, "○": 0, "一": 1, "二": 2, "兩": 2, "三": 3, "四": 4, "五": 5,
       "六": 6, "七": 7, "八": 8, "九": 9}
 CN_UNIT = {"十": 10, "百": 100, "千": 1000}
 
@@ -150,6 +165,8 @@ CN_UNIT = {"十": 10, "百": 100, "千": 1000}
 def cn2int(s):
     if s.isdigit():
         return int(s)
+    if s and all(c in CN for c in s):  # 一一三 = 113
+        return int("".join(str(CN[c]) for c in s))
     total, num = 0, 0
     for ch in s:
         if ch in CN:
@@ -251,6 +268,68 @@ def article_amended(law, no):
     if full and (not d or full > d):
         d = full
     return d
+
+
+def cn_digits_to_arabic(s):
+    s = re.sub(r"[０-９]", lambda m: chr(ord(m.group(0)) - 0xFEE0), s)
+    return re.sub(r"[零〇○一二三四五六七八九]{3,}", lambda m: "".join(str(CN[c]) for c in m.group(0)), s)
+
+
+_revoked = None
+NUM = re.compile(r"第\s*([0-9A-Za-z]{5,12})\s*號")
+
+
+def revocations():
+    """old ruling id -> (revoking ruling, partial?) parsed from 「…停止適用」 sentences."""
+    global _revoked
+    if _revoked is not None:
+        return _revoked
+    rs = load_rulings()
+    by_key = {}
+    for r in rs:
+        if r.get("numberKey") and r["numberKey"] not in by_key:
+            by_key[r["numberKey"]] = r
+    out = {}
+    for r in rs:
+        body = cn_digits_to_arabic(r.get("body") or "")
+        for m in re.finditer(r"([^。；\n]{0,200}?)(停止適用|不再援用|不再適用)", body):
+            seg = m.group(1)
+            if re.search(r"(無|未|非|不|免)[廢止或]{0,3}$", seg):  # 「尚無廢止或停止適用」
+                continue
+            revoker = r
+            k = seg.rfind("經")
+            if k >= 0:
+                after = NUM.findall(seg[k:])
+                if after:
+                    b = by_key.get(after[-1])
+                    if b:
+                        revoker = b
+                    seg = seg[:k]
+            nums = NUM.findall(seg)
+            if not nums:
+                continue
+            targets = nums if re.search(r"等\s*\d*\s*[函則件]", seg) else [nums[-1]]
+            partial = bool(re.search(r"部分|說明[一二三四五六七八九十0-9]|第\s*[0-9一二三四五六七八九十]+\s*[點項款]", seg[seg.rfind(targets[-1]):]))
+            for n in targets:
+                old = by_key.get(n)
+                if not old or old["id"] == revoker["id"] or (old.get("date") or "") >= (revoker.get("date") or ""):
+                    continue
+                prev = out.get(str(old["id"]))
+                if not prev or (prev[0].get("date") or "") < (revoker.get("date") or ""):
+                    out[str(old["id"])] = (revoker, partial)
+    _revoked = out
+    return out
+
+
+def ruling_warnings(r):
+    notes = []
+    rev = revocations().get(str(r.get("id")))
+    if rev:
+        by, partial = rev
+        notes.append(f"⚠ {'部分內容' if partial else '本函釋'}已由 {by.get('number', '')}（{by.get('date', '')}）停止適用 [ruling {by['id']}]")
+    for n in staleness(r):
+        notes.append(f"⚠ {n}，引用前請對照現行條文")
+    return notes
 
 
 def staleness(r):
@@ -379,6 +458,108 @@ def article_attachments(law, art):
     return picked
 
 
+EXC_RULES = [
+    ("但書", re.compile(r"(^|[。；：\s])但[^書]")),
+    ("但書", re.compile(r"不在此限")),
+    ("除外", re.compile(r"除[^。；]{1,80}?外[，、之]")),
+    ("免受限制", re.compile(r"得?不受[^。；]{0,40}(限制|規定|拘束)")),
+    ("不適用", re.compile(r"不適用")),
+    ("免計／免設", re.compile(r"(得不計入|不計入|免計|得免|免予|免辦|免設|免附|免檢討)")),
+    ("另有規定", re.compile(r"另有規定者?，?從其規定")),
+]
+KUAN = re.compile(r"^\s*([一二三四五六七八九十]+)、")
+MU = re.compile(r"^\s*[（(]([一二三四五六七八九十]+)[）)]")
+
+
+def exceptions_of(text):
+    """但書、除外、免除 sentences with their 項／款／目 position."""
+    out = []
+    lines = [l for l in text.split("\n") if l.strip()]
+    para_count = sum(1 for l in lines if not KUAN.match(l) and not MU.match(l))
+    para, kuan, mu = 0, None, None
+    for line in lines:
+        if KUAN.match(line):
+            kuan, mu = KUAN.match(line).group(1), None
+        elif MU.match(line):
+            mu = MU.match(line).group(1)
+        else:
+            para, kuan, mu = para + 1, None, None
+        for sentence in re.split(r"(?<=。)", line):
+            kinds = []
+            for k, rx in EXC_RULES:
+                if rx.search(sentence) and k not in kinds:
+                    kinds.append(k)
+            if kinds:
+                where = (f"第{para}項" if para_count > 1 else "") + (f"第{kuan}款" if kuan else "") + (f"第{mu}目" if mu else "")
+                out.append((where, kinds, re.sub(r"\s+", " ", sentence.strip())))
+    return out
+
+
+CNNUM = "[一二三四五六七八九十百零〇]+(?:條之[一二三四五六七八九十]+)?"
+SELF_REF = re.compile(f"(本編|本規則|本辦法|本細則|本條例|本標準|本準則|本法)((?:第{CNNUM}條(?:[至、及或與]|規定)?)+)")
+
+
+def self_ref_words(name):
+    for suffix, words in (("編", ["本編", "本規則"]), ("施行細則", ["本細則"]), ("辦法", ["本辦法"]), ("規則", ["本規則"]),
+                          ("條例", ["本條例"]), ("標準", ["本標準"]), ("準則", ["本準則"]), ("法", ["本法"])):
+        if name.endswith(suffix):
+            return words
+    return []
+
+
+def is_deleted(art):
+    return bool(re.match(r"^\s*[（(]?\s*刪除", art["text"]))
+
+
+def ref_targets(chain):
+    out = []
+    for to, num in re.findall(f"(至)?第({CNNUM})條", chain):
+        try:
+            no = "-".join(str(cn2int(x)) for x in re.split("條之", num))
+        except ValueError:
+            continue
+        if to and out and "-" not in no and "-" not in out[-1]:
+            out += [str(i) for i in range(int(out[-1]) + 1, int(no))]
+        out.append(no)
+    return out
+
+
+def broken_refs(law, only=None):
+    """Articles of this law that cite deleted or missing articles of the same law."""
+    words = self_ref_words(law["name"])
+    if not words:
+        return []
+    by_no = {norm_no(a["no"]): a for a in law["articles"]}
+    out = []
+    for a in law["articles"]:
+        if only and norm_no(a["no"]) != norm_no(only):
+            continue
+        if is_deleted(a):
+            continue
+        for m in SELF_REF.finditer(a["text"]):
+            if m.group(1) not in words:
+                continue
+            for no in ref_targets(m.group(2)):
+                t = by_no.get(no)
+                label = f"{m.group(1)}第 {no} 條"
+                if t is None:
+                    out.append((a["no"], label, "不存在"))
+                elif is_deleted(t):
+                    out.append((a["no"], label, "已刪除"))
+    return out
+
+
+def invalid_notes(law, only=None):
+    out = []
+    for a in law["articles"]:
+        if only and norm_no(a["no"]) != norm_no(only):
+            continue
+        m = re.search(r"[（(]註[：:][^）)]*無效[^）)]*[）)]", a["text"]) or re.search(r"[^。\n]*函告[^。\n]*無效[^。\n]*", a["text"])
+        if m:
+            out.append((a["no"], re.sub(r"\s+", " ", m.group(0))))
+    return out
+
+
 def find_article(law, no):
     want = norm_no(no)
     for art in law["articles"]:
@@ -413,6 +594,15 @@ def cmd_article(a):
             print(f"（另有 {len(att) - 8} 個附件，請看官方來源）")
         if not att and re.search(r"附[表圖]", art["text"]):
             print("（條文提到附表／附圖，但本庫沒有對應的附件連結，請開官方來源查看）")
+        exc = exceptions_of(clean(art["text"], law))
+        if exc:
+            print(f"【例外與但書】{len(exc)} 處（適用前要逐一確認是否符合）")
+            for where, kinds, t in exc[:12]:
+                print(f"  ・{where + '：' if where else ''}[{'、'.join(kinds)}] {t[:160] + '…' if len(t) > 160 else t}")
+            if len(exc) > 12:
+                print(f"  …另有 {len(exc) - 12} 處")
+        for _, label, problem in broken_refs(law, art["no"]):
+            print(f"⚠ 本條引用的「{label}」{problem}，請查證現行適用規定")
         print(f"連結：{law_link(law['id'], art.get('anchor'))}")
 
 
@@ -460,6 +650,7 @@ def cmd_search(a):
     for _, _, law, art in hits[: a.limit]:
         print(f"\n■ {law['name']} {art['no']}　[{law['id']}]")
         print("  " + snippet(clean(art["text"], law), kws))
+        print("  " + law_link(law["id"], art.get("anchor")))
     if len(hits) > a.limit:
         print(f"\n…還有 {len(hits) - a.limit} 條，加 --limit 或縮小關鍵字。")
     if not hits and not a.any:
@@ -485,11 +676,8 @@ def cmd_rulings(a):
     kws = a.keywords or []
     law_id = resolve_law(a.law)["id"] if a.law else None
     art_no = norm_no(a.article) if a.article else None
-    out, seen = [], set()
+    out = []
     for r in rs:
-        key = (r.get("numberKey"), r.get("date"))
-        if r.get("numberKey") and key in seen:  # same letter listed twice
-            continue
         if law_id:
             refs = r.get("refs") or []
             ok = [x for x in refs if x.get("law") == law_id]
@@ -500,17 +688,18 @@ def cmd_rulings(a):
         blob = (r.get("title") or "") + "\n" + (r.get("body") or "")
         if kws and not all(k in blob for k in kws):
             continue
-        seen.add(key)
         out.append(r)
     out.sort(key=lambda r: r.get("date") or "", reverse=True)
     print(f"函釋符合：{len(out)} 則（依日期新到舊）")
+    if not out:
+        print("本庫只收國土署（原營建署）函釋彙編，不含經濟部、農業部、消防署及各縣市政府的函釋；查不到不代表沒有函釋。")
     for r in out[: a.limit]:
         print(f"\n■ [{r['id']}] {r.get('date', '')}　{r.get('number', '')}")
         print(f"  {r.get('title', '')}")
         if r.get("refs"):
             print(f"  涉及：{ruling_refs(r)}")
-        for n in staleness(r):
-            print(f"  ⚠ {n}，引用前請對照現行條文")
+        for n in ruling_warnings(r):
+            print("  " + n)
         if r.get("body"):
             print("  " + snippet(r["body"], kws or [""], 60))
         print(f"  {r.get('url', '')}")
@@ -523,14 +712,51 @@ def cmd_ruling(a):
             print(r.get("title", ""))
             if r.get("refs"):
                 print(f"涉及：{ruling_refs(r)}")
-            for n in staleness(r):
-                print(f"⚠ {n}。函釋引用的可能是舊條文，請對照現行條文再引用")
+            for n in ruling_warnings(r):
+                print(n)
             print("─" * 30)
             print(r.get("body") or "（本庫未收錄全文，請看原始連結）")
             print("─" * 30)
             print(f"來源：{r.get('url', '')}")
             return
     sys.exit(f"找不到函釋 {a.id}")
+
+
+def cmd_conflicts(a):
+    meta = resolve_law(a.law, a.region)
+    law = load_law(meta["id"])
+    only = a.article
+    head = find_article(law, only)["no"] if only and find_article(law, only) else (only or "（全部條文）")
+    print(f"衝突檢查：{law['name']} {head}")
+    broken = broken_refs(law, only)
+    print(f"\n【引用已刪除或不存在的條文】{len(broken)} 處")
+    for frm, label, problem in broken[:30]:
+        print(f"  {frm}：「{label}」{problem}")
+    inv = invalid_notes(law, only)
+    print(f"\n【經函告無效或部分無效的註記】{len(inv)} 處")
+    for no, note in inv:
+        print(f"  {no}：{note}")
+    art_no = norm_no(only) if only else None
+    linked = [r for r in load_rulings() if any(x.get("law") == law["id"] and (not art_no or (x.get("article") and norm_no(x["article"]) == art_no)) for x in r.get("refs") or [])]
+    rev = revocations()
+    revoked = [r for r in linked if str(r["id"]) in rev]
+    print(f"\n【已被停止適用的函釋】{len(revoked)} 則（相關函釋共 {len(linked)} 則）")
+    for r in revoked[:20]:
+        by, partial = rev[str(r["id"])]
+        print(f"  [{r['id']}] {r.get('date')} {r.get('number')} → {'部分' if partial else ''}停止適用，依 [{by['id']}] {by.get('date')} {by.get('number')}")
+    stale = []
+    for r in linked:
+        for x in r.get("refs") or []:
+            if x.get("law") != law["id"] or not x.get("article") or (art_no and norm_no(x["article"]) != art_no):
+                continue
+            d = article_amended(law, x["article"])
+            if d and r.get("date") and r["date"] < d:
+                stale.append((r, x["article"], d))
+                break
+    print(f"\n【早於條文修正的函釋】{len(stale)} 則")
+    for r, art, d in stale[:20]:
+        print(f"  [{r['id']}] {r.get('date')} {r.get('number')}：{art}於 {d} 修正")
+    print("\n說明：以上為自動比對結果，「停止適用」依函釋全文字句判斷，引用前請開原文確認。中央與地方規定的實質差異無法自動判斷。")
 
 
 def cmd_info(a):
@@ -564,6 +790,8 @@ def main():
     s.set_defaults(f=cmd_rulings)
 
     s = sub.add_parser("ruling"); s.add_argument("id"); s.set_defaults(f=cmd_ruling)
+    s = sub.add_parser("conflicts"); s.add_argument("law"); s.add_argument("article", nargs="?")
+    s.add_argument("--region"); s.set_defaults(f=cmd_conflicts)
     s = sub.add_parser("info"); s.set_defaults(f=cmd_info)
 
     a = p.parse_args()
