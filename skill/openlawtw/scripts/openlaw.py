@@ -992,7 +992,9 @@ def show_attachment(doc, section):
             print(f"  {d['key']}　{d['title']}" + (f"（{n} 段／頁：{'、'.join(u['id'] for u in d['units'][:12])}{'…' if n > 12 else ''}）" if n > 1 else ""))
         for x in AL.get("skipped") or []:
             print(f"  {x['key']}　{x['title']}（矩陣表格，未收，請開原檔 {_att_link(x)}）")
-        print(f'用法：OL doc {AL["lawName"]} "附表二 B-3"；或 OL doc-search 關鍵字。')
+        d0 = AL["docs"][0] if AL["docs"] else None
+        ex = (f"{d0['key']} {d0['units'][0]['id']}" if len(d0["units"]) > 1 else d0["key"]) if d0 else ""
+        print(f'用法：OL doc {AL["lawName"]} "{ex}"；或 OL doc-search 關鍵字。')
         return True
     d = next((x for x in AL["docs"] if x["key"] == key), None)
     if not d:
@@ -1034,7 +1036,7 @@ def cmd_doc_search(a):
             print(f"  {l['region']}｜{l['name']}　[{l['id']}]" + ("　可依節號讀" if l["id"] in readers else ""))
         print("另有自行抽出文字的官方 PDF 附表：")
         for AL in _att().get("laws", []):
-            print(f"  {AL['lawName']}　{'、'.join(d['key'] for d in AL['docs'])}")
+            print(f"  {AL['lawName']}　{'、'.join(d['key'] for d in AL['docs']) or '（附表為矩陣表格，僅附原檔連結）'}")
         print('（例：OL doc 變使 "附表四 B-3"；OL doc 非都管制規則 "附表一 5"（頁））')
         return
     att_ids = None
