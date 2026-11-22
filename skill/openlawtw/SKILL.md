@@ -23,17 +23,18 @@ description: Look up Taiwan building, planning and land-use law (建築法、建
 
 腳本在本 skill 資料夾的 `scripts/openlaw.py`，只用 Python 標準庫。
 
-如果環境裡找不到這支腳本，先下載：
+如果環境裡找不到這支腳本，先下載（GitHub 連不到時自動改用 CDN 鏡像）：
 
 ```bash
-curl -sL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/openlawtw/scripts/openlaw.py -o /tmp/openlaw.py
+curl -sfL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/openlawtw/scripts/openlaw.py -o /tmp/openlaw.py \
+  || curl -sfL https://cdn.jsdelivr.net/gh/termcavetw/openlawtw@main/skill/openlawtw/scripts/openlaw.py -o /tmp/openlaw.py
 ```
 
 以下用 `OL` 代表 `python3 <腳本路徑>`。
 
 | 要做的事 | 指令 |
 |---|---|
-| 找法規、確認全名與 ID | `OL find-law 變使` |
+| 找法規、確認全名與 ID | `OL find-law 變使`、`OL find-law 桃園市 建築管理`（多個詞要全部符合；寫縣市名就只找該縣市） |
 | 讀條文（可一次多條） | `OL article 設計施工編 107 108` |
 | 看整部法規的章節目錄 | `OL toc 建築法` |
 | 全文搜尋條文（關鍵字全部符合） | `OL search 緊急用昇降機 避難層` |
@@ -43,7 +44,10 @@ curl -sL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/openl
 | 讀函釋全文 | `OL ruling 13672` |
 | 資料版本與同步時間 | `OL info` |
 
-- 法規可以用全名、ID（如 `D0070115`）或常用簡稱：建技、設計施工編、構造編、設備編、變使、室裝、公安、危老、都更條例、非都管制、無障礙規範、特登、毗連擴廠……
+- 法規可以用全名、ID（如 `D0070115`）或常用簡稱：建技、設計施工編、構造編、設備編、變使、室裝、公安、危老、危老獎勵、危老細則、都更條例、非都管制、無障礙規範、特登、毗連擴廠……
+- `find-law 危老`、`find-law 都更`、`find-law 建技` 會列出整個系列的法規（例如危老條例、容積獎勵辦法、施行細則、結構評估辦法），不確定要查哪一部時先用這個。
+- `article` 會印出法規的「制定／訂定日期」，計算「施行後第幾年」這類期限時用它當起算點，並說明實際起算日以條文規定為準。
+- 條文有附表、附圖或補充圖例時，`article` 會印出「圖表附件」和官方檔案連結。回答涉及附表內容（例如使用類組定義）時，要附上連結，請使用者打開確認。
 - 條號可以寫 `107`、`164-1`、`164之1`、`第一百零七條`。
 - `search` 預設只搜中央法規；`--region 全部` 搜所有縣市（第一次會下載約 22MB，之後有快取）。全部關鍵字都沒對到時，可以加 `--any`，或改用同義詞再查（例如「昇降機」和「電梯」、「容積」和「樓地板面積」）。
 
@@ -71,6 +75,7 @@ curl -sL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/openl
 ## 限制
 
 - 條文的附表、附圖多半是 PDF（腳本會印出「圖表附件」），內容沒有收錄在文字裡。遇到要看附表的問題，請使用者打開官方連結。
-- 函釋目前只收國土署的函釋彙編，不包括各縣市政府自己的函釋。
+- 函釋目前只收國土署的函釋彙編，不包括各縣市政府自己的函釋，也不包括經濟部（工業、工廠、擴廠）、農業部（農舍、農業設施）、消防署等其他機關的函釋。查到 0 則時要說明可能是不在收錄範圍，而不是沒有函釋。
+- **各都市計畫書和土地使用分區管制要點沒有收錄。** 開挖率、建蔽率、容積率、退縮、停車獎勵等常寫在個別都市計畫的土管要點裡，查不到時要明說「這通常規定在該都市計畫的土管要點，本庫未收」，請使用者查該都市計畫書，不要拿其他法規的數字代替。
 - 有些函釋只有標題、沒有全文，腳本會說明；引用時只能引標題與字號。
 - 網路連不到資料來源時，腳本會改用 GitHub 鏡像，再不行就用本機快取。都失敗的話，請直接告訴使用者無法查詢，**不要改憑記憶回答**。如果有 openlawtw 專案的本機副本，可以設定 `OPENLAW_DATA=<專案路徑>` 離線使用。
