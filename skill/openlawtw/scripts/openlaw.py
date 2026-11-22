@@ -599,6 +599,10 @@ def cmd_article(a):
     law = load_law(meta["id"])
     print(law_header(law))
     print(f"官方來源：{law.get('url', '')}")
+    if not law.get("articles") and law["id"] in doc_ids():
+        hint = "（例：OL doc 無障礙規範 805）" if law["id"] in (manifest().get("documentReaders") or {}) else ""
+        print(f"這部是原文文件（PDF／HTML），沒有逐條條文。請用 OL doc-search 搜尋，或 OL doc 讀節號／頁碼{hint}。")
+        return
     for no in a.no:
         art = find_article(law, no)
         print("\n" + "─" * 30)
@@ -681,6 +685,8 @@ def cmd_search(a):
         print(f"\n…還有 {len(hits) - a.limit} 條，加 --limit 或縮小關鍵字。")
     if not hits and not a.any:
         print("沒有全部關鍵字都符合的條文，可以加 --any 改成任一關鍵字符合，或換同義詞。")
+    if not hits:
+        print("無障礙設施設計規範、耐震設計規範、綠建築各項技術規範等是原文文件，請改用 OL doc-search。")
 
 
 _names = None
@@ -785,9 +791,171 @@ def cmd_conflicts(a):
     print("\n說明：以上為自動比對結果，「停止適用」依函釋全文字句判斷，引用前請開原文確認。中央與地方規定的實質差異無法自動判斷。")
 
 
+# ---------------------------------------------------------------- documents (PDF/HTML 原文文件，例如無障礙設施設計規範)
+
+def doc_link(law_id, page=None):
+    return f"{SITE}/laws/{law_id}.html" + (f"#document-page-{page}" if page else "")
+
+
+def doc_ids():
+    return list((manifest().get("documentTexts") or {}).keys())
+
+
+def load_doc_text(law_id):
+    return fetch_versioned(lambda: manifest()["documentTexts"][law_id])
+
+
+def load_doc_reader(law_id):
+    if law_id not in (manifest().get("documentReaders") or {}):
+        return None
+    return fetch_versioned(lambda: manifest()["documentReaders"][law_id])
+
+
+def doc_units(law_id):
+    """Searchable units: reader sections (ids such as 805) when available, else pages."""
+    reader = load_doc_reader(law_id)
+    if reader:
+        out = []
+        for ch in reader.get("chapters") or []:
+            if re.search("封面|目錄", ch["title"]):
+                continue
+            for sec in ch.get("sections") or []:
+                out.append({"label": sec["title"], "chapter": ch["title"], "page": sec.get("startPage"), "text": sec.get("text") or "", "sec": sec})
+        return out
+    return [{"label": f"第 {p['page']} 頁", "chapter": "", "page": p["page"], "text": p.get("text") or "", "sec": None}
+            for p in load_doc_text(law_id).get("pages") or []]
+
+
+def resolve_document(q, region=None):
+    ids = set(doc_ids())
+    pool = [l for l in catalog()["laws"] if l["id"] in ids and (not region or l["region"] == region)]
+    if q in ids:
+        return next(l for l in catalog()["laws"] if l["id"] == q)
+    target = aliases().get(q.lower(), aliases().get(q, q))
+    for test in (lambda l: l["name"] == target, lambda l: target in l["name"],
+                 lambda l: re.search(".*".join(map(re.escape, target)), l["name"])):
+        cand = sorted([l for l in pool if test(l)], key=lambda l: (l["region"] != "中央", len(l["name"])))
+        if cand:
+            return cand[0]
+    sys.exit(f"找不到原文文件「{q}」。可以不加 --doc，直接 doc-search 搜全部 {len(ids)} 份。")
+
+
+def clause_of(text, want):
+    """805.1 inside section 805: from its line to the next clause of the same or higher level."""
+    lines = text.split("\n")
+    start = next((i for i, l in enumerate(lines) if l.strip().startswith(want)), None)
+    if start is None:
+        return None
+    depth, end = want.count(".") + 1, len(lines)
+    for i in range(start + 1, len(lines)):
+        m = re.match(r"\s*(\d{3}(?:\.\d+)*)\s?", lines[i])
+        if m and m.group(1).count(".") + 1 <= depth and not m.group(1).startswith(want + "."):
+            end = i
+            break
+    return "\n".join(lines[start:end])
+
+
+def cmd_doc_search(a):
+    kws = [k for k in a.keywords if k]
+    ks = [re.sub(r"\s+", "", k) for k in kws]
+    names = {l["id"]: l for l in catalog()["laws"]}
+    ids = doc_ids()
+    if a.doc:
+        ids = [resolve_document(a.doc, a.region)["id"]]
+    elif a.region:
+        regions = set(a.region.split(","))
+        ids = [i for i in ids if "全部" in regions or names.get(i, {}).get("region") in regions]
+    hits = []
+    for i in ids:
+        try:
+            units = doc_units(i)
+        except Exception:
+            continue
+        for u in units:
+            hay = re.sub(r"\s+", "", u["label"] + u["text"])  # PDF text is often letter-spaced
+            matched = sum(1 for k in ks if k in hay)
+            if matched == len(ks) or (a.any and matched):
+                hits.append((matched, sum(hay.count(k) for k in ks), i, u, hay))
+    hits.sort(key=lambda h: (-h[0], -h[1]))
+    print(f"在 {len(ids)} 份原文文件搜尋「{' '.join(kws)}」：{len(hits)} 處符合")
+    for _, _, i, u, hay in hits[: a.limit]:
+        sec = u["sec"]["id"] if u["sec"] else ""
+        print(f"\n■ {names.get(i, {}).get('name', i)}　{u['label']}" + (f"（{u['chapter']}）" if u["chapter"] else "")
+              + f"　PDF 第 {u['page']} 頁　[{i}{' / ' + sec if sec else ''}]")
+        print("  " + snippet(hay[len(re.sub(r'\s+', '', u['label'])):], ks))
+        print("  " + doc_link(i, u["page"]))
+    if len(hits) > a.limit:
+        print(f"\n…還有 {len(hits) - a.limit} 處，加 --limit 或增加關鍵字。")
+    if hits:
+        print("\n用 doc 讀全文：OL doc 無障礙規範 805（節號）或 OL doc <文件> --page 12。")
+    elif not a.any:
+        print("沒有全部關鍵字都符合的段落，可以加 --any 或換同義詞。")
+
+
+def cmd_doc(a):
+    meta = resolve_document(a.doc, a.region)
+    law = load_law(meta["id"])
+    print(law_header(law))
+    print(f"官方來源：{law.get('url', '')}")
+    for f in (law.get("attachments") or [])[:3]:
+        print(f"原檔：{f.get('title')}　{f.get('url')}")
+    print("（本文件為官方 PDF／HTML 原文擷取的文字；圖、表、公式請以原檔為準。）")
+    reader = load_doc_reader(meta["id"])
+    cap = lambda t: t if len(t) <= 6000 else t[:6000] + "\n…（內容過長已截斷，請開連結看全文）"
+    if a.section and reader:
+        want = a.section.lstrip("第").strip()
+        base = want.split(".")[0]
+        for ch in reader.get("chapters") or []:
+            for sec in ch.get("sections") or []:
+                if sec["id"] not in (base, want) and not sec["title"].startswith(want):
+                    continue
+                body = clause_of(sec.get("text") or "", want) if "." in want else sec.get("text") or ""
+                print("─" * 30)
+                if not body:
+                    print(f"{sec['title']} 裡找不到 {want}。")
+                    return
+                pages = f"{sec.get('startPage')}" + (f"–{sec['endPage']}" if sec.get("endPage") and sec["endPage"] != sec.get("startPage") else "")
+                print(f"{law['name']}　{want if '.' in want else sec['title']}［{ch['title']}］　PDF 第 {pages} 頁")
+                print(cap(body))
+                exc = exceptions_of(body)
+                if exc:
+                    print(f"【例外與但書】{len(exc)} 處（適用前要逐一確認是否符合）")
+                    for _, kinds, t in exc[:10]:
+                        print(f"  ・[{'、'.join(kinds)}] {t[:160] + '…' if len(t) > 160 else t}")
+                print(f"連結：{doc_link(law['id'], sec.get('startPage'))}")
+                return
+        print("─" * 30 + f"\n找不到節號「{a.section}」。不填節號可以看目錄。")
+        return
+    if a.page:
+        pages = load_doc_text(meta["id"]).get("pages") or []
+        p = next((x for x in pages if x["page"] == a.page), None)
+        print("─" * 30)
+        if not p:
+            print(f"沒有第 {a.page} 頁（共 {len(pages)} 頁）。")
+            return
+        print(f"{law['name']}　PDF 第 {p['page']} 頁\n{cap(p.get('text') or '')}\n連結：{doc_link(law['id'], p['page'])}")
+        return
+    print("─" * 30)
+    if reader:
+        print("目錄（OL doc <文件> <節號> 讀全文）：")
+        for ch in reader.get("chapters") or []:
+            if re.search("封面|目錄", ch["title"]):
+                continue
+            print(f"{ch['title']}（PDF {ch.get('startPage')}–{ch.get('endPage')} 頁）")
+            for sec in ch.get("sections") or []:
+                print(f"  {sec['title']}　p.{sec.get('startPage')}")
+        return
+    pages = load_doc_text(meta["id"]).get("pages") or []
+    print(f"共 {len(pages)} 頁（加 --page N 讀全文）：")
+    for p in pages[:40]:
+        print(f"  第 {p['page']} 頁：{re.sub(r'\s+', ' ', p.get('text') or '')[:50]}")
+    print(f"連結：{doc_link(law['id'])}")
+
+
 def cmd_info(a):
     m, c = manifest(), catalog()
     print(f"openlawtw 資料版本 {m.get('release')}，收錄 {len(m['laws'])} 部法規、{len(load_rulings())} 則函釋")
+    print(f"原文文件 {len(m.get('documentTexts') or {})} 份（PDF／HTML，用 doc-search、doc 查），其中建築物無障礙設施設計規範可依節號查詢")
     print(f"最近同步：{c.get('collected')}")
     print(f"資料來源：{LOCAL or _base or '本機快取 ' + CACHE}")
 
@@ -818,6 +986,12 @@ def main():
     s = sub.add_parser("ruling"); s.add_argument("id"); s.set_defaults(f=cmd_ruling)
     s = sub.add_parser("conflicts"); s.add_argument("law"); s.add_argument("article", nargs="?")
     s.add_argument("--region"); s.set_defaults(f=cmd_conflicts)
+    s = sub.add_parser("doc-search"); s.add_argument("keywords", nargs="+")
+    s.add_argument("--doc", help="限定文件（名稱、簡稱或 ID）"); s.add_argument("--region")
+    s.add_argument("--limit", type=int, default=10); s.add_argument("--any", action="store_true")
+    s.set_defaults(f=cmd_doc_search)
+    s = sub.add_parser("doc"); s.add_argument("doc"); s.add_argument("section", nargs="?")
+    s.add_argument("--page", type=int); s.add_argument("--region"); s.set_defaults(f=cmd_doc)
     s = sub.add_parser("info"); s.set_defaults(f=cmd_info)
 
     a = p.parse_args()

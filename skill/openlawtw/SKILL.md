@@ -11,7 +11,7 @@ description: Look up Taiwan building, planning and land-use law (建築法、建
 
 ## 先看有沒有 openlawtw MCP
 
-如果你的工具清單裡已經有 openlawtw MCP 的工具（名稱是 `find_law`、`get_article`、`search_articles`、`search_rulings`、`get_ruling`、`check_conflicts`、`list_articles`、`data_info`，前面可能帶有 openlawtw 之類的前綴），**直接用這些工具，不用跑下面的腳本**。兩者資料和警告一致，MCP 比較快。下面的鐵則、流程與回答格式照樣適用。
+如果你的工具清單裡已經有 openlawtw MCP 的工具（名稱是 `find_law`、`get_article`、`search_articles`、`search_rulings`、`get_ruling`、`check_conflicts`、`list_articles`、`search_documents`、`get_document`、`data_info`，前面可能帶有 openlawtw 之類的前綴），**直接用這些工具，不用跑下面的腳本**。兩者資料和警告一致，MCP 比較快。下面的鐵則、流程與回答格式照樣適用。
 
 沒有 MCP 工具時，才用本 skill 附的腳本。
 
@@ -54,6 +54,8 @@ curl -sfL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/open
 | 用關鍵字找函釋 | `OL rulings 農舍 解除套繪` |
 | 讀函釋全文 | `OL ruling 13672` |
 | 衝突檢查（整部或單條） | `OL conflicts 設計施工編`、`OL conflicts 設計施工編 297` |
+| 搜尋原文文件（無障礙規範、耐震規範、綠建築技術規範、縣市造價表等） | `OL doc-search 機車 無障礙`、`OL doc-search 扶手 高度 --doc 無障礙規範` |
+| 讀原文文件的一節或一頁 | `OL doc 無障礙規範 805`、`OL doc 無障礙規範 805.1`、`OL doc 綠化設計技術規範 --page 2`（不填節號＝目錄） |
 | 資料版本與同步時間 | `OL info` |
 
 - 法規可以用全名、ID（如 `D0070115`）或常用簡稱：建技、設計施工編、構造編、設備編、變使、室裝、公安、危老、危老獎勵、危老細則、都更條例、非都管制、無障礙規範、特登、毗連擴廠……
@@ -87,6 +89,7 @@ curl -sfL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/open
 
 ## 限制
 
+- **原文文件：** 建築物無障礙設施設計規範、建築物耐震設計規範及解說、綠化／保水／節能／雨水貯留／雜排水回收等技術規範、綠建材設計技術規範，以及部分縣市的造價標準表、裁罰基準等共 38 份，沒有逐條條文，`article` 讀不到，要用 `doc-search`／`doc`。無障礙尺寸（坡道、扶手、廁所、停車位、昇降機）一定要查無障礙規範的節號，不要憑記憶。引用寫「建築物無障礙設施設計規範 805.1」並附 PDF 頁碼與連結；文字是從 PDF 擷取的，圖、表、公式以原檔為準。
 - 條文的附表、附圖多半是 PDF（腳本會印出「圖表附件」），內容沒有收錄在文字裡。遇到要看附表的問題，請使用者打開官方連結。
 - 「例外與但書」「停止適用」「引用已刪除條文」都是用句型自動比對的，大多數正確，但可能漏抓或誤判；引用前要讀原文確認。
 - 函釋目前只收國土署的函釋彙編，不包括各縣市政府自己的函釋，也不包括經濟部（工業、工廠、擴廠）、農業部（農舍、農業設施）、消防署等其他機關的函釋。查到 0 則時要說明可能是不在收錄範圍，而不是沒有函釋。
