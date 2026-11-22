@@ -92,11 +92,33 @@ def catalog():
     return fetch("/data/catalog.json", immutable=False)
 
 
+EXTRA_ALIASES = {
+    "危老獎勵": "都市危險及老舊建築物建築容積獎勵辦法",
+    "危老容積獎勵": "都市危險及老舊建築物建築容積獎勵辦法",
+    "危老獎勵辦法": "都市危險及老舊建築物建築容積獎勵辦法",
+    "危老細則": "都市危險及老舊建築物加速重建條例施行細則",
+    "危老施行細則": "都市危險及老舊建築物加速重建條例施行細則",
+    "危老結構評估": "都市危險及老舊建築物結構安全性能評估辦法",
+    "供公眾使用": "建築物使用類組及變更使用辦法",
+}
+# short names that stand for a whole family of laws (used by find-law)
+FAMILIES = {
+    "危老": "都市危險及老舊建築物",
+    "都更": "都市更新",
+    "建技": "建築技術規則",
+    "非都": "非都市土地",
+    "綠建築": "綠建",
+}
+
+
 def aliases():
     try:
-        return fetch("/data/aliases.json", immutable=False)
+        base = fetch("/data/aliases.json", immutable=False)
     except SystemExit:
-        return {}
+        base = {}
+    merged = dict(base)
+    merged.update(EXTRA_ALIASES)
+    return merged
 
 
 def load_law(law_id):
@@ -277,6 +299,9 @@ def resolve_law(q, region=None):
 
 def law_header(law):
     bits = [f"{law['name']}（{law.get('region', '')}｜{law.get('kind', '')}）"]
+    first = roc_date((law.get("history") or "").split("\n")[0] if law.get("history") else "")
+    if first:
+        bits.append(f"制定／訂定日期：{first}")
     if law.get("modified"):
         bits.append(f"最新修正日期：{law['modified']}")
     if law.get("status") and "廢止" in law["status"] and "未標" not in law["status"]:
@@ -288,14 +313,31 @@ def law_header(law):
 
 def cmd_find_law(a):
     laws = catalog()["laws"]
-    q = " ".join(a.name)
-    target = aliases().get(q.lower(), aliases().get(q, q))
-    hits = [l for l in laws if target in l["name"] or q == l["id"]]
-    if a.region:
-        hits = [l for l in hits if l["region"] == a.region]
+    regions = {l["region"] for l in laws}
+    region = a.region
+    terms = []
+    for t in a.name:
+        t = t.strip()
+        if not t:
+            continue
+        if t in regions and not region:
+            region = t
+            continue
+        terms.append(t)
+    al = aliases()
+
+    def variants(t):
+        v = {t, al.get(t.lower(), al.get(t, t))}
+        if t in FAMILIES:
+            v.add(FAMILIES[t])
+        return v
+
+    pool = [l for l in laws if not region or l["region"] == region]
+    hits = [l for l in pool if l["id"] in terms or all(
+        any(x in l["name"] for x in variants(t)) for t in terms)]
     hits.sort(key=lambda l: (l["region"] != "中央", len(l["name"])))
     if not hits:
-        print("沒有找到。")
+        print("沒有找到。可以換個關鍵字，或用 search 搜條文內容。")
     for l in hits[: a.limit]:
         print(f"{l['id']}\t{l['region']}\t{l.get('kind', '')}\t{l['name']}\t(修正 {l.get('modified') or '—'}，{l.get('articleCount', '?')} 條)")
 
@@ -306,6 +348,35 @@ def clean(text, law):
         return text
     text = re.sub(r"(?<![。：；！？」）)])\n\s*\n?\s*", "", text)
     return re.sub(r"\n\s*\n", "\n", text)
+
+
+CN_DIGITS = "〇一二三四五六七八九十"
+
+
+def article_attachments(law, art):
+    """Attachment files (附表/附圖/補充圖例) that belong to this article."""
+    files = law.get("attachments") or []
+    if not files:
+        return []
+    no = norm_no(art["no"])
+    labels = set(re.findall(r"(附[表圖件][一二三四五六七八九十〇0-9]+)", art["text"]))
+    picked, seen = [], set()
+    for f in files:
+        t = f.get("title") or ""
+        mine = False
+        m = re.match(r"第\s*([0-9\-之]+)\s*條", t)
+        if m and norm_no(m.group(1)) == no:
+            mine = True
+        elif any(t.startswith(lb) or t.replace("、", "：").startswith(lb) for lb in labels):
+            mine = True
+        if not mine:
+            continue
+        stem = re.sub(r"\.(pdf|doc|docx|odt|jpg|png)$", "", t, flags=re.I)
+        if stem in seen:  # same table in another format: keep the first (PDF usually first)
+            continue
+        seen.add(stem)
+        picked.append(f)
+    return picked
 
 
 def find_article(law, no):
@@ -331,7 +402,17 @@ def cmd_article(a):
         path = " > ".join(art.get("path") or [])
         amended = article_amended(law, art["no"])
         print(f"{law['name']} {art['no']}" + (f"　［{path}］" if path else "") + (f"　（本條最近修正：{amended}）" if amended else ""))
-        print(clean(art["text"], law))
+        att = article_attachments(law, art)
+        text = clean(art["text"], law)
+        if att:  # local laws inline a bare "圖表附件：x.pdf" line; replace it with real links
+            text = re.sub(r"\n?圖表附件：[^\n]*", "", text)
+        print(text)
+        for f in att[:8]:
+            print(f"圖表附件：{f.get('title')}　{f.get('url')}")
+        if len(att) > 8:
+            print(f"（另有 {len(att) - 8} 個附件，請看官方來源）")
+        if not att and re.search(r"附[表圖]", art["text"]):
+            print("（條文提到附表／附圖，但本庫沒有對應的附件連結，請開官方來源查看）")
         print(f"連結：{law_link(law['id'], art.get('anchor'))}")
 
 
