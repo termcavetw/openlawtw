@@ -994,7 +994,8 @@ def show_attachment(doc, section):
             print(f"  {x['key']}　{x['title']}（矩陣表格，未收，請開原檔 {_att_link(x)}）")
         d0 = AL["docs"][0] if AL["docs"] else None
         ex = (f"{d0['key']} {d0['units'][0]['id']}" if len(d0["units"]) > 1 else d0["key"]) if d0 else ""
-        print(f'用法：OL doc {AL["lawName"]} "{ex}"；或 OL doc-search 關鍵字。')
+        if d0:
+            print(f'用法：OL doc {AL["lawName"]} "{ex}"；或 OL doc-search 關鍵字。')
         return True
     d = next((x for x in AL["docs"] if x["key"] == key), None)
     if not d:
