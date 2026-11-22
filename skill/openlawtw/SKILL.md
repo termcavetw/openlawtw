@@ -56,7 +56,7 @@ curl -sfL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/open
 | 讀函釋全文 | `OL ruling 13672` |
 | 衝突檢查（整部或單條） | `OL conflicts 設計施工編`、`OL conflicts 設計施工編 297` |
 | 搜尋原文文件（無障礙規範、耐震規範、綠建築技術規範、縣市造價表等） | `OL doc-search 機車 無障礙`、`OL doc-search 扶手 高度 --doc 無障礙規範`、`OL doc-search`（不給關鍵字＝列出全部文件） |
-| 讀原文文件的一節或一頁 | `OL doc 無障礙規範 805`、`OL doc 無障礙規範 805.1`、`OL doc 綠化設計技術規範 --page 2`（不填節號＝目錄） |
+| 讀原文文件的一節或一頁 | `OL doc 無障礙規範 805`、`OL doc 無障礙規範 805.1`、`OL doc 綠化設計技術規範 --page 2`（不填節號＝目錄）、`OL doc 變使 "附表二 B-3"`、`OL doc 變使 "附表四 H-2"`（變使附表一、二、四，PDF 抽出文字，引用前請開原檔核對；附表三、五是符號矩陣，沒抽） |
 | 資料版本與同步時間 | `OL info` |
 
 - 法規可以用全名、ID（如 `D0070115`）或常用簡稱：建技、設計施工編、構造編、設備編、變使、室裝、公安、危老、危老獎勵、危老細則、都更條例、非都管制、無障礙規範、特登、毗連擴廠……

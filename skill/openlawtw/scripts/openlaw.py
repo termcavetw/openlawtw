@@ -904,6 +904,85 @@ def unwrap_pdf(text):
     return out
 
 
+# ---------------------------------------------------------------- 附件表（自行抽出文字的官方 PDF 附表）
+
+import unicodedata as _ud
+
+
+def _nk(t):
+    return re.sub(r"\s+", "", _ud.normalize("NFKC", str(t)))
+
+
+def _att():
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "attachments.json"), encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {"docs": [], "lawId": "", "lawName": ""}
+
+
+def _att_link(d):
+    return f"https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId={d['fileId']}"
+
+
+def _att_header(A, d):
+    law = load_law(A["lawId"])
+    print(law_header(law))
+    print(f"官方來源：{law.get('url', '')}")
+    print(f"附表原檔：{d['title']}.PDF　{_att_link(d)}")
+    print(f"（此附表文字由 PDF 自動抽出（{A.get('extractedAt')}，原檔 sha256 {d['sha'][:12]}…），不是 openlawtw 資料庫內容；表格欄位可能斷行，引用前請開原檔核對。）")
+    if law.get("modified") and A.get("lawModified") and law["modified"] != A["lawModified"]:
+        print(f"⚠ 法規最新修正日已變為 {law['modified']}，本附表抽出時法規為 {A['lawModified']}，附表可能已修正，請以原檔為準。")
+
+
+def attachment_hits(ks, any_):
+    A, out = _att(), []
+    for d in A["docs"]:
+        for u in d["units"]:
+            hay = _nk(u["label"] + u["text"])
+            matched = sum(1 for k in ks if _nk(k) in hay)
+            if matched == len(ks) or (any_ and matched):
+                out.append((matched, sum(hay.count(_nk(k)) for k in ks), d, u))
+    return A, out
+
+
+def show_attachment(doc, section):
+    """Return True if handled."""
+    m = re.search(r"附表([一二三四五])", f"{doc} {section or ''}")
+    if not m:
+        return False
+    A = _att()
+    law_q = re.sub(r"附表[一二三四五]\S*", "", doc).strip()
+    if not law_q:
+        return False
+    try:
+        law = resolve_law(law_q)
+    except SystemExit:
+        return False
+    if law["id"] != A.get("lawId"):
+        return False
+    key = "附表" + m.group(1)
+    d = next((x for x in A["docs"] if x["key"] == key), None)
+    if not d:
+        url = next((a["url"] for a in (load_law(law["id"]).get("attachments") or []) if a["title"].startswith(key)), "")
+        print(f"{law['name']}{key}目前只有官方 PDF 連結，沒有抽出文字（矩陣表格抽出後欄位容易錯位，怕誤導，沒有收）。請開原檔：{url}")
+        return True
+    _att_header(A, d)
+    sec = re.sub(r"附表[一二三四五]", "", section or "").lstrip("第").strip()
+    print("─" * 30)
+    if sec:
+        u = next((x for x in d["units"] if _nk(x["id"]).upper() == _nk(sec).upper()), None)
+        if not u:
+            print(f"{key} 沒有「{sec}」。可用：{'、'.join(x['id'] for x in d['units'])}")
+        else:
+            print(u["label"] + "\n" + u["text"])
+    elif len(d["units"]) == 1:
+        print(d["units"][0]["text"])
+    else:
+        print(f"{d['title']}，可用節號讀：{'、'.join(x['id'] for x in d['units'])}")
+    return True
+
+
 def cmd_doc_search(a):
     kws = [k for k in a.keywords if k]
     ks = [re.sub(r"\s+", "", k) for k in kws]
@@ -918,6 +997,8 @@ def cmd_doc_search(a):
         print(f"原文文件 {len(docs)} 份（給關鍵字就會搜尋內文）：")
         for l in docs:
             print(f"  {l['region']}｜{l['name']}　[{l['id']}]" + ("　可依節號讀" if l["id"] in readers else ""))
+        A = _att()
+        print(f"另有自行抽出文字的附表：{A.get('lawName')} {'、'.join(d['key'] for d in A['docs'])}（OL doc 變使 \"附表四 B-3\"）")
         return
     if a.doc:
         ids = [resolve_document(a.doc, a.region)["id"]]
@@ -936,7 +1017,14 @@ def cmd_doc_search(a):
             if matched == len(ks) or (a.any and matched):
                 hits.append((matched, sum(hay.count(k) for k in ks), i, u, hay))
     hits.sort(key=lambda h: (-h[0], -h[1]))
-    print(f"在 {len(ids)} 份原文文件搜尋「{' '.join(kws)}」：{len(hits)} 處符合")
+    att_in = (not a.doc) or "附表" in a.doc or "變使" in a.doc or _att().get("lawName", "\0") in a.doc
+    A, ahits = attachment_hits(kws, a.any) if att_in else (_att(), [])
+    ahits.sort(key=lambda h: (-h[0], -h[1]))
+    print(f"在 {len(ids)} 份原文文件" + (f"與 {len(A['docs'])} 張自行抽出文字的附表" if att_in else "") + f"搜尋「{' '.join(kws)}」：{len(hits) + len(ahits)} 處符合")
+    for _, _, d, u in ahits[: a.limit]:
+        print(f"\n■ {A['lawName']}　{u['label']}　[附表原檔 {_att_link(d)}]")
+        print("  " + snippet(re.sub(r"\s+", "", u["text"]), kws))
+        print(f"  用 OL doc 變使 \"{d['key']} {u['id']}\" 讀全文；此為 PDF 抽出文字，引用前請開原檔核對。")
     for _, _, i, u, hay in hits[: a.limit]:
         sec = u["sec"]["id"] if u["sec"] else ""
         print(f"\n■ {names.get(i, {}).get('name', i)}　{u['label']}" + (f"（{u['chapter']}）" if u["chapter"] else "")
@@ -947,11 +1035,13 @@ def cmd_doc_search(a):
         print(f"\n…還有 {len(hits) - a.limit} 處，加 --limit 或增加關鍵字。")
     if hits:
         print("\n用 doc 讀全文：OL doc 無障礙規範 805（節號）或 OL doc <文件> --page 12。")
-    elif not a.any:
+    elif not a.any and not ahits:
         print("沒有全部關鍵字都符合的段落，可以加 --any 或換同義詞。")
 
 
 def cmd_doc(a):
+    if show_attachment(a.doc, a.section):
+        return
     meta = resolve_document(a.doc, a.region)
     law = load_law(meta["id"])
     print(law_header(law))
