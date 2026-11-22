@@ -56,8 +56,9 @@ def _http(url):
         return r.read()
 
 
-def fetch(path, immutable=True):
-    """Return parsed JSON for a site path like /data/manifest.json."""
+def fetch(path, immutable=True, retry=True):
+    """Return parsed JSON for a site path like /data/manifest.json.
+    With retry=False a missing file raises FileNotFoundError instead of exiting."""
     global _base
     if LOCAL:
         with open(os.path.join(LOCAL, path.lstrip("/")), encoding="utf-8") as f:
@@ -82,6 +83,8 @@ def fetch(path, immutable=True):
     if os.path.exists(cpath):  # stale cache beats nothing
         with open(cpath, encoding="utf-8") as f:
             return json.load(f)
+    if not retry and "404" in str(err):
+        raise FileNotFoundError(path)
     sys.exit(f"無法取得 {path}：{err}")
 
 
@@ -122,11 +125,34 @@ def aliases():
     return merged
 
 
+def refresh_index():
+    """Drop cached manifest/catalog/rulings index so the next call fetches the current deployment."""
+    global _rulings, _revoked
+    for path in ("/data/manifest.json", "/data/catalog.json"):
+        cpath = os.path.join(CACHE, path.lstrip("/"))
+        if os.path.exists(cpath):
+            os.utime(cpath, (0, 0))  # mark stale; kept as a last-resort fallback
+    _rulings, _revoked = None, None
+
+
+def fetch_versioned(get_entry):
+    """Fetch a content-addressed file; if the site was redeployed and the old URL is gone, refresh the index once."""
+    entry = get_entry()
+    try:
+        return fetch(entry["url"], retry=False)
+    except FileNotFoundError:
+        refresh_index()
+        entry = get_entry()
+        return fetch(entry["url"])
+
+
 def load_law(law_id):
-    entry = manifest()["laws"].get(law_id)
-    if not entry:
-        sys.exit(f"manifest 裡沒有 {law_id}")
-    return fetch(entry["url"])
+    def entry():
+        e = manifest()["laws"].get(law_id)
+        if not e:
+            sys.exit(f"manifest 裡沒有 {law_id}")
+        return e
+    return fetch_versioned(entry)
 
 
 def load_laws(ids):
@@ -141,9 +167,9 @@ def load_rulings():
     """All rulings, with letters listed twice (same number and date) removed."""
     global _rulings
     if _rulings is None:
-        shards = list(manifest()["rulings"].values())
+        keys = list(manifest()["rulings"].keys())
         with ThreadPoolExecutor(12) as ex:
-            parts = list(ex.map(lambda s: fetch(s["url"]), shards))
+            parts = list(ex.map(lambda k: fetch_versioned(lambda: manifest()["rulings"][k]), keys))
         seen, out = set(), []
         for r in (r for p in parts for r in p):
             key = (r.get("numberKey"), r.get("date")) if r.get("numberKey") else ("id", r.get("id"))
