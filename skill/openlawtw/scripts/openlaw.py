@@ -946,6 +946,8 @@ def _att_header(AL, d):
     print(f"官方來源：{law.get('url', '')}")
     print(f"附表原檔：{d['title']}.PDF　{_att_link(d)}")
     print(f"（此附表文字由 PDF 自動抽出（{_att().get('extractedAt')}，原檔 sha256 {d['sha'][:12]}…），不是 openlawtw 資料庫內容；表格欄位可能斷行，引用前請開原檔核對。）")
+    if d.get("note"):
+        print(f"（{d['note']}）")
     if law.get("modified") and AL.get("lawModified") and law["modified"] != AL["lawModified"]:
         print(f"⚠ 法規最新修正日已變為 {law['modified']}，本附表抽出時法規為 {AL['lawModified']}，附表可能已修正，請以原檔為準。")
 
@@ -956,11 +958,19 @@ def attachment_hits(ks, any_, law_ids=None):
         if law_ids is not None and AL["lawId"] not in law_ids:
             continue
         for d in AL["docs"]:
+            doc_hits = []
             for u in d["units"]:
                 hay = _nk(u["label"] + u["text"])
                 matched = sum(1 for k in ks if _nk(k) in hay)
                 if matched == len(ks) or (any_ and matched):
-                    out.append((matched, sum(hay.count(_nk(k)) for k in ks), AL, d, u))
+                    doc_hits.append((matched, sum(hay.count(_nk(k)) for k in ks), AL, d, u, None))
+            if doc_hits:
+                out.extend(doc_hits)
+            elif not any_ and len(ks) > 1:
+                # tables often span pages: keywords may sit on different pages of the same attachment
+                per = [next((u for u in d["units"] if _nk(k) in _nk(u["label"] + u["text"])), None) for k in ks]
+                if all(per):
+                    out.append((len(ks) - 0.5, 1, AL, d, per[0], [f"「{k}」在 {u['id']}" for k, u in zip(ks, per)]))
     return out
 
 
@@ -977,6 +987,11 @@ def show_attachment(doc, section):
     AL = _att_law(law["id"])
     if not AL:
         return False
+    sk = next((x for x in AL.get("skipped") or [] if key and x["key"] == key), None)
+    if sk and not any(d["key"] == key for d in AL["docs"]):
+        why = "官方附件是公報掃描頁，沒有表格內容" if "公報" in sk["title"] else "矩陣表格抽出後欄位容易錯位，怕誤導"
+        print(f"{law['name']}{key}沒有抽出文字（{why}）。請開原檔：{_att_link(sk)}")
+        return True
     if not key:
         sec0 = _nk(section or "").upper()
         if sec0:
@@ -991,7 +1006,7 @@ def show_attachment(doc, section):
             n = len(d["units"])
             print(f"  {d['key']}　{d['title']}" + (f"（{n} 段／頁：{'、'.join(u['id'] for u in d['units'][:12])}{'…' if n > 12 else ''}）" if n > 1 else ""))
         for x in AL.get("skipped") or []:
-            print(f"  {x['key']}　{x['title']}（矩陣表格，未收，請開原檔 {_att_link(x)}）")
+            print(f"  {x['key']}　{x['title']}（{'公報掃描頁' if '公報' in x['title'] else '矩陣表格'}，未收，請開原檔 {_att_link(x)}）")
         d0 = AL["docs"][0] if AL["docs"] else None
         ex = (f"{d0['key']} {d0['units'][0]['id']}" if len(d0["units"]) > 1 else d0["key"]) if d0 else ""
         if d0:
@@ -1037,7 +1052,7 @@ def cmd_doc_search(a):
             print(f"  {l['region']}｜{l['name']}　[{l['id']}]" + ("　可依節號讀" if l["id"] in readers else ""))
         print("另有自行抽出文字的官方 PDF 附表：")
         for AL in _att().get("laws", []):
-            print(f"  {AL['lawName']}　{'、'.join(d['key'] for d in AL['docs']) or '（附表為矩陣表格，僅附原檔連結）'}")
+            print(f"  {AL['lawName']}　{'、'.join(d['key'] for d in AL['docs']) or '（附表未收文字，僅附原檔連結）'}")
         print('（例：OL doc 變使 "附表四 B-3"；OL doc 非都管制規則 "附表一 5"（頁））')
         return
     att_ids = None
@@ -1074,8 +1089,10 @@ def cmd_doc_search(a):
     ahits.sort(key=lambda h: (-h[0], -h[1]))
     att_n = sum(len(d["docs"]) for d in _att().get("laws", []) if att_ids is None or d["lawId"] in att_ids)
     print(f"在 {len(ids)} 份原文文件" + (f"與 {att_n} 份自行抽出文字的附表" if att_n else "") + f"搜尋「{' '.join(kws)}」：{len(hits) + len(ahits)} 處符合")
-    for _, _, AL, d, u in ahits[: a.limit]:
+    for _, _, AL, d, u, cross in ahits[: a.limit]:
         print(f"\n■ {AL['lawName']}　{u['label']}　[附表原檔 {_att_link(d)}]")
+        if cross:
+            print(f"  ⚠ 關鍵字分散在同一附表的不同頁（表格跨頁）：{'、'.join(cross)}，請分別讀這幾頁一起判斷")
         print("  " + snippet(re.sub(r"\s+", "", u["text"]), kws))
         sec_arg = d["key"] if _nk(u["id"]) == d["key"] else f"{d['key']} {u['id']}"
         print(f"  用 OL doc {AL['lawName']} \"{sec_arg}\" 讀全文；此為 PDF 抽出文字，引用前請開原檔核對。")
