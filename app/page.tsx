@@ -25,9 +25,10 @@ import {SearchGuidance} from '@/components/search-guidance';
 import {DataSources} from '@/components/data-sources';
 import {Reader} from '@/components/law-reader';
 import {Picker,Highlight,LawChapters} from '@/components/law-navigation';
-import {indexedSearch,loadHeads,loadRuling,type IndexedResults,manifest,loadFile,mapLimit} from '@/lib/data-client';
+import {indexedSearch,loadHeads,loadMinutes,loadRuling,type IndexedResults,manifest,loadFile,mapLimit} from '@/lib/data-client';
 import {RulingCard,RulingExplorer,RulingReader} from '@/components/rulings';
 // Loaded only when the 會議 tab opens; kept out of the offline shell like the minutes data.
+import {keywords as minutesKeywords,minutesHash,minutesSnippet,searchMinutes,type MinutesHit} from '@/lib/minutes-search';
 const MinutesExplorer=lazy(()=>import('@/components/minutes').then(m=>({default:m.MinutesExplorer})));
 import type { Catalog, Law, Article, Ruling, RulingArchive } from '@/lib/law-types';
 
@@ -104,7 +105,8 @@ function Workspace() {
   useEffect(()=>{if(view!=='rulings'&&!(view==='saved'&&savedView==='rulings')&&!ruling)return;let live=true;setRulingsLoading(true);setRulingsError(false);loadHeads().then(items=>{if(live)setRulings(items);}).catch(()=>{if(live)setRulingsError(true);}).finally(()=>{if(live)setRulingsLoading(false);});return()=>{live=false;};},[view,savedView,!!ruling,rulingsRetry]);
   useEffect(()=>{try{const stored=JSON.parse(localStorage.getItem('openlawtw-ruling-favorites')||'[]');if(Array.isArray(stored))setSavedRulings(stored.filter(x=>typeof x==='string'));}catch{}
     let firstLocation=true;const reloaded=(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined)?.type==='reload';
-    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));setUniverseOpen(params.get('view')==='universe');if(params.get('view')==='universe')return;const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
+    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));setUniverseOpen(params.get('view')==='universe');if(params.get('view')==='universe')return;const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('minutes')){setLanding(false);setWelcome(false);setView('minutes');}
+      if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
       if(route.ruling){applyPageMetadata();loadRuling(route.ruling).then(r=>{if(token===rulingRequest.current){setRuling(r);setRulingHistory([]);}}).catch(()=>{if(token===rulingRequest.current)toast.error('此函釋尚未下載，請連線後再開啟。');});return;}
       if(route.law&&!lawById.has(route.law)){toast.error('本庫未收錄此法規網址。');return;}
       setRuling(null);setRulingHistory([]);const next=route.law||(lawById.has(lastLaw())?lastLaw():'D0070109');setSelected(next);if(route.law)rememberLaw(route.law);setActiveDocumentPage(route.documentPage);setActiveArticle(firstLocation&&reloaded?'':route.article);setActiveUnit(firstLocation&&reloaded?'':route.unit);firstLocation=false;setNavigationKey(n=>n+1);const resumed=!route.law&&lawById.has(lastLaw())&&params.get('view')!=='about'&&params.get('view')!=='search';if(resumed)window.history.replaceState(null,'',isPortable()?legacyLawHash(next):lawHref(next));applyPageMetadata(route.law||resumed?lawById.get(next):undefined);
@@ -157,6 +159,10 @@ function Workspace() {
     return sort==='recent'?[...items].sort((a,b)=>dateValue(b.law.modified)-dateValue(a.law.modified)):items;
   },[baseHits,articleHits,resultType,sort]);
   const groupedHits=useMemo(()=>groupSearchHits(hits,resultType==='all'?articleHits:[]),[hits,articleHits,resultType]);
+  const [minutesHits,setMinutesHits]=useState<MinutesHit[]>([]);
+  // Taoyuan minutes join the main search; the 4 MB file is fetched on the first query, not at startup.
+  useEffect(()=>{setMinutesHits([]);const words=minutesKeywords(debounced);if(!words.length||!manifest.minutes)return;const controller=new AbortController();loadMinutes(controller.signal).then(a=>{if(!controller.signal.aborted)setMinutesHits(searchMinutes(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced]);
+  function openMinutes(id:string,page:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+minutesHash(id,page));setView('minutes');}
   const totalHits=groupedHits.length+((resultType==='all'||resultType==='rulings')?rulingHits.length:0);
   useEffect(()=>setLimit(40),[debounced,region,task,resultType,jurisdiction,coverage,sort]);
   function remember(q:string){if(!q.trim())return;setRecent(prev=>{const next=[q.trim(),...prev.filter(x=>x!==q.trim())].slice(0,5);try{localStorage.setItem('openlawtw-recent',JSON.stringify(next));}catch{}return next;});}
@@ -210,6 +216,7 @@ function Workspace() {
               <div className="result-toolbar"><p className="result-count" role="status">{searchLoading||debounced!==query?'正在搜尋…':`${number(groupedHits.length)} 部法規${(resultType==='all'||resultType==='rulings')?' · '+number(rulingHits.length)+' 筆函釋':''}`}{searchError&&' · 部分資料尚未下載，結果不完整'}</p><Picker value={sort} onChange={setSort} label="搜尋結果排序"><SelectItem value="relevance">依關聯程度</SelectItem><SelectItem value="recent">依修正日期</SelectItem></Picker></div>
               {groupedHits.slice(0,limit).map(group=><SearchGroupCard key={group.law.id+':'+debounced+':'+resultType} group={group} selected={selected} activeArticle={activeArticle} activeDocumentPage={activeDocumentPage} query={debounced} onChoose={chooseLaw}/>)}
               {(resultType==='all'||resultType==='rulings')&&rulingHits.slice(0,limit).map(r=><RulingCard key={r.id} ruling={r} onClick={()=>openRuling(r)}/>)}
+              {resultType==='all'&&minutesHits.length>0&&<section className="minutes-hits" aria-label="桃園市會議紀錄"><h3>桃園市會議紀錄<span>{minutesHits.length} 份符合</span></h3><small>只適用桃園市，不是法源；OCR 頁可能有誤字，引用前請開原檔。</small>{minutesHits.slice(0,5).map(({item,page,spread})=><button className="minutes-card" key={item.id} onClick={()=>openMinutes(item.id,page.n)}><h3>{item.title}</h3>{!spread&&<p><b>第 {page.n} 頁{page.ocr?'（OCR）':''}</b>　{minutesSnippet(page.text,minutesKeywords(debounced))}</p>}</button>)}{minutesHits.length>5&&<button className="load-more" onClick={()=>{setView('minutes');}}>到「會議」分頁看全部 {minutesHits.length} 份</button>}</section>}
               {!totalHits&&!searchLoading&&!searchError&&debounced===query&&<div className="empty-state"><Search size={30}/><strong>目前條件下，尚無相符資料</strong>可以用空格分開關鍵字，或查找全台已收錄資料。<div className="empty-actions"><button onClick={()=>{changeRegion('全台');resetFilters();}}>搜尋全台</button><button onClick={resetFilters}>清除篩選</button></div><small>查無結果不代表沒有相關規定。</small></div>}
               {searchError&&<button className="plain-button" onClick={()=>setSearchRetry(n=>n+1)}>重新載入全文索引</button>}
               {Math.max(groupedHits.length,(resultType==='all'||resultType==='rulings')?rulingHits.length:0)>limit&&<button className="load-more" onClick={()=>setLimit(n=>n+40)}>顯示更多結果 <span>{limit} / {Math.max(groupedHits.length,(resultType==='all'||resultType==='rulings')?rulingHits.length:0)}</span><ChevronDown size={16}/></button>}
