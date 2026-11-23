@@ -29,4 +29,6 @@ assert '立法旨意' in actual['5714']['body'],'A header and body in one paragr
 assert actual['7528']['number'].startswith('內政部87.12.1.') and actual['7528']['date']=='1998-12-01'
 assert actual['7493']['number'].startswith('內政部86.2.17') and actual['7493']['date']=='1997-02-17'
 assert actual['16041']['date']=='','A malformed official year (1113) must stay empty, not be corrected'
+# 7650 and 8511 file the same letter (header last vs first); a citation to it keeps one target.
+assert actual['7658']['citations']==['8511'],actual['7658']['citations']
 print(f"Verified {len(actual)} official record IDs, all source text, issued/publication dates, citation targets, header-only records and source SHA-256.")

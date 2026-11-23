@@ -209,15 +209,23 @@ def build(raw, retrieved, digest):
     record_by_id={r['id']:r for r in records}
     for r in records:
         if len(r['numberKey'])>=7:by_number[r['numberKey']].append(r['id'])
+    def letter_key(r):
+        # A header found on its own line stays inside body; drop that line so
+        # the same letter compares equal whether its header came first or later.
+        head=norm(r['number'])
+        text=''.join(n for n in (norm(l) for l in r['body'].split('\n')) if n and n!=head)
+        return head,text
     for r in records:
         linked=r['citations'][:]
         for num in serials(r['body']):
+            if num==r['numberKey']:continue  # its own header line, not a citation
             ids=by_number.get(num,[])
             if len(ids)==1:linked.extend(ids)
-            elif ids and len({(norm(record_by_id[i]['number']),norm(record_by_id[i]['body'])) for i in ids})==1:
+            elif ids and len({letter_key(record_by_id[i]) for i in ids})==1:
                 # Identical letters are sometimes filed under multiple official IDs.
                 # Only collapse the target when the normalized header AND body agree.
-                linked.append(min(ids,key=int))
+                # Prefer a filing whose header opens the text, then the lowest ID.
+                linked.append(min(ids,key=lambda i:(norm(record_by_id[i]['number']) in norm(record_by_id[i]['body']),int(i))))
         r['citations']=list(dict.fromkeys(i for i in linked if i!=r['id'] and i in raw_by_id))
     records.sort(key=lambda r:r['date'] or r['published'],reverse=True)
     stats={'count':len(records),'retrieved':retrieved,'source':HOME+'/ch/titlelist/interpcomp','feed':FEED,'sha256':digest,
