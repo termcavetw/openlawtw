@@ -66,6 +66,10 @@ manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive
 {const minutes=await readFile(join(root,'public/data/minutes.json'));const hash=sha(minutes),url='/data/minutes/minutes-'+hash+'.json';
  await rm(join(root,'public/data/minutes'),{recursive:true,force:true});await mkdir(join(root,'public/data/minutes'),{recursive:true});await writeFile(join(root,'public',url),minutes);
  const m=JSON.parse(minutes);manifest.minutes={url,sha256:hash,bytes:minutes.length,region:m.region,fetchedAt:m.fetchedAt,items:m.stats.items,pages:m.stats.pages,ocrPages:m.stats.ocrPages};}
+// Taoyuan 土管要點 (one region; every announced case, no judgement of which is in force): same treatment.
+{const landuse=await readFile(join(root,'public/data/landuse.json'));const hash=sha(landuse),url='/data/landuse/landuse-'+hash+'.json';
+ await rm(join(root,'public/data/landuse'),{recursive:true,force:true});await mkdir(join(root,'public/data/landuse'),{recursive:true});await writeFile(join(root,'public',url),landuse);
+ const m=JSON.parse(landuse);manifest.landuse={url,sha256:hash,bytes:landuse.length,region:m.region,fetchedAt:m.fetchedAt,items:m.stats.items,areas:m.stats.areas,pages:m.stats.pages,ocrPages:m.stats.ocrPages};}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
