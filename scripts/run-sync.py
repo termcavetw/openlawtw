@@ -24,10 +24,12 @@ DATA_PATHS = (
     'data/catalog.json', 'data/sync-report.json', 'data/provenance.json',
     'data/history.json', 'data/versions', 'public/data/laws.json',
     'public/data/catalog.json', 'public/data/rulings.json', 'public/data/laws',
+    'public/data/minutes.json',
 )
 REQUIRED_STAGES = (
-    'dependencies-node', 'dependencies-python', 'unit-tests', 'baseline',
+    'dependencies-node', 'dependencies-python', 'dependencies-ocr', 'unit-tests', 'baseline',
     'laws', 'rulings', 'guard', 'validate-laws', 'validate-rulings',
+    'minutes', 'validate-minutes',
     'snapshot', 'build', 'typecheck', 'check',
 )
 MAX_LOG_BYTES = 1024 * 1024
@@ -288,7 +290,8 @@ class SyncRun:
         # all-failed or byte-unchanged run still leaves diagnostics for review.
         changed = any((read_json(self.root / relative) if (self.root / relative).exists() else None) !=
                       (read_json(self.state_dir / relative) if (self.state_dir / relative).exists() else None)
-                      for relative in ('public/data/laws.json', 'public/data/rulings.json', 'data/provenance.json')
+                      for relative in ('public/data/laws.json', 'public/data/rulings.json', 'data/provenance.json',
+                                       'public/data/minutes.json')
                       )
         report['publishData'] = changed
         if os.environ.get('GITHUB_OUTPUT'):

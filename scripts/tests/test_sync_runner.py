@@ -274,9 +274,11 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn('github.event.repository.default_branch', pr_step)
         self.assertIn("github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'", pr_step)
         self.assertIn('draft: true', pr_step)
-        self.assertIn('timeout-minutes: 30', workflow)
-        # Reviewed PDF text is checked offline, so the sync must not depend on the runner's Poppler.
-        self.assertNotIn('poppler-utils', workflow)
+        # 45 minutes: the ~20-minute law/ruling sync plus OCR of a few new Taoyuan minutes.
+        self.assertIn('timeout-minutes: 45', workflow)
+        # Reviewed law PDF text is checked offline, so laws must not depend on the runner's Poppler.
+        # Poppler/Tesseract are installed only for new Taoyuan minutes, whose text is stored once.
+        self.assertEqual(self.tool_lines(workflow), ['dependencies-ocr'])
         self.assertNotIn("github.event_name == 'push'", pr_step)
 
     def test_browser_checks_use_the_pinned_playwright_chromium(self):
@@ -296,7 +298,13 @@ class WorkflowContractTests(unittest.TestCase):
             workflow = (SCRIPTS.parent / '.github/workflows' / name).read_text()
             self.assertIn('runs-on: ubuntu-24.04', workflow, name)
             self.assertNotIn('ubuntu-latest', workflow, name)
-            self.assertNotIn('poppler-utils', workflow, name)
+            self.assertEqual(self.tool_lines(workflow), [] if name == 'validate.yml' else ['dependencies-ocr'], name)
+
+    @staticmethod
+    def tool_lines(workflow):
+        import re
+        return [re.search(r'step (\S+)', line).group(1) for line in workflow.splitlines()
+                if 'poppler-utils' in line or 'tesseract' in line]
 
     def test_always_uploads_only_fresh_run_artifacts_with_bounded_retention(self):
         workflow = (SCRIPTS.parent / '.github/workflows/sync.yml').read_text()
