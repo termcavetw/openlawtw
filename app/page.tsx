@@ -11,8 +11,8 @@ import {groupSearchHits} from '@/lib/search-groups';
 import {SearchGroupCard} from '@/components/search-results';
 'use client';
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { Network, GitBranch, BookOpen, FileText, ExternalLink, Search, ChevronDown, ChevronRight, MapPin, Building2, Layers3, ArrowUpRight, ArrowLeft, Copy, X, Download, Info, LibraryBig, CircleHelp, Scale, Link2, LoaderCircle, ListTree, Bookmark, Maximize2, Minimize2, ArrowRight, RotateCcw, SlidersHorizontal, FolderOpen } from 'lucide-react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { ScrollText, Network, GitBranch, BookOpen, FileText, ExternalLink, Search, ChevronDown, ChevronRight, MapPin, Building2, Layers3, ArrowUpRight, ArrowLeft, Copy, X, Download, Info, LibraryBig, CircleHelp, Scale, Link2, LoaderCircle, ListTree, Bookmark, Maximize2, Minimize2, ArrowRight, RotateCcw, SlidersHorizontal, FolderOpen } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
@@ -27,6 +27,8 @@ import {Reader} from '@/components/law-reader';
 import {Picker,Highlight,LawChapters} from '@/components/law-navigation';
 import {indexedSearch,loadHeads,loadRuling,type IndexedResults,manifest,loadFile,mapLimit} from '@/lib/data-client';
 import {RulingCard,RulingExplorer,RulingReader} from '@/components/rulings';
+// Loaded only when the 會議 tab opens; kept out of the offline shell like the minutes data.
+const MinutesExplorer=lazy(()=>import('@/components/minutes').then(m=>({default:m.MinutesExplorer})));
 import type { Catalog, Law, Article, Ruling, RulingArchive } from '@/lib/law-types';
 
 import { normalize, searchLaws, searchRulings, matchesArticle, type SearchDoc, type ResultType } from '@/lib/search';
@@ -172,7 +174,7 @@ function Workspace() {
   function toggle(id:string){setExpanded(prev=>{const next=new Set(prev);if(next.has(id))next.delete(id);else next.add(id);return next;});}
   function expandGroups(){setExpanded(new Set(scopedRegions.flatMap(r=>[r,...data.categories.map(c=>r+':'+c)])));}
   function copy(text:string){copyText(text).then(()=>toast.success('已複製')).catch(()=>toast.error('無法複製，請選取文字後手動複製'));}
-  const navItems=[{id:'tree',label:'索引',icon:ListTree},{id:'graph',label:'法源',icon:GitBranch},{id:'rulings',label:'函釋',icon:FileText},{id:'resources',label:'資源',icon:Link2},{id:'saved',label:'收藏',icon:Bookmark}];
+  const navItems=[{id:'tree',label:'索引',icon:ListTree},{id:'graph',label:'法源',icon:GitBranch},{id:'rulings',label:'函釋',icon:FileText},...(manifest.minutes?[{id:'minutes',label:'會議',icon:ScrollText}]:[]),{id:'resources',label:'資源',icon:Link2},{id:'saved',label:'收藏',icon:Bookmark}];
 
   useEffect(()=>{
     const ctx=(document as unknown as {modelContext?:{registerTool:(tool:unknown,opts:unknown)=>void|Promise<void>}}).modelContext;
@@ -239,6 +241,7 @@ function Workspace() {
           <TabsContent value="rulings" className="pane">
             <RulingExplorer items={rulings} loading={rulingsLoading} error={rulingsError} retry={()=>setRulingsRetry(n=>n+1)} onOpen={openRuling} selected={ruling?.id||''} saved={savedRulings}/>
           </TabsContent>
+          <TabsContent value="minutes" className="pane"><Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><MinutesExplorer/></Suspense></TabsContent>
           <TabsContent value="resources" className="pane">
             <div className="section-top"><div><div className="eyebrow">OFFICIAL RESOURCES</div><h2>官方資源</h2><p>{region==='全台'?'中央與各縣市':region+'與中央'}的查詢入口。</p></div><LibraryBig size={25} color="#8a9aaf"/></div>
             {['法規查詢','函釋','都市計畫','申辦資源'].map(c=>{const list=data.resources.filter(r=>r.category===c&&(region==='全台'||r.region==='中央'||r.region===region));return list.length?<div className="resource-group" key={c}><h3>{c}</h3>{list.map(r=><a className="resource-card" href={r.url} key={r.url} target="_blank" rel="noreferrer"><div><h4>{r.title}</h4><p>{r.description}</p></div><ArrowUpRight size={17}/></a>)}</div>:null;})}
