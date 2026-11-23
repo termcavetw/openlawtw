@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-for(const name of ['data/laws','data/laws.json','data/rulings.json','data/search.json','openlawtw-source.zip'])assert(!fs.existsSync('dist/'+name),'Authoring-only output must not be deployed: '+name);
+for(const name of ['data/laws','data/laws.json','data/rulings.json','data/minutes.json','data/search.json','openlawtw-source.zip'])assert(!fs.existsSync('dist/'+name),'Authoring-only output must not be deployed: '+name);
 assert(fs.statSync('artifacts/openlawtw-source.zip').size>1000000,'Complete source artifact remains available to CI');
 assert(fs.readFileSync('.github/workflows/validate.yml','utf8').includes('artifacts/openlawtw-source.zip'));
 const manifest=JSON.parse(fs.readFileSync('public/data/manifest.json','utf8'));
 for(const file of manifest.files)assert(fs.existsSync('dist'+decodeURI(file.url)),file.url);
+assert(manifest.minutes&&/^\/data\/minutes\/minutes-[0-9a-f]{64}\.json$/.test(manifest.minutes.url),'Taoyuan minutes are referenced by a content-addressed file');
+{const bytes=fs.readFileSync('dist'+manifest.minutes.url);assert.equal(bytes.length,manifest.minutes.bytes);assert.equal((await import('node:crypto')).createHash('sha256').update(bytes).digest('hex'),manifest.minutes.sha256);assert(!manifest.files.some(f=>f.url===manifest.minutes.url),'Minutes stay out of offline packs and the portable build');}
 const expectedPages=['index.html',...Object.keys(manifest.laws).map(id=>id+'.html')].sort();
 assert.deepEqual(fs.readdirSync('dist/laws').filter(name=>name.endsWith('.html')).sort(),expectedPages,'Every indexed source has exactly one static page; no missing or stale pages');
 assert(fs.existsSync('dist/data/versions/assets'));

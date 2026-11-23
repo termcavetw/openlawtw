@@ -15,7 +15,7 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && vars.ENABLE_LAW_SYNC == 'true')
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Initialize fresh run reports before setup or downloads
@@ -32,6 +32,8 @@ jobs:
         run: python scripts/run-sync.py step dependencies-node -- npm ci
       - name: Install Python dependencies
         run: python scripts/run-sync.py step dependencies-python -- python -m pip install -r requirements.txt
+      - name: Install PDF text and OCR tools for new Taoyuan minutes
+        run: python scripts/run-sync.py step dependencies-ocr -- bash -c "sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-chi-tra"
       - name: Run offline source and runner regression tests
         run: python scripts/run-sync.py step unit-tests -- python -m unittest discover -s scripts/tests -v
       - name: Keep a comparison baseline
@@ -46,6 +48,10 @@ jobs:
         run: python scripts/run-sync.py step validate-laws -- python scripts/validate-data.py --cache .law-cache --sync-report artifacts/sync-run/laws-report.json
       - name: Check rulings against raw official sources
         run: python scripts/run-sync.py step validate-rulings -- python scripts/check-rulings.py --cache .rulings-cache
+      - name: Fetch new Taoyuan building-administration minutes (incremental)
+        run: python scripts/run-sync.py step minutes -- python scripts/sync-minutes.py --cache .minutes-cache
+      - name: Check Taoyuan minutes against this run's listing
+        run: python scripts/run-sync.py step validate-minutes -- python scripts/check-minutes.py --cache .minutes-cache
       - run: python scripts/run-sync.py step snapshot -- npm run snapshot
       - run: python scripts/run-sync.py step build -- npm run build
       - run: python scripts/run-sync.py step typecheck -- npm run typecheck
@@ -61,7 +67,7 @@ jobs:
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
         with:
           branch: data/weekly-official-snapshot
-          title: '資料：官方法規與函釋快照更新'
+          title: '資料：官方法規、函釋與桃園會議紀錄快照更新'
           commit-message: 'data: refresh verified official snapshots'
           body-path: sync-pr.md
           draft: true
@@ -74,6 +80,7 @@ jobs:
             public/data/laws.json
             public/data/catalog.json
             public/data/rulings.json
+            public/data/minutes.json
       - name: Finalize evidence and restore canonical data after a failed run
         if: always() && steps.initialize.outcome == 'success'
         env:

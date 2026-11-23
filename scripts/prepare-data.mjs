@@ -60,6 +60,12 @@ for(const region of ['中央',...catalog.regions.map(r=>r.name)]){
 }
 const rulingFiles=unique([manifest.rulingCounts,manifest.rulingHeads,...Object.values(manifest.rulings),...Object.values(manifest.related),...manifest.indexes.filter(i=>i.kind==='rulings').map(i=>i.file)]);
 manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive.items.length,files:rulingFiles,bytes:rulingFiles.reduce((s,f)=>s+f.bytes,0)});
+// Taoyuan minutes (one region, not a legal source) are read whole by the MCP server.
+// Content-addressed like v2 shards, but outside manifest.files: they are not part of
+// offline packs, the service-worker precache or the portable single-file build.
+{const minutes=await readFile(join(root,'public/data/minutes.json'));const hash=sha(minutes),url='/data/minutes/minutes-'+hash+'.json';
+ await rm(join(root,'public/data/minutes'),{recursive:true,force:true});await mkdir(join(root,'public/data/minutes'),{recursive:true});await writeFile(join(root,'public',url),minutes);
+ const m=JSON.parse(minutes);manifest.minutes={url,sha256:hash,bytes:minutes.length,region:m.region,fetchedAt:m.fetchedAt,items:m.stats.items,pages:m.stats.pages,ocrPages:m.stats.ocrPages};}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
