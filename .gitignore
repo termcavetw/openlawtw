@@ -4,6 +4,7 @@ openlawtw.html
 .law-cache/
 .rulings-cache/
 .minutes-cache/
+.landuse-cache/
 .sync-before.json
 sync-pr.md
 __pycache__/
@@ -12,6 +13,7 @@ data/runtime-catalog.json
 data/runtime-manifest.json
 public/data/v2/
 public/data/minutes/
+public/data/landuse/
 public/data/laws/
 public/data/manifest.json
 public/data/aliases.json

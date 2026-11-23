@@ -6,7 +6,7 @@ import {join} from './paths.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const dist=join(root,'dist');
 // Canonical bundles are authoring inputs. Deploy only content-addressed data.
-for(const name of ['laws','laws.json','search.json','rulings.json','minutes.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
+for(const name of ['laws','laws.json','search.json','rulings.json','minutes.json','landuse.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
 await import('./build-pages.mjs');
 await import('./build-embed.mjs');
 const manifest=JSON.parse(await readFile(join(root,'data/runtime-manifest.json'),'utf8'));
@@ -19,7 +19,7 @@ const files=(await walk(dist)).filter(p=>!p.endsWith('/sw.js')&&!p.endsWith('/up
 // The Apple touch icon is installation metadata; manifest icons remain cached
 // for the offline PWA. Keep this duplicate out of the tight 3 MiB shell budget.
 // /laws/index.html uses the same offline app shell as /; do not cache its duplicate catalogue HTML.
-const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/icons/apple-touch-icon.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/assets/minutes-')&&!p.includes('/assets/analytics-client-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')&&!p.includes('/documents/article-supplements/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
+const precache=await Promise.all(files.filter(p=>!p.endsWith('/icons/social.png')&&!p.endsWith('/icons/apple-touch-icon.png')&&!p.endsWith('/embed.html')&&!p.includes('/assets/embed-')&&!p.includes('/assets/minutes-')&&!p.includes('/assets/landuse-')&&!p.includes('/assets/regional-')&&!p.includes('/assets/analytics-client-')&&!p.includes('/laws/')&&!p.endsWith('/sitemap.xml')&&!p.endsWith('/robots.txt')&&!p.includes('/data/')&&!p.includes('/documents/article-supplements/')).map(async p=>({url:encodeURI('/'+p.slice(dist.length+1)),sha256:sha(await readFile(p))})));
 let worker=await readFile(join(root,'scripts/sw-template.js'),'utf8');
 // Worker-only changes also need their own cache, so a failed install cannot
 // remove the currently active release's storage.

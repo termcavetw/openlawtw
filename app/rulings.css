@@ -51,14 +51,3 @@
 
 .search-examples{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 17px;font-size:10px;color:#80909b}.search-examples button{font:inherit;color:#55778d;border:1px solid #d8e1e7;background:#fafcfd;border-radius:4px;padding:4px 6px;cursor:pointer}
 .reader-first .reader-tabbar [data-slot=tabs-list]{overflow-y:hidden}
-/* Taoyuan minutes tab: list, notice, and page-by-page reader. */
-.minutes-notice{display:flex;gap:10px;align-items:flex-start;background:#f8f4ed;border-left:2px solid #cbb68b;color:#8b7148;padding:11px 14px;margin:0 0 16px;font-size:12px;line-height:1.8}.minutes-notice>svg{margin-top:3px}.minutes-notice p{margin:0}.minutes-notice small{display:block;color:#978873;font-size:11px}
-.minutes-meta{display:flex;flex-wrap:wrap;gap:3px 14px;font-size:11px;color:#74818a;line-height:1.7}
-.minutes-card{width:100%;display:block;text-align:left;cursor:pointer;border:0;border-bottom:1px solid #e4e7e8;background:transparent;padding:16px 3px;color:#243b49;border-radius:0}.minutes-card h3{font-weight:500;font-size:14px;line-height:1.75;margin:0 0 5px;overflow-wrap:anywhere}.minutes-card p{margin:8px 0 0;font-size:12px;line-height:1.85;color:#5c707c;overflow-wrap:anywhere}.minutes-card p b{font-weight:500;color:#9a7d49}
-@media(hover:hover) and (pointer:fine){.minutes-card:hover{background:#f0f4f5}}
-.minutes-reader h3{font-size:17px;line-height:1.65;font-weight:600;color:#263f50;margin:6px 0 8px;overflow-wrap:anywhere}.minutes-reader .minutes-notice{margin-top:14px}
-.minutes-pagebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 0;border-top:1px solid #e0e6e9;border-bottom:1px solid #e0e6e9;margin-bottom:14px;font-size:12px;color:#6c7e89}.minutes-pagebar button{display:grid;place-items:center;width:30px;height:30px;border:1px solid #d8dfe2;border-radius:5px;background:#fff;color:#415968}.minutes-pagebar button:disabled{opacity:.35}.minutes-pagebar select{border:1px solid #dbe1e4;background:#fff;border-radius:5px;padding:6px 8px;font-size:12px;color:#415968}.minutes-pagebar .minutes-copy{width:auto;padding:0 10px;font-size:12px;margin-left:auto}.minutes-pagebar a{display:inline-flex;align-items:center;gap:4px;color:#4d6a7a;text-decoration:none}.minutes-manual{color:#8a9296}
-.minutes-ocr{font-size:12px;color:#8b7148;background:#f8f4ed;padding:8px 12px;margin-bottom:12px;border-radius:4px}
-.minutes-text{font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;line-height:2;white-space:pre-wrap;overflow-wrap:anywhere;color:#304551;letter-spacing:.03em;font-size:15px}
-
-.minutes-hits{margin-top:22px;border-top:1px solid #e0e6e9;padding-top:14px}.minutes-hits>h3{font-size:13px;font-weight:500;color:#425b68;margin:0 0 4px}.minutes-hits>h3 span{color:#9a7d49;margin-left:6px;font-size:11px}.minutes-hits>small{display:block;color:#8a9296;font-size:11px;margin-bottom:6px}

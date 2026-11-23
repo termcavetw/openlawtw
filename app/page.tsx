@@ -12,7 +12,7 @@ import {SearchGroupCard} from '@/components/search-results';
 'use client';
 
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { ScrollText, Network, GitBranch, BookOpen, FileText, ExternalLink, Search, ChevronDown, ChevronRight, MapPin, Building2, Layers3, ArrowUpRight, ArrowLeft, Copy, X, Download, Info, LibraryBig, CircleHelp, Scale, Link2, LoaderCircle, ListTree, Bookmark, Maximize2, Minimize2, ArrowRight, RotateCcw, SlidersHorizontal, FolderOpen } from 'lucide-react';
+import { LandPlot, ScrollText, Network, GitBranch, BookOpen, FileText, ExternalLink, Search, ChevronDown, ChevronRight, MapPin, Building2, Layers3, ArrowUpRight, ArrowLeft, Copy, X, Download, Info, LibraryBig, CircleHelp, Scale, Link2, LoaderCircle, ListTree, Bookmark, Maximize2, Minimize2, ArrowRight, RotateCcw, SlidersHorizontal, FolderOpen } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
@@ -25,11 +25,14 @@ import {SearchGuidance} from '@/components/search-guidance';
 import {DataSources} from '@/components/data-sources';
 import {Reader} from '@/components/law-reader';
 import {Picker,Highlight,LawChapters} from '@/components/law-navigation';
-import {indexedSearch,loadHeads,loadMinutes,loadRuling,type IndexedResults,manifest,loadFile,mapLimit} from '@/lib/data-client';
+import {indexedSearch,loadHeads,loadRuling,type IndexedResults,manifest,loadFile,mapLimit} from '@/lib/data-client';
 import {RulingCard,RulingExplorer,RulingReader} from '@/components/rulings';
 // Loaded only when the 會議 tab opens; kept out of the offline shell like the minutes data.
-import {keywords as minutesKeywords,minutesHash,minutesSnippet,searchMinutes,type MinutesHit} from '@/lib/minutes-search';
-const MinutesExplorer=lazy(()=>import('@/components/minutes').then(m=>({default:m.MinutesExplorer})));
+import {minutesHash} from '@/lib/minutes-search';
+const MinutesExplorer=lazy(()=>import('@/components/regional').then(m=>({default:m.MinutesExplorer})));
+import {landuseHash} from '@/lib/landuse-search';
+const RegionalHits=lazy(()=>import('@/components/regional').then(m=>({default:m.RegionalHits})));
+const LanduseExplorer=lazy(()=>import('@/components/regional').then(m=>({default:m.LanduseExplorer})));
 import type { Catalog, Law, Article, Ruling, RulingArchive } from '@/lib/law-types';
 
 import { normalize, searchLaws, searchRulings, matchesArticle, type SearchDoc, type ResultType } from '@/lib/search';
@@ -105,7 +108,7 @@ function Workspace() {
   useEffect(()=>{if(view!=='rulings'&&!(view==='saved'&&savedView==='rulings')&&!ruling)return;let live=true;setRulingsLoading(true);setRulingsError(false);loadHeads().then(items=>{if(live)setRulings(items);}).catch(()=>{if(live)setRulingsError(true);}).finally(()=>{if(live)setRulingsLoading(false);});return()=>{live=false;};},[view,savedView,!!ruling,rulingsRetry]);
   useEffect(()=>{try{const stored=JSON.parse(localStorage.getItem('openlawtw-ruling-favorites')||'[]');if(Array.isArray(stored))setSavedRulings(stored.filter(x=>typeof x==='string'));}catch{}
     let firstLocation=true;const reloaded=(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined)?.type==='reload';
-    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));setUniverseOpen(params.get('view')==='universe');if(params.get('view')==='universe')return;const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('minutes')){setLanding(false);setWelcome(false);setView('minutes');}
+    const readLocation=()=>{const route=readRoute(location.pathname,location.hash);const token=++rulingRequest.current;const params=new URLSearchParams(location.hash.slice(1));setUniverseOpen(params.get('view')==='universe');if(params.get('view')==='universe')return;const requestedRegion=params.get('region');if(requestedRegion&&(requestedRegion==='全台'||data.regions.some(r=>r.name===requestedRegion)))setRegion(requestedRegion);setLanding(params.get('view')==='about');setWelcome(!route.law&&!route.ruling&&!lawById.has(lastLaw()));setNavigationOpen(false);if(params.get('minutes')||params.get('landuse')){setLanding(false);setWelcome(false);setView(params.get('landuse')?'landuse':'minutes');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
       if(params.get('view')==='search'){setQuery(params.get('q')||'');setView('tree');if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
       if(route.ruling){applyPageMetadata();loadRuling(route.ruling).then(r=>{if(token===rulingRequest.current){setRuling(r);setRulingHistory([]);}}).catch(()=>{if(token===rulingRequest.current)toast.error('此函釋尚未下載，請連線後再開啟。');});return;}
       if(route.law&&!lawById.has(route.law)){toast.error('本庫未收錄此法規網址。');return;}
@@ -159,9 +162,7 @@ function Workspace() {
     return sort==='recent'?[...items].sort((a,b)=>dateValue(b.law.modified)-dateValue(a.law.modified)):items;
   },[baseHits,articleHits,resultType,sort]);
   const groupedHits=useMemo(()=>groupSearchHits(hits,resultType==='all'?articleHits:[]),[hits,articleHits,resultType]);
-  const [minutesHits,setMinutesHits]=useState<MinutesHit[]>([]);
-  // Taoyuan minutes join the main search; the 4 MB file is fetched on the first query, not at startup.
-  useEffect(()=>{setMinutesHits([]);const words=minutesKeywords(debounced);if(!words.length||!manifest.minutes)return;const controller=new AbortController();loadMinutes(controller.signal).then(a=>{if(!controller.signal.aborted)setMinutesHits(searchMinutes(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced]);
+  function openLanduse(id:string,page:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+landuseHash(id,page));setView('landuse');}
   function openMinutes(id:string,page:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+minutesHash(id,page));setView('minutes');}
   const totalHits=groupedHits.length+((resultType==='all'||resultType==='rulings')?rulingHits.length:0);
   useEffect(()=>setLimit(40),[debounced,region,task,resultType,jurisdiction,coverage,sort]);
@@ -180,7 +181,7 @@ function Workspace() {
   function toggle(id:string){setExpanded(prev=>{const next=new Set(prev);if(next.has(id))next.delete(id);else next.add(id);return next;});}
   function expandGroups(){setExpanded(new Set(scopedRegions.flatMap(r=>[r,...data.categories.map(c=>r+':'+c)])));}
   function copy(text:string){copyText(text).then(()=>toast.success('已複製')).catch(()=>toast.error('無法複製，請選取文字後手動複製'));}
-  const navItems=[{id:'tree',label:'索引',icon:ListTree},{id:'graph',label:'法源',icon:GitBranch},{id:'rulings',label:'函釋',icon:FileText},...(manifest.minutes?[{id:'minutes',label:'會議',icon:ScrollText}]:[]),{id:'resources',label:'資源',icon:Link2},{id:'saved',label:'收藏',icon:Bookmark}];
+  const navItems=[{id:'tree',label:'索引',icon:ListTree},{id:'graph',label:'法源',icon:GitBranch},{id:'rulings',label:'函釋',icon:FileText},...(manifest.landuse?[{id:'landuse',label:'土管',icon:LandPlot}]:[]),...(manifest.minutes?[{id:'minutes',label:'會議',icon:ScrollText}]:[]),{id:'resources',label:'資源',icon:Link2},{id:'saved',label:'收藏',icon:Bookmark}];
 
   useEffect(()=>{
     const ctx=(document as unknown as {modelContext?:{registerTool:(tool:unknown,opts:unknown)=>void|Promise<void>}}).modelContext;
@@ -216,7 +217,7 @@ function Workspace() {
               <div className="result-toolbar"><p className="result-count" role="status">{searchLoading||debounced!==query?'正在搜尋…':`${number(groupedHits.length)} 部法規${(resultType==='all'||resultType==='rulings')?' · '+number(rulingHits.length)+' 筆函釋':''}`}{searchError&&' · 部分資料尚未下載，結果不完整'}</p><Picker value={sort} onChange={setSort} label="搜尋結果排序"><SelectItem value="relevance">依關聯程度</SelectItem><SelectItem value="recent">依修正日期</SelectItem></Picker></div>
               {groupedHits.slice(0,limit).map(group=><SearchGroupCard key={group.law.id+':'+debounced+':'+resultType} group={group} selected={selected} activeArticle={activeArticle} activeDocumentPage={activeDocumentPage} query={debounced} onChoose={chooseLaw}/>)}
               {(resultType==='all'||resultType==='rulings')&&rulingHits.slice(0,limit).map(r=><RulingCard key={r.id} ruling={r} onClick={()=>openRuling(r)}/>)}
-              {resultType==='all'&&minutesHits.length>0&&<section className="minutes-hits" aria-label="桃園市會議紀錄"><h3>桃園市會議紀錄<span>{minutesHits.length} 份符合</span></h3><small>只適用桃園市，不是法源；OCR 頁可能有誤字，引用前請開原檔。</small>{minutesHits.slice(0,5).map(({item,page,spread})=><button className="minutes-card" key={item.id} onClick={()=>openMinutes(item.id,page.n)}><h3>{item.title}</h3>{!spread&&<p><b>第 {page.n} 頁{page.ocr?'（OCR）':''}</b>　{minutesSnippet(page.text,minutesKeywords(debounced))}</p>}</button>)}{minutesHits.length>5&&<button className="load-more" onClick={()=>{setView('minutes');}}>到「會議」分頁看全部 {minutesHits.length} 份</button>}</section>}
+              {resultType==='all'&&(manifest.minutes||manifest.landuse)&&debounced.trim()&&<Suspense fallback={null}><RegionalHits debounced={debounced} openLanduse={openLanduse} openMinutes={openMinutes} setView={setView}/></Suspense>}
               {!totalHits&&!searchLoading&&!searchError&&debounced===query&&<div className="empty-state"><Search size={30}/><strong>目前條件下，尚無相符資料</strong>可以用空格分開關鍵字，或查找全台已收錄資料。<div className="empty-actions"><button onClick={()=>{changeRegion('全台');resetFilters();}}>搜尋全台</button><button onClick={resetFilters}>清除篩選</button></div><small>查無結果不代表沒有相關規定。</small></div>}
               {searchError&&<button className="plain-button" onClick={()=>setSearchRetry(n=>n+1)}>重新載入全文索引</button>}
               {Math.max(groupedHits.length,(resultType==='all'||resultType==='rulings')?rulingHits.length:0)>limit&&<button className="load-more" onClick={()=>setLimit(n=>n+40)}>顯示更多結果 <span>{limit} / {Math.max(groupedHits.length,(resultType==='all'||resultType==='rulings')?rulingHits.length:0)}</span><ChevronDown size={16}/></button>}
@@ -248,6 +249,7 @@ function Workspace() {
           <TabsContent value="rulings" className="pane">
             <RulingExplorer items={rulings} loading={rulingsLoading} error={rulingsError} retry={()=>setRulingsRetry(n=>n+1)} onOpen={openRuling} selected={ruling?.id||''} saved={savedRulings}/>
           </TabsContent>
+          <TabsContent value="landuse" className="pane"><Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><LanduseExplorer/></Suspense></TabsContent>
           <TabsContent value="minutes" className="pane"><Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><MinutesExplorer/></Suspense></TabsContent>
           <TabsContent value="resources" className="pane">
             <div className="section-top"><div><div className="eyebrow">OFFICIAL RESOURCES</div><h2>官方資源</h2><p>{region==='全台'?'中央與各縣市':region+'與中央'}的查詢入口。</p></div><LibraryBig size={25} color="#8a9aaf"/></div>

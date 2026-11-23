@@ -1,5 +1,5 @@
 import rawManifest from '../data/runtime-manifest.json' with {type:'json'};
-import type {DataFile,DataManifest,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
+import type {DataFile,DataManifest,LanduseArchive,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
 import {candidates,type InvertedIndex,type IndexRow} from './inverted.ts';
 import {searchLaws,searchRulings,searchDocumentPages,type DocumentText,type SearchDoc,type SearchHit} from './search.ts';
 declare global {interface Window {OPENLAWTW_PAGE_LAW?:Law}}
@@ -19,6 +19,8 @@ export const loadRulingCounts=(signal?:AbortSignal)=>loadFile<RulingCounts>(mani
 export async function loadRelated(id:string,signal?:AbortSignal){return manifest.related[id]?loadFile<Ruling[]>(manifest.related[id],signal):[];}
 // Taoyuan minutes: one content-addressed file, fetched only when someone opens the 會議 tab.
 export const loadMinutes=(signal?:AbortSignal)=>loadFile<MinutesArchive>(manifest.minutes as DataFile,signal);
+// Taoyuan 土管要點: likewise one file, fetched only when the 土管 tab or a search needs it.
+export const loadLanduse=(signal?:AbortSignal)=>loadFile<LanduseArchive>(manifest.landuse as DataFile,signal);
 export const loadHeads=(signal?:AbortSignal)=>loadFile<Ruling[]>(manifest.rulingHeads,signal);
 export async function loadRuling(id:string,signal?:AbortSignal){const bucket=manifest.rulings[String(Math.floor(Number(id)/256))];const list=await loadFile<Ruling[]>(bucket,signal);const result=list.find(r=>r.id===id);if(!result)throw Error('本版找不到此函釋');return result;}
 export async function mapLimit<T,R>(items:T[],fn:(value:T)=>Promise<R>,signal?:AbortSignal):Promise<PromiseSettledResult<R>[]>{let cursor=0;const out:PromiseSettledResult<R>[]=[];await Promise.all(Array.from({length:Math.min(6,items.length)},async()=>{while(cursor<items.length){aborted(signal);const i=cursor++;try{out[i]={status:'fulfilled',value:await fn(items[i])};}catch(reason){aborted(signal);out[i]={status:'rejected',reason};}}}));return out;}
