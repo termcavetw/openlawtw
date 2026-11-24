@@ -9308,6 +9308,20 @@
       "archiveMember": "ChOrder.xml",
       "lawId": "H0070041",
       "bulkKey": "CM"
+    },
+    "M0020002": {
+      "url": "https://law.moj.gov.tw/api/ch/order/xml",
+      "format": "xml",
+      "sha256": "807ec222918faf58f75d2b36abb0dea2dd98ddab6080c6c76dbb0855a6e9ec92",
+      "hashScope": "downloaded-xml-file",
+      "observedAt": "2026-11-24T03:03:27+00:00",
+      "snapshot": "2026/11/13 上午 12:00:00",
+      "schema": "moj-openapi-v1",
+      "archiveSha256": "2dad6bf2f0b6fb0ae28936849e5e9d147714ed4f59ebe3574af1ec27304183a0",
+      "schemaSha256": "2f76231e5db02ca8af9a7da2b04b160974bb2624e7947f6adbd2281d7b898516",
+      "archiveMember": "ChOrder.xml",
+      "lawId": "M0020002",
+      "bulkKey": "CM"
     }
   }
 }
