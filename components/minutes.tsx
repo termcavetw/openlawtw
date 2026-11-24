@@ -1,3 +1,4 @@
+import {PageText,WideButton,useWide} from './page-text';
 import {useEffect,useMemo,useState} from 'react';
 import {ArrowLeft,ArrowUpRight,ChevronDown,ChevronLeft,ChevronRight,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
@@ -18,11 +19,12 @@ function Meta({item}:{item:MinutesItem}){
 
 function MinutesReader({item,archive,startPage,onBack}:{item:MinutesItem;archive:MinutesArchive;startPage:number;onBack:()=>void}){
  const [n,setN]=useState(startPage);
+ const [wide,setWide]=useWide();
  useEffect(()=>{setN(startPage);setHash(minutesHash(item.id,startPage));},[item.id,startPage]);
  const page=item.pages.find(p=>p.n===n)||item.pages[0];
  const go=(next:number)=>{const to=Math.min(item.pages.length,Math.max(1,next));setN(to);setHash(minutesHash(item.id,to));document.querySelector('.minutes-reader')?.scrollTo({top:0});};
  const original=item.manual?null:item.url;
- return <div className="minutes-reader">
+ return <div className={'minutes-reader'+(wide?' wide':'')}>
   <button className="ruling-back" onClick={onBack}><ArrowLeft size={14}/><span>會議紀錄列表</span></button>
   <h3>{item.title}</h3>
   <Meta item={item}/>
@@ -32,10 +34,10 @@ function MinutesReader({item,archive,startPage,onBack}:{item:MinutesItem;archive
    <select value={page.n} onChange={e=>go(Number(e.target.value))} aria-label="選擇頁碼">{item.pages.map(p=><option key={p.n} value={p.n}>第 {p.n} 頁{p.ocr?'（OCR）':''}</option>)}</select>
    <span>共 {item.pages.length} 頁</span>
    <button aria-label="下一頁" disabled={page.n>=item.pages.length} onClick={()=>go(page.n+1)}><ChevronRight size={15}/></button>
-   <button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(location.href).then(()=>toast.success('已複製連結'),()=>toast.error('無法複製，請手動複製網址'))}>複製連結</button>{original?<a href={original} target="_blank" rel="noreferrer">原檔 PDF<ArrowUpRight size={13}/></a>:<span className="minutes-manual">掃描檔 OCR，無公開原檔連結</span>}
+   <WideButton wide={wide} setWide={setWide}/><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(location.href).then(()=>toast.success('已複製連結'),()=>toast.error('無法複製，請手動複製網址'))}>複製連結</button>{original?<a href={original} target="_blank" rel="noreferrer">原檔 PDF<ArrowUpRight size={13}/></a>:<span className="minutes-manual">掃描檔 OCR，無公開原檔連結</span>}
   </div>
-  {page.ocr&&<div className="minutes-ocr">這一頁是掃描影像經 OCR 辨識，字可能有誤，請以原檔為準。</div>}
-  <div className="minutes-text">{page.text.trim()||'（此頁沒有可辨識的文字）'}</div>
+  {page.ocr&&<div className="minutes-ocr">這一頁是掃描影像經 OCR 辨識，段落與表格是自動整理的；字、數字與表格欄位可能有誤，請以原檔為準。</div>}
+  <PageText text={page.text} empty="（此頁沒有可辨識的文字）"/>
  </div>;
 }
 
