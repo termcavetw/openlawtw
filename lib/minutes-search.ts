@@ -1,7 +1,8 @@
 // Search over the Taoyuan minutes archive. Small and dependency-free so the main search can use it
 // without pulling the 會議 reader into the initial shell.
 import type {MinutesItem,MinutesPage} from './law-types.ts';
-export const strip=(s:string)=>s.replace(/\s+/g,'');
+// OCR joins table cells on one row with " | "; search ignores the separator so 「法定 | 空地」 still matches 法定空地.
+export const strip=(s:string)=>s.replace(/[\s|]+/g,'');
 export const keywords=(q:string)=>q.split(/\s+/).map(strip).filter(Boolean);
 export type MinutesHit={item:MinutesItem;page:MinutesPage;score:number;spread:boolean};
 export function searchMinutes(items:MinutesItem[],words:string[]):MinutesHit[]{
@@ -17,7 +18,9 @@ export function searchMinutes(items:MinutesItem[],words:string[]):MinutesHit[]{
 }
 export function minutesSnippet(text:string,words:string[]){
  const t=text.replace(/\s+/g,' ').replace(/(?<=[一-鿿，。、；：（）「」]) (?=[一-鿿，。、；：（）「」])/g,'');
- let pos=-1;for(const w of words){const i=t.indexOf(w);if(i>=0&&(pos<0||i<pos))pos=i;}
+ // Find the keyword with spaces and cell separators ignored, then map back to the shown text.
+ const keep:number[]=[];let c='';for(let i=0;i<t.length;i++)if(!/[\s|]/.test(t[i])){keep.push(i);c+=t[i];}
+ let pos=-1;for(const w of words){const i=c.indexOf(w);if(i>=0&&(pos<0||keep[i]<pos))pos=keep[i];}
  const a=Math.max(0,pos-30);
  return (a>0?'…':'')+t.slice(a,a+170).trim()+(a+170<t.length?'…':'');
 }

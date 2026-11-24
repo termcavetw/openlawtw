@@ -133,7 +133,12 @@ def cover_meta(first_page):
     m = re.search(r'發文字號\s*[:：]?\s*([^\s]{0,8}字第\s*[0-9A-Za-z\-]+\s*號)', first_page)
     if m:
         meta['docNo'] = re.sub(r'\s+', '', m.group(1))
-    m = re.search(r'(桃園[縣市]政府[一-鿿]{2,8}?[局處])', first_page)
+    # The issuer is the letterhead (「桃園市政府　函」, 「桃園市政府建築管理處　函」). The 正本／副本
+    # lists below it name other agencies, so they are never read as the issuer.
+    head = re.split(r'(?m)^[^\S\n]*(?:正本|副本)[^\S\n]*[:：]', first_page)[0]
+    m = re.search(r'(?m)^[^\S\n]*(?:\S+ \| )?(桃園[縣市]政府(?:[一-鿿]{1,8}?[局處])?)[^\S\n]*(?:函|書函|開會通知單)[^\S\n]*$', head)
+    if not m:
+        m = re.search(r'(桃園[縣市]政府[一-鿿]{2,8}?[局處])', head)
     if m:
         meta['issuer'] = m.group(1)
     return meta
