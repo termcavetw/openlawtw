@@ -38,8 +38,12 @@ for(const [id,file] of Object.entries(manifest.laws)){
 }
 const regions=['中央',...catalog.regions.map(r=>r.name)];
 const list=regions.map(region=>{const laws=catalog.laws.filter(l=>l.region===region);return `<details><summary>${esc(region)} · ${laws.length} 部索引</summary><ul>${laws.map(l=>`<li><a href="${esc(lawHref(l.id))}">${esc(l.name)}</a><small>${l.document?'原文文件':l.coverage==='full'?'全文':'官方連結'}</small></li>`).join('')}</ul></details>`;}).join('');
+// The home page is also the offline shell (3 MiB budget), so it lists only central laws and
+// sends readers to the full directory for the 22 regions; every law page stays in the sitemap.
+const local=catalog.laws.filter(l=>l.region!=='中央');
+const homeList=list.slice(0,list.indexOf('</details>')+'</details>'.length)+`<p class="static-note"><a href="/laws/index.html">各縣市自治法規與行政規則 ${local.length} 部：開啟全台法規目錄 →</a></p>`;
 await writeFile(join(dist,'laws/index.html'),page({title:'全台建築相關法規目錄｜openlawtw',description:HOME_DESCRIPTION,url:SITE_URL+'/laws/index.html'},`<header><div class="static-kicker">OPEN LEGAL LIBRARY · TAIWAN</div><h1>全台法規目錄</h1><p>${catalog.laws.length} 部索引 · ${catalog.laws.filter(l=>l.coverage==='full').length} 部全文快照</p><a href="/">開啟搜尋與函釋並讀 →</a></header>${list}`,null,false));
-await writeFile(join(dist,'index.html'),page({title:HOME_TITLE,description:HOME_DESCRIPTION,url:SITE_URL+'/'},`<header><div class="static-kicker">OPEN LEGAL LIBRARY · TAIWAN</div><h1>臺灣建築法規，從條文開始。</h1><p>依縣市閱讀已收錄法規，連結官方來源與解釋函令。</p><noscript><p>啟用 JavaScript 可使用搜尋、函釋並讀與離線管理，也可直接開啟下方法規閱讀原文。</p></noscript></header>${list}`));
+await writeFile(join(dist,'index.html'),page({title:HOME_TITLE,description:HOME_DESCRIPTION,url:SITE_URL+'/'},`<header><div class="static-kicker">OPEN LEGAL LIBRARY · TAIWAN</div><h1>臺灣建築法規，從條文開始。</h1><p>依縣市閱讀已收錄法規，連結官方來源與解釋函令。</p><noscript><p>啟用 JavaScript 可使用搜尋、函釋並讀與離線管理，也可直接開啟下方法規閱讀原文。</p></noscript></header>${homeList}`));
 const urls=[SITE_URL+'/',SITE_URL+'/laws/index.html',...catalog.laws.map(l=>SITE_URL+lawHref(l.id))];
 await writeFile(join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(url=>'<url><loc>'+esc(url)+'</loc></url>').join('')+'</urlset>\n');
 await writeFile(join(dist,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
