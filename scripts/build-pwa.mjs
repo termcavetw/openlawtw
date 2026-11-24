@@ -6,7 +6,7 @@ import {join} from './paths.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const dist=join(root,'dist');
 // Canonical bundles are authoring inputs. Deploy only content-addressed data.
-for(const name of ['laws','laws.json','search.json','rulings.json','minutes.json','landuse.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
+for(const name of ['laws','laws.json','search.json','rulings.json','minutes.json','landuse.json','agri-rulings.json'])await rm(join(dist,'data',name),{recursive:true,force:true});
 await import('./build-pages.mjs');
 await import('./build-embed.mjs');
 const manifest=JSON.parse(await readFile(join(root,'data/runtime-manifest.json'),'utf8'));
