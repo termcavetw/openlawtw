@@ -21,4 +21,5 @@
 @media(max-width:560px){.ocr-flow{font-size:15.5px;line-height:1.9}.ocr-p.l2{margin-left:1.5em}.ocr-p.l3,.ocr-p.l4{margin-left:2em}.ocr-table{font-size:13px}}
 .minutes-ocr a{color:inherit;text-decoration:underline}
 .minutes-reader.wide{position:fixed;inset:0;z-index:80;background:#fff;overflow:auto;padding:26px max(22px,calc((100vw - 900px)/2)) 60px}.minutes-reader.wide .ocr-flow{font-size:17px;max-width:none}.minutes-reader.wide .ocr-table{font-size:15px}
-@media(max-width:899px){.page-wide{display:none}}
+@media(max-width:899px){.minutes-pagebar .page-wide{display:none}}
+.minutes-pagebar .page-wide+.minutes-copy{margin-left:0}
