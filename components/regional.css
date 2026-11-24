@@ -23,3 +23,5 @@
 .minutes-reader.wide{position:fixed;inset:0;z-index:80;background:#fff;overflow:auto;padding:26px max(22px,calc((100vw - 900px)/2)) 60px}.minutes-reader.wide .ocr-flow{font-size:17px;max-width:none}.minutes-reader.wide .ocr-table{font-size:15px}
 @media(max-width:899px){.minutes-pagebar .page-wide{display:none}}
 .minutes-pagebar .page-wide+.minutes-copy{margin-left:0}
+.ocr-table-warn{font-family:Arial,sans-serif;font-size:12px;line-height:1.6;color:#9a5b16;background:#fdf6ea;border-left:3px solid #e2a54a;padding:6px 10px;margin:.6em 0 .3em;letter-spacing:0}.ocr-table-warn a{color:inherit;text-decoration:underline}
+.ocr-raw pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Noto Sans Mono CJK TC",monospace;font-size:13px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere;background:#f7f8f9;border:1px solid #e6e9ec;border-radius:4px;padding:10px 12px;margin:0 0 1em;color:#33444f}
