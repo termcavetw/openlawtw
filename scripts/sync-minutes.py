@@ -244,7 +244,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--cache', default='.minutes-cache', type=Path)
     p.add_argument('--listing', type=Path, help='use a saved listing response instead of the network')
-    p.add_argument('--max-ocr-pages', type=int, default=60, help='OCR budget per run; the rest waits a week')
+    p.add_argument('--max-ocr-pages', type=int, default=30, help='OCR budget per run; the rest waits a week')
     p.add_argument('--workers', type=int, default=max(1, min(4, os.cpu_count() or 1)))
     a = p.parse_args(argv)
     a.cache.mkdir(parents=True, exist_ok=True)
