@@ -4,3 +4,4 @@ import css from './regional.css?inline';
 if(typeof document!=='undefined'&&!document.getElementById('openlawtw-regional-css')){const style=document.createElement('style');style.id='openlawtw-regional-css';style.textContent=css;document.head.appendChild(style);}
 export {MinutesExplorer} from './minutes';
 export {LanduseExplorer,RegionalHits} from './landuse';
+export {AgriExplorer} from './agri';

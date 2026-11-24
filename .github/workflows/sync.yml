@@ -56,6 +56,10 @@ jobs:
         run: python scripts/run-sync.py step landuse -- python scripts/sync-landuse.py --cache .landuse-cache
       - name: Check Taoyuan land-use control rules against this run's listing
         run: python scripts/run-sync.py step validate-landuse -- python scripts/check-landuse.py --cache .landuse-cache
+      - name: Fetch new 農業部 farmland and farmhouse interpretations (incremental)
+        run: python scripts/run-sync.py step agri -- python scripts/sync-agri.py --cache .agri-cache
+      - name: Check 農業部 interpretations against this run's listing
+        run: python scripts/run-sync.py step validate-agri -- python scripts/check-agri.py --cache .agri-cache
       - run: python scripts/run-sync.py step snapshot -- npm run snapshot
       - run: python scripts/run-sync.py step build -- npm run build
       - run: python scripts/run-sync.py step typecheck -- npm run typecheck
@@ -71,7 +75,7 @@ jobs:
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
         with:
           branch: data/weekly-official-snapshot
-          title: '資料：官方法規、函釋與桃園會議紀錄、土管要點快照更新'
+          title: '資料：官方法規、函釋（國土署、農業部）與桃園會議紀錄、土管要點快照更新'
           commit-message: 'data: refresh verified official snapshots'
           body-path: sync-pr.md
           draft: true
@@ -86,6 +90,7 @@ jobs:
             public/data/rulings.json
             public/data/minutes.json
             public/data/landuse.json
+            public/data/agri-rulings.json
       - name: Finalize evidence and restore canonical data after a failed run
         if: always() && steps.initialize.outcome == 'success'
         env:

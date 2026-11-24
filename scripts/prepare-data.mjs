@@ -70,6 +70,10 @@ manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive
 {const landuse=await readFile(join(root,'public/data/landuse.json'));const hash=sha(landuse),url='/data/landuse/landuse-'+hash+'.json';
  await rm(join(root,'public/data/landuse'),{recursive:true,force:true});await mkdir(join(root,'public/data/landuse'),{recursive:true});await writeFile(join(root,'public',url),landuse);
  const m=JSON.parse(landuse);manifest.landuse={url,sha256:hash,bytes:landuse.length,region:m.region,fetchedAt:m.fetchedAt,items:m.stats.items,areas:m.stats.areas,pages:m.stats.pages,ocrPages:m.stats.ocrPages};}
+// 農業部 farmland / farmhouse interpretations (rmis.ardswc.gov.tw): same treatment.
+{const agri=await readFile(join(root,'public/data/agri-rulings.json'));const hash=sha(agri),url='/data/agri/agri-rulings-'+hash+'.json';
+ await rm(join(root,'public/data/agri'),{recursive:true,force:true});await mkdir(join(root,'public/data/agri'),{recursive:true});await writeFile(join(root,'public',url),agri);
+ const m=JSON.parse(agri);manifest.agri={url,sha256:hash,bytes:agri.length,fetchedAt:m.fetchedAt,items:m.stats.items};}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
