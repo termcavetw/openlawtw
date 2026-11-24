@@ -15,7 +15,7 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && vars.ENABLE_LAW_SYNC == 'true')
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Initialize fresh run reports before setup or downloads
@@ -33,7 +33,7 @@ jobs:
       - name: Install Python dependencies
         run: python scripts/run-sync.py step dependencies-python -- python -m pip install -r requirements.txt
       - name: Install PDF text and OCR tools for new Taoyuan minutes and 土管要點
-        run: python scripts/run-sync.py step dependencies-ocr -- bash -c "sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-chi-tra"
+        run: python scripts/run-sync.py step dependencies-ocr -- bash -c "sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-chi-tra && python -m pip install -r requirements-ocr.txt"
       - name: Run offline source and runner regression tests
         run: python scripts/run-sync.py step unit-tests -- python -m unittest discover -s scripts/tests -v
       - name: Keep a comparison baseline

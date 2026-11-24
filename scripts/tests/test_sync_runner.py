@@ -275,7 +275,7 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertIn("github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'", pr_step)
         self.assertIn('draft: true', pr_step)
         # 45 minutes: the ~20-minute law/ruling sync plus OCR of a few new Taoyuan minutes.
-        self.assertIn('timeout-minutes: 45', workflow)
+        self.assertIn('timeout-minutes: 75', workflow)
         # Reviewed law PDF text is checked offline, so laws must not depend on the runner's Poppler.
         # Poppler/Tesseract are installed only for new Taoyuan minutes, whose text is stored once.
         self.assertEqual(self.tool_lines(workflow), ['dependencies-ocr'])

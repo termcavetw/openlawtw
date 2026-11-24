@@ -6,8 +6,8 @@ PF000005 are the 土管要點 of that case. Each file is the 要點 as announced
 case. The site does not mark which file is in force today, and this archive does not
 guess: every case is kept with its area, announcement number and date, newest first.
 
-Text comes from the PDF text layer; pages with almost no text are OCR'd (same settings
-as the Taoyuan minutes) and may contain misread characters, especially in tables.
+Text comes from the PDF text layer; pages with almost no text are OCR'd (same engine
+as the Taoyuan minutes, scripts/ocr_engine.py) and may contain misread characters, especially in tables.
 
 Incremental: a file already in the archive keeps its text and is never downloaded or
 OCR'd again; its case metadata is refreshed from the listing. If the list cannot be
@@ -27,7 +27,7 @@ FILE_PREFIX = 'PF000005'          # the site's own category for 土管要點 fil
 SOURCE = '桃園市政府都市發展局 都市計畫書圖查詢（urplanning.tycg.gov.tw）'
 NOTE = ('每份是該次都市計畫公告的土地使用分區管制要點，市府網站沒有標示哪一份是現行版本，本庫也不判斷；'
         '同一計畫區可能有多份細部計畫與後續修訂，引用前要確認基地所屬計畫與是否有較新的公告。'
-        '部分頁面是掃描影像經 OCR（Tesseract chi_tra），表格與數字可能有誤，引用前要開原檔核對。')
+        '部分頁面是掃描影像經 OCR 辨識，表格的欄位對應與數字可能有誤，引用前要開原檔核對。')
 PAGE_SIZE = 500
 MIN_LISTED = 300                  # fewer 土管要點 files than this -> the listing is wrong
 MAX_REMOVED = 10                  # more known files vanishing than this -> keep everything
@@ -202,7 +202,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--cache', default='.landuse-cache', type=Path)
     p.add_argument('--listing', type=Path, help='use a saved listing (list.json) instead of the network')
-    p.add_argument('--max-ocr-pages', type=int, default=400, help='OCR budget per run; the rest waits a week')
+    p.add_argument('--max-ocr-pages', type=int, default=60, help='OCR budget per run; the rest waits a week')
     p.add_argument('--workers', type=int, default=max(1, min(4, os.cpu_count() or 1)))
     a = p.parse_args(argv)
     a.cache.mkdir(parents=True, exist_ok=True)
