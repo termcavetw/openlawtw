@@ -86,3 +86,5 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #00
  .reader-first .reader-tabbar [data-slot=tabs-trigger]{flex-wrap:wrap;justify-content:center;column-gap:5px;row-gap:0}
  .reader-first .reader-tabbar [data-slot=tabs-trigger] .tab-count{white-space:nowrap;flex-shrink:0;overflow-wrap:normal}
 }
+/* Seven sidebar tabs need ~330px in a row; a narrower sidebar stacks icon over label so 收藏 never spills into the reader. */
+.explorer .viewbar{container-type:inline-size}@container (max-width:340px){.explorer .view-tabs>button{flex-direction:column;justify-content:center;gap:2px;font-size:11px;line-height:1.15;min-width:0;padding:0 1px}}
