@@ -25,7 +25,7 @@ LIST_API = 'https://www.tyaa.org.tw/ajax/listFiles.php'
 DOWNLOAD = 'https://old.tyaa.org.tw/dl_file.php?id='
 SOURCE = '桃園市政府建管單位法規執行疑義會議紀錄與公文（轉載於桃園市建築師公會網站）'
 NOTE = ('只適用桃園市，不是法源。轉載自桃園市建築師公會網站（tyaa.org.tw）；'
-        '部分頁面是掃描影像經 OCR（Tesseract chi_tra），可能有誤字，引用前要開原檔核對。')
+        '部分頁面是掃描影像經 OCR 辨識，可能有誤字，引用前要開原檔核對。')
 # Listed archive files whose content is supplied by hand (data/minutes-manual.json).
 MANUAL_FOR = {'790': ['790'], '703': ['703', '703x', '703y'], '710': ['710', '710a']}
 NATIVE_MIN = 120          # fewer non-space characters than this on a page -> OCR it
@@ -100,13 +100,8 @@ def native_text(pdf, page):
 
 
 def ocr_text(pdf, page):
-    with tempfile.TemporaryDirectory() as work:
-        image = Path(work) / 'page'
-        subprocess.run(['pdftoppm', '-r', '200', '-f', str(page), '-l', str(page), '-png', '-singlefile',
-                        str(pdf), str(image)], capture_output=True, check=True)
-        result = subprocess.run(['tesseract', str(image) + '.png', '-', '-l', 'chi_tra', '--psm', '6'],
-                                capture_output=True, check=True, timeout=300)
-        return result.stdout.decode('utf-8', 'ignore')
+    import ocr_engine  # PaddleOCR, Tesseract fallback; imported lazily so checks need neither
+    return ocr_engine.ocr_page(pdf, page)[0]
 
 
 def extract_pages(pdf, workers=2):
@@ -249,7 +244,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--cache', default='.minutes-cache', type=Path)
     p.add_argument('--listing', type=Path, help='use a saved listing response instead of the network')
-    p.add_argument('--max-ocr-pages', type=int, default=400, help='OCR budget per run; the rest waits a week')
+    p.add_argument('--max-ocr-pages', type=int, default=60, help='OCR budget per run; the rest waits a week')
     p.add_argument('--workers', type=int, default=max(1, min(4, os.cpu_count() or 1)))
     a = p.parse_args(argv)
     a.cache.mkdir(parents=True, exist_ok=True)
