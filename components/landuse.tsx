@@ -1,3 +1,4 @@
+import {PageText,WideButton,useWide} from './page-text';
 import {useEffect,useMemo,useState} from 'react';
 import {ArrowLeft,ArrowUpRight,ChevronDown,ChevronLeft,ChevronRight,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
@@ -20,12 +21,13 @@ function Meta({item}:{item:LanduseItem}){
 
 function LanduseReader({item,archive,startPage,onBack,onOpen}:{item:LanduseItem;archive:LanduseArchive;startPage:number;onBack:()=>void;onOpen:(id:string)=>void}){
  const [n,setN]=useState(startPage);
+ const [wide,setWide]=useWide();
  useEffect(()=>{setN(startPage);setHash(landuseHash(item.id,startPage));},[item.id,startPage]);
  const page=item.pages.find(p=>p.n===n)||item.pages[0];
  const go=(next:number)=>{const to=Math.min(item.pages.length,Math.max(1,next));setN(to);setHash(landuseHash(item.id,to));document.querySelector('.minutes-reader')?.scrollTo({top:0});};
  // Later announcements in the same plan area: a fact from the city's list, not a judgement of which applies.
  const newer=useMemo(()=>archive.items.filter(i=>i.area===item.area&&i.id!==item.id&&i.date>item.date),[archive,item]);
- return <div className="minutes-reader">
+ return <div className={'minutes-reader'+(wide?' wide':'')}>
   <button className="ruling-back" onClick={onBack}><ArrowLeft size={14}/><span>土管要點列表</span></button>
   <h3>{item.title}</h3>
   <Meta item={item}/>
@@ -36,11 +38,11 @@ function LanduseReader({item,archive,startPage,onBack,onOpen}:{item:LanduseItem;
    <select value={page.n} onChange={e=>go(Number(e.target.value))} aria-label="選擇頁碼">{item.pages.map(p=><option key={p.n} value={p.n}>第 {p.n} 頁{p.ocr?'（OCR）':''}</option>)}</select>
    <span>共 {item.pages.length} 頁</span>
    <button aria-label="下一頁" disabled={page.n>=item.pages.length} onClick={()=>go(page.n+1)}><ChevronRight size={15}/></button>
-   <button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(location.href).then(()=>toast.success('已複製連結'),()=>toast.error('無法複製，請手動複製網址'))}>複製連結</button><a href={item.url} target="_blank" rel="noreferrer">原檔 PDF<ArrowUpRight size={13}/></a>
+   <WideButton wide={wide} setWide={setWide}/><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(location.href).then(()=>toast.success('已複製連結'),()=>toast.error('無法複製，請手動複製網址'))}>複製連結</button><a href={item.url} target="_blank" rel="noreferrer">原檔 PDF<ArrowUpRight size={13}/></a>
   </div>
   {item.files.length>0&&<div className="landuse-files"><span>同案其他檔案：</span>{item.files.map(f=><a key={f.url} href={f.url} target="_blank" rel="noreferrer">{f.name||'檔案'}<ArrowUpRight size={12}/></a>)}</div>}
-  {page.ocr&&<div className="minutes-ocr">這一頁是掃描影像經 OCR 辨識，字與數字可能有誤，請以原檔為準。</div>}
-  <div className="minutes-text">{page.text.trim()||'（此頁沒有可辨識的文字，可能是圖或表，請開原檔）'}</div>
+  {page.ocr&&<div className="minutes-ocr">這一頁是掃描影像經 OCR 辨識，段落與表格是自動整理的；字、數字與表格欄位可能有誤，請以<a href={item.url+'#page='+page.n} target="_blank" rel="noreferrer">原檔第 {page.n} 頁</a>為準。</div>}
+  <PageText text={page.text} empty="（此頁沒有可辨識的文字，可能是圖或表，請開原檔）"/>
  </div>;
 }
 

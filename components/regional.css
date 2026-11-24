@@ -12,3 +12,13 @@
 /* Taoyuan 土管要點 tab: reuses the minutes reader; later announcements and sibling files of the case. */
 .landuse-newer{margin:0 0 14px;font-size:12px;color:#6c5a3a;background:#fbf8f2;border:1px solid #eadfca;border-radius:5px;padding:8px 12px}.landuse-newer summary{cursor:pointer;line-height:1.7}.landuse-newer button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:6px 0;color:#3f5866;font-size:12px;line-height:1.7;cursor:pointer;border-top:1px solid #efe7d7;overflow-wrap:anywhere}.landuse-newer button b{font-weight:500;color:#9a7d49;margin-right:8px}
 .landuse-files{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:#7b8a93;margin:-4px 0 12px}.landuse-files a{display:inline-flex;align-items:center;gap:3px;color:#4d6a7a;text-decoration:none}
+/* Reading layout of minutes / 土管 pages (lib/ocr-layout.ts). */
+.page-text-mode{display:flex;gap:4px;margin:0 0 12px}.page-text-mode button{font-size:12px;border:1px solid #dfe3e6;background:#fff;color:#66747c;border-radius:999px;padding:3px 11px;cursor:pointer}.page-text-mode button[aria-pressed=true]{background:#2f4552;border-color:#2f4552;color:#fff}
+.ocr-flow{font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;font-size:16px;line-height:1.95;color:#263a46;letter-spacing:.02em;overflow-wrap:anywhere;max-width:44em}
+.ocr-p{margin:0 0 .55em}.ocr-p.l1{margin-left:1em}.ocr-p.l2{margin-left:2em}.ocr-p.l3{margin-left:2.6em}.ocr-p.l4{margin-left:3.2em}.ocr-mark{padding-left:2em;text-indent:-2em}
+.ocr-h{font-weight:700;margin-top:1.2em;color:#17303d}.ocr-meta{font-family:Arial,sans-serif;font-size:12px;color:#8d989f;text-align:center;margin:1.4em 0 .4em;letter-spacing:0}
+.ocr-table-wrap{overflow-x:auto;margin:.5em 0 1em;-webkit-overflow-scrolling:touch}.ocr-table{border-collapse:collapse;min-width:100%;font-size:14px;line-height:1.75}.ocr-table td{border:1px solid #e1e5e8;padding:5px 9px;vertical-align:top;min-width:7.5em}.ocr-table tr:nth-child(even) td{background:#fafbfc}
+@media(max-width:560px){.ocr-flow{font-size:15.5px;line-height:1.9}.ocr-p.l2{margin-left:1.5em}.ocr-p.l3,.ocr-p.l4{margin-left:2em}.ocr-table{font-size:13px}}
+.minutes-ocr a{color:inherit;text-decoration:underline}
+.minutes-reader.wide{position:fixed;inset:0;z-index:80;background:#fff;overflow:auto;padding:26px max(22px,calc((100vw - 900px)/2)) 60px}.minutes-reader.wide .ocr-flow{font-size:17px;max-width:none}.minutes-reader.wide .ocr-table{font-size:15px}
+@media(max-width:899px){.page-wide{display:none}}
