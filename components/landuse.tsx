@@ -42,7 +42,7 @@ function LanduseReader({item,archive,startPage,onBack,onOpen}:{item:LanduseItem;
   </div>
   {item.files.length>0&&<div className="landuse-files"><span>同案其他檔案：</span>{item.files.map(f=><a key={f.url} href={f.url} target="_blank" rel="noreferrer">{f.name||'檔案'}<ArrowUpRight size={12}/></a>)}</div>}
   {page.ocr&&<div className="minutes-ocr">這一頁是掃描影像經 OCR 辨識，段落與表格是自動整理的；字、數字與表格欄位可能有誤，請以<a href={item.url+'#page='+page.n} target="_blank" rel="noreferrer">原檔第 {page.n} 頁</a>為準。</div>}
-  <PageText text={page.text} empty="（此頁沒有可辨識的文字，可能是圖或表，請開原檔）"/>
+  <PageText text={page.text} source={item.url+'#page='+page.n} empty="（此頁沒有可辨識的文字，可能是圖或表，請開原檔）"/>
  </div>;
 }
 
