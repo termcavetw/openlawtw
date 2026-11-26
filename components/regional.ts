@@ -9,3 +9,4 @@ export {TaipeiExplorer} from './taipei';
 export {NtpcExplorer} from './ntpc';
 export {LandExplorer} from './land';
 export {CentralExplorer} from './central';
+export {NfaExplorer} from './nfa';
