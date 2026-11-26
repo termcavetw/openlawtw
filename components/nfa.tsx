@@ -1,4 +1,6 @@
 import {useEffect,useMemo,useState} from 'react';
+import {StaleBadge,StaleList} from './stale-note';
+import {type Stale,useStale} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
 import {loadNfa,manifest} from '@/lib/data-client';
@@ -22,16 +24,17 @@ const refLabel=(r:{law:string;articles:string[];historical:boolean})=>(r.histori
 function Notice({archive}:{archive:NfaArchive}){
  return <div className="minutes-notice"><Info size={15}/><p><strong>內政部消防署「消防法令查詢系統」的法令解釋與執法疑義（內政部、消防署等的函、令）。</strong>系統標示的相關法條是函釋當時的版本；之後的法規修正或較新的函釋可能改變見解，個案仍以主管機關認定為準。部分以令發布者只有要旨，全文請查行政院公報。<small>資料版本：{archive.fetchedAt} 擷取</small></p></div>;
 }
-function Meta({item}:{item:NfaItem}){
- return <div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span>{item.docNo&&<span>{item.docNo}</span>}<span>{item.kind}</span>{item.abolished&&<span className="ruling-abolished">已廢止</span>}{item.refs.slice(0,2).map(r=><span key={r.law+r.version}>{refLabel(r)}</span>)}</div>;
+function Meta({item,stale}:{item:NfaItem;stale?:Stale|null}){
+ return <div className="minutes-meta"><StaleBadge id={item.id} stale={stale}/><span>{item.issuer} {rocDay(item.date)}</span>{item.docNo&&<span>{item.docNo}</span>}<span>{item.kind}</span>{item.abolished&&<span className="ruling-abolished">已廢止</span>}{item.refs.slice(0,2).map(r=><span key={r.law+r.version}>{refLabel(r)}</span>)}</div>;
 }
-function NfaReader({item,onBack}:{item:NfaItem;onBack:()=>void}){
+function NfaReader({item,onBack,stale}:{item:NfaItem;onBack:()=>void;stale:Stale|null}){
  useEffect(()=>{setHash(nfaHash(item.id));document.querySelector('.minutes-reader')?.scrollTo({top:0});},[item.id]);
  const cite=nfaCite(item);
  return <div className="minutes-reader">
   <button className="ruling-back" onClick={onBack}><ArrowLeft size={14}/><span>消防署函釋列表</span></button>
   <h3>{item.summary||cite}</h3>
-  <Meta item={item}/>
+  <Meta item={item} stale={stale}/>
+  <StaleList id={item.id} date={item.date} stale={stale}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href="https://law.nfa.gov.tw/GNFA/FINT/index.aspx" target="_blank" rel="noreferrer">消防法令查詢系統<ArrowUpRight size={13}/></a></div>
   {item.refs.length>0&&<div className="landuse-files"><span>系統標示的相關法條：</span>{item.refs.map(r=><span key={r.law+r.version}>{refLabel(r)}（{rocDay(r.version)} 版）</span>)}</div>}
   <div className="minutes-text">{item.body||item.summary}</div>
@@ -44,13 +47,14 @@ export function NfaExplorer(){
  const [q,setQ]=useState(''),[query,setQuery]=useState(''),[composing,setComposing]=useState(false);
  const [law,setLaw]=useState('all'),[limit,setLimit]=useState(30);
  const [open,setOpen]=useState<string|null>(()=>readNfaHash(location.hash));
+ const stale=useStale(manifest.nfaRefs);
  useEffect(()=>{if(!manifest.nfa){setError(true);return;}let live=true;setError(false);loadNfa().then(a=>{if(live)setArchive(a);}).catch(()=>{if(live)setError(true);});return()=>{live=false;};},[retry]);
  useEffect(()=>{if(composing)return;const t=setTimeout(()=>setQuery(q),200);return()=>clearTimeout(t);},[q,composing]);
  useEffect(()=>setLimit(30),[query,law]);
  const words=useMemo(()=>keywords(query),[query]);
  const pool=useMemo(()=>archive?archive.items.filter(i=>law==='all'||(law==='執法疑義'?i.kind==='執法疑義':i.refs.some(r=>r.law===law))):[],[archive,law]);
  const rows=useMemo(()=>words.length?searchNfa(pool,words):pool.map(item=>({item,score:0})),[pool,words]);
- if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><NfaReader item={item} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
+ if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><NfaReader item={item} stale={stale} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
  return <div className="minutes-explorer">
   <div className="section-top"><div><div className="eyebrow">NATIONAL FIRE AGENCY</div><h2>內政部消防署函釋</h2><p>消防法、各類場所消防安全設備設置標準、公共危險物品場所設置標準、檢修申報等法令解釋與執法疑義。</p></div></div>
   {archive&&<><div className="ruling-overview"><strong>{archive.stats.items.toLocaleString()}</strong><span>則解釋函<br/><small>法令解釋 {archive.stats.kinds['法令解釋']} · 執法疑義 {archive.stats.kinds['執法疑義']} · 來源：消防法令查詢系統</small></span></div><Notice archive={archive}/></>}
@@ -60,7 +64,7 @@ export function NfaExplorer(){
   </div>
   <div className="ruling-result-count" role="status">{error?'消防署函釋尚未下載，請連線後重試':!archive?'正在載入消防署函釋…':words.length?`${rows.length.toLocaleString()} 則符合`:`${rows.length.toLocaleString()} 則（依發文日期新到舊）`}</div>
   {error&&<button className="plain-button" onClick={()=>setRetry(n=>n+1)}>重新載入</button>}
-  {rows.slice(0,limit).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>setOpen(item.id)}><h3>{item.summary||nfaCite(item)}</h3><Meta item={item}/>{words.length>0&&<p>{agriSnippet(item.body,words)}</p>}</button>)}
+  {rows.slice(0,limit).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>setOpen(item.id)}><h3>{item.summary||nfaCite(item)}</h3><Meta item={item} stale={stale}/>{words.length>0&&<p>{agriSnippet(item.body,words)}</p>}</button>)}
   {archive&&!error&&!rows.length&&<div className="empty-state"><FileText size={26}/><strong>沒有符合的函釋</strong><span>試試較短或同義的字詞，或改選「全部法規」。</span></div>}
   {rows.length>limit&&<button className="load-more" onClick={()=>setLimit(n=>n+30)}>更多函釋<small>{limit} / {rows.length}</small><ChevronDown size={14}/></button>}
   <a className="plain-button" href="https://law.nfa.gov.tw/GNFA/FINT/index.aspx" target="_blank" rel="noreferrer">內政部消防署 消防法令查詢系統（原始資料）<ArrowUpRight size={14}/></a>

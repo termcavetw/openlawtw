@@ -1,4 +1,5 @@
 import {DropdownMenu} from 'radix-ui';
+import {type Stale,staleLine} from '@/lib/stale';
 import './article-figures.css';
 import {ArticleTools} from './article-tools';
 import {ArticleSupplementControl} from './article-supplements';
@@ -175,23 +176,25 @@ export function Reader({summary,law:loadedLaw,loading,error,retry,activeArticle,
 
 // Other sources' letters that cite this law (prepare-data): 農業部 (law field + "<law>第N條" in the text) and
 // 臺北市解釋令函 (the city's related-law filing). Article links only count since the law's last full-text revision.
-type ExtraRefs={laws:Record<string,{ids:(number|string)[];articles:Record<string,(number|string)[]>}>;heads:Record<string,[string,string,string]>};
-type Extra={key:'agri'|'taipei'|'land'|'central'|'nfa';label:string;intro:string;law:ExtraRefs['laws'][string];heads:ExtraRefs['heads'];open:(id:any)=>void};
+type ExtraRefs={laws:Record<string,{ids:(number|string)[];articles:Record<string,(number|string)[]>}>;heads:Record<string,[string,string,string]>;stale?:Stale};
+type Extra={key:'agri'|'taipei'|'land'|'central'|'nfa';label:string;intro:string;lawId:string;law:ExtraRefs['laws'][string];heads:ExtraRefs['heads'];stale:Stale;open:(id:any)=>void};
 function useExtraRefs(file:(DataFile&{laws:string[]})|undefined,lawId:string){
   const [refs,setRefs]=useState<ExtraRefs|null>(null);
   const wanted=!!file?.laws.includes(lawId);
   useEffect(()=>{if(!wanted||refs||!file)return;let live=true;loadFile<ExtraRefs>(file).then(r=>{if(live)setRefs(r);},()=>{});return()=>{live=false;};},[wanted,refs,file]);
   const law=wanted?refs?.laws[lawId]:undefined;
-  return law&&refs?{law,heads:refs.heads}:null;
+  return law&&refs?{lawId,law,heads:refs.heads,stale:refs.stale||{}}:null;
 }
 const agriDate=(iso:string)=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);return m?`${Number(m[1])-1911}.${m[2]}.${m[3]}`:iso;};
-function ExtraLink({id,extra}:{id:number|string;extra:Extra}){
-  const [date,docNo,title]=extra.heads[id]||['','',''];
-  return <button className="related-provision-link agri-ref" onClick={()=>extra.open(id)}><span><small>{agriDate(date)} {docNo}</small><br/>{title}</span><ArrowUpRight size={11}/></button>;
+// Within an article: warn only about that article; in the law-wide list: about any article of this law.
+const staleFor=(extra:Extra,id:number|string,no?:string)=>(extra.stale[id]||[]).filter(([law,key])=>law===extra.lawId&&(!no||key===no));
+function ExtraLink({id,extra,no}:{id:number|string;extra:Extra;no?:string}){
+  const [date,docNo,title]=extra.heads[id]||['','',''];const stale=staleFor(extra,id,no);
+  return <button className="related-provision-link agri-ref" onClick={()=>extra.open(id)}><span><small>{agriDate(date)} {docNo}</small><br/>{title}{stale.length>0&&<em className="stale-note">⚠ {no?staleLine(stale[0],false):stale.map(s=>s[1].replace(/\s+/g,'')).join('、')+'於函釋後修正'}，引用前請對照現行條文</em>}</span><ArrowUpRight size={11}/></button>;
 }
 function ExtraArticle({no,extra}:{no:string;extra:Extra}){
-  const ids=extra.law.articles[no];if(!ids)return null;
-  return <details className={'article-resources agri-article '+extra.key}><summary aria-label={no+extra.label}>{extra.key==='agri'?'農業部':extra.key==='land'?'地政司':extra.key==='central'?'部會':extra.key==='nfa'?'消防署':'臺北市'} <b>{ids.length}</b></summary><div>{ids.slice(0,40).map(id=><ExtraLink key={id} id={id} extra={extra}/>)}{ids.length>40&&<span>另有 {ids.length-40} 則，請到「解釋函令」分頁查看。</span>}</div></details>;
+  const ids=extra.law.articles[no];if(!ids)return null;const old=ids.filter(id=>staleFor(extra,id,no).length).length;
+  return <details className={'article-resources agri-article '+extra.key}><summary aria-label={no+extra.label+(old?'，其中 '+old+' 則早於本條修正':'')} title={old?old+' 則函釋早於本條最近一次修正':undefined}>{extra.key==='agri'?'農業部':extra.key==='land'?'地政司':extra.key==='central'?'部會':extra.key==='nfa'?'消防署':'臺北市'} <b>{ids.length}</b>{old>0&&<i className="stale-count">⚠{old}</i>}</summary><div>{old>0&&<p className="stale-hint">⚠ 標示的函釋早於本條最近一次修正，見解可能已不適用。</p>}{ids.slice(0,40).map(id=><ExtraLink key={id} id={id} extra={extra} no={no}/>)}{ids.length>40&&<span>另有 {ids.length-40} 則，請到「解釋函令」分頁查看。</span>}</div></details>;
 }
 function ExtraSection({extra}:{extra:Extra}){
   const [limit,setLimit]=useState(20);const ids=extra.law.ids;
