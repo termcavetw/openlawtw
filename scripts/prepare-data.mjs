@@ -107,6 +107,19 @@ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').repl
 {const ntpc=await readFile(join(root,'public/data/ntpc-manual.json'));const hash=sha(ntpc),url='/data/ntpc/ntpc-manual-'+hash+'.json';
  await rm(join(root,'public/data/ntpc'),{recursive:true,force:true});await mkdir(join(root,'public/data/ntpc'),{recursive:true});await writeFile(join(root,'public',url),ntpc);
  const m=JSON.parse(ntpc);manifest.ntpcManual={url,sha256:hash,bytes:ntpc.length,fetchedAt:m.fetchedAt,edition:m.edition,cases:m.stats.cases};}
+// Central agencies' letters filed under central laws in laws.gov.taipei, once the weekly sync has collected them.
+try{const central=await readFile(join(root,'public/data/central-rulings.json'));const hash=sha(central),url='/data/central/central-rulings-'+hash+'.json';
+ await rm(join(root,'public/data/central'),{recursive:true,force:true});await mkdir(join(root,'public/data/central'),{recursive:true});await writeFile(join(root,'public',url),central);
+ const m=JSON.parse(central);manifest.central={url,sha256:hash,bytes:central.length,fetchedAt:m.fetchedAt,items:m.stats.items};
+ const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
+ const refs={},heads={};
+ for(const x of m.items){const hit=new Map();
+  for(const f of x.filed){const law=byName.get(f.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());const no=normalize(f.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
+ const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
+ manifest.centralRefs={...await emit('central-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};
+}catch(error){if(error.code!=='ENOENT')throw error;}
 // 臺北市解釋令函 (laws.gov.taipei), when the weekly sync has collected them: same lazy treatment, and links to the
 // central and 臺北市 laws by the city's own related-law filing (article links only since the law's last full-text revision).
 try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));const hash=sha(taipei),url='/data/taipei/taipei-rulings-'+hash+'.json';

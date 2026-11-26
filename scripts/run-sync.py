@@ -26,11 +26,12 @@ DATA_PATHS = (
     'public/data/catalog.json', 'public/data/rulings.json', 'public/data/laws',
     'public/data/minutes.json', 'public/data/landuse.json', 'public/data/agri-rulings.json',
     'public/data/taipei-rulings.json', 'public/data/ntpc-manual.json',
+    'public/data/central-rulings.json',
 )
 REQUIRED_STAGES = (
     'dependencies-node', 'dependencies-python', 'dependencies-ocr', 'unit-tests', 'baseline',
     'laws', 'rulings', 'guard', 'validate-laws', 'validate-rulings',
-    'minutes', 'validate-minutes', 'landuse', 'validate-landuse', 'agri', 'validate-agri', 'taipei', 'validate-taipei', 'ntpc-manual', 'validate-ntpc-manual',
+    'minutes', 'validate-minutes', 'landuse', 'validate-landuse', 'agri', 'validate-agri', 'taipei', 'validate-taipei', 'central', 'validate-central', 'ntpc-manual', 'validate-ntpc-manual',
     'snapshot', 'build', 'typecheck', 'check',
 )
 MAX_LOG_BYTES = 1024 * 1024
@@ -293,7 +294,8 @@ class SyncRun:
                       (read_json(self.state_dir / relative) if (self.state_dir / relative).exists() else None)
                       for relative in ('public/data/laws.json', 'public/data/rulings.json', 'data/provenance.json',
                                        'public/data/minutes.json', 'public/data/landuse.json', 'public/data/agri-rulings.json',
-                                       'public/data/taipei-rulings.json', 'public/data/ntpc-manual.json')
+                                       'public/data/taipei-rulings.json', 'public/data/ntpc-manual.json',
+                                       'public/data/central-rulings.json')
                       )
         report['publishData'] = changed
         if os.environ.get('GITHUB_OUTPUT'):

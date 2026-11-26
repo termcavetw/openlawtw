@@ -42,3 +42,4 @@ data/runtime-article-supplement-index.json
 public/data/article-supplements/
 .ntpc-cache/
 .taipei-cache/
+.central-cache/
