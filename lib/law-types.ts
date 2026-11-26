@@ -22,10 +22,12 @@ export type SyncStatus = {attemptedAt:string;summary:Record<string,unknown>;outc
 export type Catalog = { syncStatus?:SyncStatus; version: string; collected: string; snapshot: string; laws: Law[]; regions: Region[]; categories: string[]; relations: Relation[]; rulingStats: RulingStats; resources: Resource[]; notes: string[] };
 export type DataFile={url:string;sha256:string;bytes:number;encoding?:'gzip'};
 export type MinutesPage={n:number;ocr:boolean;text:string};
+// A table rebuilt by the table model: it stands for page text lines from..to-1; a cell is [text] or [text,colspan,rowspan].
+export type PageTable={from:number;to:number;rows:([string]|[string,number,number])[][]};
 export type MinutesItem={id:string;title:string;url:string;year:number|null;sortDate:string;docNo:string;docDate:string;issuer:string;manual?:boolean;sha256:string|null;pages:MinutesPage[]};
 export type MinutesArchive={source:string;sourceUrl:string;note:string;region:string;fetchedAt:string;stats:{listed:number;items:number;manual:number;pages:number;ocrPages:number};items:MinutesItem[]};
 export type MinutesFile=DataFile&{region:string;fetchedAt:string;items:number;pages:number;ocrPages:number};
-export type LanduseItem={id:string;caseId:number;area:string;areaId:string;title:string;kind:string;type:string;docNo:string;date:string;year:number|null;url:string;files:{name:string;url:string}[];sha256:string;pages:MinutesPage[]};
+export type LanduseItem={id:string;caseId:number;area:string;areaId:string;title:string;kind:string;type:string;docNo:string;date:string;year:number|null;url:string;files:{name:string;url:string}[];sha256:string;pages:(MinutesPage&{tables?:PageTable[]})[]};
 export type LanduseArchive={source:string;sourceUrl:string;note:string;region:string;fetchedAt:string;stats:{listed:number;items:number;areas:number;pages:number;ocrPages:number;deferred:number};items:LanduseItem[]};
 export type LanduseFile=DataFile&{region:string;fetchedAt:string;items:number;areas:number;pages:number;ocrPages:number};
 export type AgriItem={id:number;cls:string;date:string;docNo:string;issuer:string;title:string;body:string;laws:string[];url:string};

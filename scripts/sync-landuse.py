@@ -124,9 +124,35 @@ def download_pdf(file_id, cache, timeout=300):
     return path, path.read_bytes()
 
 
-def build_item(row, pdf, raw, workers=2):
+def table_like(page):
+    """Pages worth a table pass: OCR rows with cells, or text-layer lines laid out in columns with figures."""
+    lines = page['text'].split('\n')
+    if page['ocr']:
+        return any(' | ' in a and ' | ' in b for a, b in zip(lines, lines[1:]))
+    return sum(1 for l in lines if re.search(r'\S\s{3,}\S', l) and re.search(r'\d', l)) >= 3
+
+
+def add_tables(pdf, pages):
+    """Rebuild the tables of table-like pages with PaddleOCR's table model (scripts/ocr_engine.py).
+    A scanned page takes the text of the same pass so table line ranges match; nothing changes on failure."""
+    import ocr_engine
+    for page in pages:
+        if not table_like(page):
+            continue
+        got = ocr_engine.table_page(pdf, page['n'], None if page['ocr'] else page['text'])
+        if not got or not got[1]:
+            continue
+        text, tables = got
+        if page['ocr']:
+            page['text'] = '\n'.join(sm.clean(line) for line in text.split('\n'))
+        page['tables'] = tables
+    return pages
+
+
+def build_item(row, pdf, raw, workers=2, tables=True):
     item = case_meta(row)
-    item.update(sha256=hashlib.sha256(raw).hexdigest(), pages=extract_pages(pdf, workers))
+    pages = extract_pages(pdf, workers)
+    item.update(sha256=hashlib.sha256(raw).hexdigest(), pages=add_tables(pdf, pages) if tables else pages)
     return item
 
 
@@ -157,7 +183,7 @@ def merge(archive, rows, fetch, max_ocr_pages=400, log=print):
             log(f'landuse: {row["id"]} not imported this run: {error}')
             deferred.append(row['id'])
             continue
-        budget -= sum(p['ocr'] for p in item['pages'])
+        budget -= sum(p['ocr'] for p in item['pages']) + sum(1 for p in item['pages'] if p.get('tables'))
         new.append(item)
     items = order(new + kept)
     return items, {'new': [it['id'] for it in new], 'removed': removed, 'deferred': deferred}
@@ -166,7 +192,8 @@ def merge(archive, rows, fetch, max_ocr_pages=400, log=print):
 def normalize(item):
     out = {k: item.get(k) for k in FIELDS}
     out['sha256'] = item['sha256']
-    out['pages'] = [{'n': p['n'], 'ocr': bool(p['ocr']), 'text': p['text']} for p in item['pages']]
+    out['pages'] = [dict({'n': p['n'], 'ocr': bool(p['ocr']), 'text': p['text']}, **({'tables': p['tables']} if p.get('tables') else {}))
+                    for p in item['pages']]
     return out
 
 

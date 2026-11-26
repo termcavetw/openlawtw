@@ -28,6 +28,19 @@ sl = load('sync_landuse', 'sync-landuse.py')
 DATASETS = {'minutes': (sm.ARCHIVE, sm.download_pdf), 'landuse': (sl.ARCHIVE, sl.download_pdf)}
 
 
+def table_like(page):
+    """Pages worth a table pass: OCR rows with cells, or text-layer lines laid out in columns with figures."""
+    lines = page['text'].split('\n')
+    if page['ocr']:
+        return any(' | ' in a and ' | ' in b for a, b in zip(lines, lines[1:]))
+    return sum(1 for l in lines if re.search(r'\S\s{3,}\S', l) and re.search(r'\d', l)) >= 3
+
+
+def table_targets():
+    archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
+    return sorted(('landuse', str(it['id']), p['n']) for it in archive['items'] for p in it['pages'] if table_like(p))
+
+
 def targets():
     out = []
     for name, (path, _) in DATASETS.items():
@@ -43,7 +56,11 @@ def targets():
 
 def ocr(a):
     import ocr_engine
-    mine = [t for i, t in enumerate(targets()) if i % a.shards == a.shard]
+    pages = {}
+    if a.mode == 'tables':
+        archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
+        pages = {('landuse', str(it['id']), p['n']): p for it in archive['items'] for p in it['pages']}
+    mine = [t for i, t in enumerate(table_targets() if a.mode == 'tables' else targets()) if i % a.shards == a.shard]
     sha = {}
     for name, (path, _) in DATASETS.items():
         for item in json.loads(path.read_text(encoding='utf-8'))['items']:
@@ -64,8 +81,18 @@ def ocr(a):
                 files[key] = None
         if files[key] is None:
             continue
-        text, engine = ocr_engine.ocr_page(files[key], page)
-        result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': engine, 'text': sm.clean(text)}
+        if a.mode == 'tables':
+            stored = pages[(name, item_id, page)]
+            got = ocr_engine.table_page(files[key], page, None if stored['ocr'] else stored['text'])
+            if got is None:
+                continue
+            text, tables = got
+            if stored['ocr']:  # line by line, so the table line ranges stay valid
+                text = '\n'.join(sm.clean(line) for line in text.split('\n'))
+            result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': 'paddle-table', 'text': text, 'tables': tables}
+        else:
+            text, engine = ocr_engine.ocr_page(files[key], page)
+            result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': engine, 'text': sm.clean(text)}
         if n % 25 == 0:
             print(f'  {n}/{len(mine)}')
     Path(a.out).write_text(json.dumps(result, ensure_ascii=False), encoding='utf-8')
@@ -74,12 +101,46 @@ def ocr(a):
 PERCENT = re.compile(r'\d%')  # Tesseract often read "%" as 96, so fewer of these survived
 
 
+def apply_tables(new, review):
+    archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
+    got = new.get('landuse', {})
+    pages = tables = ocr_pages = 0
+    samples = []
+    for item in archive['items']:
+        for page in item['pages']:
+            res = got.get(str(item['id']), {}).get(str(page['n']))
+            if not res or not res['tables']:
+                continue
+            if page['ocr']:
+                page['text'] = res['text']
+                ocr_pages += 1
+            page['tables'] = res['tables']
+            pages += 1; tables += len(res['tables'])
+            samples.append((item, page))
+    archive['fetchedAt'] = datetime.now(timezone.utc).date().isoformat()
+    sl.ARCHIVE.write_text(json.dumps(archive, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    wanted = len(table_targets())
+    lines = [f'- 檢查 {wanted} 頁可能有表格的土管頁，{pages} 頁辨識出表格（共 {tables} 個表格）；其中 {ocr_pages} 頁是掃描頁，文字也一併以同一次辨識更新。']
+    random.seed(11)
+    body = ['## 土管要點表格改用 PaddleOCR 表格辨識', '', '每個表格記錄它涵蓋的文字行（from～to），網站在那幾行的位置畫出辨識出的表格（含合併儲存格）；文字本身仍保留供搜尋。', ''] + lines + ['', '### 抽樣', '']
+    for item, page in random.sample(samples, min(8, len(samples))):
+        t = page['tables'][0]
+        body += [f'**{item["id"]} 第 {page["n"]} 頁**　{item["title"][:40]}（第 {t["from"] + 1}～{t["to"]} 行）', '']
+        for r in t['rows'][:6]:
+            body.append('| ' + ' | '.join(c[0].replace('|', '｜') or '　' for c in r) + ' |')
+        body.append('')
+    Path(review).write_text('\n'.join(body) + '\n', encoding='utf-8')
+    print('\n'.join(lines))
+
+
 def apply(a):
     new = {}
     for f in a.shards_files:
         for name, items in json.loads(Path(f).read_text(encoding='utf-8')).items():
             for item_id, pages in items.items():
                 new.setdefault(name, {}).setdefault(item_id, {}).update(pages)
+    if a.mode == 'tables':
+        return apply_tables(new, a.review)
     wanted = targets()
     lines, samples, today = [], [], datetime.now(timezone.utc).date().isoformat()
     for name, (path, _) in DATASETS.items():
@@ -128,9 +189,11 @@ def main():
     o.add_argument('--shard', type=int, required=True)
     o.add_argument('--cache', type=Path, default=Path('.reocr-cache'))
     o.add_argument('--out', required=True)
+    o.add_argument('--mode', choices=('text', 'tables'), default='text')
     ap = sub.add_parser('apply')
     ap.add_argument('shards_files', nargs='+')
     ap.add_argument('--review', default='reocr-pr.md')
+    ap.add_argument('--mode', choices=('text', 'tables'), default='text')
     a = p.parse_args()
     ocr(a) if a.cmd == 'ocr' else apply(a)
 

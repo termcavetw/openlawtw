@@ -56,8 +56,9 @@ const originalFetch=globalThis.fetch,originalWindow=globalThis.window;
 let calls=0,release;const gate=new Promise(resolve=>{release=resolve;});
 globalThis.window={};globalThis.fetch=async path=>{calls++;await gate;return new Response(readFileSync(new URL('public'+path,root)));};
 try{
- const first=corpus[0],other=corpus.find(r=>r.id!==first.id&&Math.floor(Number(r.id)/256)===Math.floor(Number(first.id)/256));
- assert(other);
+ // Any two rulings in one 256-id bucket (the first ruling may sit alone in its bucket after a sync).
+ const bucket=r=>Math.floor(Number(r.id)/256),first=corpus.find(r=>corpus.some(o=>o.id!==r.id&&bucket(o)===bucket(r))),other=first&&corpus.find(r=>r.id!==first.id&&bucket(r)===bucket(first));
+ assert(first&&other,'two rulings share a bucket');
  const controller=new AbortController(),cancelled=loadRuling(first.id,controller.signal),rejection=assert.rejects(cancelled,{name:'AbortError'}),shared=loadRuling(other.id);
  controller.abort();release();const loaded=await shared;await rejection;
  assert.equal(loaded.body,other.body);assert.equal(calls,1,'Unmounted card does not cancel another visible card sharing its bucket');

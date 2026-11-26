@@ -39,7 +39,14 @@ def check(archive, rows=None):
         assert re.fullmatch(r'[0-9a-f]{64}', it['sha256'] or ''), (it['id'], 'sha256')
         assert [p['n'] for p in it['pages']] == list(range(1, len(it['pages']) + 1)), (it['id'], 'page numbers')
         for p in it['pages']:
-            assert set(p) == {'n', 'ocr', 'text'} and isinstance(p['ocr'], bool) and isinstance(p['text'], str)
+            assert set(p) in ({'n', 'ocr', 'text'}, {'n', 'ocr', 'text', 'tables'}), (it['id'], p['n'], 'page fields')
+            assert isinstance(p['ocr'], bool) and isinstance(p['text'], str)
+            lines = len(p['text'].split('\n'))
+            for t in p.get('tables', []):  # a rebuilt table covers lines from..to-1 of the page text
+                assert set(t) == {'from', 'to', 'rows'} and 0 <= t['from'] < t['to'] <= lines, (it['id'], p['n'], 'table range')
+                assert len(t['rows']) >= 2 and all(r and all(isinstance(c[0], str) and len(c) in (1, 3) for c in r) for r in t['rows']), (it['id'], p['n'], 'table rows')
+            spans = sorted((t['from'], t['to']) for t in p.get('tables', []))
+            assert all(a[1] <= b[0] for a, b in zip(spans, spans[1:])), (it['id'], p['n'], 'overlapping tables')
             assert not spaced.search(p['text']), (it['id'], p['n'], 'space between Chinese characters')
     pages = [p for it in items for p in it['pages']]
     s = archive['stats']

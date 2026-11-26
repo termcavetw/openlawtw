@@ -7,6 +7,11 @@ on:
       shards:
         description: Parallel OCR jobs
         default: '20'
+      mode:
+        description: 'text = re-read OCR pages; tables = rebuild 土管 tables with the table model'
+        type: choice
+        options: [text, tables]
+        default: text
 permissions:
   contents: write
   pull-requests: write
@@ -36,7 +41,7 @@ jobs:
           python-version: '3.12'
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-chi-tra
       - run: python -m pip install -r requirements.txt -r requirements-ocr.txt
-      - run: python scripts/reocr.py ocr --shards ${{ inputs.shards }} --shard ${{ matrix.shard }} --out shard-${{ matrix.shard }}.json
+      - run: python scripts/reocr.py ocr --shards ${{ inputs.shards }} --shard ${{ matrix.shard }} --mode ${{ inputs.mode }} --out shard-${{ matrix.shard }}.json
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: reocr-shard-${{ matrix.shard }}
@@ -58,13 +63,13 @@ jobs:
           pattern: reocr-shard-*
           path: shards
           merge-multiple: true
-      - run: python scripts/reocr.py apply shards/*.json --review reocr-pr.md
+      - run: python scripts/reocr.py apply shards/*.json --mode ${{ inputs.mode }} --review reocr-pr.md
       - run: python scripts/check-minutes.py && python scripts/check-landuse.py
       - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
         with:
-          branch: data/reocr-paddle
-          title: '資料：桃園會議紀錄與土管要點改用 PaddleOCR 重新辨識'
-          commit-message: 'data: re-OCR scanned Taoyuan minutes and land-use pages with PaddleOCR'
+          branch: ${{ inputs.mode == 'tables' && 'data/landuse-tables' || 'data/reocr-paddle' }}
+          title: ${{ inputs.mode == 'tables' && '資料：土管要點表格改用表格辨識模型重建' || '資料：桃園會議紀錄與土管要點改用 PaddleOCR 重新辨識' }}
+          commit-message: ${{ inputs.mode == 'tables' && 'data: rebuild Taoyuan land-use tables with the table model' || 'data: re-OCR scanned Taoyuan minutes and land-use pages with PaddleOCR' }}
           body-path: reocr-pr.md
           draft: true
           add-paths: |
