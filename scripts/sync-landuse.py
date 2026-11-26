@@ -137,22 +137,19 @@ def text_size(text):
 
 
 def add_tables(pdf, pages):
-    """Rebuild the tables of table-like pages with PaddleOCR's table model (scripts/ocr_engine.py).
-    A scanned page takes the text of the same pass so table line ranges match; nothing changes on failure."""
+    """Rebuilt tables for scanned, table-like pages, shown beside the OCR text as a comparison (never replacing it).
+    Text-layer pages keep their own text only. A table is kept when it maps onto the page's lines and its numbers
+    are exactly those lines' numbers (scripts/ocr_engine.py checked_tables); nothing changes on failure."""
     import ocr_engine
     for page in pages:
-        if not table_like(page):
+        if not page['ocr'] or not table_like(page):
             continue
-        got = ocr_engine.table_page(pdf, page['n'], None if page['ocr'] else page['text'])
+        got = ocr_engine.table_page(pdf, page['n'], page['text'])
         if not got or not got[1]:
             continue
-        text, tables = got
-        if page['ocr']:
-            text = '\n'.join(sm.clean(line) for line in text.split('\n'))
-            if text_size(text) < 0.9 * text_size(page['text']):
-                continue  # the table pass read less of the page than the plain OCR: keep that text, no tables
-            page['text'] = text
-        page['tables'] = tables
+        tables = ocr_engine.checked_tables([t['rows'] for t in got[1]], page['text'].split('\n'))
+        if tables:
+            page['tables'] = tables
     return pages
 
 

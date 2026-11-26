@@ -38,7 +38,7 @@ def table_like(page):
 
 def table_targets():
     archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
-    return sorted(('landuse', str(it['id']), p['n']) for it in archive['items'] for p in it['pages'] if table_like(p))
+    return sorted(('landuse', str(it['id']), p['n']) for it in archive['items'] for p in it['pages'] if p['ocr'] and table_like(p))
 
 
 def targets():
@@ -83,13 +83,10 @@ def ocr(a):
             continue
         if a.mode == 'tables':
             stored = pages[(name, item_id, page)]
-            got = ocr_engine.table_page(files[key], page, None if stored['ocr'] else stored['text'])
+            got = ocr_engine.table_page(files[key], page, stored['text'])
             if got is None:
                 continue
-            text, tables = got
-            if stored['ocr']:  # line by line, so the table line ranges stay valid
-                text = '\n'.join(sm.clean(line) for line in text.split('\n'))
-            result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': 'paddle-table', 'text': text, 'tables': tables}
+            result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': 'paddle-table', 'tables': got[1]}
         else:
             text, engine = ocr_engine.ocr_page(files[key], page)
             result.setdefault(name, {}).setdefault(item_id, {})[str(page)] = {'engine': engine, 'text': sm.clean(text)}
@@ -102,37 +99,49 @@ PERCENT = re.compile(r'\d%')  # Tesseract often read "%" as 96, so fewer of thes
 
 
 def apply_tables(new, review):
+    """Rebuilt tables become a comparison beside a scanned page's own text: never on text-layer pages, never
+    replacing text, and only when their numbers are exactly the numbers of the lines they stand beside."""
     import ocr_engine
     archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
     got = new.get('landuse', {})
-    pages = tables = ocr_pages = kept = 0
+    found = kept = 0
+    rejected = {'text-layer page': 0, 'not a table': 0, 'no matching lines': 0, 'numbers differ': 0, 'overlap': 0}
     samples = []
     for item in archive['items']:
         for page in item['pages']:
             res = got.get(str(item['id']), {}).get(str(page['n']))
-            if res:  # the gate and line matching may have improved since the shards ran
-                res = dict(res, tables=[x for x in res['tables'] if ocr_engine.plausible_table(x['rows'])])
-                if not page['ocr']:
-                    lines = page['text'].split('\n')
-                    spans = [(ocr_engine.lines_covered(lines, ocr_engine._norm(''.join(c[0] for row in x['rows'] for c in row))), x) for x in res['tables']]
-                    res['tables'] = ocr_engine.without_overlaps([{'from': a, 'to': b, 'rows': x['rows']} for (a, b), x in spans if b - a >= 2])
-            if not res or not res['tables']:
+            page.pop('tables', None)
+            if not res:
                 continue
-            if page['ocr']:
-                if sl.text_size(res['text']) < 0.9 * sl.text_size(page['text']):
-                    kept += 1
-                    continue  # the table pass read less of the page than the stored text: keep the text, no tables
-                page['text'] = res['text']
-                ocr_pages += 1
-            page['tables'] = res['tables']
-            pages += 1; tables += len(res['tables'])
-            samples.append((item, page))
+            found += len(res['tables'])
+            if not page['ocr']:
+                rejected['text-layer page'] += len(res['tables'])
+                continue
+            lines = page['text'].split('\n')
+            ok = []
+            for x in res['tables']:
+                if not ocr_engine.plausible_table(x['rows']):
+                    rejected['not a table'] += 1
+                    continue
+                a, b = ocr_engine.lines_covered(lines, ocr_engine._norm(''.join(c[0] for r in x['rows'] for c in r)))
+                if b - a < 2:
+                    rejected['no matching lines'] += 1
+                elif not ocr_engine.numbers_match(x['rows'], lines[a:b]):
+                    rejected['numbers differ'] += 1
+                else:
+                    ok.append({'from': a, 'to': b, 'rows': x['rows']})
+            tables = ocr_engine.without_overlaps(ok)
+            rejected['overlap'] += len(ok) - len(tables)
+            if tables:
+                page['tables'] = tables
+                kept += len(tables)
+                samples.append((item, page))
     archive['fetchedAt'] = datetime.now(timezone.utc).date().isoformat()
     sl.ARCHIVE.write_text(json.dumps(archive, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    wanted = len(table_targets())
-    lines = [f'- 檢查 {wanted} 頁可能有表格的土管頁，{pages} 頁辨識出表格（共 {tables} 個表格）；其中 {ocr_pages} 頁是掃描頁，文字也一併以同一次辨識更新；另有 {kept} 頁掃描頁因表格辨識讀到的文字明顯較少，保留原文字、不加表格。']
+    lines = [f'- 辨識出 {found} 個表格，採用 {kept} 個（{len(samples)} 頁掃描頁），只當對照、不取代原文。',
+             '- 剔除：' + '、'.join(f'{k} {v}' for k, v in rejected.items())]
     random.seed(11)
-    body = ['## 土管要點表格改用 PaddleOCR 表格辨識', '', '每個表格記錄它涵蓋的文字行（from～to），網站在那幾行的位置畫出辨識出的表格（含合併儲存格）；文字本身仍保留供搜尋。', ''] + lines + ['', '### 抽樣', '']
+    body = ['## 土管要點掃描頁的表格對照', '', '表格辨識模型重建的表格只放在掃描頁原文旁當對照，數字必須與那幾行原文完全一致才採用；文字層頁面不使用。', ''] + lines + ['', '### 抽樣', '']
     for item, page in random.sample(samples, min(8, len(samples))):
         t = page['tables'][0]
         body += [f'**{item["id"]} 第 {page["n"]} 頁**　{item["title"][:40]}（第 {t["from"] + 1}～{t["to"]} 行）', '']
