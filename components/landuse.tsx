@@ -2,7 +2,8 @@ import {PageText,WideButton,useWide} from './page-text';
 import {useEffect,useMemo,useState} from 'react';
 import {ArrowLeft,ArrowUpRight,ChevronDown,ChevronLeft,ChevronRight,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
-import {loadAgri,loadLanduse,loadMinutes,manifest} from '@/lib/data-client';
+import {loadAgri,loadLanduse,loadMinutes,loadTaipei,manifest} from '@/lib/data-client';
+import {searchTaipei,taipeiCite,type TaipeiHit} from './taipei';
 import {agriSnippet,rocDay,searchAgri,type AgriHit} from './agri';
 import type {LanduseArchive,LanduseItem} from '@/lib/law-types';
 import {keywords,minutesSnippet,searchMinutes,type MinutesHit} from '@/lib/minutes-search';
@@ -86,8 +87,10 @@ export function LanduseExplorer(){
 
 // The Taoyuan 土管要點 and minutes sections of the main search. Lives in this lazy chunk so their
 // search code stays out of the initial offline shell; data files load on the first query.
-type Props={debounced:string;openLanduse:(id:string,page:number)=>void;openMinutes:(id:string,page:number)=>void;openAgri:(id:number)=>void;setView:(v:string)=>void};
-export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,setView}:Props){
+type Props={debounced:string;openLanduse:(id:string,page:number)=>void;openMinutes:(id:string,page:number)=>void;openAgri:(id:number)=>void;openTaipei?:(id:string)=>void;setView:(v:string)=>void};
+export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,openTaipei,setView}:Props){
+  const [taipeiHits,setTaipeiHits]=useState<TaipeiHit[]>([]);
+  useEffect(()=>{setTaipeiHits([]);const words=keywords(debounced);if(!words.length||!manifest.taipei||!openTaipei)return;const controller=new AbortController();loadTaipei(controller.signal).then(a=>{if(!controller.signal.aborted)setTaipeiHits(searchTaipei(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced,openTaipei]);
   const [agriHits,setAgriHits]=useState<AgriHit[]>([]);
   useEffect(()=>{setAgriHits([]);const words=keywords(debounced);if(!words.length||!manifest.agri)return;const controller=new AbortController();loadAgri(controller.signal).then(a=>{if(!controller.signal.aborted)setAgriHits(searchAgri(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced]);
   const [minutesHits,setMinutesHits]=useState<MinutesHit[]>([]);
@@ -96,6 +99,7 @@ export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,setView
   useEffect(()=>{setLanduseHits([]);const words=keywords(debounced);if(!words.length||!manifest.landuse)return;const controller=new AbortController();loadLanduse(controller.signal).then(a=>{if(!controller.signal.aborted)setLanduseHits(searchLanduse(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced]);
   return <>
    {agriHits.length>0&&<section className="minutes-hits" aria-label="農業部農地農舍函釋"><h3>農業部農地農舍函釋<span>{agriHits.length} 則符合</span></h3><small>農業部（原農委會）解釋函令；多為回覆個案疑義，請注意發文時的法規版本。</small>{agriHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openAgri(item.id)}><h3>{item.title}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body,keywords(debounced))}</p></button>)}{agriHits.length>5&&<button className="load-more" onClick={()=>openAgri(0)}>到「函釋 › 農業部」看全部 {agriHits.length} 則</button>}</section>}
+   {openTaipei&&taipeiHits.length>0&&<section className="minutes-hits" aria-label="臺北市解釋令函"><h3>臺北市解釋令函<span>{taipeiHits.length} 則符合</span></h3><small>只適用臺北市；與條文或國土署函釋不一致時以上級規定為準。</small>{taipeiHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openTaipei(item.id)}><h3>{item.summary||taipeiCite(item)}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body||item.summary,keywords(debounced))}</p></button>)}{taipeiHits.length>5&&<button className="load-more" onClick={()=>openTaipei('')}>到「函釋 › 臺北市」看全部 {taipeiHits.length} 則</button>}</section>}
    {landuseHits.length>0&&<section className="minutes-hits" aria-label="桃園市土管要點"><h3>桃園市都市計畫土管要點<span>{landuseHits.length} 份符合</span></h3><small>每份是該次公告的要點，市府未標示現行版本；只適用該計畫區，引用前請確認有無較新公告並開原檔。</small>{landuseHits.slice(0,5).map(({item,page,spread})=><button className="minutes-card" key={item.id} onClick={()=>openLanduse(item.id,page.n)}><h3>{item.title}</h3><div className="minutes-meta"><span>{item.area}</span>{item.date&&<span>公告：{rocDate(item.date)}</span>}</div>{!spread&&<p><b>第 {page.n} 頁{page.ocr?'（OCR）':''}</b>　{minutesSnippet(page.text,keywords(debounced))}</p>}</button>)}{landuseHits.length>5&&<button className="load-more" onClick={()=>{setView('landuse');}}>到「土管」分頁看全部 {landuseHits.length} 份</button>}</section>}
    {minutesHits.length>0&&<section className="minutes-hits" aria-label="桃園市會議紀錄"><h3>桃園市會議紀錄<span>{minutesHits.length} 份符合</span></h3><small>只適用桃園市，不是法源；OCR 頁可能有誤字，引用前請開原檔。</small>{minutesHits.slice(0,5).map(({item,page,spread})=><button className="minutes-card" key={item.id} onClick={()=>openMinutes(item.id,page.n)}><h3>{item.title}</h3>{!spread&&<p><b>第 {page.n} 頁{page.ocr?'（OCR）':''}</b>　{minutesSnippet(page.text,keywords(debounced))}</p>}</button>)}{minutesHits.length>5&&<button className="load-more" onClick={()=>{setView('minutes');}}>到「會議」分頁看全部 {minutesHits.length} 份</button>}</section>}
   </>;

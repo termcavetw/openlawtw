@@ -5,3 +5,4 @@ if(typeof document!=='undefined'&&!document.getElementById('openlawtw-regional-c
 export {MinutesExplorer} from './minutes';
 export {LanduseExplorer,RegionalHits} from './landuse';
 export {AgriExplorer} from './agri';
+export {TaipeiExplorer} from './taipei';
