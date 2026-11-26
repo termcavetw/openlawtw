@@ -30,3 +30,4 @@
 .reader-first .reader .article-heading>.agri-article{order:4;flex-basis:100%}
 @media(max-width:899px){.reader-first .reader .article-heading:has(>.agri-article){flex-wrap:wrap}.agri-article{margin:0}.agri-article>div{position:static;width:auto;max-height:none;box-shadow:none;border:0;background:#f5f6f0}}
 .agri-article.taipei>summary{background:#f3f5f9;color:#4f6584;border-color:#dde3ec}.agri-article.taipei[open]>summary{background:#e6ebf3}
+.agri-article.land>summary{background:#f7f5ef;color:#6d6143;border-color:#e6e0d2}.agri-article.land[open]>summary{background:#efe9dc}

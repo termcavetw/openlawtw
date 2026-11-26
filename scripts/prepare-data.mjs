@@ -91,6 +91,18 @@ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').repl
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b-a;for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
  manifest.agriRefs={...await emit('agri-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
+// 內政部地政司 地政法令彙編 解釋函 (preserved export): lazy, and linked to central law articles by the compilation's own filing.
+{const land=await readFile(join(root,'public/data/land-rulings.json'));const hash=sha(land),url='/data/land/land-rulings-'+hash+'.json';
+ await rm(join(root,'public/data/land'),{recursive:true,force:true});await mkdir(join(root,'public/data/land'),{recursive:true});await writeFile(join(root,'public',url),land);
+ const m=JSON.parse(land);manifest.land={url,sha256:hash,bytes:land.length,fetchedAt:m.fetchedAt,items:m.stats.items};
+ const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
+ const refs={},heads={};
+ for(const x of m.items){const hit=new Map();
+  for(const r of x.refs){const law=byName.get(r.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());const no=normalize(r.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
+ const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
+ manifest.landRefs={...await emit('land-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
 // 新北市建照業務工作手冊: same lazy treatment.
 {const ntpc=await readFile(join(root,'public/data/ntpc-manual.json'));const hash=sha(ntpc),url='/data/ntpc/ntpc-manual-'+hash+'.json';
  await rm(join(root,'public/data/ntpc'),{recursive:true,force:true});await mkdir(join(root,'public/data/ntpc'),{recursive:true});await writeFile(join(root,'public',url),ntpc);

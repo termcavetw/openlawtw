@@ -1,5 +1,5 @@
 import rawManifest from '../data/runtime-manifest.json' with {type:'json'};
-import type {NtpcManual,TaipeiArchive,AgriArchive,DataFile,DataManifest,LanduseArchive,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
+import type {LandArchive,NtpcManual,TaipeiArchive,AgriArchive,DataFile,DataManifest,LanduseArchive,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
 import {candidates,type InvertedIndex,type IndexRow} from './inverted.ts';
 import {searchLaws,searchRulings,searchDocumentPages,type DocumentText,type SearchDoc,type SearchHit} from './search.ts';
 declare global {interface Window {OPENLAWTW_PAGE_LAW?:Law}}
@@ -23,6 +23,7 @@ export const loadMinutes=(signal?:AbortSignal)=>loadFile<MinutesArchive>(manifes
 // 農業部 farmland / farmhouse interpretations: one file, fetched when the 農業部 view or a search needs it.
 export const loadAgri=(signal?:AbortSignal)=>loadFile<AgriArchive>(manifest.agri as DataFile,signal);
 export const loadNtpcManual=(signal?:AbortSignal)=>loadFile<NtpcManual>(manifest.ntpcManual as DataFile,signal);
+export const loadLand=(signal?:AbortSignal)=>loadFile<LandArchive>(manifest.land as DataFile,signal);
 export const loadTaipei=(signal?:AbortSignal)=>loadFile<TaipeiArchive>(manifest.taipei as DataFile,signal);
 export const loadLanduse=(signal?:AbortSignal)=>loadFile<LanduseArchive>(manifest.landuse as DataFile,signal);
 export const loadHeads=(signal?:AbortSignal)=>loadFile<Ruling[]>(manifest.rulingHeads,signal);

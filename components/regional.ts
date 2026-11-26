@@ -7,3 +7,4 @@ export {LanduseExplorer,RegionalHits} from './landuse';
 export {AgriExplorer} from './agri';
 export {TaipeiExplorer} from './taipei';
 export {NtpcExplorer} from './ntpc';
+export {LandExplorer} from './land';
