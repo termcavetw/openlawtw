@@ -48,7 +48,7 @@ export function Reader({summary,law:loadedLaw,loading,error,retry,activeArticle,
   const extras:Extra[]=[...(agriRefs&&onAgri?[{key:'agri' as const,label:'農業部函釋',intro:'農業部（原農委會）農地、農舍解釋函令中引用這部法規的，新到舊排列；依函文明示的法規名稱與條號比對，條號是發文當時的條號，函文早於條文修正時可能已變動；收錄不代表現時有效。',...agriRefs,open:onAgri}]:[]),
    ...(landRefs&&onLand?[{key:'land' as const,label:'地政司函釋',intro:'內政部地政司「地政法令彙編」歸類到這部法規的解釋函，新到舊排列；彙編依現行條文歸類，舊函所引條號可能與現行不同；收錄不代表現時有效。',...landRefs,open:onLand}]:[]),
    ...(nfaRefs&&onNfa?[{key:'nfa' as const,label:'消防署函釋',intro:'內政部消防署「消防法令查詢系統」標示相關法條為這部法規的法令解釋與執法疑義，新到舊排列；條文旁只列函釋所引版本仍與現行條號相符者；收錄不代表現時有效。',...nfaRefs,open:onNfa}]:[]),
-   ...(centralRefs&&onCentral?[{key:'central' as const,label:'部會函釋',intro:'消防署、經濟部、農委會（農業部）等中央機關的解釋令函中，臺北市法規查詢系統歸到這部法規的，新到舊排列；不是各部會的完整收錄；收錄不代表現時有效。',...centralRefs,open:onCentral}]:[]),
+   ...(centralRefs&&onCentral?[{key:'central' as const,label:'部會函釋',intro:'消防署、經濟部、農委會（農業部）等中央機關的解釋令函中，歸到這部法規的，新到舊排列；來源是臺北市法規查詢系統，以及經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》（102、106、112 年版，依彙編歸類或函文明示的條號）；不是各部會的完整收錄，收錄不代表現時有效。',...centralRefs,open:onCentral}]:[]),
    ...(taipeiRefs&&onTaipei?[{key:'taipei' as const,label:'臺北市解釋令函',intro:'臺北市政府的解釋令函中，市府歸類到這部法規的，新到舊排列；只適用臺北市的案子，與條文或國土署函釋不一致時以上級規定為準；收錄不代表現時有效。',...taipeiRefs,open:onTaipei}]:[])];
   // Selection changes before its asynchronous detail effect clears the previous
   // law. Never send that stale body's fields to this selection's readers/tools.

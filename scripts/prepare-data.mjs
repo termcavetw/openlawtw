@@ -9,7 +9,7 @@ import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
 import {join} from './paths.mjs';
 import {buildIndex} from '../lib/inverted.ts';
 import {normalize} from '../lib/search.ts';
-import {revocations} from './revocations.mjs';
+import {numberKey,revocations} from './revocations.mjs';
 import {makeCitationTargets,makeCitationContext} from '../lib/citations.ts';
 import {enrichLaw,sha} from './schema.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),dir=join(root,'public/data/v2');
@@ -149,19 +149,41 @@ const revokedMap=items=>{const out={};for(const [id,{by,partial}] of revocations
 {const ntpc=await readFile(join(root,'public/data/ntpc-manual.json'));const hash=sha(ntpc),url='/data/ntpc/ntpc-manual-'+hash+'.json';
  await rm(join(root,'public/data/ntpc'),{recursive:true,force:true});await mkdir(join(root,'public/data/ntpc'),{recursive:true});await writeFile(join(root,'public',url),ntpc);
  const m=JSON.parse(ntpc);manifest.ntpcManual={url,sha256:hash,bytes:ntpc.length,fetchedAt:m.fetchedAt,edition:m.edition,cases:m.stats.cases};}
-// Central agencies' letters filed under central laws in laws.gov.taipei, once the weekly sync has collected them.
-try{const central=await readFile(join(root,'public/data/central-rulings.json'));const hash=sha(central),url='/data/central/central-rulings-'+hash+'.json';
+// Central agencies' letters: those filed under central laws in laws.gov.taipei (weekly sync), plus 經濟部中部辦公室
+// 《工廠管理輔導法暨相關函釋彙編》 (preserved import). A letter in both is kept once (Taipei's copy, with both filings).
+{const readJSON=async path=>{try{return JSON.parse(await readFile(join(root,path),'utf8'));}catch(error){if(error.code==='ENOENT')return null;throw error;}};
+ const base=await readJSON('public/data/central-rulings.json'),moea=await readJSON('public/data/moea-factory-rulings.json');
+ if(base||moea){
+ const factoryTopic='工廠與產業';
+ const m=base?{...base,laws:[...base.laws],items:base.items.map(x=>({...x,filed:[...x.filed]}))}:{source:'',sourceUrl:'',note:'',fetchedAt:moea.fetchedAt,laws:[],stats:{},items:[]};
+ if(moea){
+  const byKey=new Map();for(const x of m.items){const k=numberKey(x.docNo);if(k)byKey.set(k,x);}
+  const origin='經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》（'+Object.keys(moea.editions).sort().reverse().map(e=>moea.editions[e].label).join('、')+'）';
+  for(const x of moea.items){const same=byKey.get(numberKey(x.docNo));
+   if(same){for(const f of x.filed)if(!same.filed.some(g=>g.law===f.law&&g.article===f.article))same.filed.push(f);continue;}
+   m.items.push({id:x.id,date:x.date,docNo:x.docNo,issuer:x.issuer,summary:x.summary,body:x.body,filed:x.filed,refs:[],url:'',topics:x.topics,
+    origin:origin.replace(/（.*）/,'（'+x.editions.map(e=>moea.editions[e].label).join('、')+'）')+(x.note?'；'+x.note:'')});}
+  for(const name of new Set(moea.items.flatMap(x=>x.filed.map(f=>f.law))))if(!m.laws.some(l=>l.name===name))m.laws.push({id:'',name,topic:name==='申請農業用地作農業設施容許使用審查辦法'||name==='農業發展條例'?'農業':name==='消防法'?'消防':factoryTopic});
+  m.items.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+  const topicOf=new Map(m.laws.map(l=>[l.name,l.topic])),count=list=>Object.entries(list.reduce((o,k)=>(o[k]=(o[k]||0)+1,o),{})).map(([name,items])=>({name,items})).sort((a,b)=>b.items-a.items);
+  m.source=(base?.source?base.source+'；':'')+moea.source;
+  m.note=(base?.note?base.note+'\n':'')+moea.note;
+  m.stats={...(base?.stats||{}),items:m.items.length,sources:{taipei:base?.items.length||0,moea:m.items.length-(base?.items.length||0)},
+   topics:['消防',factoryTopic,'農業'].map(name=>({name,items:m.items.filter(x=>x.filed.some(f=>topicOf.get(f.law)===name)).length})),issuers:count(m.items.map(x=>x.issuer))};
+ }
+ const central=Buffer.from(JSON.stringify(m));const hash=sha(central),url='/data/central/central-rulings-'+hash+'.json';
  await rm(join(root,'public/data/central'),{recursive:true,force:true});await mkdir(join(root,'public/data/central'),{recursive:true});await writeFile(join(root,'public',url),central);
- const m=JSON.parse(central);manifest.central={url,sha256:hash,bytes:central.length,fetchedAt:m.fetchedAt,items:m.stats.items};
+ manifest.central={url,sha256:hash,bytes:central.length,fetchedAt:m.fetchedAt,items:m.items.length};
  const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
  const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();
-  for(const f of x.filed){const law=byName.get(f.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());const no=normalize(f.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
+  // Article numbers a letter merely names (cited) hold only since the law's last full-text revision; a compiler's filing is trusted.
+  for(const f of x.filed){const law=byName.get(f.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());if(!f.article||(f.cited&&x.date<renumbered(law)))continue;const no=normalize(f.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
   if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
  manifest.centralRefs={...await emit('central-refs',{laws:refs,heads,stale,revoked:revokedMap(m.items)}),laws:Object.keys(refs).sort()};
-}catch(error){if(error.code!=='ENOENT')throw error;}
+}}
 // 臺北市解釋令函 (laws.gov.taipei), when the weekly sync has collected them: same lazy treatment, and links to the
 // central and 臺北市 laws by the city's own related-law filing (article links only since the law's last full-text revision).
 try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));const hash=sha(taipei),url='/data/taipei/taipei-rulings-'+hash+'.json';

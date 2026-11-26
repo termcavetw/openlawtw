@@ -26,4 +26,9 @@ assert(!agriRefs.revoked[agriNo('1031865030')],'103 令 that revoked others is n
 let revoked=0;for(const key of ['agriRefs','landRefs','nfaRefs','centralRefs','taipeiRefs'])if(manifest[key]){const r=read('public'+manifest[key].url);for(const [id,[by,date]] of Object.entries(r.revoked)){assert(id!==by&&/^\d{4}-\d{2}-\d{2}$/.test(date));revoked++;}}
 // 消防法 84.08.11 「修正公布」 (no article list) was a full revision: older letters link to the law, not to article numbers.
 assert(!Object.values(nfa.laws.D0120001.articles).flat().some(id=>nfa.heads[id][0]<'1995-08-11'),'no article links before 消防法 84.08.11');
+// 經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》 merged into the 部會函釋 archive, linked by the compiler's filing.
+const centralArchive=read('public'+manifest.central.url),centralRefs=read('public'+manifest.centralRefs.url);
+assert(centralArchive.stats.sources.moea>=280&&centralArchive.items.length===centralArchive.stats.items,'彙編 letters merged');
+assert(centralRefs.laws.D0060013.articles['第32條'].includes('M10605012970'),'非都市土地使用管制規則第32條 has the 106.06.09 夾雜 letter');
+assert(centralRefs.laws.J0030043.ids.length>=250,'工廠管理輔導法 has the compilation letters');
 console.log(JSON.stringify({staleWarnings:out,revoked}));
