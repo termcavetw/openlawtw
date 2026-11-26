@@ -91,6 +91,10 @@ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').repl
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b-a;for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
  manifest.agriRefs={...await emit('agri-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
+// 新北市建照業務工作手冊: same lazy treatment.
+{const ntpc=await readFile(join(root,'public/data/ntpc-manual.json'));const hash=sha(ntpc),url='/data/ntpc/ntpc-manual-'+hash+'.json';
+ await rm(join(root,'public/data/ntpc'),{recursive:true,force:true});await mkdir(join(root,'public/data/ntpc'),{recursive:true});await writeFile(join(root,'public',url),ntpc);
+ const m=JSON.parse(ntpc);manifest.ntpcManual={url,sha256:hash,bytes:ntpc.length,fetchedAt:m.fetchedAt,edition:m.edition,cases:m.stats.cases};}
 // 臺北市解釋令函 (laws.gov.taipei), when the weekly sync has collected them: same lazy treatment, and links to the
 // central and 臺北市 laws by the city's own related-law filing (article links only since the law's last full-text revision).
 try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));const hash=sha(taipei),url='/data/taipei/taipei-rulings-'+hash+'.json';

@@ -64,6 +64,10 @@ jobs:
         run: python scripts/run-sync.py step taipei -- python scripts/sync-taipei.py --cache .taipei-cache
       - name: Check 臺北市 interpretations against this run's lists
         run: python scripts/run-sync.py step validate-taipei -- python scripts/check-taipei.py --cache .taipei-cache
+      - name: Check the 新北市建照業務工作手冊 for a new edition
+        run: python scripts/run-sync.py step ntpc-manual -- python scripts/sync-ntpc-manual.py --cache .ntpc-cache
+      - name: Check the 新北市建照業務工作手冊 against this run's PDF
+        run: python scripts/run-sync.py step validate-ntpc-manual -- python scripts/check-ntpc-manual.py --cache .ntpc-cache
       - run: python scripts/run-sync.py step snapshot -- npm run snapshot
       - run: python scripts/run-sync.py step build -- npm run build
       - run: python scripts/run-sync.py step typecheck -- npm run typecheck
@@ -96,6 +100,7 @@ jobs:
             public/data/landuse.json
             public/data/agri-rulings.json
             public/data/taipei-rulings.json
+            public/data/ntpc-manual.json
       - name: Finalize evidence and restore canonical data after a failed run
         if: always() && steps.initialize.outcome == 'success'
         env:
