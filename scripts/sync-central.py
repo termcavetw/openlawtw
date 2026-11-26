@@ -11,7 +11,7 @@ article's page lists the letters; each letter has a content page and a related-l
 (shared parsers with scripts/sync-taipei.py). Incremental, with a rotating refresh.
 """
 from pathlib import Path
-import argparse, importlib.util, json, re, sys, time
+import argparse, html, importlib.util, json, re, sys, time
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,8 +60,11 @@ def fetch_listing(log=print):
     for law_id, name, _ in LAWS:
         page = st.get(LAW_SITE + 'LawArticleContent/' + law_id)
         nos = article_numbers(page, law_id)
-        if not nos:
-            raise st.ListingProblem(f'{name}: no articles with related letters')
+        if not nos:  # the city has filed no letters under this law (yet); the others still count
+            log(f'central: {name} ({law_id}) has no articles with related letters')
+            if name not in html.unescape(page):
+                raise st.ListingProblem(f'{law_id}: article page is not {name}')
+            continue
         for no in nos:
             related = st.get(f'{LAW_SITE}LawRelateInterpretation/{law_id}?no={no}')
             title = law_name(related)
