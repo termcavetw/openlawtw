@@ -102,16 +102,26 @@ PERCENT = re.compile(r'\d%')  # Tesseract often read "%" as 96, so fewer of thes
 
 
 def apply_tables(new, review):
+    import ocr_engine
     archive = json.loads(sl.ARCHIVE.read_text(encoding='utf-8'))
     got = new.get('landuse', {})
-    pages = tables = ocr_pages = 0
+    pages = tables = ocr_pages = kept = 0
     samples = []
     for item in archive['items']:
         for page in item['pages']:
             res = got.get(str(item['id']), {}).get(str(page['n']))
+            if res:  # the gate and line matching may have improved since the shards ran
+                res = dict(res, tables=[x for x in res['tables'] if ocr_engine.plausible_table(x['rows'])])
+                if not page['ocr']:
+                    lines = page['text'].split('\n')
+                    spans = [(ocr_engine.lines_covered(lines, ocr_engine._norm(''.join(c[0] for row in x['rows'] for c in row))), x) for x in res['tables']]
+                    res['tables'] = ocr_engine.without_overlaps([{'from': a, 'to': b, 'rows': x['rows']} for (a, b), x in spans if b - a >= 2])
             if not res or not res['tables']:
                 continue
             if page['ocr']:
+                if sl.text_size(res['text']) < 0.9 * sl.text_size(page['text']):
+                    kept += 1
+                    continue  # the table pass read less of the page than the stored text: keep the text, no tables
                 page['text'] = res['text']
                 ocr_pages += 1
             page['tables'] = res['tables']
@@ -120,7 +130,7 @@ def apply_tables(new, review):
     archive['fetchedAt'] = datetime.now(timezone.utc).date().isoformat()
     sl.ARCHIVE.write_text(json.dumps(archive, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     wanted = len(table_targets())
-    lines = [f'- 檢查 {wanted} 頁可能有表格的土管頁，{pages} 頁辨識出表格（共 {tables} 個表格）；其中 {ocr_pages} 頁是掃描頁，文字也一併以同一次辨識更新。']
+    lines = [f'- 檢查 {wanted} 頁可能有表格的土管頁，{pages} 頁辨識出表格（共 {tables} 個表格）；其中 {ocr_pages} 頁是掃描頁，文字也一併以同一次辨識更新；另有 {kept} 頁掃描頁因表格辨識讀到的文字明顯較少，保留原文字、不加表格。']
     random.seed(11)
     body = ['## 土管要點表格改用 PaddleOCR 表格辨識', '', '每個表格記錄它涵蓋的文字行（from～to），網站在那幾行的位置畫出辨識出的表格（含合併儲存格）；文字本身仍保留供搜尋。', ''] + lines + ['', '### 抽樣', '']
     for item, page in random.sample(samples, min(8, len(samples))):
