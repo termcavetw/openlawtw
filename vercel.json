@@ -2,7 +2,40 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/((?!data/).*)",
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "openlawtw.vercel.app"
+        }
+      ],
+      "destination": "/migrate.html?to=/",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "openlawtw.vercel.app"
+        }
+      ],
+      "destination": "/migrate.html?to=/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/laws/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "openlawtw.vercel.app"
+        }
+      ],
+      "destination": "/migrate.html?to=/laws/$1",
+      "permanent": false
+    },
+    {
+      "source": "/((?!data/|sw\\.js|migrate\\.html).*)",
       "has": [
         {
           "type": "host",
@@ -138,6 +171,19 @@
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors *"
+        }
+      ]
+    },
+    {
+      "source": "/migrate.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "origin"
         }
       ]
     }

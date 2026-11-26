@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="origin">
+<title>搬家中…</title>
+<link rel="canonical" href="https://law.termcavetw.com/">
+<noscript><meta http-equiv="refresh" content="0;url=https://law.termcavetw.com/"></noscript>
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;background:#111;color:#eee}p{font-size:15px;padding:24px;text-align:center}a{color:#B8F35A}</style>
+</head>
+<body>
+<p>網址搬家了，正在帶你過去…<br><a href="https://law.termcavetw.com/">沒有自動跳轉請點這裡</a></p>
+<script>
+(function () {
+  var OLD = 'openlawtw.vercel.app', NEW = 'https://law.termcavetw.com', PREFIX = ["openlawtw-"];
+  function ours(k) { return PREFIX.some(function (p) { return k.indexOf(p) === 0; }); }
+  function safePath(p) { return (typeof p === 'string' && p.charAt(0) === '/' && p.charAt(1) !== '/' && p.charAt(1) !== '\\') ? p : '/'; }
+  var to = safePath(new URLSearchParams(location.search).get('to') || '/');
+  if (location.hostname === OLD) {
+    // 舊網址：把這個作品存在本機的資料打包，帶去新網址
+    var data = {}, n = 0;
+    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (ours(k)) { data[k] = localStorage.getItem(k); n++; } } } catch (e) {}
+    try { if (navigator.serviceWorker) navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); } catch (e) {}
+    if (!n) { location.replace(NEW + to); return; }
+    var b64 = btoa(unescape(encodeURIComponent(JSON.stringify(data)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    location.replace(NEW + '/migrate.html?to=' + encodeURIComponent(to) + '#d=' + b64);
+    return;
+  }
+  // 新網址：只收從舊網址帶過來的資料，而且新網址已經有的不覆蓋
+  var m = location.hash.match(/[#&]d=([^&]+)/);
+  if (m && document.referrer.indexOf('https://' + OLD + '/') === 0) {
+    try {
+      var s = m[1].replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '=';
+      var obj = JSON.parse(decodeURIComponent(escape(atob(s))));
+      Object.keys(obj).forEach(function (k) { if (ours(k) && typeof obj[k] === 'string' && localStorage.getItem(k) === null) localStorage.setItem(k, obj[k]); });
+    } catch (e) {}
+  }
+  location.replace(to);
+})();
+</script>
+</body>
+</html>

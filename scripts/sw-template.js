@@ -1,3 +1,16 @@
+/* 舊網址退休：在 openlawtw.vercel.app 上，這支 service worker 只清快取、把畫面帶到搬家頁，然後移除自己 */
+if (self.location.hostname === 'openlawtw.vercel.app') {
+  self.addEventListener('install', () => self.skipWaiting());
+  self.addEventListener('activate', e => e.waitUntil((async () => {
+    for (const k of await caches.keys()) await caches.delete(k);
+    await self.clients.claim();
+    for (const c of await self.clients.matchAll({ type: 'window', includeUncontrolled: true })) {
+      const u = new URL(c.url);
+      if (u.pathname !== '/migrate.html') { try { await c.navigate('/migrate.html?to=' + encodeURIComponent(u.pathname + u.search + u.hash)); } catch (err) {} }
+    }
+    await self.registration.unregister();
+  })()));
+} else {
 /* Generated release shell; immutable data survives app updates. */
 const VERSION='__VERSION__',CACHE='openlawtw-shell-'+VERSION;
 const DATA='openlawtw-data-v2',META='openlawtw-packs-v2',STATE='/__openlawtw_packs__';
@@ -51,3 +64,4 @@ self.addEventListener('fetch',event=>{
  if(PATHS.has(url.pathname)){event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match(url.pathname))||fetch(req)));return;}
  const file=FILES.get(url.pathname);if(file)event.respondWith((async()=>{const cache=await caches.open(DATA),saved=await cache.match(file.url);if(saved)return saved;const r=await verified(file);try{await cache.put(file.url,r.clone());}catch{/* Pack installation reports quota failures; online reading can continue. */}return r;})());
 });
+}
