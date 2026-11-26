@@ -61,7 +61,7 @@ def build():
     sources['sources'][ID] = {'url': SOURCE_URL, 'sourcePage': OFFICIAL, 'format': 'odt', 'file': FILE,
                               'sha256': hashlib.sha256(raw.read_bytes()).hexdigest(), 'hashScope': 'downloaded-odt-file', 'observedAt': STAMP,
                               'textMethod': 'ODT content.xml 原生文字；只取「修正規定」部分（總說明與對照表之前），保留每點文字與款次換行。',
-                              'verification': '比對內政部主管法規查詢系統：修正日期105年5月6日、共14點、各點開頭文字相同；該站本專案網路連線逾時，未能下載原頁。'}
+                              'verification': '比對內政部主管法規查詢系統：修正日期105年5月6日、共14點、各點開頭文字相同；另與內政部地政司「地政法令彙編」匯出檔所附最新條文逐字比對第二、三、六至十三點一致（彙編將國字數字改為阿拉伯數字）。該站本專案網路連線逾時，未能下載原頁。'}
     law = dict(id=ID, name='耕地分割執行要點', region='中央', category='農業與山坡地', kind='行政規則', url=OFFICIAL,
                source='內政部（彰化縣政府地政處轉載之內政部令）', coverage='full', modified='2016-05-06', effective='2016-05-06',
                effectiveNote='105年5月6日修正全文14點（修正十一點、新增一點、刪除二點）。',
