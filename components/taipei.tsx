@@ -1,6 +1,6 @@
 import {useEffect,useMemo,useState} from 'react';
 import {StaleBadge,StaleList} from './stale-note';
-import {type Stale,useStale} from '@/lib/stale';
+import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
 import {loadTaipei,manifest} from '@/lib/data-client';
@@ -23,17 +23,17 @@ export const taipeiCite=(item:TaipeiItem)=>`${item.issuer} ${rocDay(item.date)} 
 function Notice({archive}:{archive:TaipeiArchive}){
  return <div className="minutes-notice"><Info size={15}/><p><strong>臺北市政府（都市發展局、建築管理工程處、法務局等）的解釋令函，只適用臺北市的案子。</strong>與條文或國土署函釋不一致時，以條文與中央函釋為準。多數是針對個案的回覆，引用時請讀全文、注意當時的法規版本，並確認之後有無新的函釋或修法。<small>資料更新：{archive.fetchedAt}</small></p></div>;
 }
-function Meta({item,stale}:{item:TaipeiItem;stale?:Stale|null}){
- return <div className="minutes-meta"><StaleBadge id={item.id} stale={stale}/><span>{item.category}</span><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span>{item.refs.slice(0,2).map(r=><span key={r.law}>{r.law}{r.articles.length?' '+r.articles.slice(0,3).join('、'):''}</span>)}</div>;
+function Meta({item,stale}:{item:TaipeiItem;stale?:Flags|null}){
+ return <div className="minutes-meta"><StaleBadge id={item.id} flags={stale}/><span>{item.category}</span><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span>{item.refs.slice(0,2).map(r=><span key={r.law}>{r.law}{r.articles.length?' '+r.articles.slice(0,3).join('、'):''}</span>)}</div>;
 }
-function TaipeiReader({item,onBack,stale}:{item:TaipeiItem;onBack:()=>void;stale:Stale|null}){
+function TaipeiReader({item,onBack,stale,onOpen}:{item:TaipeiItem;onBack:()=>void;stale:Flags|null;onOpen:(id:string)=>void}){
  useEffect(()=>{setHash(taipeiHash(item.id));document.querySelector('.minutes-reader')?.scrollTo({top:0});},[item.id]);
  const cite=taipeiCite(item);
  return <div className="minutes-reader">
   <button className="ruling-back" onClick={onBack}><ArrowLeft size={14}/><span>臺北市函釋列表</span></button>
   <h3>{item.summary||cite}</h3>
   <Meta item={item} stale={stale}/>
-  <StaleList id={item.id} date={item.date} stale={stale}/>
+  <StaleList id={item.id} date={item.date} flags={stale} onOpen={onOpen}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href={item.url} target="_blank" rel="noreferrer">官方原文<ArrowUpRight size={13}/></a></div>
   {item.refs.length>0&&<div className="landuse-files"><span>市府歸類的相關法條：</span>{item.refs.map(r=><span key={r.scope+r.law}>{r.law}{r.articles.length?' '+r.articles.join('、'):''}</span>)}</div>}
   <div className="minutes-text">{item.body||item.summary}</div>
@@ -44,14 +44,14 @@ export function TaipeiExplorer(){
  const [q,setQ]=useState(''),[query,setQuery]=useState(''),[composing,setComposing]=useState(false);
  const [cat,setCat]=useState('all'),[limit,setLimit]=useState(30);
  const [open,setOpen]=useState<string|null>(()=>readTaipeiHash(location.hash));
- const stale=useStale(manifest.taipeiRefs);
+ const stale=useFlags(manifest.taipeiRefs);
  useEffect(()=>{if(!manifest.taipei){setError(true);return;}let live=true;setError(false);loadTaipei().then(a=>{if(live)setArchive(a);}).catch(()=>{if(live)setError(true);});return()=>{live=false;};},[retry]);
  useEffect(()=>{if(composing)return;const t=setTimeout(()=>setQuery(q),200);return()=>clearTimeout(t);},[q,composing]);
  useEffect(()=>setLimit(30),[query,cat]);
  const words=useMemo(()=>keywords(query),[query]);
  const pool=useMemo(()=>archive?archive.items.filter(i=>cat==='all'||i.category===cat):[],[archive,cat]);
  const rows=useMemo(()=>words.length?searchTaipei(pool,words):pool.map(item=>({item,score:0})),[pool,words]);
- if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><TaipeiReader item={item} stale={stale} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
+ if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><TaipeiReader item={item} stale={stale} onOpen={id=>setOpen(id)} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
  return <div className="minutes-explorer">
   <div className="section-top"><div><div className="eyebrow">TAIPEI CITY</div><h2>臺北市解釋令函</h2><p>臺北市法規查詢系統「都市發展類」「工務類」的解釋令函：建管、都市計畫、都市設計、騎樓、公設保留地等。</p></div></div>
   {archive&&<><div className="ruling-overview"><strong>{archive.stats.items.toLocaleString()}</strong><span>則解釋令函<br/><small>{archive.stats.categories.map(c=>c.name+' '+c.items).join(' · ')} · 來源：臺北市政府法務局</small></span></div><Notice archive={archive}/></>}

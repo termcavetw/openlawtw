@@ -1,6 +1,6 @@
 import {useEffect,useMemo,useState} from 'react';
 import {StaleBadge,StaleList} from './stale-note';
-import {type Stale,useStale} from '@/lib/stale';
+import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
 import {loadCentral,manifest} from '@/lib/data-client';
@@ -23,17 +23,17 @@ export const centralCite=(item:CentralItem)=>`${item.issuer} ${rocDay(item.date)
 function Notice({archive}:{archive:CentralArchive}){
  return <div className="minutes-notice"><Info size={15}/><p><strong>消防署、經濟部、農委會（農業部）、法務部等中央機關的解釋令函，依臺北市法規查詢系統歸在消防法、工廠管理輔導法、農業發展條例等條文下者收錄。</strong>只是臺北市法務局整理的部分，不是各部會的完整函釋；多為個案回覆，引用時請讀全文、注意發文時的法規版本，並確認之後有無新的函釋或修法。<small>資料更新：{archive.fetchedAt}</small></p></div>;
 }
-function Meta({item,stale}:{item:CentralItem;stale?:Stale|null}){
- return <div className="minutes-meta"><StaleBadge id={item.id} stale={stale}/><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span>{item.filed.slice(0,2).map(r=><span key={r.law+r.article}>{r.law} {r.article.replace(/\s+/g,'')}</span>)}</div>;
+function Meta({item,stale}:{item:CentralItem;stale?:Flags|null}){
+ return <div className="minutes-meta"><StaleBadge id={item.id} flags={stale}/><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span>{item.filed.slice(0,2).map(r=><span key={r.law+r.article}>{r.law} {r.article.replace(/\s+/g,'')}</span>)}</div>;
 }
-function CentralReader({item,onBack,stale}:{item:CentralItem;onBack:()=>void;stale:Stale|null}){
+function CentralReader({item,onBack,stale,onOpen}:{item:CentralItem;onBack:()=>void;stale:Flags|null;onOpen:(id:string)=>void}){
  useEffect(()=>{setHash(centralHash(item.id));document.querySelector('.minutes-reader')?.scrollTo({top:0});},[item.id]);
  const cite=centralCite(item);
  return <div className="minutes-reader">
   <button className="ruling-back" onClick={onBack}><ArrowLeft size={14}/><span>部會函釋列表</span></button>
   <h3>{item.summary||cite}</h3>
   <Meta item={item} stale={stale}/>
-  <StaleList id={item.id} date={item.date} stale={stale}/>
+  <StaleList id={item.id} date={item.date} flags={stale} onOpen={onOpen}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href={item.url} target="_blank" rel="noreferrer">官方原文<ArrowUpRight size={13}/></a></div>
   <div className="landuse-files"><span>歸類的條文：</span>{item.filed.map(r=><span key={r.law+r.article}>{r.law} {r.article.replace(/\s+/g,'')}</span>)}</div>
   <div className="minutes-text">{item.body||item.summary}</div>
@@ -44,7 +44,7 @@ export function CentralExplorer(){
  const [q,setQ]=useState(''),[query,setQuery]=useState(''),[composing,setComposing]=useState(false);
  const [topic,setTopic]=useState('all'),[limit,setLimit]=useState(30);
  const [open,setOpen]=useState<string|null>(()=>readCentralHash(location.hash));
- const stale=useStale(manifest.centralRefs);
+ const stale=useFlags(manifest.centralRefs);
  useEffect(()=>{if(!manifest.central){setError(true);return;}let live=true;setError(false);loadCentral().then(a=>{if(live)setArchive(a);}).catch(()=>{if(live)setError(true);});return()=>{live=false;};},[retry]);
  useEffect(()=>{if(composing)return;const t=setTimeout(()=>setQuery(q),200);return()=>clearTimeout(t);},[q,composing]);
  useEffect(()=>setLimit(30),[query,topic]);
@@ -52,7 +52,7 @@ export function CentralExplorer(){
  const lawTopic=useMemo(()=>new Map((archive?.laws||[]).map(l=>[l.name,l.topic])),[archive]);
  const pool=useMemo(()=>archive?archive.items.filter(i=>topic==='all'||i.filed.some(f=>lawTopic.get(f.law)===topic)):[],[archive,topic,lawTopic]);
  const rows=useMemo(()=>words.length?searchCentral(pool,words):pool.map(item=>({item,score:0})),[pool,words]);
- if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><CentralReader item={item} stale={stale} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
+ if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><CentralReader item={item} stale={stale} onOpen={id=>setOpen(id)} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
  return <div className="minutes-explorer">
   <div className="section-top"><div><div className="eyebrow">CENTRAL AGENCIES</div><h2>消防署・經濟部・農業部等函釋</h2><p>消防法、工廠管理輔導法（含施行細則）、農業發展條例（含施行細則）、農業設施容許使用、農業使用證明等條文下的中央機關解釋令函。</p></div></div>
   {archive&&<><div className="ruling-overview"><strong>{archive.stats.items.toLocaleString()}</strong><span>則解釋令函<br/><small>{archive.stats.topics.map(c=>c.name+' '+c.items).join(' · ')} · 來源：臺北市法規查詢系統</small></span></div><Notice archive={archive}/></>}
