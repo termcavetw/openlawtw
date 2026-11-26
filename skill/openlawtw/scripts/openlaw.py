@@ -2,7 +2,7 @@
 """openlaw.py — query openlawtw (Taiwan building-law database) from the command line.
 
 Standard library only. Data comes from the openlawtw static JSON API
-(https://openlawtw.vercel.app/data/manifest.json) and is cached locally.
+(https://law.termcavetw.com/data/manifest.json) and is cached locally.
 
 Commands
   find-law  <name>                         resolve a law name / alias / id
@@ -17,7 +17,7 @@ Commands
   info                                     data version and source
 
 Environment
-  OPENLAW_BASE   data host (default https://openlawtw.vercel.app)
+  OPENLAW_BASE   data host (default https://law.termcavetw.com)
   OPENLAW_DATA   path to a local clone of termcavetw/openlawtw (uses its data/ folder, no network)
   OPENLAW_CACHE  cache folder (default ~/.cache/openlawtw)
 """
@@ -30,9 +30,9 @@ import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
-SITE = "https://openlawtw.vercel.app"
+SITE = "https://law.termcavetw.com"
 FALLBACK_BASES = [
-    "https://openlawtw.vercel.app",
+    "https://law.termcavetw.com",
     "https://cdn.jsdelivr.net/gh/termcavetw/openlawtw@main",
     "https://raw.githubusercontent.com/termcavetw/openlawtw/main",
 ]

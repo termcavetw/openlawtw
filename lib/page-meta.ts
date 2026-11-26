@@ -1,6 +1,6 @@
 import type {Law} from './law-types.ts';
 import {lawHref} from './routes.ts';
-export const SITE_URL='https://openlawtw.vercel.app';
+export const SITE_URL='https://law.termcavetw.com';
 export const HOME_TITLE='openlawtw｜臺灣建築法規庫';
 export const HOME_DESCRIPTION='依縣市查找臺灣建築相關中央法規、自治條例、法源關係與官方函釋，支援全文搜尋及離線閱讀。';
 export function lawMetadata(law:Law){

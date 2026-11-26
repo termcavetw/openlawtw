@@ -235,7 +235,7 @@ with sync_playwright() as p:
     metadata_requests = []
     page.on('request', lambda request: metadata_requests.append(request.url) if '/data/article-supplements/' in request.url else None)
     page.route('**/data/article-supplements/**', lambda route: route.abort())
-    page.route('https://openlawtw.vercel.app/documents/article-supplements/**', lambda route: route.fulfill(path=str(repo / 'public' / urlsplit(route.request.url).path.lstrip('/'))))
+    page.route('https://law.termcavetw.com/documents/article-supplements/**', lambda route: route.fulfill(path=str(repo / 'public' / urlsplit(route.request.url).path.lstrip('/'))))
     page.goto((repo / 'openlawtw.html').as_uri() + '#law=D0070115&article=' + quote('第 2 條'), wait_until='load', timeout=120000)
     page.get_by_role('button', name='第 2 條補充圖例', exact=True).click(timeout=120000)
     page.wait_for_function("[...document.querySelectorAll('.supp-canvas img')].some(img=>img.complete&&img.naturalWidth>0)")
@@ -243,7 +243,7 @@ with sync_playwright() as p:
     expect(page.locator('.supp-online')).to_be_visible()
     page.get_by_role('dialog').evaluate('(el)=>Promise.all(el.getAnimations().map(a=>a.finished))')
     page.screenshot(path=str(output / 'portable-390.png'))
-    reports.append({'portableEmbeddedMetadata': True, 'portableImageOrigin': 'https://openlawtw.vercel.app'})
+    reports.append({'portableEmbeddedMetadata': True, 'portableImageOrigin': 'https://law.termcavetw.com'})
     context.close()
     browser.close()
 server.shutdown()

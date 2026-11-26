@@ -12,7 +12,7 @@ Agent:  ▸ openlaw.py article 設計施工編 107
         refuge floor too. [links to both]
 ```
 
-This skill runs on top of **[openlawtw](https://openlawtw.vercel.app)**, an open database of Taiwanese building, planning and land-use law:
+This skill runs on top of **[openlawtw](https://law.termcavetw.com)**, an open database of Taiwanese building, planning and land-use law:
 
 - **1,000+ laws**: central government plus all 22 cities and counties, split article by article
 - **8,700+ rulings (函釋)** from the National Land Management Agency, linked to the articles they interpret
@@ -52,7 +52,7 @@ cp -r /tmp/openlawtw/skill/openlawtw ~/.claude/skills/
 
 ## Offline use
 
-The script fetches data from openlawtw.vercel.app (falling back to GitHub mirrors) and caches it in `~/.cache/openlawtw`. To work fully offline, clone this repo and set:
+The script fetches data from law.termcavetw.com (falling back to GitHub mirrors) and caches it in `~/.cache/openlawtw`. To work fully offline, clone this repo and set:
 
 ```bash
 export OPENLAW_DATA=/path/to/openlawtw

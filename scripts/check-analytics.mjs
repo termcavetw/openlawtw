@@ -7,12 +7,12 @@ for(const path of paths){
  const event={type:'pageview',url:ANALYTICS_ORIGIN+path+'?q=private-search&case=private-case#view=search&q=secret',extra:'private-note'};
  assert.deepEqual(sanitizeAnalyticsEvent(event,paths),{type:'pageview',url:ANALYTICS_ORIGIN+path});
 }
-for(const url of ['invalid','file:///private-case.html','https://example.com/','https://openlawtw.vercel.app/private-case','https://openlawtw.vercel.app/laws/private-case.html']){
+for(const url of ['invalid','file:///private-case.html','https://example.com/','https://law.termcavetw.com/private-case','https://law.termcavetw.com/laws/private-case.html']){
  assert.equal(sanitizeAnalyticsEvent({type:'pageview',url},paths),null);
 }
 assert.equal(sanitizeAnalyticsEvent({type:'event',url:ANALYTICS_ORIGIN+'/',name:'search',data:{q:'secret'}},paths),null);
 assert.equal(analyticsEnabled(ANALYTICS_ORIGIN,false,true),true);
-for(const origin of ['null','http://localhost:5173','http://127.0.0.1:4173','https://openlawtw-preview.vercel.app','http://openlawtw.vercel.app'])assert.equal(analyticsEnabled(origin,false,true),false);
+for(const origin of ['null','http://localhost:5173','http://127.0.0.1:4173','https://openlawtw-preview.vercel.app','http://law.termcavetw.com'])assert.equal(analyticsEnabled(origin,false,true),false);
 assert.equal(analyticsEnabled(ANALYTICS_ORIGIN,true,true),false);
 assert.equal(analyticsEnabled(ANALYTICS_ORIGIN,false,false),false);
 const main=await readFile(new URL('../main.tsx',import.meta.url),'utf8');

@@ -2,7 +2,7 @@ import {loadLaw} from './data-client';
 type OfflinePayload = Record<string, unknown>;
 declare global {interface Window {OPENLAWTW_OFFLINE?:OfflinePayload}}
 export const isPortable=()=>!!window.OPENLAWTW_OFFLINE;
-export const shareURL=()=>location.protocol==='file:'?'https://openlawtw.vercel.app':location.origin;
+export const shareURL=()=>location.protocol==='file:'?'https://law.termcavetw.com':location.origin;
 export async function loadJSON<T>(path:string,signal?:AbortSignal):Promise<T>{
  if(signal?.aborted)throw new DOMException('Aborted','AbortError');
  const embedded=window.OPENLAWTW_OFFLINE?.[decodeURIComponent(path)];

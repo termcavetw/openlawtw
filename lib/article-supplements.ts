@@ -21,5 +21,5 @@ export function articleSupplement(lawId:string,article:string,attachments:Attach
 /** A standalone HTML keeps these optional page images online instead of embedding megabytes. */
 export function supplementAssetURL(src:string,protocol:string,origin:string):string{
  if(!/^\/documents\/article-supplements\/[A-Za-z0-9/_-]+\.(?:webp|png|jpe?g)$/.test(src))return '';
- return protocol==='file:'?'https://openlawtw.vercel.app'+src:origin+src;
+ return protocol==='file:'?'https://law.termcavetw.com'+src:origin+src;
 }

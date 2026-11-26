@@ -50,7 +50,7 @@ for(const record of sources){
 }
 assert.equal(articleSupplement(law.id,'第 116-2 條',law.attachments),undefined,'Existing legal table is not a supplementary diagram');
 assert.equal(articleSupplement(law.id,'第 3 條',law.attachments),undefined,'Do not use a prefix match for 第 3-1 條');
-assert.equal(supplementAssetURL('/documents/article-supplements/x-'+ 'a'.repeat(12)+'.webp','file:','null'),'https://openlawtw.vercel.app/documents/article-supplements/x-'+ 'a'.repeat(12)+'.webp');
+assert.equal(supplementAssetURL('/documents/article-supplements/x-'+ 'a'.repeat(12)+'.webp','file:','null'),'https://law.termcavetw.com/documents/article-supplements/x-'+ 'a'.repeat(12)+'.webp');
 for(const path of ['javascript:alert(1)','//evil.test/x.webp','/documents/article-supplements/../x.webp','/other/x.webp'])assert.equal(supplementAssetURL(path,'https:','https://example.test'),'');
 if(process.argv.includes('--built')){
  assert.equal(sha(read('dist'+supplementViewFile.url)),supplementViewFile.sha256);

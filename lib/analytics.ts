@@ -1,6 +1,6 @@
 import type {BeforeSendEvent} from '@vercel/analytics/react';
 
-export const ANALYTICS_ORIGIN = 'https://openlawtw.vercel.app';
+export const ANALYTICS_ORIGIN = 'https://law.termcavetw.com';
 
 // Only the public production site participates. Portable exports, preview
 // deployments and local development must never send visitor data.

@@ -2,7 +2,7 @@
 
 臺灣建築法規查找與閱讀工具 · **v0.25.6**
 
-[使用網站](https://openlawtw.vercel.app/) · [GitHub 原始碼](https://github.com/termcavetw/openlawtw) · [引用指南](CITING.md) · [資料來源與權利](DATA_LICENSE.md)
+[使用網站](https://law.termcavetw.com/) · [GitHub 原始碼](https://github.com/termcavetw/openlawtw) · [引用指南](CITING.md) · [資料來源與權利](DATA_LICENSE.md)
 
 目前收錄 **1,045 筆法規與來源索引、996 部條文全文、19,708 條／點原文、38 份原文文件及 9,054 筆函釋**。22 縣市均有法規全文，但收錄仍不完整；本工具提供官方原文查找，不判斷個案適用或函釋效力。
 
@@ -40,7 +40,7 @@ v0.25.0 新增友善列印：可選單一法條、章節或整部法規，以 A4
 - 收藏、本機案件引用、版本異動追蹤、分享圖卡與嵌入卡保留。異動比對的是本庫版本，不是官方即時修法通知。
 - 載入使用 20px 黑白 Thinking Orb；支援減少動態效果，離開畫面或切到背景時停止動畫。
 
-每部法規有 `/laws/<法規ID>.html` 獨立頁、canonical 與 sitemap；舊 `#law=` 分享網址保留相容。例：[建築法第 73 條](https://openlawtw.vercel.app/laws/D0070109.html#a-73)。
+每部法規有 `/laws/<法規ID>.html` 獨立頁、canonical 與 sitemap；舊 `#law=` 分享網址保留相容。例：[建築法第 73 條](https://law.termcavetw.com/laws/D0070109.html#a-73)。
 
 ## 資料、來源與離線
 
@@ -75,13 +75,13 @@ npm run check
 
 v0.24.1 已限制外層橫向溢出、讓表格獨立橫滑，並避免頁籤數字拆行。v0.25.0 已檢查 Chromium 320／390px 的閱讀與列印操作，**iPhone 主畫面 PWA 的正文左右拖移仍待實機確認**，不得將窄視窗測試視為真機修復完成。
 
-回歸頁：[建築技術規則建築設計施工編第 116-3 條](https://openlawtw.vercel.app/laws/D0070115.html#a-116-3)。需核對正文不橫移、表格可完整橫滑、縮放及垂直閱讀正常。歷史驗證紀錄見 [VALIDATION.md](VALIDATION.md) 與各次更新文件；舊版結果不代表本版已實測。
+回歸頁：[建築技術規則建築設計施工編第 116-3 條](https://law.termcavetw.com/laws/D0070115.html#a-116-3)。需核對正文不橫移、表格可完整橫滑、縮放及垂直閱讀正常。歷史驗證紀錄見 [VALIDATION.md](VALIDATION.md) 與各次更新文件；舊版結果不代表本版已實測。
 
 ## GitHub 與 Vercel
 
 ### 網站流量統計
 
-正式網域 `https://openlawtw.vercel.app` 使用 Vercel Web Analytics 計算訪客及頁面瀏覽；程式採 `@vercel/analytics/react`（本專案是 Vite + React，不是 Next.js）。只傳送首頁及已收錄法規閱讀頁的公開網址，送出前移除 query 與 hash；不加入自訂事件，也不傳送搜尋文字、本機案件、筆記或收藏內容。條號切換、搜尋及函釋等 hash 狀態不拆成獨立統計頁面。
+正式網域 `https://law.termcavetw.com` 使用 Vercel Web Analytics 計算訪客及頁面瀏覽；程式採 `@vercel/analytics/react`（本專案是 Vite + React，不是 Next.js）。只傳送首頁及已收錄法規閱讀頁的公開網址，送出前移除 query 與 hash；不加入自訂事件，也不傳送搜尋文字、本機案件、筆記或收藏內容。條號切換、搜尋及函釋等 hash 狀態不拆成獨立統計頁面。
 
 本機開發、預覽網域、單檔離線 HTML、純靜態法規目錄與嵌入引用卡不載入統計；PWA 離線時不送事件，也不快取統計端點。網路或內容封鎖器阻擋統計時，閱讀功能仍可使用。Vercel 的一般瀏覽統計與處理方式見[官方隱私說明](https://vercel.com/docs/analytics/privacy-policy)；這不是完全沒有網路資料處理的離線模式。
 
@@ -91,7 +91,7 @@ v0.24.1 已限制外層橫向溢出、讓表格獨立橫滑，並避免頁籤數
 
 Vercel 使用 Node.js 24、`npm ci`、`npm run build`，部署輸出為 `dist/`。完整原始碼 ZIP 放在 `artifacts/openlawtw-source.zip`，可由 GitHub Actions 的 `openlawtw-review` 產物取得；不放入網站部署目錄。發布須核對遠端提交、該提交的 CI 與正式部署，不能只依頁面版本號判斷。
 
-部署與快取驗收見 [DEPLOY.md](DEPLOY.md)，保護規則見 [GITHUB_SETUP.md](GITHUB_SETUP.md)。更新未生效時可使用網站「安裝／離線」或 [更新檢查頁](https://openlawtw.vercel.app/update.html)，勿以清除案件與收藏作為更新步驟。
+部署與快取驗收見 [DEPLOY.md](DEPLOY.md)，保護規則見 [GITHUB_SETUP.md](GITHUB_SETUP.md)。更新未生效時可使用網站「安裝／離線」或 [更新檢查頁](https://law.termcavetw.com/update.html)，勿以清除案件與收藏作為更新步驟。
 
 每週官方同步採草稿 PR 流程；工作流程檔存在不代表排程已啟用。`ENABLE_LAW_SYNC` 的設定與人工審核方式見部署指南。
 

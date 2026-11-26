@@ -16,7 +16,7 @@ Openlawtw 是官方資料的整理與查找入口。引用法規、函釋或圖�
 | 函釋 | `/#ruling={函釋ID}` | 例如 `/#ruling=9821`。函釋 ID 是本庫紀錄識別碼，不等於發文字號；目前沒有 `/rulings/{ID}.html` 路徑。 |
 | PDF 頁面 | `/laws/{法規ID}.html#document-page-{頁碼}` | 頁碼從 1 起算，包含封面與目錄，可能不同於印製頁碼。圖文章節閱讀器會定位對應內容。 |
 
-`{法規ID}`、`{條號}`等是占位符，不能直接當作網址使用。完整網址需加上站台根網址 `https://openlawtw.vercel.app`。網頁更新可能改變收錄內容；固定入口不等於固定版本，也不是永久不變的法律文本。
+`{法規ID}`、`{條號}`等是占位符，不能直接當作網址使用。完整網址需加上站台根網址 `https://law.termcavetw.com`。網頁更新可能改變收錄內容；固定入口不等於固定版本，也不是永久不變的法律文本。
 
 ## 引用範例
 
@@ -27,7 +27,7 @@ Openlawtw 是官方資料的整理與查找入口。引用法規、函釋或圖�
 > 《建築法》第 1 條。官方來源：全國法規資料庫；本庫所載修正日期：2022-05-11；本庫擷取日期：2026-09-28（UTC）。查閱日期：請填實際日期。
 
 - [官方原文：建築法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070109)
-- [Openlawtw：建築法第 1 條](https://openlawtw.vercel.app/laws/D0070109.html#a-1)
+- [Openlawtw：建築法第 1 條](https://law.termcavetw.com/laws/D0070109.html#a-1)
 
 修正日期是整部法規來源欄位，不表示每一條都在同一天修正。若需要特定條文的修正時間，請另核對官方沿革；未列生效日期時，不應直接用修正日代替。
 
@@ -36,7 +36,7 @@ Openlawtw 是官方資料的整理與查找入口。引用法規、函釋或圖�
 > 內政部函 87.07.02.台內營字第8772186號，主旨「檢送關於領得建造執照之建築物辦理變更設計法令適用疑義，請查照依會商結論辦理。」發文日期：1998-07-02；來源所載更新日期：2018-10-08；本庫函釋資料擷取日期：2026-09-28。查閱日期：請填實際日期。
 
 - [官方原文：國土管理署函釋紀錄 9821](https://www.nlma.gov.tw/ch/titlelist/interpcomp/9821)
-- [Openlawtw：函釋紀錄 9821](https://openlawtw.vercel.app/#ruling=9821)
+- [Openlawtw：函釋紀錄 9821](https://law.termcavetw.com/#ruling=9821)
 
 發文日、來源頁更新日與本庫擷取日不同；更新日不代表重新發文。同字號可能有多筆紀錄，請保留函釋 ID、發文機關、完整字號與官方 URL，不能只憑數字字號合併。引用連線、收錄狀態或正文提及「停止適用」，都不能單獨用來判斷這筆函釋是否仍適用。
 
@@ -46,7 +46,7 @@ Openlawtw 是官方資料的整理與查找入口。引用法規、函釋或圖�
 
 - [官方發布頁](https://www.nlma.gov.tw/ch/legislation/regsearch/927)
 - [官方 PDF 原檔](https://www.nlma.gov.tw/uploads/files/e9abb44ff171074d23a7d1d5ee35b4a4.pdf)
-- [Openlawtw：PDF 第 1 頁](https://openlawtw.vercel.app/laws/%E5%85%A7%E6%94%BF%E9%83%A8-GL000734.html#document-page-1)
+- [Openlawtw：PDF 第 1 頁](https://law.termcavetw.com/laws/%E5%85%A7%E6%94%BF%E9%83%A8-GL000734.html#document-page-1)
 - 本庫原檔擷取日：2026-09-28。原檔 SHA-256：`1ff0c1cc4cb27c6f74219bfb0d264cac056f88fe9109e36031c53cd6358c0245`。
 - 本庫版本說明：官方頁列於 109 年 5 月 11 日勘誤的「全文-最新」附件；PDF 封面仍列 108 年 1 月 4 日修正、108 年 7 月 1 日生效。這些日期應分別保留。
 

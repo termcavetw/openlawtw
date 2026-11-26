@@ -7,7 +7,7 @@ root=Path(__file__).resolve().parent.parent
 stub="""(()=>{let filter=e=>e;window.__analytics=[];function view(){let e=filter({type:'pageview',url:location.href});if(e){window.__analytics.push(e);fetch('/_vercel/insights/view',{method:'POST',body:JSON.stringify(e)})}};for(const [k,v] of window.vaq||[])if(k==='beforeSend')filter=v;window.va=(k,v)=>{if(k==='beforeSend')filter=v;};const push=history.pushState.bind(history);history.pushState=(...args)=>{push(...args);view()};window.addEventListener('popstate',view);view()})();"""
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path=os.environ.get('OPENLAWTW_CHROMIUM') or None,headless=True,args=['--no-sandbox'])
- for origin,portable,online in [('https://openlawtw.vercel.app',False,True),('https://openlawtw-preview.vercel.app',False,True),('http://localhost:4173',False,True),('https://openlawtw.vercel.app',True,True),('https://openlawtw.vercel.app',False,False)]:
+ for origin,portable,online in [('https://law.termcavetw.com',False,True),('https://openlawtw-preview.vercel.app',False,True),('http://localhost:4173',False,True),('https://law.termcavetw.com',True,True),('https://law.termcavetw.com',False,False)]:
   ctx=b.new_context(service_workers='block');page=ctx.new_page();requests=[];errors=[]
   page.on('pageerror',lambda e:errors.append(str(e)))
   if portable:ctx.add_init_script('window.OPENLAWTW_OFFLINE={};')
@@ -24,7 +24,7 @@ with sync_playwright() as p:
    else:r.fulfill(status=404,body='not found')
   ctx.route('**/*',route)
   page.goto(origin+'/laws/D0070109.html?q=PRIVATE_SEARCH#view=search&q=PRIVATE_HASH',wait_until='load');page.wait_for_timeout(1600)
-  if origin=='https://openlawtw.vercel.app' and not portable and online:
+  if origin=='https://law.termcavetw.com' and not portable and online:
    assert sum(x['path'].endswith('script.js') for x in requests)==1,requests
    assert all('referer' not in x['headers'] for x in requests),requests
    assert page.evaluate('window.__analytics').pop()['url']==origin+'/laws/D0070109.html'

@@ -1,6 +1,6 @@
 # openlawtw v0.19.0 部署指南
 
-專案：[termcavetw/openlawtw](https://github.com/termcavetw/openlawtw)；目標網站：[openlawtw.vercel.app](https://openlawtw.vercel.app/)。
+專案：[termcavetw/openlawtw](https://github.com/termcavetw/openlawtw)；目標網站：[law.termcavetw.com](https://law.termcavetw.com/)。
 
 GitHub 請提交**原始專案**，由 Vercel 執行建置。原始碼包、已建置的靜態網站與單檔 HTML 用途不同，不能互相替代。
 
@@ -74,7 +74,7 @@ PWA 需 HTTPS 或 localhost。網站先保存介面，再由使用者選擇中�
 
 更新時會核對資料雜湊，成功後切換版本；失敗時保留既有版本及已選資料。瀏覽器回收儲存空間後，使用者可能需要重新下載。法規靜態頁不會全部預先快取。
 
-若部署成功後仍顯示舊版，可從網站的「安裝／離線」檢查更新，或開啟 [更新檢查頁](https://openlawtw.vercel.app/update.html)。更新頁不預先快取，也不會主動清除收藏。驗收時勿以清除使用者案件與收藏作為更新步驟。
+若部署成功後仍顯示舊版，可從網站的「安裝／離線」檢查更新，或開啟 [更新檢查頁](https://law.termcavetw.com/update.html)。更新頁不預先快取，也不會主動清除收藏。驗收時勿以清除使用者案件與收藏作為更新步驟。
 
 ## 官方資料快照與每週同步
 
@@ -109,7 +109,7 @@ Git 提交作者與網站品牌是不同設定。需要信箱隱私時，使用 
 
 1. 在 Vercel 的 openlawtw 專案中確認 Analytics 已啟用；若尚未啟用，請由管理者檢查方案／費用後啟用。本次程式修改不變更 Vercel 帳號設定。
 2. 依既有 PR、CI、合併與部署流程發布。只推送分支或開 PR 不會使正式站統計生效。
-3. 在 `https://openlawtw.vercel.app` 連線開啟首頁及任一法規頁，確認 `/_vercel/insights/script.js` 成功載入，並觀察統計請求。若回傳 404，檢查專案是否啟用 Analytics 及是否已重新部署。
+3. 在 `https://law.termcavetw.com` 連線開啟首頁及任一法規頁，確認 `/_vercel/insights/script.js` 成功載入，並觀察統計請求。若回傳 404，檢查專案是否啟用 Analytics 及是否已重新部署。
 4. 核對 pageview 的頁面網址不包含 query、hash 或搜尋文字，再到 Vercel Analytics 查看資料；資料可能延遲，內容封鎖器也可能阻擋，不能只看 SDK 已安裝就視為驗收完成。
 
 統計限正式網域，預覽部署、本機、單檔離線 HTML、純靜態法規目錄及嵌入引用卡不載入。若日後使用自訂正式網域，需明確更新 `lib/analytics.ts` 的 origin 與隱私檢查。僅允許已知公開頁面，不傳送自訂事件、案件、筆記或收藏。線上 PWA 可計入瀏覽，離線事件捨棄，不補送。統計不是離線包的一部分，失敗不得阻礙閱讀。

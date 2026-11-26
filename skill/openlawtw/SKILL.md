@@ -80,7 +80,7 @@ curl -sfL https://raw.githubusercontent.com/termcavetw/openlawtw/main/skill/open
 先用一兩句話給結論，接著列依據：
 
 > **依據**
-> - 建築技術規則建築設計施工編第 107 條第 1 款第 3 目：「出入口應為具有一小時以上防火時效之防火門。除開向特別安全梯外，限設一處，且不得直接連接居室。」（[連結](https://openlawtw.vercel.app/laws/D0070115.html#a-107)）
+> - 建築技術規則建築設計施工編第 107 條第 1 款第 3 目：「出入口應為具有一小時以上防火時效之防火門。除開向特別安全梯外，限設一處，且不得直接連接居室。」（[連結](https://law.termcavetw.com/laws/D0070115.html#a-107)）
 > - 內政部營建署 108.03.20 營署建管字第 1081051682 號函：機間在避難層的出入口仍只能設一處……（[連結](https://www.nlma.gov.tw/ch/titlelist/interpcomp/13672)）
 >
 > 資料：openlawtw（同步於 2026-11-10）。個案適用以主管建築機關審查為準。

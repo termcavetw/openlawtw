@@ -37,7 +37,7 @@ let textArticles=0,staticLinks=0,bodyReferences=0,unitReferences=0;
 for(const law of laws){
  const html=await read('dist'+lawHref(law.id));pages.set(law.id,html);
  const embedded=JSON.parse(html.match(/<script type="application\/json" id="openlawtw-law-snapshot">([\s\S]*?)<\/script>/)[1]);assert.deepEqual(embedded,law);
- assert(html.includes(`<link rel="canonical" href="https://openlawtw.vercel.app${lawHref(law.id)}"/>`));
+ assert(html.includes(`<link rel="canonical" href="https://law.termcavetw.com${lawHref(law.id)}"/>`));
  const texts=[...html.matchAll(/<div class="static-text">([\s\S]*?)<\/div>/g)].map(m=>decode(m[1].replace(/<figure class="legal-table-block"[\s\S]*?<\/figure>/g,figure=>{const raw=figure.match(/<pre class="legal-table-raw">([\s\S]*?)<\/pre>/);assert(raw,'Every table retains exact source');return raw[1];}).replace(/<[^>]*>/g,'')));
  assert.deepEqual(texts,law.articles.map(a=>a.text),law.id+' no-JavaScript original-text fidelity');textArticles+=texts.length;
  if(law.preamble)assert.equal(decode(html.match(/<div class="static-preamble"[^>]*>([\s\S]*?)<\/div>/)[1]),law.preamble,law.id+' preamble fidelity');
@@ -50,8 +50,8 @@ for(const [id,html] of pages)for(const match of html.matchAll(/href="(\/laws\/[^
 const check=(text,law)=>{for(const target of find(text,law)){assert(byId.get(target.law.id).articles.some(a=>a.no===target.article));if(target.unit){assert(units.has(target.unit));unitReferences++;}assert(text.slice(target.start,target.end));bodyReferences++;}};
 for(const law of laws)for(const article of law.articles)check(article.text,law);
 const rulings=await json('public/data/rulings.json');for(const ruling of rulings.items)check(ruling.body);
-const sitemap=await read('dist/sitemap.xml'),urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>decode(m[1]));assert.equal(urls.length,laws.length+2);assert.equal(new Set(urls).size,laws.length+2);for(const law of laws)assert(urls.includes('https://openlawtw.vercel.app'+lawHref(law.id)));
-assert((await read('dist/robots.txt')).includes('Sitemap: https://openlawtw.vercel.app/sitemap.xml'));
+const sitemap=await read('dist/sitemap.xml'),urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>decode(m[1]));assert.equal(urls.length,laws.length+2);assert.equal(new Set(urls).size,laws.length+2);for(const law of laws)assert(urls.includes('https://law.termcavetw.com'+lawHref(law.id)));
+assert((await read('dist/robots.txt')).includes('Sitemap: https://law.termcavetw.com/sitemap.xml'));
 assert(!safeJSON({text:'</script><script>alert(1)</script>'}).includes('<'));
 assert.equal(unitAnchor('D0070115/a:164-1/p:1/i:2'),'a-164-1-p-1-i-2');
 assert.equal(articleAddress('第四之一點'),'4-1','Inserted local point retains a numeric share anchor');
