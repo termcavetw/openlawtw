@@ -34,7 +34,7 @@ SOURCE = '臺北市法規查詢系統 中央法規相關解釋令函（laws.gov.
 NOTE = ('中央機關（內政部消防署、經濟部、行政院農業委員會／農業部、法務部等）的解釋令函，依臺北市法規查詢系統歸在消防法、工廠管理輔導法、'
         '農業發展條例等中央法規條文下者收錄；只是臺北市法務局整理的部分，不是各部會的完整函釋。函釋是主管機關對法規的解釋，個案適用以主管機關認定為準；'
         '較新的函釋或法規修正可能改變見解，引用前請確認。')
-MIN_LETTERS = 100
+MIN_LETTERS = 50  # the city files about 80 letters under these laws (2026-11)
 MAX_REMOVED = 20
 REFRESH_PER_RUN = 60
 FIELDS = ('id', 'date', 'docNo', 'issuer', 'summary', 'body', 'filed', 'refs', 'url')
