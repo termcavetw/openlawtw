@@ -27,3 +27,4 @@
 .ocr-raw pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Noto Sans Mono CJK TC",monospace;font-size:13px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere;background:#f7f8f9;border:1px solid #e6e9ec;border-radius:4px;padding:10px 12px;margin:0 0 1em;color:#33444f}
 .ocr-model .ocr-table td{text-align:center;vertical-align:middle}.ocr-model .ocr-table td:first-child{text-align:left}
 .ntpc-field{margin:18px 0 0}.ntpc-field h4{font-size:12px;font-weight:600;color:#6a776f;letter-spacing:.08em;margin:0 0 6px}.ntpc-field .minutes-text{margin:0}
+.ocr-model{margin:4px 0 18px;padding:8px 12px 2px;border:1px dashed #c9d3cf;border-radius:6px;background:#fbfcfb}.ocr-model>summary{cursor:pointer;font-size:12px;font-weight:600;color:#4d695e;min-height:28px;line-height:28px}

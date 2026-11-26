@@ -20,6 +20,16 @@ class TableHelpers(unittest.TestCase):
         lines = ['商業區種別  建蔽率  容積率', '中心商業區  70％  500％', '鄰里商業區  70％  280％', '註：其他依規定辦理。']
         self.assertEqual(oe.lines_covered(lines, oe._norm('商業區種別建蔽率容積率中心商業區70%500%鄰里商業區70%280%')), (0, 3))
 
+    def test_numbers_must_match_the_text(self):
+        lines = ['   項目種類建蔽率(%)    容積率(%)', '         住宅區                 60       200', '         商業區                 80       350',
+                 '  使用分區乙種          70       210', '         工業區', '                 零星          70       210']
+        moved = [[['項目'], ['種類'], ['建蔽率(%)'], ['容積率(%) 200']], [['使用分區'], ['住宅區'], ['60']], [['商業區'], ['80'], ['350 210']],
+                 [['工業區'], ['乙種'], ['70']], [['零星'], ['70 60'], ['210 120']]]
+        self.assertFalse(oe.numbers_match(moved, lines))  # 宗教專用區 60/120 pulled in from another row
+        right = [[['種類'], ['建蔽率(%)'], ['容積率(%)']], [['住宅區'], ['60'], ['200']], [['商業區'], ['80'], ['350']], [['乙種工業區'], ['70'], ['210']], [['零星工業區'], ['70'], ['210']]]
+        self.assertTrue(oe.numbers_match(right, lines))
+        self.assertEqual(oe.numbers('面積達１，５００平方公尺、0.25公頃'), {'1500', '0.25'})
+
     def test_plausible_table_rejects_boxed_prose(self):
         grid = [[['分區'], ['建蔽率'], ['容積率']], [['住宅區'], ['50'], ['120']], [['商業區'], ['80'], ['320']]]
         self.assertTrue(oe.plausible_table(grid))

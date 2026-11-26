@@ -272,6 +272,30 @@ def plausible_table(rows):
     return sizes[len(sizes) // 2] <= 24 and sum(n > 30 for n in sizes) <= 0.4 * len(sizes)
 
 
+def numbers(text):
+    """Numeric tokens of a text (NFKC, thousands commas dropped): 「1,500」「0.25」「60」."""
+    import re as _re, unicodedata
+    return {t.replace(',', '') for t in _re.findall(r'\d+(?:[.,]\d+)*', unicodedata.normalize('NFKC', text))}
+
+
+def numbers_match(rows, lines):
+    """A rebuilt table is only kept when its numbers are exactly the numbers of the text lines it stands beside:
+    a model that moved or merged cells (a 60/120 row pulled into another) shows up as a number the text lacks."""
+    return numbers(' '.join(c[0] for r in rows for c in r)) == numbers('\n'.join(lines))
+
+
+def checked_tables(rows_list, lines):
+    """Tables matched to a scanned page's own text lines, kept only when their numbers agree with those lines."""
+    kept = []
+    for rows in rows_list:
+        if not plausible_table(rows):
+            continue
+        a, b = lines_covered(lines, _norm(''.join(c[0] for r in rows for c in r)))
+        if b - a >= 2 and numbers_match(rows, lines[a:b]):
+            kept.append({'from': a, 'to': b, 'rows': rows})
+    return without_overlaps(kept)
+
+
 def without_overlaps(tables):
     """Keep tables whose line ranges do not overlap a larger one."""
     kept = []

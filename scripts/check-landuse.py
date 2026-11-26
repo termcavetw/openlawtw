@@ -9,6 +9,8 @@ from pathlib import Path
 import argparse, importlib.util, json, re, subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys; sys.path.insert(0, str(ROOT / 'scripts'))
+import ocr_engine
 spec = importlib.util.spec_from_file_location('sync_landuse', ROOT / 'scripts/sync-landuse.py')
 sl = importlib.util.module_from_spec(spec); spec.loader.exec_module(sl)
 
@@ -42,8 +44,10 @@ def check(archive, rows=None):
             assert set(p) in ({'n', 'ocr', 'text'}, {'n', 'ocr', 'text', 'tables'}), (it['id'], p['n'], 'page fields')
             assert isinstance(p['ocr'], bool) and isinstance(p['text'], str)
             lines = len(p['text'].split('\n'))
-            for t in p.get('tables', []):  # a rebuilt table covers lines from..to-1 of the page text
+            assert p['ocr'] or 'tables' not in p, (it['id'], p['n'], 'rebuilt tables only on scanned pages')
+            for t in p.get('tables', []):  # a rebuilt table is a comparison beside lines from..to-1 of the page text
                 assert set(t) == {'from', 'to', 'rows'} and 0 <= t['from'] < t['to'] <= lines, (it['id'], p['n'], 'table range')
+                assert ocr_engine.numbers_match(t['rows'], p['text'].split('\n')[t['from']:t['to']]), (it['id'], p['n'], 'table numbers differ from the text')
                 assert len(t['rows']) >= 2 and all(r and all(isinstance(c[0], str) and len(c) in (1, 3) for c in r) for r in t['rows']), (it['id'], p['n'], 'table rows')
             spans = sorted((t['from'], t['to']) for t in p.get('tables', []))
             assert all(a[1] <= b[0] for a, b in zip(spans, spans[1:])), (it['id'], p['n'], 'overlapping tables')

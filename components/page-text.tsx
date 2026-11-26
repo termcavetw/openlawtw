@@ -4,9 +4,9 @@ import type {PageTable} from '@/lib/law-types';
 // One page of minutes / 土管 text: a reading layout by default (paragraphs, lists, tables), the raw text on request.
 export function PageText({text,empty,source,tables}:{text:string;empty:string;source?:string;tables?:PageTable[]}){
  const [raw,setRaw]=useState(false);
- // Rebuilt tables take the place of their lines; the text around them gets the reading layout.
+ // A rebuilt table never replaces the page's own text: it follows the lines it covers, as a comparison.
  const parts=useMemo(()=>{const lines=text.split('\n'),out:({kind:'model';table:PageTable}|{kind:'text';blocks:ReturnType<typeof layoutPage>})[]=[];let at=0;
-  for(const t of [...(tables||[])].sort((a,b)=>a.from-b.from)){if(t.from<at)continue;if(t.from>at)out.push({kind:'text',blocks:layoutPage(lines.slice(at,t.from).join('\n'))});out.push({kind:'model',table:t});at=t.to;}
+  for(const t of [...(tables||[])].sort((a,b)=>a.from-b.from)){if(t.from<at)continue;if(t.from>at)out.push({kind:'text',blocks:layoutPage(lines.slice(at,t.from).join('\n'))});out.push({kind:'text',blocks:layoutPage(lines.slice(t.from,t.to).join('\n'))});out.push({kind:'model',table:t});at=t.to;}
   if(at<lines.length)out.push({kind:'text',blocks:layoutPage(lines.slice(at).join('\n'))});return out;},[text,tables]);
  if(!text.trim())return <div className="minutes-text">{empty}</div>;
  const check=source?<a href={source} target="_blank" rel="noreferrer">請對照原檔</a>:'請對照原檔';
@@ -28,5 +28,5 @@ export function useWide(){
 }
 export const WideButton=({wide,setWide}:{wide:boolean;setWide:(v:boolean)=>void})=><button className="minutes-copy page-wide" aria-pressed={wide} onClick={()=>setWide(!wide)}>{wide?'結束放大':'放大閱讀'}</button>;
 function ModelTable({table,check}:{table:PageTable;check:ReactNode}){
- return <div className="ocr-model"><p className="ocr-table-warn">表格由辨識模型依掃描影像重建（含合併儲存格），數字與欄位仍可能有誤，{check}。</p><div className="ocr-table-wrap"><table className="ocr-table"><tbody>{table.rows.map((r,k)=><tr key={k}>{r.map((c,m)=><td key={m} colSpan={c[1]&&c[1]>1?c[1]:undefined} rowSpan={c[2]&&c[2]>1?c[2]:undefined}>{c[0]}</td>)}</tr>)}</tbody></table></div></div>;
+ return <details className="ocr-model" open><summary>對照：表格辨識模型重建的表格</summary><p className="ocr-table-warn">依掃描影像重建（含合併儲存格），只供對照上方原文；數字已核對與原文一致，但欄位、列的對應仍可能有誤，以原文為準，{check}。</p><div className="ocr-table-wrap"><table className="ocr-table"><tbody>{table.rows.map((r,k)=><tr key={k}>{r.map((c,m)=><td key={m} colSpan={c[1]&&c[1]>1?c[1]:undefined} rowSpan={c[2]&&c[2]>1?c[2]:undefined}>{c[0]}</td>)}</tr>)}</tbody></table></div></details>;
 }
