@@ -1,4 +1,6 @@
 # OCR for scanned Taoyuan minutes and 土管要點 (scripts/ocr_engine.py); only the sync and re-OCR jobs install these.
 paddlepaddle==3.3.1
 paddleocr==3.7.0
+# Table recognition (土管 tables rebuilt with merged cells).
+paddlex[ocr]==3.7.2
 opencc-python-reimplemented==0.1.7
