@@ -31,3 +31,4 @@
 @media(max-width:899px){.reader-first .reader .article-heading:has(>.agri-article){flex-wrap:wrap}.agri-article{margin:0}.agri-article>div{position:static;width:auto;max-height:none;box-shadow:none;border:0;background:#f5f6f0}}
 .agri-article.taipei>summary{background:#f3f5f9;color:#4f6584;border-color:#dde3ec}.agri-article.taipei[open]>summary{background:#e6ebf3}
 .agri-article.land>summary{background:#f7f5ef;color:#6d6143;border-color:#e6e0d2}.agri-article.land[open]>summary{background:#efe9dc}
+.agri-article.central>summary{background:#f6f1f1;color:#7a4b4b;border-color:#eadada}.agri-article.central[open]>summary{background:#efe3e3}

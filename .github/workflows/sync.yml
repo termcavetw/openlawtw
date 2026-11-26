@@ -64,6 +64,10 @@ jobs:
         run: python scripts/run-sync.py step taipei -- python scripts/sync-taipei.py --cache .taipei-cache
       - name: Check 臺北市 interpretations against this run's lists
         run: python scripts/run-sync.py step validate-taipei -- python scripts/check-taipei.py --cache .taipei-cache
+      - name: Fetch central agencies' interpretations filed in laws.gov.taipei (消防、經濟部、農業部)
+        run: python scripts/run-sync.py step central -- python scripts/sync-central.py --cache .central-cache
+      - name: Check central agencies' interpretations against this run's list
+        run: python scripts/run-sync.py step validate-central -- python scripts/check-central.py --cache .central-cache
       - name: Check the 新北市建照業務工作手冊 for a new edition
         run: python scripts/run-sync.py step ntpc-manual -- python scripts/sync-ntpc-manual.py --cache .ntpc-cache
       - name: Check the 新北市建照業務工作手冊 against this run's PDF
@@ -101,6 +105,7 @@ jobs:
             public/data/agri-rulings.json
             public/data/taipei-rulings.json
             public/data/ntpc-manual.json
+            public/data/central-rulings.json
       - name: Finalize evidence and restore canonical data after a failed run
         if: always() && steps.initialize.outcome == 'success'
         env:
