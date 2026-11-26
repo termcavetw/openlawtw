@@ -241,7 +241,21 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--cache',default='.rulings-cache');p.add_argument('--refresh',action='store_true');a=p.parse_args()
     cache=Path(a.cache);cache.mkdir(exist_ok=True,parents=True);source=cache/'interpcomp-list.json'
     if not source.exists() or a.refresh:
-        atomic_write(source,download(FEED,timeout=60))
+        # The feed sometimes answers with an empty or non-JSON body; ask again, and if it never
+        # recovers keep the committed archive (check-rulings then requires it unchanged).
+        import time,sys
+        for attempt in range(3):
+            try:
+                body=download(FEED,timeout=60);json.loads(body);atomic_write(source,body);break
+            except Exception as error:
+                last=error;time.sleep(15*(attempt+1))
+        else:
+            source.unlink(missing_ok=True)
+            message=f'- 國土署函釋來源本次回應異常（{str(last)[:120]}），沿用上次資料。'
+            print(message)
+            review=ROOT/'sync-pr.md'
+            if review.exists():review.write_text(review.read_text(encoding='utf-8').rstrip()+'\n\n## 國土署函釋\n\n'+message+'\n',encoding='utf-8')
+            sys.exit(0)
     raw=source.read_bytes();archive=build(json.loads(raw),datetime.now(timezone.utc).date().isoformat(),hashlib.sha256(raw).hexdigest())
     (ROOT/'public/data/rulings.json').write_text(json.dumps(archive,ensure_ascii=False,separators=(',',':')))
     for path in [ROOT/'data/catalog.json',ROOT/'public/data/catalog.json']:
