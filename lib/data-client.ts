@@ -1,5 +1,5 @@
 import rawManifest from '../data/runtime-manifest.json' with {type:'json'};
-import type {AgriArchive,DataFile,DataManifest,LanduseArchive,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
+import type {TaipeiArchive,AgriArchive,DataFile,DataManifest,LanduseArchive,Law,MinutesArchive,Ruling,RulingCounts} from './law-types.ts';
 import {candidates,type InvertedIndex,type IndexRow} from './inverted.ts';
 import {searchLaws,searchRulings,searchDocumentPages,type DocumentText,type SearchDoc,type SearchHit} from './search.ts';
 declare global {interface Window {OPENLAWTW_PAGE_LAW?:Law}}
@@ -22,6 +22,7 @@ export const loadMinutes=(signal?:AbortSignal)=>loadFile<MinutesArchive>(manifes
 // Taoyuan 土管要點: likewise one file, fetched only when the 土管 tab or a search needs it.
 // 農業部 farmland / farmhouse interpretations: one file, fetched when the 農業部 view or a search needs it.
 export const loadAgri=(signal?:AbortSignal)=>loadFile<AgriArchive>(manifest.agri as DataFile,signal);
+export const loadTaipei=(signal?:AbortSignal)=>loadFile<TaipeiArchive>(manifest.taipei as DataFile,signal);
 export const loadLanduse=(signal?:AbortSignal)=>loadFile<LanduseArchive>(manifest.landuse as DataFile,signal);
 export const loadHeads=(signal?:AbortSignal)=>loadFile<Ruling[]>(manifest.rulingHeads,signal);
 export async function loadRuling(id:string,signal?:AbortSignal){const bucket=manifest.rulings[String(Math.floor(Number(id)/256))];const list=await loadFile<Ruling[]>(bucket,signal);const result=list.find(r=>r.id===id);if(!result)throw Error('本版找不到此函釋');return result;}

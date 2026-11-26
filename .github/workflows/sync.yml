@@ -60,6 +60,10 @@ jobs:
         run: python scripts/run-sync.py step agri -- python scripts/sync-agri.py --cache .agri-cache
       - name: Check 農業部 interpretations against this run's listing
         run: python scripts/run-sync.py step validate-agri -- python scripts/check-agri.py --cache .agri-cache
+      - name: Fetch new 臺北市 interpretations (解釋令函, incremental)
+        run: python scripts/run-sync.py step taipei -- python scripts/sync-taipei.py --cache .taipei-cache
+      - name: Check 臺北市 interpretations against this run's lists
+        run: python scripts/run-sync.py step validate-taipei -- python scripts/check-taipei.py --cache .taipei-cache
       - run: python scripts/run-sync.py step snapshot -- npm run snapshot
       - run: python scripts/run-sync.py step build -- npm run build
       - run: python scripts/run-sync.py step typecheck -- npm run typecheck
@@ -91,6 +95,7 @@ jobs:
             public/data/minutes.json
             public/data/landuse.json
             public/data/agri-rulings.json
+            public/data/taipei-rulings.json
       - name: Finalize evidence and restore canonical data after a failed run
         if: always() && steps.initialize.outcome == 'success'
         env:
