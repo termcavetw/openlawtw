@@ -8,10 +8,10 @@ def squash(s):return re.sub(r'\s+','',s)
 class FormalSourceTests(unittest.TestCase):
  def test_sources_and_canonical_records(self):
   laws=read('public/data/laws.json');sources=read('data/provenance.json')['sources']
-  formal=read('data/formal-laws.json');self.assertEqual(len(formal),3)
+  formal=read('data/formal-laws.json');self.assertEqual(len(formal),4)
   for law in formal:
    self.assertEqual(law,laws[law['id']])
-   source=sources[law['id']];self.assertEqual(source['hashScope'],'downloaded-pdf-file')
+   source=sources[law['id']];self.assertEqual(source['hashScope'],'downloaded-'+source['format']+'-file')
    self.assertEqual(hashlib.sha256((ROOT/source['file']).read_bytes()).hexdigest(),source['sha256'])
   self.assertNotIn('特建',read('data/aliases.json'))
  def test_complete_institution_articles(self):
@@ -29,6 +29,12 @@ class FormalSourceTests(unittest.TestCase):
   expected=''.join(re.sub(r'^第|點$','',a['no'])+'、'+squash(a['text']) for a in law['articles'])
   self.assertEqual(expected,text);self.assertEqual(len(law['articles']),12)
   self.assertEqual(law['kind'],'行政規則');self.assertIn('僅修正第六點附件七',law['effectiveNote'])
+ def test_complete_farmland_split_points(self):
+  import importlib.util;spec=importlib.util.spec_from_file_location('imp',ROOT/'scripts/import-farmland-split.py');imp=importlib.util.module_from_spec(spec);spec.loader.exec_module(imp)
+  law=read('public/data/laws.json')['內政部-FL014320'];items=imp.points(ROOT/'data/formal-sources/FL014320.odt')
+  self.assertEqual([a['text'] for a in law['articles']],items);self.assertEqual(len(items),14)
+  self.assertEqual(law['articles'][-1]['no'],'第十四點');self.assertEqual(law['modified'],'2016-05-06');self.assertEqual(law['kind'],'行政規則')
+  self.assertIn('零點二五公頃',law['articles'][3]['text'])
  def test_norm_original_and_search_scope(self):
   law=read('public/data/laws.json')['NCC-FL096222'];source=read('data/documents/catalog.json')[law['id']]
   pdf=pdfium.PdfDocument(ROOT/source['file']);pages=read(source['file'].replace('.pdf','-text.json'))['pages']
