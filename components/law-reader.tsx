@@ -42,10 +42,11 @@ async function captureDocumentPage(law:Law,page:number){
   if(!found)throw Error('此頁尚無可保存的文字，請核對官方原檔。');
   return makeDocumentEvidence(law,found);
 }
-export function Reader({summary,law:loadedLaw,loading,error,retry,activeArticle,activeDocumentPage,activeUnit,navigationKey,onChoose,onCopy,open,saved,onSave,mobile,onPairChange,savedRulings,onSaveRuling,onAgri,onTaipei,onLand,onCentral}:{summary:Law;law:Law|null;loading:boolean;error:boolean;retry:()=>void;activeArticle:string;activeDocumentPage:number;activeUnit:string;navigationKey:number;onChoose:(id:string,article?:string,unit?:string,documentPage?:number)=>void;onCopy:(s:string)=>void;open:boolean;saved:boolean;onSave:()=>void;mobile:boolean;onPairChange:(open:boolean)=>void;savedRulings:string[];onSaveRuling:(id:string)=>void;onAgri?:(id:number)=>void;onTaipei?:(id:string)=>void;onLand?:(id:string)=>void;onCentral?:(id:string)=>void}){
-  const agriRefs=useExtraRefs(manifest.agriRefs,summary.id),taipeiRefs=useExtraRefs(manifest.taipeiRefs,summary.id),landRefs=useExtraRefs(manifest.landRefs,summary.id),centralRefs=useExtraRefs(manifest.centralRefs,summary.id);
+export function Reader({summary,law:loadedLaw,loading,error,retry,activeArticle,activeDocumentPage,activeUnit,navigationKey,onChoose,onCopy,open,saved,onSave,mobile,onPairChange,savedRulings,onSaveRuling,onAgri,onTaipei,onLand,onCentral,onNfa}:{summary:Law;law:Law|null;loading:boolean;error:boolean;retry:()=>void;activeArticle:string;activeDocumentPage:number;activeUnit:string;navigationKey:number;onChoose:(id:string,article?:string,unit?:string,documentPage?:number)=>void;onCopy:(s:string)=>void;open:boolean;saved:boolean;onSave:()=>void;mobile:boolean;onPairChange:(open:boolean)=>void;savedRulings:string[];onSaveRuling:(id:string)=>void;onAgri?:(id:number)=>void;onTaipei?:(id:string)=>void;onLand?:(id:string)=>void;onCentral?:(id:string)=>void;onNfa?:(id:string)=>void}){
+  const agriRefs=useExtraRefs(manifest.agriRefs,summary.id),taipeiRefs=useExtraRefs(manifest.taipeiRefs,summary.id),landRefs=useExtraRefs(manifest.landRefs,summary.id),centralRefs=useExtraRefs(manifest.centralRefs,summary.id),nfaRefs=useExtraRefs(manifest.nfaRefs,summary.id);
   const extras:Extra[]=[...(agriRefs&&onAgri?[{key:'agri' as const,label:'農業部函釋',intro:'農業部（原農委會）農地、農舍解釋函令中引用這部法規的，新到舊排列；依函文明示的法規名稱與條號比對，條號是發文當時的條號，函文早於條文修正時可能已變動；收錄不代表現時有效。',...agriRefs,open:onAgri}]:[]),
    ...(landRefs&&onLand?[{key:'land' as const,label:'地政司函釋',intro:'內政部地政司「地政法令彙編」歸類到這部法規的解釋函，新到舊排列；彙編依現行條文歸類，舊函所引條號可能與現行不同；收錄不代表現時有效。',...landRefs,open:onLand}]:[]),
+   ...(nfaRefs&&onNfa?[{key:'nfa' as const,label:'消防署函釋',intro:'內政部消防署「消防法令查詢系統」標示相關法條為這部法規的法令解釋與執法疑義，新到舊排列；條文旁只列函釋所引版本仍與現行條號相符者；收錄不代表現時有效。',...nfaRefs,open:onNfa}]:[]),
    ...(centralRefs&&onCentral?[{key:'central' as const,label:'部會函釋',intro:'消防署、經濟部、農委會（農業部）等中央機關的解釋令函中，臺北市法規查詢系統歸到這部法規的，新到舊排列；不是各部會的完整收錄；收錄不代表現時有效。',...centralRefs,open:onCentral}]:[]),
    ...(taipeiRefs&&onTaipei?[{key:'taipei' as const,label:'臺北市解釋令函',intro:'臺北市政府的解釋令函中，市府歸類到這部法規的，新到舊排列；只適用臺北市的案子，與條文或國土署函釋不一致時以上級規定為準；收錄不代表現時有效。',...taipeiRefs,open:onTaipei}]:[])];
   // Selection changes before its asynchronous detail effect clears the previous
@@ -175,7 +176,7 @@ export function Reader({summary,law:loadedLaw,loading,error,retry,activeArticle,
 // Other sources' letters that cite this law (prepare-data): 農業部 (law field + "<law>第N條" in the text) and
 // 臺北市解釋令函 (the city's related-law filing). Article links only count since the law's last full-text revision.
 type ExtraRefs={laws:Record<string,{ids:(number|string)[];articles:Record<string,(number|string)[]>}>;heads:Record<string,[string,string,string]>};
-type Extra={key:'agri'|'taipei'|'land'|'central';label:string;intro:string;law:ExtraRefs['laws'][string];heads:ExtraRefs['heads'];open:(id:any)=>void};
+type Extra={key:'agri'|'taipei'|'land'|'central'|'nfa';label:string;intro:string;law:ExtraRefs['laws'][string];heads:ExtraRefs['heads'];open:(id:any)=>void};
 function useExtraRefs(file:(DataFile&{laws:string[]})|undefined,lawId:string){
   const [refs,setRefs]=useState<ExtraRefs|null>(null);
   const wanted=!!file?.laws.includes(lawId);
@@ -190,7 +191,7 @@ function ExtraLink({id,extra}:{id:number|string;extra:Extra}){
 }
 function ExtraArticle({no,extra}:{no:string;extra:Extra}){
   const ids=extra.law.articles[no];if(!ids)return null;
-  return <details className={'article-resources agri-article '+extra.key}><summary aria-label={no+extra.label}>{extra.key==='agri'?'農業部':extra.key==='land'?'地政司':extra.key==='central'?'部會':'臺北市'} <b>{ids.length}</b></summary><div>{ids.slice(0,40).map(id=><ExtraLink key={id} id={id} extra={extra}/>)}{ids.length>40&&<span>另有 {ids.length-40} 則，請到「解釋函令」分頁查看。</span>}</div></details>;
+  return <details className={'article-resources agri-article '+extra.key}><summary aria-label={no+extra.label}>{extra.key==='agri'?'農業部':extra.key==='land'?'地政司':extra.key==='central'?'部會':extra.key==='nfa'?'消防署':'臺北市'} <b>{ids.length}</b></summary><div>{ids.slice(0,40).map(id=><ExtraLink key={id} id={id} extra={extra}/>)}{ids.length>40&&<span>另有 {ids.length-40} 則，請到「解釋函令」分頁查看。</span>}</div></details>;
 }
 function ExtraSection({extra}:{extra:Extra}){
   const [limit,setLimit]=useState(20);const ids=extra.law.ids;

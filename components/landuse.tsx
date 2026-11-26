@@ -2,9 +2,10 @@ import {PageText,WideButton,useWide} from './page-text';
 import {useEffect,useMemo,useState} from 'react';
 import {ArrowLeft,ArrowUpRight,ChevronDown,ChevronLeft,ChevronRight,FileText,Info,Search,X} from 'lucide-react';
 import {toast} from 'sonner';
-import {loadAgri,loadCentral,loadLand,loadLanduse,loadMinutes,loadNtpcManual,loadTaipei,manifest} from '@/lib/data-client';
+import {loadAgri,loadNfa,loadCentral,loadLand,loadLanduse,loadMinutes,loadNtpcManual,loadTaipei,manifest} from '@/lib/data-client';
 import {landCite,searchLand,type LandHit} from './land';
 import {centralCite,searchCentral,type CentralHit} from './central';
+import {nfaCite,searchNfa,type NfaHit} from './nfa';
 import {searchNtpc,type NtpcHit} from './ntpc';
 import {searchTaipei,taipeiCite,type TaipeiHit} from './taipei';
 import {agriSnippet,rocDay,searchAgri,type AgriHit} from './agri';
@@ -90,8 +91,10 @@ export function LanduseExplorer(){
 
 // The Taoyuan 土管要點 and minutes sections of the main search. Lives in this lazy chunk so their
 // search code stays out of the initial offline shell; data files load on the first query.
-type Props={debounced:string;openLanduse:(id:string,page:number)=>void;openMinutes:(id:string,page:number)=>void;openAgri:(id:number)=>void;openTaipei?:(id:string)=>void;openNtpc?:(no:string)=>void;openLand?:(id:string)=>void;openCentral?:(id:string)=>void;setView:(v:string)=>void};
-export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,openTaipei,openNtpc,openLand,openCentral,setView}:Props){
+type Props={debounced:string;openLanduse:(id:string,page:number)=>void;openMinutes:(id:string,page:number)=>void;openAgri:(id:number)=>void;openTaipei?:(id:string)=>void;openNtpc?:(no:string)=>void;openLand?:(id:string)=>void;openCentral?:(id:string)=>void;openNfa?:(id:string)=>void;setView:(v:string)=>void};
+export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,openTaipei,openNtpc,openLand,openCentral,openNfa,setView}:Props){
+  const [nfaHits,setNfaHits]=useState<NfaHit[]>([]);
+  useEffect(()=>{setNfaHits([]);const words=keywords(debounced);if(!words.length||!manifest.nfa||!openNfa)return;const controller=new AbortController();loadNfa(controller.signal).then(a=>{if(!controller.signal.aborted)setNfaHits(searchNfa(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced,openNfa]);
   const [centralHits,setCentralHits]=useState<CentralHit[]>([]);
   useEffect(()=>{setCentralHits([]);const words=keywords(debounced);if(!words.length||!manifest.central||!openCentral)return;const controller=new AbortController();loadCentral(controller.signal).then(a=>{if(!controller.signal.aborted)setCentralHits(searchCentral(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced,openCentral]);
   const [landHits,setLandHits]=useState<LandHit[]>([]);
@@ -108,6 +111,7 @@ export function RegionalHits({debounced,openLanduse,openMinutes,openAgri,openTai
   useEffect(()=>{setLanduseHits([]);const words=keywords(debounced);if(!words.length||!manifest.landuse)return;const controller=new AbortController();loadLanduse(controller.signal).then(a=>{if(!controller.signal.aborted)setLanduseHits(searchLanduse(a.items,words));}).catch(()=>{});return()=>controller.abort();},[debounced]);
   return <>
    {agriHits.length>0&&<section className="minutes-hits" aria-label="農業部農地農舍函釋"><h3>農業部農地農舍函釋<span>{agriHits.length} 則符合</span></h3><small>農業部（原農委會）解釋函令；多為回覆個案疑義，請注意發文時的法規版本。</small>{agriHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openAgri(item.id)}><h3>{item.title}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body,keywords(debounced))}</p></button>)}{agriHits.length>5&&<button className="load-more" onClick={()=>openAgri(0)}>到「函釋 › 農業部」看全部 {agriHits.length} 則</button>}</section>}
+   {openNfa&&nfaHits.length>0&&<section className="minutes-hits" aria-label="內政部消防署函釋"><h3>內政部消防署函釋<span>{nfaHits.length} 則符合</span></h3><small>消防法令查詢系統的法令解釋與執法疑義；請注意發文時的法規版本。</small>{nfaHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openNfa(item.id)}><h3>{item.summary||nfaCite(item)}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body||item.summary,keywords(debounced))}</p></button>)}{nfaHits.length>5&&<button className="load-more" onClick={()=>openNfa('')}>到「函釋 › 消防署」看全部 {nfaHits.length} 則</button>}</section>}
    {openCentral&&centralHits.length>0&&<section className="minutes-hits" aria-label="消防署、經濟部、農業部等函釋"><h3>消防署・經濟部・農業部等函釋<span>{centralHits.length} 則符合</span></h3><small>依臺北市法規查詢系統歸在中央法規條文下的部會函釋；不是各部會完整收錄。</small>{centralHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openCentral(item.id)}><h3>{item.summary||centralCite(item)}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body||item.summary,keywords(debounced))}</p></button>)}{centralHits.length>5&&<button className="load-more" onClick={()=>openCentral('')}>到「函釋 › 部會」看全部 {centralHits.length} 則</button>}</section>}
    {openLand&&landHits.length>0&&<section className="minutes-hits" aria-label="內政部地政司函釋"><h3>內政部地政司函釋<span>{landHits.length} 則符合</span></h3><small>地政法令彙編的解釋函；請注意發文時的法規版本。</small>{landHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openLand(item.id)}><h3>{item.summary||landCite(item)}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body||item.summary,keywords(debounced))}</p></button>)}{landHits.length>5&&<button className="load-more" onClick={()=>openLand('')}>到「函釋 › 地政司」看全部 {landHits.length} 則</button>}</section>}
    {openTaipei&&taipeiHits.length>0&&<section className="minutes-hits" aria-label="臺北市解釋令函"><h3>臺北市解釋令函<span>{taipeiHits.length} 則符合</span></h3><small>只適用臺北市；與條文或國土署函釋不一致時以上級規定為準。</small>{taipeiHits.slice(0,5).map(({item})=><button className="minutes-card" key={item.id} onClick={()=>openTaipei(item.id)}><h3>{item.summary||taipeiCite(item)}</h3><div className="minutes-meta"><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span></div><p>{agriSnippet(item.body||item.summary,keywords(debounced))}</p></button>)}{taipeiHits.length>5&&<button className="load-more" onClick={()=>openTaipei('')}>到「函釋 › 臺北市」看全部 {taipeiHits.length} 則</button>}</section>}
