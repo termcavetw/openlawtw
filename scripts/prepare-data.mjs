@@ -73,7 +73,23 @@ manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive
 // 農業部 farmland / farmhouse interpretations (rmis.ardswc.gov.tw): same treatment.
 {const agri=await readFile(join(root,'public/data/agri-rulings.json'));const hash=sha(agri),url='/data/agri/agri-rulings-'+hash+'.json';
  await rm(join(root,'public/data/agri'),{recursive:true,force:true});await mkdir(join(root,'public/data/agri'),{recursive:true});await writeFile(join(root,'public',url),agri);
- const m=JSON.parse(agri);manifest.agri={url,sha256:hash,bytes:agri.length,fetchedAt:m.fetchedAt,items:m.stats.items};}
+ const m=JSON.parse(agri);manifest.agri={url,sha256:hash,bytes:agri.length,fetchedAt:m.fetchedAt,items:m.stats.items};
+ // Letters linked to central laws: by the site's law field, and to articles by an explicit "<law name>第N條" in the text.
+ const central=new Map();for(const law of docs)if(law.region==='中央'&&!central.has(law.name))central.set(law.name,law);
+ const alias={'農發條例':'農業發展條例'},names=[...new Set([...m.items.flatMap(x=>x.laws),...Object.values(alias),'農業發展條例施行細則'])].filter(n=>central.has(n));
+ const spelled=[...names,...Object.keys(alias).filter(a=>names.includes(alias[a]))].sort((a,b)=>b.length-a.length).map(n=>n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+ const cite=new RegExp('('+spelled.join('|')+')第\\s*([0-9０-９一二三四五六七八九十百零〇]+)\\s*條(?:之\\s*([0-9０-９一二三四五六七八九十]+))?','gu');
+ // Article numbers only hold since the law's last full-text revision (全文); older letters link to the law alone.
+ const cn=t=>{let n=0,cur=0;for(const ch of t){const d='零一二三四五六七八九'.indexOf(ch);if(d>=0)cur=d;else if(ch==='十'){n+=(cur||1)*10;cur=0;}else if(ch==='百'){n+=(cur||1)*100;cur=0;}}return n+cur;};
+ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').replace(/\s+/g,'').matchAll(/中華民國([零一二三四五六七八九十百]+)年([零一二三四五六七八九十]+)月([零一二三四五六七八九十]+)日[^中]*?全文/gu)){const iso=`${cn(y)+1911}-${String(cn(mo)).padStart(2,'0')}-${String(cn(d)).padStart(2,'0')}`;if(iso>last)last=iso;}return last;};
+ const since=new Map([...central.values()].map(l=>[l.id,renumbered(l)]));
+ const refs={},heads={};
+ for(const x of m.items){const hit=new Map();for(const n of x.laws)if(central.has(n))hit.set(central.get(n).id,new Set());
+  for(const [,n,a,b] of (x.title+'\n'+x.body).matchAll(cite)){const law=central.get(alias[n]||n);const no=normalize('第'+a+(b?'之'+b:'')+'條');if(x.date<since.get(law.id)||!law.articles.some(r=>normalize(r.no)===no))continue;if(!hit.has(law.id))hit.set(law.id,new Set());hit.get(law.id).add(no);}
+  if(!hit.size)continue;heads[x.id]=[x.date,x.docNo,x.title];
+  for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
+ const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b-a;for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
+ manifest.agriRefs={...await emit('agri-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);

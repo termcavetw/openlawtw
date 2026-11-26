@@ -166,7 +166,8 @@ function Workspace() {
   },[baseHits,articleHits,resultType,sort]);
   const groupedHits=useMemo(()=>groupSearchHits(hits,resultType==='all'?articleHits:[]),[hits,articleHits,resultType]);
   const [rulingSource,setRulingSource]=useState<'nlma'|'agri'>('nlma');
-  function openAgri(id:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+'#agri='+id);setRulingSource('agri');setView('rulings');}
+  const [agriKey,setAgriKey]=useState(0);
+  function openAgri(id:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+'#agri='+id);setRulingSource('agri');setView('rulings');setAgriKey(k=>k+1);if(window.matchMedia('(max-width:899px)').matches)setNavigationOpen(true);}
   function openLanduse(id:string,page:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+landuseHash(id,page));setView('landuse');}
   function openMinutes(id:string,page:number){setLanding(false);setWelcome(false);window.history.replaceState(null,'',(isPortable()?'':'/')+minutesHash(id,page));setView('minutes');}
   const totalHits=groupedHits.length+((resultType==='all'||resultType==='rulings')?rulingHits.length:0);
@@ -201,7 +202,7 @@ function Workspace() {
     return ()=>lifecycle.abort();
   },[]);
 
-  const reader=<Reader summary={currentSummary} law={detail} loading={detailLoading} error={detailError} retry={()=>{setRetry(n=>n+1);setRulingsRetry(n=>n+1);}} activeArticle={activeArticle} activeDocumentPage={activeDocumentPage} activeUnit={activeUnit} navigationKey={navigationKey} onChoose={chooseLaw} mobile={mobile} onPairChange={changePair} savedRulings={savedRulings} onSaveRuling={toggleRulingFavorite} onCopy={copy} open={!ruling&&!landing&&!welcome} saved={favorites.includes(selected)} onSave={()=>toggleFavorite(selected)}/>;
+  const reader=<Reader summary={currentSummary} law={detail} loading={detailLoading} error={detailError} retry={()=>{setRetry(n=>n+1);setRulingsRetry(n=>n+1);}} activeArticle={activeArticle} activeDocumentPage={activeDocumentPage} activeUnit={activeUnit} navigationKey={navigationKey} onChoose={chooseLaw} mobile={mobile} onPairChange={changePair} savedRulings={savedRulings} onSaveRuling={toggleRulingFavorite} onCopy={copy} open={!ruling&&!landing&&!welcome} saved={favorites.includes(selected)} onSave={()=>toggleFavorite(selected)} onAgri={manifest.agri?id=>openAgri(id):undefined}/>;
   const navigator = <section className="explorer" aria-label="法規導覽"><div className="navigator-head"><div className="navigator-title"><h1>查找法規</h1><span>全庫 {number(data.laws.length)} 部索引</span></div><form className="searchbox" role="search" onSubmit={e=>{e.preventDefault();if(composing)return;setDebounced(query);remember(query);searchRef.current?.blur();}}><Search size={17}/><input ref={searchRef} onCompositionStart={()=>setComposing(true)} onCompositionEnd={e=>{setComposing(false);setQuery(e.currentTarget.value);}} value={query} onChange={e=>{setQuery(e.target.value);setView('tree');}} autoComplete="off" autoCapitalize="none" spellCheck={false} enterKeyHint="search" aria-label="搜尋法規、條號、內文或函釋字號" placeholder="名稱、內文、條號或字號"/>{query?<button type="button" className="icon-btn" onClick={()=>setQuery('')} aria-label="清除搜尋"><X size={16}/></button>:<kbd>⌘ K</kbd>}</form></div>    <div className="toolbar">
       <div className="filter-field"><MapPin size={16}/><Picker value={region} onChange={changeRegion} label="選擇縣市"><SelectItem value="全台">全台縣市</SelectItem>{data.regions.map(r=><SelectItem key={r.name} value={r.name}>{r.name}</SelectItem>)}</Picker></div>
       <button className={'filter-toggle '+(filtersOpen?'active':'')} onClick={()=>setFiltersOpen(v=>!v)} aria-expanded={filtersOpen}><SlidersHorizontal size={16}/><span>進階篩選</span>{(coverage!=='all'||task!=='全部主題'||jurisdiction!=='both')&&<b>{Number(coverage!=='all')+Number(task!=='全部主題')+Number(jurisdiction!=='both')}</b>}</button>
@@ -253,7 +254,7 @@ function Workspace() {
           </TabsContent>
           <TabsContent value="rulings" className="pane">
             {manifest.agri&&<div className="jurisdiction-toggle" style={{border:0,padding:0,marginBottom:18}} role="group" aria-label="函釋來源"><button aria-pressed={rulingSource==='nlma'} onClick={()=>setRulingSource('nlma')}>國土署</button><button aria-pressed={rulingSource==='agri'} onClick={()=>setRulingSource('agri')}>農業部（農地農舍）</button></div>}
-            {rulingSource==='agri'?<Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><AgriExplorer/></Suspense>:<RulingExplorer items={rulings} loading={rulingsLoading} error={rulingsError} retry={()=>setRulingsRetry(n=>n+1)} onOpen={openRuling} selected={ruling?.id||''} saved={savedRulings}/>}
+            {rulingSource==='agri'?<Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><AgriExplorer key={agriKey}/></Suspense>:<RulingExplorer items={rulings} loading={rulingsLoading} error={rulingsError} retry={()=>setRulingsRetry(n=>n+1)} onOpen={openRuling} selected={ruling?.id||''} saved={savedRulings}/>}
           </TabsContent>
           <TabsContent value="landuse" className="pane"><Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><LanduseExplorer/></Suspense></TabsContent>
           <TabsContent value="minutes" className="pane"><Suspense fallback={<div className="ruling-result-count" role="status">正在載入…</div>}><MinutesExplorer/></Suspense></TabsContent>
