@@ -1,5 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/((?!data/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "openlawtw.vercel.app"
+        }
+      ],
+      "destination": "https://law.termcavetw.com/$1",
+      "permanent": true
+    }
+  ],
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
