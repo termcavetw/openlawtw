@@ -132,6 +132,10 @@ def table_like(page):
     return sum(1 for l in lines if re.search(r'\S\s{3,}\S', l) and re.search(r'\d', l)) >= 3
 
 
+def text_size(text):
+    return len(re.sub(r'[\s|]', '', text))
+
+
 def add_tables(pdf, pages):
     """Rebuild the tables of table-like pages with PaddleOCR's table model (scripts/ocr_engine.py).
     A scanned page takes the text of the same pass so table line ranges match; nothing changes on failure."""
@@ -144,7 +148,10 @@ def add_tables(pdf, pages):
             continue
         text, tables = got
         if page['ocr']:
-            page['text'] = '\n'.join(sm.clean(line) for line in text.split('\n'))
+            text = '\n'.join(sm.clean(line) for line in text.split('\n'))
+            if text_size(text) < 0.9 * text_size(page['text']):
+                continue  # the table pass read less of the page than the plain OCR: keep that text, no tables
+            page['text'] = text
         page['tables'] = tables
     return pages
 

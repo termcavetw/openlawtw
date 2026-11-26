@@ -16,6 +16,10 @@ class TableHelpers(unittest.TestCase):
         lines = ['桃園市都市計畫', '一、本要點依都市計畫法訂定。', '分區   建蔽率   容積率', '', '住宅區   50   120', '商業區   80   320', '三、其他規定依相關法令辦理。']
         self.assertEqual(oe.lines_covered(lines, '分區建蔽率容積率住宅區50120商業區80320'), (2, 6))
 
+    def test_lines_covered_ignores_full_width_forms(self):
+        lines = ['商業區種別  建蔽率  容積率', '中心商業區  70％  500％', '鄰里商業區  70％  280％', '註：其他依規定辦理。']
+        self.assertEqual(oe.lines_covered(lines, oe._norm('商業區種別建蔽率容積率中心商業區70%500%鄰里商業區70%280%')), (0, 3))
+
     def test_plausible_table_rejects_boxed_prose(self):
         grid = [[['分區'], ['建蔽率'], ['容積率']], [['住宅區'], ['50'], ['120']], [['商業區'], ['80'], ['320']]]
         self.assertTrue(oe.plausible_table(grid))
@@ -23,6 +27,10 @@ class TableHelpers(unittest.TestCase):
                  [['（3）購物中心用地臨介壽路口位置應留設至少一六○○平方公尺以上之開放空間'], ['了創造優美視覺環境，掌控都市環境品質，賦予當地新風格新氣象']]]
         self.assertFalse(oe.plausible_table(prose))
         self.assertFalse(oe.plausible_table([[['分區'], ['建蔽率']]]))
+        compare = [[['原要點內容'], ['增(修)訂要點內容'], ['變更理由']],
+                   [['（一）實施範圍內建築基地'], ['產業專用區者，得申請增額'], ['1. 修正文字。']],
+                   [['區、產業專用區者，得申請'], ['分區為住宅區、商業區、工'], ['2. 配合本府公告實施']]]
+        self.assertFalse(oe.plausible_table(compare))
 
     def test_without_overlaps_keeps_the_larger(self):
         t = lambda a, b: {'from': a, 'to': b, 'rows': [[['x']], [['y']]]}

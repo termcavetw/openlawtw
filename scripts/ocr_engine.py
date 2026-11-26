@@ -176,8 +176,8 @@ def _tokens(line):
 
 
 def _norm(s):
-    import re as _re
-    return _re.sub(r'[\s|]+', '', s)
+    import re as _re, unicodedata
+    return _re.sub(r'[\s|]+', '', unicodedata.normalize('NFKC', s))  # text layers often use full-width ％ and digits
 
 
 def lines_covered(lines, table_text):
@@ -265,6 +265,10 @@ def plausible_table(rows):
     sizes = sorted(len(t) for t in filled)
     if max(sum(1 for c in r if c[0].strip()) for r in rows) > 12:
         return False  # a column of vertical text boxed as one wide row
+    import re as _re
+    head = ''.join(c[0] for c in rows[0])
+    if _re.search(r'條文|要點內容|理由|說明', head) and sizes[len(sizes) // 2] > 10:
+        return False  # 條文對照表: wrapped prose in columns, which the model mixes between cells; the page text reads better
     return sizes[len(sizes) // 2] <= 24 and sum(n > 30 for n in sizes) <= 0.4 * len(sizes)
 
 
