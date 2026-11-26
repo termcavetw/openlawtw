@@ -73,6 +73,29 @@ manifest.packs.push({id:'rulings',label:'國土署函釋全文',lawCount:archive
 // A law's last full-text revision (全文), from its history: article numbers only hold since then.
 const cn=t=>{let n=0,cur=0;for(const ch of t){const d='零一二三四五六七八九'.indexOf(ch);if(d>=0)cur=d;else if(ch==='十'){n+=(cur||1)*10;cur=0;}else if(ch==='百'){n+=(cur||1)*100;cur=0;}}return n+cur;};
 const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').replace(/\s+/g,'').matchAll(/中華民國([零一二三四五六七八九十百]+)年([零一二三四五六七八九十]+)月([零一二三四五六七八九十]+)日[^中]*?全文/gu)){const iso=`${cn(y)+1911}-${String(cn(mo)).padStart(2,'0')}-${String(cn(d)).padStart(2,'0')}`;if(iso>last)last=iso;}return last;};
+// Each article's last change (修正／增訂／刪除, or a full-text revision), from the law's history — the same rule the
+// skill uses for 國土署 letters: a letter dated before it was written against older text.
+const rocNum=t=>/^\d+$/.test(t)?Number(t):cn(t.replace(/〇/g,'零'));
+const ROC=/(?:中華)?民國\s*([〇零一二三四五六七八九十百0-9]+)\s*年\s*([〇零一二三四五六七八九十0-9]+)\s*月\s*([〇零一二三四五六七八九十0-9]+)\s*日/u;
+const expandNos=chunk=>chunk.replace(/\s/g,'').split(/[、，,]/).filter(Boolean).flatMap(part=>{const m=part.split(/[～~]/);if(m.length!==2)return [part];
+ const [pa,pb]=m.map(x=>x.split('-').map(Number));if(pa.some(isNaN)||pb.some(isNaN))return m;const out=[];
+ if(pa.length===1&&pb.length===1)for(let i=pa[0];i<=pb[0];i++)out.push(String(i));
+ else if(pa.length===2&&pb.length===2&&pa[0]===pb[0])for(let i=pa[1];i<=pb[1];i++)out.push(pa[0]+'-'+i);
+ else if(pa.length===1&&pb.length===2){out.push(String(pa[0]));for(let i=1;i<=pb[1];i++)out.push(pb[0]+'-'+i);}
+ else out.push(...m);return out;});
+const amendCache=new Map();
+const amendments=law=>{if(amendCache.has(law.id))return amendCache.get(law.id);const dates=new Map();let full='';
+ for(const item of ('\n'+(law.history||'')).split(/\n\s*\d+\.\s*/)){const text=item.replace(/\s*\n\s*/g,'');const m=text.match(ROC);if(!m)continue;
+  const iso=`${rocNum(m[1])+1911}-${String(rocNum(m[2])).padStart(2,'0')}-${String(rocNum(m[3])).padStart(2,'0')}`;
+  const lists=[...text.matchAll(/第\s*([0-9][0-9\-、～~，,\s]*?)\s*條/gu)].map(x=>x[1]);
+  // 「修正公布」 with no article list (and not just a name, chapter title or table) amends the whole law.
+  if(/全文\s*\d*\s*條|修正發布全文|修正全文/u.test(text)||(!lists.length&&/修正/u.test(text)&&!/名稱|章名|附表|附件|圖/u.test(text))){if(iso>full)full=iso;continue;}
+  for(const chunk of lists)for(const no of expandNos(chunk)){const key=normalize('第 '+no+' 條');if((dates.get(key)||'')<iso)dates.set(key,iso);}}
+ const result={dates,full};amendCache.set(law.id,result);return result;};
+const amendedOn=(law,no)=>{const {dates,full}=amendments(law);const d=dates.get(no)||'';return d>full?d:full;};
+// Letters older than the article they discuss: {letterId:[[lawId, articleKey, amendedOn, lawName]]}.
+const staleness=(hits,date,lawById)=>{const out=[];for(const [id,nos] of hits){const law=lawById.get(id);for(const no of nos){const d=amendedOn(law,no);if(d&&date&&date<d)out.push([id,no,d,law.name]);}}return out;};
+const lawById=new Map(docs.map(l=>[l.id,l]));
 // 農業部 farmland / farmhouse interpretations (rmis.ardswc.gov.tw): same treatment.
 {const agri=await readFile(join(root,'public/data/agri-rulings.json'));const hash=sha(agri),url='/data/agri/agri-rulings-'+hash+'.json';
  await rm(join(root,'public/data/agri'),{recursive:true,force:true});await mkdir(join(root,'public/data/agri'),{recursive:true});await writeFile(join(root,'public',url),agri);
@@ -84,25 +107,25 @@ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').repl
  const cite=new RegExp('('+spelled.join('|')+')第\\s*([0-9０-９一二三四五六七八九十百零〇]+)\\s*條(?:之\\s*([0-9０-９一二三四五六七八九十]+))?','gu');
  // Article numbers only hold since the law's last full-text revision (全文); older letters link to the law alone.
  const since=new Map([...central.values()].map(l=>[l.id,renumbered(l)]));
- const refs={},heads={};
+ const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();for(const n of x.laws)if(central.has(n))hit.set(central.get(n).id,new Set());
   for(const [,n,a,b] of (x.title+'\n'+x.body).matchAll(cite)){const law=central.get(alias[n]||n);const no=normalize('第'+a+(b?'之'+b:'')+'條');if(x.date<since.get(law.id)||!law.articles.some(r=>normalize(r.no)===no))continue;if(!hit.has(law.id))hit.set(law.id,new Set());hit.get(law.id).add(no);}
-  if(!hit.size)continue;heads[x.id]=[x.date,x.docNo,x.title];
+  if(!hit.size)continue;heads[x.id]=[x.date,x.docNo,x.title];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b-a;for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
- manifest.agriRefs={...await emit('agri-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
+ manifest.agriRefs={...await emit('agri-refs',{laws:refs,heads,stale}),laws:Object.keys(refs).sort()};}
 // 內政部地政司 地政法令彙編 解釋函 (preserved export): lazy, and linked to central law articles by the compilation's own filing.
 {const land=await readFile(join(root,'public/data/land-rulings.json'));const hash=sha(land),url='/data/land/land-rulings-'+hash+'.json';
  await rm(join(root,'public/data/land'),{recursive:true,force:true});await mkdir(join(root,'public/data/land'),{recursive:true});await writeFile(join(root,'public',url),land);
  const m=JSON.parse(land);manifest.land={url,sha256:hash,bytes:land.length,fetchedAt:m.fetchedAt,items:m.stats.items};
  const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
- const refs={},heads={};
+ const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();
   for(const r of x.refs){const law=byName.get(r.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());const no=normalize(r.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
-  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
- manifest.landRefs={...await emit('land-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
+ manifest.landRefs={...await emit('land-refs',{laws:refs,heads,stale}),laws:Object.keys(refs).sort()};}
 // 內政部消防署 法令解釋／執法疑義 (preserved export): lazy, and linked by the system's own 相關法條 — article links only
 // when the law version the letter cites is on or after the law's last full-text revision (and not a former version).
 {const nfa=await readFile(join(root,'public/data/nfa-rulings.json'));const hash=sha(nfa),url='/data/nfa/nfa-rulings-'+hash+'.json';
@@ -110,14 +133,14 @@ const renumbered=law=>{let last='';for(const [,y,mo,d] of (law.history||'').repl
  const m=JSON.parse(nfa);manifest.nfa={url,sha256:hash,bytes:nfa.length,fetchedAt:m.fetchedAt,items:m.stats.items};
  const alias={'公共危險物品及可燃性高壓氣體設置標準暨安全管理辦法':'公共危險物品及可燃性高壓氣體製造儲存處理場所設置標準暨安全管理辦法'};
  const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
- const refs={},heads={};
+ const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();
   for(const r of x.refs){const law=byName.get(alias[r.law]||r.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());
    if(r.historical||!r.version||r.version<renumbered(law))continue;for(const a of r.articles){const no=normalize(a);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}}
-  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
- manifest.nfaRefs={...await emit('nfa-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};}
+ manifest.nfaRefs={...await emit('nfa-refs',{laws:refs,heads,stale}),laws:Object.keys(refs).sort()};}
 // 新北市建照業務工作手冊: same lazy treatment.
 {const ntpc=await readFile(join(root,'public/data/ntpc-manual.json'));const hash=sha(ntpc),url='/data/ntpc/ntpc-manual-'+hash+'.json';
  await rm(join(root,'public/data/ntpc'),{recursive:true,force:true});await mkdir(join(root,'public/data/ntpc'),{recursive:true});await writeFile(join(root,'public',url),ntpc);
@@ -127,13 +150,13 @@ try{const central=await readFile(join(root,'public/data/central-rulings.json'));
  await rm(join(root,'public/data/central'),{recursive:true,force:true});await mkdir(join(root,'public/data/central'),{recursive:true});await writeFile(join(root,'public',url),central);
  const m=JSON.parse(central);manifest.central={url,sha256:hash,bytes:central.length,fetchedAt:m.fetchedAt,items:m.stats.items};
  const byName=new Map();for(const law of docs)if(law.region==='中央'&&!byName.has(law.name))byName.set(law.name,law);
- const refs={},heads={};
+ const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();
   for(const f of x.filed){const law=byName.get(f.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());const no=normalize(f.article);if(law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}
-  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
- manifest.centralRefs={...await emit('central-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};
+ manifest.centralRefs={...await emit('central-refs',{laws:refs,heads,stale}),laws:Object.keys(refs).sort()};
 }catch(error){if(error.code!=='ENOENT')throw error;}
 // 臺北市解釋令函 (laws.gov.taipei), when the weekly sync has collected them: same lazy treatment, and links to the
 // central and 臺北市 laws by the city's own related-law filing (article links only since the law's last full-text revision).
@@ -141,14 +164,14 @@ try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));co
  await rm(join(root,'public/data/taipei'),{recursive:true,force:true});await mkdir(join(root,'public/data/taipei'),{recursive:true});await writeFile(join(root,'public',url),taipei);
  const m=JSON.parse(taipei);manifest.taipei={url,sha256:hash,bytes:taipei.length,fetchedAt:m.fetchedAt,items:m.stats.items};
  const byName=new Map();for(const law of docs)if(law.region==='中央'||law.region==='臺北市'){const key=law.region+':'+law.name;if(!byName.has(key))byName.set(key,law);}
- const refs={},heads={};
+ const refs={},heads={},stale={};
  for(const x of m.items){const hit=new Map();
   for(const r of x.refs){const law=byName.get((r.scope==='臺北市'?'臺北市':'中央')+':'+r.law);if(!law)continue;if(!hit.has(law.id))hit.set(law.id,new Set());
    for(const a of r.articles){const no=normalize(a);if(x.date>=renumbered(law)&&law.articles.some(z=>normalize(z.no)===no))hit.get(law.id).add(no);}}
-  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];
+  if(!hit.size)continue;heads[x.id]=[x.date,(x.issuer+' '+x.docNo).trim(),x.summary];{const st=staleness(hit,x.date,lawById);if(st.length)stale[x.id]=st;}
   for(const [id,nos] of hit){const r=refs[id]||(refs[id]={ids:[],articles:{}});r.ids.push(x.id);for(const no of nos)(r.articles[no]||(r.articles[no]=[])).push(x.id);}}
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
- manifest.taipeiRefs={...await emit('taipei-refs',{laws:refs,heads}),laws:Object.keys(refs).sort()};
+ manifest.taipeiRefs={...await emit('taipei-refs',{laws:refs,heads,stale}),laws:Object.keys(refs).sort()};
 }catch(error){if(error.code!=='ENOENT')throw error;}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);

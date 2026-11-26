@@ -34,3 +34,6 @@
 .agri-article.central>summary{background:#f6f1f1;color:#7a4b4b;border-color:#eadada}.agri-article.central[open]>summary{background:#efe3e3}
 .agri-article.nfa>summary{background:#fbf1ee;color:#8a4532;border-color:#f0dbd3}.agri-article.nfa[open]>summary{background:#f5e2db}
 .jurisdiction-toggle{flex-wrap:wrap;row-gap:6px}
+.stale-note{display:block;font-style:normal;font-size:11px;line-height:1.6;color:#9a5b12;margin-top:3px}.stale-count{font-style:normal;font-size:10.5px;color:#9a5b12;margin-left:2px}.stale-hint{font-size:11px;line-height:1.6;color:#9a5b12;margin:6px 0 2px}
+.stale-list{display:flex;flex-direction:column;gap:3px;margin:10px 0;padding:8px 12px;border-left:3px solid #e0a75a;background:#fdf6ea;font-size:12.5px;line-height:1.7;color:#7a4a0e}.stale-list strong{font-weight:600}
+.minutes-meta .ruling-stale{color:#9a5b12;background:#fdf3e3;border-radius:4px;padding:0 5px}
