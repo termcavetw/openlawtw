@@ -3,7 +3,13 @@ from pathlib import Path
 import argparse, json, re, hashlib, importlib.util
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--cache',required=True);args=p.parse_args()
-source=Path(args.cache)/'interpcomp-list.json';raw=source.read_bytes()
+source=Path(args.cache)/'interpcomp-list.json'
+if not source.exists():  # the feed failed this run: the committed archive must be untouched
+    import subprocess
+    committed=subprocess.run(['git','show','HEAD:public/data/rulings.json'],cwd=ROOT,capture_output=True,check=True).stdout
+    assert json.loads(committed)==json.loads((ROOT/'public/data/rulings.json').read_text()),'feed unavailable, yet the rulings archive changed'
+    print('Rulings feed unavailable this run; committed archive unchanged.');raise SystemExit(0)
+raw=source.read_bytes()
 records=json.loads(raw);archive=json.loads((ROOT/'public/data/rulings.json').read_text())
 spec=importlib.util.spec_from_file_location('sync_rulings',ROOT/'scripts/sync-rulings.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
 actual={x['id']:x for x in archive['items']};assert len(actual)==len(records)==archive['stats']['count']
