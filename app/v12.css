@@ -39,3 +39,5 @@
 .minutes-meta .ruling-stale{color:#9a5b12;background:#fdf3e3;border-radius:4px;padding:0 5px}
 .minutes-meta .ruling-revoked{color:#a1262b;background:#fbeaea;border-radius:4px;padding:0 5px}.stale-list.revoked{border-left-color:#c9474c;background:#fcf0f0;color:#7d1f23}.stale-list .plain-link{align-self:flex-start;font-size:12.5px;color:#7d1f23;text-decoration:underline;padding:2px 0;min-height:28px}.revoked-note{display:block;font-style:normal;font-size:11px;line-height:1.6;color:#a1262b;margin-top:3px}
 .stale-count.revoked{color:#a1262b}
+.minutes-text.reflowed{white-space:normal}.minutes-text.reflowed p{margin:0 0 .7em;line-height:1.85}.minutes-text.reflowed p:last-child{margin-bottom:0}
+.reflow-toggle{display:block;margin:6px 0 0;font-size:12px;color:var(--muted,#6b7280);text-decoration:underline;background:none;border:0;padding:4px 0;min-height:28px;cursor:pointer}

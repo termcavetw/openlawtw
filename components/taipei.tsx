@@ -1,4 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
+import {LetterText} from './letter-text';
 import {StaleBadge,StaleList} from './stale-note';
 import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
@@ -36,7 +37,7 @@ function TaipeiReader({item,onBack,stale,onOpen}:{item:TaipeiItem;onBack:()=>voi
   <StaleList id={item.id} date={item.date} flags={stale} onOpen={onOpen}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href={item.url} target="_blank" rel="noreferrer">官方原文<ArrowUpRight size={13}/></a></div>
   {item.refs.length>0&&<div className="landuse-files"><span>市府歸類的相關法條：</span>{item.refs.map(r=><span key={r.scope+r.law}>{r.law}{r.articles.length?' '+r.articles.join('、'):''}</span>)}</div>}
-  <div className="minutes-text">{item.body||item.summary}</div>
+  <LetterText text={item.body||item.summary}/>
  </div>;
 }
 export function TaipeiExplorer(){

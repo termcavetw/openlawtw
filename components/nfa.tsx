@@ -1,4 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
+import {LetterText} from './letter-text';
 import {StaleBadge,StaleList} from './stale-note';
 import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
@@ -37,7 +38,7 @@ function NfaReader({item,onBack,stale,onOpen}:{item:NfaItem;onBack:()=>void;stal
   <StaleList id={item.id} date={item.date} flags={stale} onOpen={onOpen}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href="https://law.nfa.gov.tw/GNFA/FINT/index.aspx" target="_blank" rel="noreferrer">消防法令查詢系統<ArrowUpRight size={13}/></a></div>
   {item.refs.length>0&&<div className="landuse-files"><span>系統標示的相關法條：</span>{item.refs.map(r=><span key={r.law+r.version}>{refLabel(r)}（{rocDay(r.version)} 版）</span>)}</div>}
-  <div className="minutes-text">{item.body||item.summary}</div>
+  <LetterText text={item.body||item.summary}/>
   {item.abolished&&<p className="ocr-table-warn">消防法令查詢系統將這則標為已廢止（字號前加「廢」），只供參考，不再適用。</p>}
   {!item.body&&!item.abolished&&<p className="ocr-table-warn">消防法令查詢系統{item.summary?'只收這則的要旨':'沒有這則的內容'}{item.origin?'（來源：'+item.origin+'）':''}，全文請查原始出處。</p>}
  </div>;

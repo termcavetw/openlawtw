@@ -1,4 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
+import {LetterText} from './letter-text';
 import {StaleBadge,StaleList} from './stale-note';
 import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
@@ -37,7 +38,7 @@ function LandReader({item,onBack,stale,onOpen}:{item:LandItem;onBack:()=>void;st
   <StaleList id={item.id} date={item.date} flags={stale} onOpen={onOpen}/>
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button><a href="https://www.land.moi.gov.tw/law/Explainqry/99" target="_blank" rel="noreferrer">地政法令彙編<ArrowUpRight size={13}/></a></div>
   <div className="landuse-files"><span>彙編歸類的條文：</span>{item.refs.map(r=><span key={r.law+r.article}>{refLabel(r)}</span>)}</div>
-  <div className="minutes-text">{item.body||item.summary}</div>
+  <LetterText text={item.body||item.summary}/>
  </div>;
 }
 export function LandExplorer(){
