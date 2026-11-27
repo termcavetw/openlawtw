@@ -22,7 +22,7 @@ export function searchCentral(items:CentralItem[],words:string[]):CentralHit[]{
 export const centralCite=(item:CentralItem)=>`${item.issuer} ${rocDay(item.date)} ${item.docNo}`.trim();
 
 function Notice({archive}:{archive:CentralArchive}){
- return <div className="minutes-notice"><Info size={15}/><p><strong>兩個來源：臺北市法規查詢系統歸在消防法、工廠管理輔導法、農業發展條例等條文下的中央機關解釋令函；經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》（102、106、112 年版）所收的工廠管理、特定工廠、用地變更函釋；以及經濟部主管法規查詢系統以行政規則公告的解釋令（出流管制、地質法、工廠管理輔導法等）。</strong>都不是各部會的完整函釋，彙編只收到 112 年 5 月；多為個案回覆，引用時請讀全文、注意發文時的法規版本，並確認之後有無新的函釋或修法。<small>資料更新：{archive.fetchedAt}</small></p></div>;
+ return <div className="minutes-notice"><Info size={15}/><p><strong>兩個來源：臺北市法規查詢系統歸在消防法、工廠管理輔導法、農業發展條例等條文下的中央機關解釋令函；經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》（102、106、112 年版）所收的工廠管理、特定工廠、用地變更函釋；經濟部主管法規查詢系統以行政規則公告的解釋令（出流管制、地質法、工廠管理輔導法等）；以及其他函釋引用、從法務部法規查詢系統、行政院公報等官方頁面逐則補收的函。</strong>都不是各部會的完整函釋，彙編只收到 112 年 5 月；多為個案回覆，引用時請讀全文、注意發文時的法規版本，並確認之後有無新的函釋或修法。<small>資料更新：{archive.fetchedAt}</small></p></div>;
 }
 function Meta({item,stale}:{item:CentralItem;stale?:Flags|null}){
  return <div className="minutes-meta"><StaleBadge id={item.id} flags={stale}/><span>{item.issuer} {rocDay(item.date)}</span><span>{item.docNo}</span>{item.filed.filter(r=>r.article).slice(0,2).map(r=><span key={r.law+r.article}>{r.law} {r.article.replace(/\s+/g,'')}</span>)}</div>;
@@ -57,7 +57,7 @@ export function CentralExplorer(){
  if(archive&&open){const item=archive.items.find(i=>i.id===open);if(item)return <div className="minutes-explorer"><CentralReader item={item} stale={stale} onOpen={id=>setOpen(id)} onBack={()=>{setOpen(null);setHash('');}}/></div>;}
  return <div className="minutes-explorer">
   <div className="section-top"><div><div className="eyebrow">CENTRAL AGENCIES</div><h2>消防署・經濟部・農業部等函釋</h2><p>消防法、工廠管理輔導法（含施行細則）、農業發展條例（含施行細則）、農業設施容許使用、農業使用證明等條文下的中央機關解釋令函。</p></div></div>
-  {archive&&<><div className="ruling-overview"><strong>{archive.stats.items.toLocaleString()}</strong><span>則解釋令函<br/><small>{archive.stats.topics.map(c=>c.name+' '+c.items).join(' · ')} · 來源：{archive.stats.sources?`臺北市法規查詢系統 ${archive.stats.sources.taipei}、經濟部函釋彙編 ${archive.stats.sources.moea}`+(archive.stats.sources.rules?`、經濟部解釋令 ${archive.stats.sources.rules}`:''):'臺北市法規查詢系統'}</small></span></div><Notice archive={archive}/></>}
+  {archive&&<><div className="ruling-overview"><strong>{archive.stats.items.toLocaleString()}</strong><span>則解釋令函<br/><small>{archive.stats.topics.map(c=>c.name+' '+c.items).join(' · ')} · 來源：{archive.stats.sources?`臺北市法規查詢系統 ${archive.stats.sources.taipei}、經濟部函釋彙編 ${archive.stats.sources.moea}`+(archive.stats.sources.rules?`、經濟部解釋令 ${archive.stats.sources.rules}`:'')+(archive.stats.sources.supplement?`、他函引用補收 ${archive.stats.sources.supplement}`:''):'臺北市法規查詢系統'}</small></span></div><Notice archive={archive}/></>}
   <label className="ruling-search"><Search size={16}/><input value={q} onCompositionStart={()=>setComposing(true)} onCompositionEnd={e=>{setComposing(false);setQ(e.currentTarget.value);}} onChange={e=>setQ(e.target.value)} placeholder="如：工廠登記、特定工廠、丁種建築用地、夾雜、檢修申報" aria-label="搜尋部會函釋"/>{q&&<button aria-label="清除搜尋" onClick={()=>setQ('')}><X size={14}/></button>}</label>
   <div className="ruling-filters">
    <select value={topic} onChange={e=>setTopic(e.target.value)} aria-label="主題"><option value="all">全部主題</option>{archive?.stats.topics.map(c=><option key={c.name} value={c.name}>{c.name}（{c.items}）</option>)}</select>
