@@ -1,4 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
+import {LetterText} from './letter-text';
 import {StaleBadge,StaleList} from './stale-note';
 import {type Flags,useFlags} from '@/lib/stale';
 import {ArrowLeft,ArrowUpRight,ChevronDown,FileText,Info,Search,X} from 'lucide-react';
@@ -37,7 +38,7 @@ function CentralReader({item,onBack,stale,onOpen}:{item:CentralItem;onBack:()=>v
   <div className="minutes-pagebar"><span>{cite}</span><button className="minutes-copy" onClick={()=>navigator.clipboard?.writeText(cite+'\n'+location.href).then(()=>toast.success('已複製字號與連結'),()=>toast.error('無法複製'))}>複製字號</button>{item.url?<a href={item.url} target="_blank" rel="noreferrer">官方原文<ArrowUpRight size={13}/></a>:null}</div>
   {item.origin&&<p className="landuse-files"><span>出處：{item.origin}</span></p>}
   <div className="landuse-files"><span>歸類的條文：</span>{item.filed.filter(r=>r.article||!item.filed.some(o=>o.law===r.law&&o.article)).map(r=><span key={r.law+r.article} title={r.cited?'函文提到的條文':'彙編或法規系統歸類的條文'}>{r.law}{r.article?' '+r.article.replace(/\s+/g,''):''}</span>)}{item.topics?.length?<span>主題：{item.topics.join('、')}</span>:null}</div>
-  <div className="minutes-text">{item.body||item.summary}</div>
+  <LetterText text={item.body||item.summary}/>
  </div>;
 }
 export function CentralExplorer(){
