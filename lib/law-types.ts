@@ -47,7 +47,7 @@ export type LandItem={id:string;date:string;docNo:string;issuer:string;summary:s
 export type LandArchive={source:string;sourceUrl:string;note:string;issuer:string;fetchedAt:string;stats:{items:number;sections:number;undated:number;laws:{name:string;items:number}[]};items:LandItem[]};
 // Central agencies' letters filed under central laws in laws.gov.taipei (消防、經濟部、農業部 等).
 export type CentralItem={id:string;date:string;docNo:string;issuer:string;summary:string;body:string;filed:{law:string;article:string;cited?:boolean}[];refs:TaipeiRef[];url:string;topics?:string[];origin?:string};
-export type CentralArchive={source:string;sourceUrl:string;note:string;fetchedAt:string;laws:{id:string;name:string;topic:string}[];stats:{listed:number;items:number;failed:number;sources?:{taipei:number;moea:number};topics:{name:string;items:number}[];issuers:{name:string;items:number}[]};items:CentralItem[]};
+export type CentralArchive={source:string;sourceUrl:string;note:string;fetchedAt:string;laws:{id:string;name:string;topic:string}[];stats:{listed:number;items:number;failed:number;sources?:{taipei:number;moea:number;rules?:number};topics:{name:string;items:number}[];issuers:{name:string;items:number}[]};items:CentralItem[]};
 // 內政部消防署 消防法令查詢系統 法令解釋／執法疑義 (a preserved export collected in the user's browser).
 export type NfaRef={law:string;articles:string[];version:string;historical:boolean};
 export type NfaItem={id:string;kind:string;category:string;date:string;docNo:string;issuer:string;summary:string;body:string;refs:NfaRef[];origin:string;abolished:boolean};
