@@ -21,3 +21,6 @@ data/documents/article-supplements/sources/** -text -diff
 
 # Preserve captured official HTML bytes, including original CRLF and whitespace.
 scripts/tests/fixtures/local-reviewed/*.html -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+
+# Cited letters added one by one; hashes in supplement-rulings.json refer to exact downloaded bytes.
+data/sources/supplement/** -text -diff
