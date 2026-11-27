@@ -66,6 +66,16 @@ manifest.provenance 指向原始來源檔雜湊。hashScope 明列 downloaded-xm
 
 data/history.json 是可提交至 Git 的觀測帳本；npm run snapshot 只在內容變更時增加紀錄，記錄變更條號與前後內容雜湊。v0.7 建立初始基準，不回填不存在的歷史。Git 保留原文版本；本版 UI 不提供完整修法紅綠比對。
 
+## 條文歷次版本（條文時點查詢）
+scripts/sync-law-versions.py 從全國法規資料庫「歷史法規」（LawOldVerList／LawOldVer）抓中央法規的歷次全文，寫到 public/data/law-versions/<pcode>.json，網址 /data/law-versions/<pcode>.json；index.json 是總表。manifest.lawVersions 列出每部法規的 url、sha256、bytes、versions（版本數）、oldest（最早版本的公布／發布日）、current、unknownEffective（施行日判斷不出的版本數）。這份清單只在 public/data/manifest.json，不進 App 內建的 runtime manifest，也不在離線包。網站表示完整舊條文自民國 90 年 4 月起提供，更早的修正只有沿革文字，所以最早一段的起日是該版本自己的施行日，不代表之前沒有條文。
+
+每個檔：
+- texts：{雜湊: 條文全文}。
+- versions[]：依公布日排列，最後一筆 current=true 是現行版。promulgated 公布／發布日；effective 施行日；effectiveKnown 是否判斷得出；effectiveBasis 是沿革中這次修正的原文（含之後另以命令定施行日的紀錄）；exceptions {條號: 日期或 null} 是個別條文另定的施行日；changed {條號: 雜湊} 與 removed [條號] 是與前一版的差異（第一版完整列出），articleOrder 只在條號順序或集合改變時列出，articleCount 是條數。
+- articles {條號: [段]}：每段 {from, fromKnown, to, toKnown, text, version}，表示這段條文自 from 起施行到 to 為止（to=null 且 toKnown=true 表示仍有效）。查某日有效的條文：找 from ≤ 該日 ≤ to 的那段，text 到 texts 取全文。
+
+施行日規則：沿革寫「自公布／發布日施行」或沒寫時，依中央法規標準法第 13 條為公布日起算第三日；「自即日施行」為當日；寫明日期者照寫；「施行日期另定／由行政院定之」而沿革沒有後續命令的，effective／from 為 null、Known 為 false，不推測。只部分款項或「某某部分」先施行的條文也標 null。沿革中後令定施行日的會覆蓋前面的另定。文字只有標點、空白等差異且該次修正沒有列到該條的，不另起一段。較晚的修正比較早的修正先施行、較早那次從未生效的，那段不列在 articles，原文仍可從 versions 還原。條號是各版本當時的條號，法規全文修正改條號時不會自動對應。
+
 ## 查找與離線
 索引只儲存文件位置與 CJK 字元、雙字的 delta-varint/base64 posting lists，沒有再次複製整段原文。候選交集後才載入對應法規／函釋，並用精確條號、別名、全部關鍵字及原文再驗證。
 

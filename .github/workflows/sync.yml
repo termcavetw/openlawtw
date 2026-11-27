@@ -48,6 +48,8 @@ jobs:
         run: python scripts/run-sync.py step validate-laws -- python scripts/validate-data.py --cache .law-cache --sync-report artifacts/sync-run/laws-report.json
       - name: Check rulings against raw official sources
         run: python scripts/run-sync.py step validate-rulings -- python scripts/check-rulings.py --cache .rulings-cache
+      - name: Fetch earlier versions of central laws whose current text changed (條文時點查詢)
+        run: python scripts/run-sync.py step law-versions -- python scripts/sync-law-versions.py --changed
       - name: Fetch new Taoyuan building-administration minutes (incremental)
         run: python scripts/run-sync.py step minutes -- python scripts/sync-minutes.py --cache .minutes-cache
       - name: Check Taoyuan minutes against this run's listing
@@ -85,7 +87,7 @@ jobs:
         run: |
           {
             echo 'list<<EOF'
-            for p in data/catalog.json data/sync-report.json data/provenance.json data/history.json data/versions/ public/data/laws.json public/data/catalog.json public/data/rulings.json public/data/minutes.json public/data/landuse.json public/data/agri-rulings.json public/data/taipei-rulings.json public/data/ntpc-manual.json public/data/central-rulings.json; do
+            for p in data/catalog.json data/sync-report.json data/provenance.json data/history.json data/versions/ public/data/laws.json public/data/catalog.json public/data/rulings.json public/data/minutes.json public/data/landuse.json public/data/agri-rulings.json public/data/taipei-rulings.json public/data/ntpc-manual.json public/data/central-rulings.json public/data/law-versions/; do
               if [ -e "$p" ]; then echo "$p"; fi
             done
             echo EOF

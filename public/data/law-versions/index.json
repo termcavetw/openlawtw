@@ -1,0 +1,1885 @@
+{
+ "schemaVersion": 1,
+ "laws": {
+  "D0000214": {
+   "name": "直轄市縣（市）合法建築物結構安全性能評估結果異議鑑定小組設置辦法",
+   "versions": 1,
+   "oldest": "2017-08-03",
+   "current": "2017-08-03",
+   "unknownEffective": 0,
+   "bytes": 6535
+  },
+  "D0050001": {
+   "name": "兒童及少年福利與權益保障法",
+   "versions": 15,
+   "oldest": "2003-05-28",
+   "current": "2021-01-20",
+   "unknownEffective": 0,
+   "bytes": 288068
+  },
+  "D0050015": {
+   "name": "兒童及少年福利機構設置標準",
+   "versions": 8,
+   "oldest": "2004-12-23",
+   "current": "2026-04-21",
+   "unknownEffective": 0,
+   "bytes": 88722
+  },
+  "D0050016": {
+   "name": "私立兒童及少年福利機構設立許可及管理辦法",
+   "versions": 5,
+   "oldest": "2004-12-23",
+   "current": "2017-11-27",
+   "unknownEffective": 0,
+   "bytes": 47430
+  },
+  "D0050037": {
+   "name": "老人福利法",
+   "versions": 11,
+   "oldest": "1980-01-26",
+   "current": "2025-08-01",
+   "unknownEffective": 0,
+   "bytes": 125409
+  },
+  "D0050038": {
+   "name": "老人福利法施行細則",
+   "versions": 2,
+   "oldest": "2007-07-25",
+   "current": "2009-11-19",
+   "unknownEffective": 0,
+   "bytes": 13013
+  },
+  "D0050039": {
+   "name": "老人福利機構設立標準",
+   "versions": 6,
+   "oldest": "2007-07-30",
+   "current": "2024-08-22",
+   "unknownEffective": 0,
+   "bytes": 99781
+  },
+  "D0050043": {
+   "name": "私立老人福利機構設立許可及管理辦法",
+   "versions": 5,
+   "oldest": "2007-07-27",
+   "current": "2024-07-26",
+   "unknownEffective": 0,
+   "bytes": 66369
+  },
+  "D0050046": {
+   "name": "身心障礙者權益保障法",
+   "versions": 20,
+   "oldest": "1980-06-02",
+   "current": "2025-08-01",
+   "unknownEffective": 0,
+   "bytes": 322305
+  },
+  "D0050048": {
+   "name": "身心障礙福利機構設置標準",
+   "versions": 6,
+   "oldest": "2002-12-02",
+   "current": "2023-06-21",
+   "unknownEffective": 0,
+   "bytes": 86553
+  },
+  "D0050069": {
+   "name": "身心障礙者專用停車位設置管理辦法",
+   "versions": 5,
+   "oldest": "2002-12-13",
+   "current": "2023-03-14",
+   "unknownEffective": 0,
+   "bytes": 32776
+  },
+  "D0060001": {
+   "name": "土地法",
+   "versions": 14,
+   "oldest": "1930-06-30",
+   "current": "2024-08-07",
+   "unknownEffective": 0,
+   "bytes": 385068
+  },
+  "D0060003": {
+   "name": "土地登記規則",
+   "versions": 14,
+   "oldest": "2001-09-14",
+   "current": "2021-07-13",
+   "unknownEffective": 0,
+   "bytes": 326241
+  },
+  "D0060006": {
+   "name": "土地建築改良物估價規則",
+   "versions": 1,
+   "oldest": "2010-06-24",
+   "current": "2010-06-24",
+   "unknownEffective": 0,
+   "bytes": 10555
+  },
+  "D0060009": {
+   "name": "平均地權條例",
+   "versions": 25,
+   "oldest": "1954-08-26",
+   "current": "2023-02-08",
+   "unknownEffective": 0,
+   "bytes": 452136
+  },
+  "D0060013": {
+   "name": "非都市土地使用管制規則",
+   "versions": 25,
+   "oldest": "2002-05-31",
+   "current": "2026-05-27",
+   "unknownEffective": 0,
+   "bytes": 317991
+  },
+  "D0060053": {
+   "name": "地籍測量實施規則",
+   "versions": 7,
+   "oldest": "2003-03-25",
+   "current": "2023-01-13",
+   "unknownEffective": 0,
+   "bytes": 373309
+  },
+  "D0060089": {
+   "name": "地籍清理條例",
+   "versions": 4,
+   "oldest": "2007-03-21",
+   "current": "2023-02-08",
+   "unknownEffective": 0,
+   "bytes": 63726
+  },
+  "D0060107": {
+   "name": "地籍清理條例施行細則",
+   "versions": 4,
+   "oldest": "2008-03-31",
+   "current": "2023-09-26",
+   "unknownEffective": 0,
+   "bytes": 96809
+  },
+  "D0070001": {
+   "name": "都市計畫法",
+   "versions": 12,
+   "oldest": "1939-06-08",
+   "current": "2021-05-26",
+   "unknownEffective": 0,
+   "bytes": 235044
+  },
+  "D0070002": {
+   "name": "都市計畫樁測定及管理辦法",
+   "versions": 2,
+   "oldest": "2002-08-30",
+   "current": "2016-04-12",
+   "unknownEffective": 0,
+   "bytes": 64776
+  },
+  "D0070003": {
+   "name": "都市計畫公共設施保留地臨時建築使用辦法",
+   "versions": 2,
+   "oldest": "2003-08-14",
+   "current": "2011-11-16",
+   "unknownEffective": 0,
+   "bytes": 10923
+  },
+  "D0070004": {
+   "name": "都市計畫定期通盤檢討實施辦法",
+   "versions": 5,
+   "oldest": "2002-11-14",
+   "current": "2025-07-22",
+   "unknownEffective": 0,
+   "bytes": 94918
+  },
+  "D0070005": {
+   "name": "新訂擴大變更都市計畫禁建期間特許興建或繼續施工辦法",
+   "versions": 1,
+   "oldest": "2003-12-02",
+   "current": "2003-12-02",
+   "unknownEffective": 0,
+   "bytes": 5430
+  },
+  "D0070007": {
+   "name": "市區道路條例",
+   "versions": 4,
+   "oldest": "1965-01-28",
+   "current": "2026-07-01",
+   "unknownEffective": 1,
+   "bytes": 31584
+  },
+  "D0070008": {
+   "name": "都市更新條例",
+   "versions": 13,
+   "oldest": "1998-11-11",
+   "current": "2024-11-13",
+   "unknownEffective": 0,
+   "bytes": 231712
+  },
+  "D0070009": {
+   "name": "實施都市計畫以外地區建築物管理辦法",
+   "versions": 1,
+   "oldest": "1999-06-29",
+   "current": "1999-06-29",
+   "unknownEffective": 0,
+   "bytes": 9348
+  },
+  "D0070010": {
+   "name": "都市更新條例施行細則",
+   "versions": 5,
+   "oldest": "2008-01-03",
+   "current": "2019-05-15",
+   "unknownEffective": 0,
+   "bytes": 64271
+  },
+  "D0070012": {
+   "name": "都市計畫法臺灣省施行細則（89.12.29 訂定）",
+   "versions": 19,
+   "oldest": "2001-10-30",
+   "current": "2026-08-12",
+   "unknownEffective": 0,
+   "bytes": 353413
+  },
+  "D0070013": {
+   "name": "都市計畫公共設施用地多目標使用辦法",
+   "versions": 10,
+   "oldest": "2003-06-27",
+   "current": "2020-12-23",
+   "unknownEffective": 0,
+   "bytes": 30989
+  },
+  "D0070014": {
+   "name": "獎勵投資辦理都市計畫公共設施辦法",
+   "versions": 1,
+   "oldest": "2003-10-13",
+   "current": "2003-10-13",
+   "unknownEffective": 0,
+   "bytes": 11046
+  },
+  "D0070015": {
+   "name": "都市計畫私有公共設施保留地與公有非公用土地交換辦法",
+   "versions": 3,
+   "oldest": "2003-11-28",
+   "current": "2007-02-09",
+   "unknownEffective": 0,
+   "bytes": 26940
+  },
+  "D0070019": {
+   "name": "機械遊樂設施設置及檢查管理辦法",
+   "versions": 1,
+   "oldest": "2004-11-05",
+   "current": "2004-11-05",
+   "unknownEffective": 0,
+   "bytes": 10551
+  },
+  "D0070024": {
+   "name": "都市更新會設立管理及解散辦法",
+   "versions": 3,
+   "oldest": "2008-09-12",
+   "current": "2019-05-16",
+   "unknownEffective": 0,
+   "bytes": 34069
+  },
+  "D0070025": {
+   "name": "都市更新權利變換實施辦法",
+   "versions": 6,
+   "oldest": "2002-08-01",
+   "current": "2019-06-17",
+   "unknownEffective": 0,
+   "bytes": 70976
+  },
+  "D0070026": {
+   "name": "都市更新事業接管辦法",
+   "versions": 1,
+   "oldest": "2019-05-27",
+   "current": "2019-05-27",
+   "unknownEffective": 0,
+   "bytes": 6833
+  },
+  "D0070027": {
+   "name": "都市更新建築容積獎勵辦法",
+   "versions": 6,
+   "oldest": "2006-04-20",
+   "current": "2025-01-13",
+   "unknownEffective": 0,
+   "bytes": 37635
+  },
+  "D0070028": {
+   "name": "都市計畫容積移轉實施辦法",
+   "versions": 6,
+   "oldest": "2002-12-31",
+   "current": "2014-08-04",
+   "unknownEffective": 0,
+   "bytes": 48499
+  },
+  "D0070029": {
+   "name": "古蹟歷史建築紀念建築土地容積移轉辦法",
+   "versions": 7,
+   "oldest": "2006-04-14",
+   "current": "2025-01-15",
+   "unknownEffective": 0,
+   "bytes": 32529
+  },
+  "D0070030": {
+   "name": "區域計畫法",
+   "versions": 2,
+   "oldest": "1974-01-31",
+   "current": "2000-01-26",
+   "unknownEffective": 0,
+   "bytes": 26021
+  },
+  "D0070031": {
+   "name": "區域計畫法施行細則",
+   "versions": 2,
+   "oldest": "2001-05-04",
+   "current": "2013-10-23",
+   "unknownEffective": 0,
+   "bytes": 34921
+  },
+  "D0070036": {
+   "name": "建築物結構與設備專業工程技師簽證規則",
+   "versions": 2,
+   "oldest": "2012-01-19",
+   "current": "2023-08-11",
+   "unknownEffective": 0,
+   "bytes": 7582
+  },
+  "D0070039": {
+   "name": "新市鎮特定區實施整體開發前區內土地及建築物使用管制辦法",
+   "versions": 4,
+   "oldest": "2004-11-08",
+   "current": "2019-06-27",
+   "unknownEffective": 0,
+   "bytes": 18532
+  },
+  "D0070046": {
+   "name": "共同管道法",
+   "versions": 1,
+   "oldest": "2000-06-14",
+   "current": "2000-06-14",
+   "unknownEffective": 0,
+   "bytes": 16140
+  },
+  "D0070048": {
+   "name": "共同管道法施行細則",
+   "versions": 1,
+   "oldest": "2001-12-28",
+   "current": "2001-12-28",
+   "unknownEffective": 0,
+   "bytes": 7846
+  },
+  "D0070051": {
+   "name": "共同管道工程設計標準",
+   "versions": 2,
+   "oldest": "2003-05-09",
+   "current": "2013-02-23",
+   "unknownEffective": 0,
+   "bytes": 17400
+  },
+  "D0070058": {
+   "name": "下水道法",
+   "versions": 4,
+   "oldest": "1984-12-21",
+   "current": "2018-05-23",
+   "unknownEffective": 0,
+   "bytes": 43079
+  },
+  "D0070059": {
+   "name": "下水道法施行細則",
+   "versions": 1,
+   "oldest": "2007-06-05",
+   "current": "2007-06-05",
+   "unknownEffective": 0,
+   "bytes": 9307
+  },
+  "D0070066": {
+   "name": "下水道用戶排水設備標準",
+   "versions": 3,
+   "oldest": "2002-03-12",
+   "current": "2012-12-17",
+   "unknownEffective": 0,
+   "bytes": 55567
+  },
+  "D0070071": {
+   "name": "下水道工程設施標準",
+   "versions": 4,
+   "oldest": "2003-02-21",
+   "current": "2025-11-04",
+   "unknownEffective": 0,
+   "bytes": 349602
+  },
+  "D0070077": {
+   "name": "營建廢棄物共同清除處理機構管理辦法",
+   "versions": 1,
+   "oldest": "2001-12-31",
+   "current": "2001-12-31",
+   "unknownEffective": 0,
+   "bytes": 11613
+  },
+  "D0070109": {
+   "name": "建築法",
+   "versions": 14,
+   "oldest": "1938-12-26",
+   "current": "2022-05-11",
+   "unknownEffective": 0,
+   "bytes": 270929
+  },
+  "D0070110": {
+   "name": "營造業法",
+   "versions": 9,
+   "oldest": "2003-02-07",
+   "current": "2019-06-19",
+   "unknownEffective": 0,
+   "bytes": 108732
+  },
+  "D0070111": {
+   "name": "營造業法施行細則",
+   "versions": 5,
+   "oldest": "2004-02-27",
+   "current": "2018-08-22",
+   "unknownEffective": 0,
+   "bytes": 34482
+  },
+  "D0070112": {
+   "name": "建築師法",
+   "versions": 11,
+   "oldest": "1971-12-27",
+   "current": "2023-12-06",
+   "unknownEffective": 0,
+   "bytes": 106907
+  },
+  "D0070113": {
+   "name": "建築基地法定空地分割辦法",
+   "versions": 1,
+   "oldest": "2010-01-29",
+   "current": "2010-01-29",
+   "unknownEffective": 0,
+   "bytes": 4640
+  },
+  "D0070114": {
+   "name": "建築技術規則總則編",
+   "versions": 7,
+   "oldest": "2001-09-25",
+   "current": "2020-10-19",
+   "unknownEffective": 0,
+   "bytes": 41977
+  },
+  "D0070115": {
+   "name": "建築技術規則建築設計施工編",
+   "versions": 56,
+   "oldest": "2001-06-06",
+   "current": "2026-02-23",
+   "unknownEffective": 3,
+   "bytes": 1578404
+  },
+  "D0070116": {
+   "name": "建築技術規則建築構造編",
+   "versions": 10,
+   "oldest": "2001-09-25",
+   "current": "2023-05-10",
+   "unknownEffective": 0,
+   "bytes": 608544
+  },
+  "D0070117": {
+   "name": "建築技術規則建築設備編",
+   "versions": 17,
+   "oldest": "2002-06-12",
+   "current": "2022-12-29",
+   "unknownEffective": 0,
+   "bytes": 435201
+  },
+  "D0070118": {
+   "name": "公寓大廈管理條例",
+   "versions": 7,
+   "oldest": "1995-06-28",
+   "current": "2022-05-11",
+   "unknownEffective": 0,
+   "bytes": 136815
+  },
+  "D0070119": {
+   "name": "公寓大廈管理條例施行細則",
+   "versions": 1,
+   "oldest": "2005-11-16",
+   "current": "2005-11-16",
+   "unknownEffective": 0,
+   "bytes": 7940
+  },
+  "D0070121": {
+   "name": "營造業工地主任評定回訓及管理辦法",
+   "versions": 3,
+   "oldest": "2004-04-06",
+   "current": "2026-04-10",
+   "unknownEffective": 0,
+   "bytes": 18442
+  },
+  "D0070123": {
+   "name": "實施區域計畫地區建築管理辦法",
+   "versions": 1,
+   "oldest": "1999-12-24",
+   "current": "1999-12-24",
+   "unknownEffective": 0,
+   "bytes": 8147
+  },
+  "D0070124": {
+   "name": "違章建築處理辦法",
+   "versions": 1,
+   "oldest": "2012-04-02",
+   "current": "2012-04-02",
+   "unknownEffective": 0,
+   "bytes": 8367
+  },
+  "D0070125": {
+   "name": "建築師法施行細則",
+   "versions": 1,
+   "oldest": "2011-04-25",
+   "current": "2011-04-25",
+   "unknownEffective": 0,
+   "bytes": 9495
+  },
+  "D0070131": {
+   "name": "山坡地建築管理辦法",
+   "versions": 1,
+   "oldest": "2003-03-26",
+   "current": "2003-03-26",
+   "unknownEffective": 0,
+   "bytes": 7092
+  },
+  "D0070132": {
+   "name": "公寓大廈管理服務人管理辦法",
+   "versions": 5,
+   "oldest": "2002-06-24",
+   "current": "2023-12-11",
+   "unknownEffective": 0,
+   "bytes": 51202
+  },
+  "D0070135": {
+   "name": "建造執照預審辦法",
+   "versions": 1,
+   "oldest": "1985-06-26",
+   "current": "1985-06-26",
+   "unknownEffective": 0,
+   "bytes": 2936
+  },
+  "D0070140": {
+   "name": "招牌廣告及樹立廣告管理辦法",
+   "versions": 2,
+   "oldest": "2004-06-17",
+   "current": "2023-04-19",
+   "unknownEffective": 0,
+   "bytes": 9517
+  },
+  "D0070141": {
+   "name": "建築物使用類組及變更使用辦法",
+   "versions": 5,
+   "oldest": "2004-09-14",
+   "current": "2025-05-13",
+   "unknownEffective": 0,
+   "bytes": 32323
+  },
+  "D0070142": {
+   "name": "建築物機械停車設備設置及檢查管理辦法",
+   "versions": 2,
+   "oldest": "2004-11-09",
+   "current": "2023-12-11",
+   "unknownEffective": 0,
+   "bytes": 13693
+  },
+  "D0070144": {
+   "name": "營造業評鑑辦法",
+   "versions": 4,
+   "oldest": "2005-11-01",
+   "current": "2009-07-29",
+   "unknownEffective": 0,
+   "bytes": 10667
+  },
+  "D0070146": {
+   "name": "建築物部分使用執照核發辦法",
+   "versions": 1,
+   "oldest": "2002-03-14",
+   "current": "2002-03-14",
+   "unknownEffective": 0,
+   "bytes": 3503
+  },
+  "D0070147": {
+   "name": "建築物昇降設備設置及檢查管理辦法",
+   "versions": 4,
+   "oldest": "2004-11-09",
+   "current": "2023-12-11",
+   "unknownEffective": 0,
+   "bytes": 36574
+  },
+  "D0070148": {
+   "name": "建築物室內裝修管理辦法",
+   "versions": 6,
+   "oldest": "2003-06-24",
+   "current": "2023-12-11",
+   "unknownEffective": 0,
+   "bytes": 65857
+  },
+  "D0070149": {
+   "name": "建築物公共安全檢查簽證及申報辦法",
+   "versions": 3,
+   "oldest": "2010-05-24",
+   "current": "2022-12-28",
+   "unknownEffective": 0,
+   "bytes": 18122
+  },
+  "D0070150": {
+   "name": "原有合法建築物公共安全改善辦法",
+   "versions": 5,
+   "oldest": "2003-02-18",
+   "current": "2022-12-28",
+   "unknownEffective": 0,
+   "bytes": 63486
+  },
+  "D0070151": {
+   "name": "建築物無障礙設備與設施改善基金收支保管及運用辦法",
+   "versions": 2,
+   "oldest": "2008-05-01",
+   "current": "2018-01-19",
+   "unknownEffective": 0,
+   "bytes": 9075
+  },
+  "D0070153": {
+   "name": "金門馬祖建築法適用地區外建築物管理辦法",
+   "versions": 1,
+   "oldest": "1992-11-05",
+   "current": "1992-11-05",
+   "unknownEffective": 0,
+   "bytes": 7612
+  },
+  "D0070156": {
+   "name": "市區道路及附屬工程設計標準",
+   "versions": 3,
+   "oldest": "2005-12-08",
+   "current": "2021-08-11",
+   "unknownEffective": 0,
+   "bytes": 39841
+  },
+  "D0070161": {
+   "name": "營造業承攬工程造價限額工程規模範圍申報淨值及一定期間承攬總額認定辦法",
+   "versions": 3,
+   "oldest": "2006-12-01",
+   "current": "2020-07-07",
+   "unknownEffective": 0,
+   "bytes": 15254
+  },
+  "D0070168": {
+   "name": "建築師開業證書申請換發及研習證明文件認可辦法",
+   "versions": 1,
+   "oldest": "2007-06-21",
+   "current": "2007-06-21",
+   "unknownEffective": 0,
+   "bytes": 5053
+  },
+  "D0070169": {
+   "name": "下水道用戶排水設備承裝商管理規則",
+   "versions": 3,
+   "oldest": "2007-07-20",
+   "current": "2023-11-03",
+   "unknownEffective": 0,
+   "bytes": 30935
+  },
+  "D0070173": {
+   "name": "建築師或技師受丙等綜合營造業委託執行綜理施工管理簽章報備登錄及收費辦法",
+   "versions": 2,
+   "oldest": "2008-10-24",
+   "current": "2009-10-28",
+   "unknownEffective": 0,
+   "bytes": 5584
+  },
+  "D0070177": {
+   "name": "災害後危險建築物緊急評估辦法",
+   "versions": 1,
+   "oldest": "2009-02-10",
+   "current": "2009-02-10",
+   "unknownEffective": 0,
+   "bytes": 5087
+  },
+  "D0070195": {
+   "name": "住宅法",
+   "versions": 5,
+   "oldest": "2011-12-30",
+   "current": "2026-03-04",
+   "unknownEffective": 0,
+   "bytes": 93391
+  },
+  "D0070201": {
+   "name": "住宅法施行細則",
+   "versions": 5,
+   "oldest": "2012-10-09",
+   "current": "2024-12-12",
+   "unknownEffective": 0,
+   "bytes": 21390
+  },
+  "D0070202": {
+   "name": "無障礙住宅設計基準及獎勵辦法",
+   "versions": 5,
+   "oldest": "2012-11-30",
+   "current": "2020-06-23",
+   "unknownEffective": 0,
+   "bytes": 24887
+  },
+  "D0070207": {
+   "name": "住宅性能評估實施辦法",
+   "versions": 7,
+   "oldest": "2012-12-25",
+   "current": "2026-07-20",
+   "unknownEffective": 0,
+   "bytes": 60619
+  },
+  "D0070208": {
+   "name": "新建建築物節約能源設計標準",
+   "versions": 1,
+   "oldest": "2013-06-19",
+   "current": "2013-06-19",
+   "unknownEffective": 0,
+   "bytes": 6646
+  },
+  "D0070227": {
+   "name": "內政部主管活動場所無障礙設施設備設計標準",
+   "versions": 1,
+   "oldest": "2015-10-22",
+   "current": "2015-10-22",
+   "unknownEffective": 0,
+   "bytes": 6823
+  },
+  "D0070230": {
+   "name": "國土計畫法",
+   "versions": 3,
+   "oldest": "2016-01-06",
+   "current": "2025-01-20",
+   "unknownEffective": 0,
+   "bytes": 55337
+  },
+  "D0070241": {
+   "name": "國土計畫法施行細則",
+   "versions": 2,
+   "oldest": "2016-06-17",
+   "current": "2019-02-21",
+   "unknownEffective": 0,
+   "bytes": 20376
+  },
+  "D0070249": {
+   "name": "都市危險及老舊建築物加速重建條例",
+   "versions": 4,
+   "oldest": "2017-05-10",
+   "current": "2023-12-06",
+   "unknownEffective": 0,
+   "bytes": 24741
+  },
+  "D0070256": {
+   "name": "都市危險及老舊建築物加速重建條例施行細則",
+   "versions": 1,
+   "oldest": "2017-08-01",
+   "current": "2017-08-01",
+   "unknownEffective": 0,
+   "bytes": 7263
+  },
+  "D0070258": {
+   "name": "都市危險及老舊建築物建築容積獎勵辦法",
+   "versions": 3,
+   "oldest": "2017-08-01",
+   "current": "2025-03-04",
+   "unknownEffective": 0,
+   "bytes": 11605
+  },
+  "D0070259": {
+   "name": "都市危險及老舊建築物結構安全性能評估辦法",
+   "versions": 3,
+   "oldest": "2017-08-08",
+   "current": "2018-10-11",
+   "unknownEffective": 0,
+   "bytes": 17028
+  },
+  "D0070264": {
+   "name": "國土計畫適時檢討變更簡化辦法",
+   "versions": 1,
+   "oldest": "2018-02-08",
+   "current": "2018-02-08",
+   "unknownEffective": 0,
+   "bytes": 3765
+  },
+  "D0070281": {
+   "name": "都市更新公開評選申請及審核程序異議申訴處理規則",
+   "versions": 1,
+   "oldest": "2019-06-17",
+   "current": "2019-06-17",
+   "unknownEffective": 0,
+   "bytes": 11519
+  },
+  "D0070282": {
+   "name": "都市更新事業實施者公開評選辦法",
+   "versions": 1,
+   "oldest": "2019-06-17",
+   "current": "2019-06-17",
+   "unknownEffective": 0,
+   "bytes": 9199
+  },
+  "D0070288": {
+   "name": "國土計畫使用許可公開展覽與公聽會及陳述意見處理辦法",
+   "versions": 1,
+   "oldest": "2019-11-29",
+   "current": "2019-11-29",
+   "unknownEffective": 0,
+   "bytes": 7798
+  },
+  "D0070292": {
+   "name": "實施國土計畫管制所受損失補償辦法",
+   "versions": 1,
+   "oldest": "2020-09-14",
+   "current": "2020-09-14",
+   "unknownEffective": 0,
+   "bytes": 9465
+  },
+  "D0070298": {
+   "name": "都市更新耐震能力不足建築物而有明顯危害公共安全認定辦法",
+   "versions": 1,
+   "oldest": "2021-11-17",
+   "current": "2021-11-17",
+   "unknownEffective": 0,
+   "bytes": 3159
+  },
+  "D0070310": {
+   "name": "國土計畫使用許可審議規則",
+   "versions": 1,
+   "oldest": "2025-05-01",
+   "current": "2025-05-01",
+   "unknownEffective": 0,
+   "bytes": 38637
+  },
+  "D0070313": {
+   "name": "國土計畫使用許可申請辦法",
+   "versions": 1,
+   "oldest": "2025-05-01",
+   "current": "2025-05-01",
+   "unknownEffective": 0,
+   "bytes": 12659
+  },
+  "D0070314": {
+   "name": "國土計畫使用許可核發後應循事項辦法",
+   "versions": 1,
+   "oldest": "2025-05-01",
+   "current": "2025-05-01",
+   "unknownEffective": 0,
+   "bytes": 4675
+  },
+  "D0070319": {
+   "name": "建築物設置太陽光電發電設備標準",
+   "versions": 2,
+   "oldest": "2025-12-19",
+   "current": "2026-07-31",
+   "unknownEffective": 0,
+   "bytes": 7786
+  },
+  "D0070320": {
+   "name": "因應國際情勢強化老舊建築物修繕補助辦法",
+   "versions": 1,
+   "oldest": "2026-04-02",
+   "current": "2026-04-02",
+   "unknownEffective": 0,
+   "bytes": 28246
+  },
+  "D0120001": {
+   "name": "消防法",
+   "versions": 15,
+   "oldest": "1985-11-29",
+   "current": "2024-11-29",
+   "unknownEffective": 0,
+   "bytes": 159031
+  },
+  "D0120002": {
+   "name": "消防法施行細則",
+   "versions": 13,
+   "oldest": "2002-06-12",
+   "current": "2024-01-22",
+   "unknownEffective": 0,
+   "bytes": 56265
+  },
+  "D0120013": {
+   "name": "燃氣熱水器及其配管安裝標準",
+   "versions": 3,
+   "oldest": "2005-07-22",
+   "current": "2020-11-10",
+   "unknownEffective": 0,
+   "bytes": 74855
+  },
+  "D0120025": {
+   "name": "公共危險物品及可燃性高壓氣體製造儲存處理場所設置標準暨安全管理辦法",
+   "versions": 13,
+   "oldest": "2002-10-01",
+   "current": "2024-07-16",
+   "unknownEffective": 0,
+   "bytes": 426944
+  },
+  "D0120029": {
+   "name": "各類場所消防安全設備設置標準",
+   "versions": 10,
+   "oldest": "2004-04-06",
+   "current": "2024-04-24",
+   "unknownEffective": 0,
+   "bytes": 969755
+  },
+  "D0120046": {
+   "name": "住宅用火災警報器設置辦法",
+   "versions": 1,
+   "oldest": "2010-12-30",
+   "current": "2010-12-30",
+   "unknownEffective": 0,
+   "bytes": 6424
+  },
+  "D0120049": {
+   "name": "消防機具器材及設備認可標準",
+   "versions": 1,
+   "oldest": "2012-06-21",
+   "current": "2012-06-21",
+   "unknownEffective": 0,
+   "bytes": 7919
+  },
+  "D0120050": {
+   "name": "消防機具器材及設備認可實施辦法",
+   "versions": 2,
+   "oldest": "2012-06-21",
+   "current": "2021-12-21",
+   "unknownEffective": 0,
+   "bytes": 34520
+  },
+  "D0120054": {
+   "name": "消防安全設備檢修及申報辦法",
+   "versions": 3,
+   "oldest": "2019-03-27",
+   "current": "2026-02-25",
+   "unknownEffective": 0,
+   "bytes": 18450
+  },
+  "D0120055": {
+   "name": "消防安全設備檢修專業機構管理辦法（108.11.18 訂定）",
+   "versions": 4,
+   "oldest": "2019-11-18",
+   "current": "2025-09-15",
+   "unknownEffective": 0,
+   "bytes": 28500
+  },
+  "D0120068": {
+   "name": "消防設備人員法",
+   "versions": 1,
+   "oldest": "2023-06-21",
+   "current": "2023-06-21",
+   "unknownEffective": 0,
+   "bytes": 30313
+  },
+  "D0120070": {
+   "name": "消防設備人員法施行細則",
+   "versions": 1,
+   "oldest": "2023-12-20",
+   "current": "2023-12-20",
+   "unknownEffective": 0,
+   "bytes": 7601
+  },
+  "D0120073": {
+   "name": "防焰性能認證實施辦法",
+   "versions": 1,
+   "oldest": "2023-12-21",
+   "current": "2023-12-21",
+   "unknownEffective": 0,
+   "bytes": 20915
+  },
+  "D0120074": {
+   "name": "防焰物品或其材料防焰性能試驗標準",
+   "versions": 1,
+   "oldest": "2023-12-21",
+   "current": "2023-12-21",
+   "unknownEffective": 0,
+   "bytes": 15506
+  },
+  "D0120075": {
+   "name": "消防安全設備設計監造測試及檢修作業辦法",
+   "versions": 1,
+   "oldest": "2023-12-22",
+   "current": "2023-12-22",
+   "unknownEffective": 0,
+   "bytes": 9842
+  },
+  "D0120077": {
+   "name": "消防設備人員執業執照登記辦法",
+   "versions": 1,
+   "oldest": "2024-02-01",
+   "current": "2024-02-01",
+   "unknownEffective": 0,
+   "bytes": 13758
+  },
+  "D0120079": {
+   "name": "防火管理人訓練與專業機構登錄及管理辦法",
+   "versions": 1,
+   "oldest": "2024-02-02",
+   "current": "2024-02-02",
+   "unknownEffective": 0,
+   "bytes": 17206
+  },
+  "G0370025": {
+   "name": "國有房地參與都市危險及老舊建築物加速重建作業辦法",
+   "versions": 1,
+   "oldest": "2024-12-04",
+   "current": "2024-12-04",
+   "unknownEffective": 0,
+   "bytes": 10592
+  },
+  "H0070031": {
+   "name": "幼兒教育及照顧法",
+   "versions": 6,
+   "oldest": "2011-06-29",
+   "current": "2022-06-29",
+   "unknownEffective": 0,
+   "bytes": 175024
+  },
+  "H0070034": {
+   "name": "幼兒園與其分班設立變更及管理辦法",
+   "versions": 6,
+   "oldest": "2012-01-11",
+   "current": "2023-02-27",
+   "unknownEffective": 0,
+   "bytes": 101072
+  },
+  "H0070037": {
+   "name": "幼兒園及其分班基本設施設備標準",
+   "versions": 4,
+   "oldest": "2012-04-03",
+   "current": "2026-07-24",
+   "unknownEffective": 0,
+   "bytes": 58122
+  },
+  "H0070041": {
+   "name": "兒童課後照顧服務班與中心設立及管理辦法",
+   "versions": 5,
+   "oldest": "2012-06-04",
+   "current": "2019-12-05",
+   "unknownEffective": 0,
+   "bytes": 79867
+  },
+  "H0080002": {
+   "name": "補習及進修教育法",
+   "versions": 11,
+   "oldest": "1944-10-07",
+   "current": "2017-06-14",
+   "unknownEffective": 0,
+   "bytes": 60235
+  },
+  "H0080087": {
+   "name": "短期補習班設立及管理準則",
+   "versions": 4,
+   "oldest": "2014-01-03",
+   "current": "2021-01-05",
+   "unknownEffective": 0,
+   "bytes": 58962
+  },
+  "H0170001": {
+   "name": "文化資產保存法",
+   "versions": 10,
+   "oldest": "1982-05-26",
+   "current": "2026-07-01",
+   "unknownEffective": 1,
+   "bytes": 183316
+  },
+  "H0170004": {
+   "name": "文化資產保存法施行細則",
+   "versions": 9,
+   "oldest": "2001-12-19",
+   "current": "2022-01-28",
+   "unknownEffective": 0,
+   "bytes": 97335
+  },
+  "H0170018": {
+   "name": "古蹟歷史建築紀念建築及聚落建築群重大災害應變處理辦法",
+   "versions": 2,
+   "oldest": "2006-01-12",
+   "current": "2017-07-27",
+   "unknownEffective": 0,
+   "bytes": 6787
+  },
+  "H0170021": {
+   "name": "歷史建築紀念建築登錄廢止審查及輔助辦法",
+   "versions": 6,
+   "oldest": "2006-01-12",
+   "current": "2026-08-04",
+   "unknownEffective": 0,
+   "bytes": 18499
+  },
+  "H0170066": {
+   "name": "古蹟歷史建築紀念建築及聚落建築群建築管理土地使用消防安全處理辦法",
+   "versions": 3,
+   "oldest": "2007-06-25",
+   "current": "2017-07-27",
+   "unknownEffective": 0,
+   "bytes": 12246
+  },
+  "H0170137": {
+   "name": "聚落建築群修復及再利用辦法",
+   "versions": 2,
+   "oldest": "2017-07-27",
+   "current": "2019-08-16",
+   "unknownEffective": 0,
+   "bytes": 11099
+  },
+  "H0170139": {
+   "name": "史蹟文化景觀建築管理土地使用消防安全處理辦法",
+   "versions": 1,
+   "oldest": "2017-07-27",
+   "current": "2017-07-27",
+   "unknownEffective": 0,
+   "bytes": 4668
+  },
+  "J0010069": {
+   "name": "經濟部主管活動場所無障礙設施設備設計標準",
+   "versions": 1,
+   "oldest": "2025-11-20",
+   "current": "2025-11-20",
+   "unknownEffective": 0,
+   "bytes": 8203
+  },
+  "J0020052": {
+   "name": "地質法",
+   "versions": 2,
+   "oldest": "2010-12-08",
+   "current": "2025-11-28",
+   "unknownEffective": 0,
+   "bytes": 14639
+  },
+  "J0020054": {
+   "name": "地質敏感區劃定變更及廢止辦法",
+   "versions": 3,
+   "oldest": "2012-03-06",
+   "current": "2016-04-27",
+   "unknownEffective": 0,
+   "bytes": 20104
+  },
+  "J0020056": {
+   "name": "地質敏感區基地地質調查及地質安全評估作業準則",
+   "versions": 5,
+   "oldest": "2012-03-06",
+   "current": "2024-01-09",
+   "unknownEffective": 0,
+   "bytes": 72924
+  },
+  "J0030018": {
+   "name": "用戶用電設備裝置規則",
+   "versions": 12,
+   "oldest": "2009-01-16",
+   "current": "2026-11-04",
+   "unknownEffective": 0,
+   "bytes": 2247072
+  },
+  "J0030043": {
+   "name": "工廠管理輔導法",
+   "versions": 5,
+   "oldest": "2001-03-14",
+   "current": "2024-05-24",
+   "unknownEffective": 0,
+   "bytes": 85320
+  },
+  "J0030044": {
+   "name": "申請工廠設立許可及登記事項收費標準",
+   "versions": 4,
+   "oldest": "2001-04-04",
+   "current": "2011-12-22",
+   "unknownEffective": 0,
+   "bytes": 9550
+  },
+  "J0030045": {
+   "name": "食品工廠建築及設備設廠標準",
+   "versions": 5,
+   "oldest": "2001-05-03",
+   "current": "2018-09-27",
+   "unknownEffective": 0,
+   "bytes": 68828
+  },
+  "J0030068": {
+   "name": "工廠管理輔導法施行細則",
+   "versions": 3,
+   "oldest": "2002-01-30",
+   "current": "2021-01-20",
+   "unknownEffective": 0,
+   "bytes": 15812
+  },
+  "J0030099": {
+   "name": "興辦工業人使用毗連非都市土地擴展計畫申請審查辦法",
+   "versions": 5,
+   "oldest": "2010-09-07",
+   "current": "2024-04-09",
+   "unknownEffective": 0,
+   "bytes": 38037
+  },
+  "J0030117": {
+   "name": "工廠從事物品製造加工範圍及面積電力容量熱能規模認定標準",
+   "versions": 4,
+   "oldest": "2010-11-25",
+   "current": "2018-12-21",
+   "unknownEffective": 0,
+   "bytes": 12378
+  },
+  "J0030119": {
+   "name": "工廠設立許可或核准登記附加負擔辦法",
+   "versions": 6,
+   "oldest": "2011-02-08",
+   "current": "2020-12-29",
+   "unknownEffective": 0,
+   "bytes": 24066
+  },
+  "J0030152": {
+   "name": "特定工廠登記辦法",
+   "versions": 4,
+   "oldest": "2020-03-20",
+   "current": "2026-05-18",
+   "unknownEffective": 0,
+   "bytes": 55055
+  },
+  "J0030153": {
+   "name": "特定工廠申請變更編定為特定目的事業用地審查辦法",
+   "versions": 3,
+   "oldest": "2021-06-21",
+   "current": "2026-03-18",
+   "unknownEffective": 0,
+   "bytes": 27163
+  },
+  "J0040051": {
+   "name": "產業創新條例",
+   "versions": 12,
+   "oldest": "2010-05-12",
+   "current": "2026-09-30",
+   "unknownEffective": 0,
+   "bytes": 254615
+  },
+  "J0110001": {
+   "name": "水利法",
+   "versions": 18,
+   "oldest": "1942-07-07",
+   "current": "2023-11-29",
+   "unknownEffective": 0,
+   "bytes": 306978
+  },
+  "J0110002": {
+   "name": "水利法施行細則",
+   "versions": 6,
+   "oldest": "2004-11-17",
+   "current": "2026-01-22",
+   "unknownEffective": 0,
+   "bytes": 70076
+  },
+  "J0110010": {
+   "name": "排水管理辦法",
+   "versions": 6,
+   "oldest": "2002-12-25",
+   "current": "2023-12-07",
+   "unknownEffective": 0,
+   "bytes": 64762
+  },
+  "J0110029": {
+   "name": "河川管理辦法",
+   "versions": 9,
+   "oldest": "2002-05-29",
+   "current": "2024-02-06",
+   "unknownEffective": 0,
+   "bytes": 172652
+  },
+  "J0110036": {
+   "name": "自來水用戶用水設備標準",
+   "versions": 3,
+   "oldest": "2003-08-13",
+   "current": "2016-06-06",
+   "unknownEffective": 0,
+   "bytes": 20530
+  },
+  "J0110055": {
+   "name": "自來水法",
+   "versions": 18,
+   "oldest": "1966-11-17",
+   "current": "2026-01-05",
+   "unknownEffective": 0,
+   "bytes": 215615
+  },
+  "J0110065": {
+   "name": "自來水法施行細則",
+   "versions": 4,
+   "oldest": "2004-02-25",
+   "current": "2022-06-21",
+   "unknownEffective": 0,
+   "bytes": 24408
+  },
+  "J0110108": {
+   "name": "出流管制計畫書與規劃書審核監督及免辦認定辦法",
+   "versions": 3,
+   "oldest": "2019-02-19",
+   "current": "2025-09-03",
+   "unknownEffective": 0,
+   "bytes": 62538
+  },
+  "J0110110": {
+   "name": "建築物設置透水保水或滯洪設施適用範圍及容量標準",
+   "versions": 1,
+   "oldest": "2019-03-15",
+   "current": "2019-03-15",
+   "unknownEffective": 0,
+   "bytes": 5380
+  },
+  "J0130028": {
+   "name": "燃氣熱水器及其配管承裝業管理辦法",
+   "versions": 3,
+   "oldest": "2005-12-30",
+   "current": "2020-11-17",
+   "unknownEffective": 0,
+   "bytes": 15939
+  },
+  "J0130032": {
+   "name": "再生能源發展條例",
+   "versions": 4,
+   "oldest": "2009-07-08",
+   "current": "2025-06-11",
+   "unknownEffective": 0,
+   "bytes": 55008
+  },
+  "J0130040": {
+   "name": "建築整合型太陽光電發電設備示範獎勵辦法",
+   "versions": 6,
+   "oldest": "2010-04-30",
+   "current": "2023-11-13",
+   "unknownEffective": 0,
+   "bytes": 35694
+  },
+  "J0130041": {
+   "name": "再生能源發電設備設置管理辦法",
+   "versions": 13,
+   "oldest": "2010-04-30",
+   "current": "2026-03-11",
+   "unknownEffective": 0,
+   "bytes": 190082
+  },
+  "J0130042": {
+   "name": "設置再生能源設施免請領雜項執照標準",
+   "versions": 9,
+   "oldest": "2010-04-30",
+   "current": "2025-01-13",
+   "unknownEffective": 0,
+   "bytes": 30015
+  },
+  "J0130086": {
+   "name": "用戶用電設備檢驗辦法",
+   "versions": 2,
+   "oldest": "2018-08-15",
+   "current": "2026-04-09",
+   "unknownEffective": 0,
+   "bytes": 15604
+  },
+  "J0160008": {
+   "name": "放射性污染建築物事件防範及處理辦法",
+   "versions": 3,
+   "oldest": "2003-03-26",
+   "current": "2018-08-28",
+   "unknownEffective": 0,
+   "bytes": 38779
+  },
+  "K0040028": {
+   "name": "公路兩側公私有建築物與廣告物禁建限建辦法",
+   "versions": 1,
+   "oldest": "2013-12-26",
+   "current": "2013-12-26",
+   "unknownEffective": 0,
+   "bytes": 5697
+  },
+  "K0040033": {
+   "name": "停車場法",
+   "versions": 7,
+   "oldest": "1991-07-10",
+   "current": "2025-11-19",
+   "unknownEffective": 0,
+   "bytes": 79136
+  },
+  "K0040034": {
+   "name": "利用空地申請設置臨時路外停車場辦法",
+   "versions": 5,
+   "oldest": "2001-07-03",
+   "current": "2022-08-11",
+   "unknownEffective": 0,
+   "bytes": 28211
+  },
+  "K0040064": {
+   "name": "建築物交通影響評估準則",
+   "versions": 3,
+   "oldest": "2007-01-31",
+   "current": "2020-06-16",
+   "unknownEffective": 0,
+   "bytes": 20886
+  },
+  "K0060159": {
+   "name": "建築物電信設備及空間設置使用管理規則（110.02.22 訂定）",
+   "versions": 1,
+   "oldest": "2021-02-22",
+   "current": "2021-02-22",
+   "unknownEffective": 0,
+   "bytes": 20925
+  },
+  "K0090016": {
+   "name": "航空站飛行場助航設備四周禁止限制建築物及其他障礙物高度管理辦法",
+   "versions": 10,
+   "oldest": "2003-07-07",
+   "current": "2026-02-24",
+   "unknownEffective": 0,
+   "bytes": 91176
+  },
+  "K0110001": {
+   "name": "發展觀光條例",
+   "versions": 14,
+   "oldest": "1969-07-30",
+   "current": "2025-11-28",
+   "unknownEffective": 0,
+   "bytes": 164166
+  },
+  "K0110006": {
+   "name": "觀光旅館業管理規則",
+   "versions": 8,
+   "oldest": "2003-04-28",
+   "current": "2025-01-03",
+   "unknownEffective": 0,
+   "bytes": 84419
+  },
+  "K0110012": {
+   "name": "民宿管理辦法",
+   "versions": 4,
+   "oldest": "2001-12-12",
+   "current": "2024-12-19",
+   "unknownEffective": 0,
+   "bytes": 50285
+  },
+  "K0110014": {
+   "name": "旅館業管理規則",
+   "versions": 7,
+   "oldest": "2002-10-28",
+   "current": "2025-06-27",
+   "unknownEffective": 0,
+   "bytes": 54967
+  },
+  "K0110021": {
+   "name": "觀光旅館建築及設備標準",
+   "versions": 3,
+   "oldest": "2003-04-28",
+   "current": "2010-10-08",
+   "unknownEffective": 0,
+   "bytes": 35868
+  },
+  "K0110030": {
+   "name": "溫泉區土地及建築物使用管理辦法",
+   "versions": 1,
+   "oldest": "2005-09-26",
+   "current": "2005-09-26",
+   "unknownEffective": 0,
+   "bytes": 7481
+  },
+  "L0020021": {
+   "name": "醫療法",
+   "versions": 20,
+   "oldest": "1986-11-24",
+   "current": "2026-09-23",
+   "unknownEffective": 0,
+   "bytes": 233536
+  },
+  "L0020025": {
+   "name": "醫療機構設置標準",
+   "versions": 20,
+   "oldest": "2003-05-14",
+   "current": "2026-07-08",
+   "unknownEffective": 0,
+   "bytes": 117289
+  },
+  "L0020035": {
+   "name": "護理機構分類設置標準",
+   "versions": 7,
+   "oldest": "2003-10-27",
+   "current": "2025-01-22",
+   "unknownEffective": 0,
+   "bytes": 13763
+  },
+  "L0020180": {
+   "name": "護理機構設置或擴充許可辦法",
+   "versions": 2,
+   "oldest": "2012-12-19",
+   "current": "2021-10-12",
+   "unknownEffective": 0,
+   "bytes": 19616
+  },
+  "L0070040": {
+   "name": "長期照顧服務法",
+   "versions": 4,
+   "oldest": "2015-06-03",
+   "current": "2021-06-09",
+   "unknownEffective": 0,
+   "bytes": 85360
+  },
+  "L0070043": {
+   "name": "長期照顧服務法施行細則",
+   "versions": 2,
+   "oldest": "2017-06-02",
+   "current": "2019-10-24",
+   "unknownEffective": 0,
+   "bytes": 9722
+  },
+  "L0070044": {
+   "name": "長期照顧服務機構設立許可及管理辦法",
+   "versions": 3,
+   "oldest": "2017-06-03",
+   "current": "2022-02-10",
+   "unknownEffective": 0,
+   "bytes": 61685
+  },
+  "L0070048": {
+   "name": "長期照顧服務機構設立標準",
+   "versions": 3,
+   "oldest": "2017-06-03",
+   "current": "2023-06-01",
+   "unknownEffective": 0,
+   "bytes": 16505
+  },
+  "M0020001": {
+   "name": "農業發展條例",
+   "versions": 12,
+   "oldest": "1973-09-03",
+   "current": "2026-11-20",
+   "unknownEffective": 0,
+   "bytes": 208824
+  },
+  "M0020002": {
+   "name": "農業發展條例施行細則",
+   "versions": 2,
+   "oldest": "2005-06-10",
+   "current": "2021-11-23",
+   "unknownEffective": 0,
+   "bytes": 14532
+  },
+  "M0020018": {
+   "name": "農業用地變更回饋金撥繳及分配利用辦法",
+   "versions": 4,
+   "oldest": "2002-06-28",
+   "current": "2023-12-04",
+   "unknownEffective": 0,
+   "bytes": 22076
+  },
+  "M0020022": {
+   "name": "申請農業用地作農業設施容許使用審查辦法",
+   "versions": 16,
+   "oldest": "2003-12-15",
+   "current": "2025-12-31",
+   "unknownEffective": 0,
+   "bytes": 110540
+  },
+  "M0040018": {
+   "name": "山坡地開發利用回饋金繳交辦法",
+   "versions": 5,
+   "oldest": "2007-03-01",
+   "current": "2023-09-06",
+   "unknownEffective": 0,
+   "bytes": 17974
+  },
+  "M0090014": {
+   "name": "休閒農業輔導管理辦法",
+   "versions": 12,
+   "oldest": "2002-01-11",
+   "current": "2024-07-03",
+   "unknownEffective": 0,
+   "bytes": 184823
+  },
+  "M0100016": {
+   "name": "農田水利法",
+   "versions": 1,
+   "oldest": "2020-07-22",
+   "current": "2020-07-22",
+   "unknownEffective": 0,
+   "bytes": 22906
+  },
+  "M0100024": {
+   "name": "農田水利法施行細則",
+   "versions": 2,
+   "oldest": "2020-09-28",
+   "current": "2021-05-13",
+   "unknownEffective": 0,
+   "bytes": 4345
+  },
+  "M0110001": {
+   "name": "水土保持法",
+   "versions": 6,
+   "oldest": "1994-05-27",
+   "current": "2026-11-20",
+   "unknownEffective": 0,
+   "bytes": 95448
+  },
+  "M0110002": {
+   "name": "水土保持法施行細則",
+   "versions": 6,
+   "oldest": "2004-08-31",
+   "current": "2020-12-02",
+   "unknownEffective": 0,
+   "bytes": 46500
+  },
+  "M0110003": {
+   "name": "水土保持保證金繳納及保管運用辦法",
+   "versions": 2,
+   "oldest": "2014-12-19",
+   "current": "2018-08-29",
+   "unknownEffective": 0,
+   "bytes": 12212
+  },
+  "M0110004": {
+   "name": "特定水土保持區劃定與廢止準則",
+   "versions": 3,
+   "oldest": "2020-04-30",
+   "current": "2026-01-20",
+   "unknownEffective": 0,
+   "bytes": 10550
+  },
+  "M0110006": {
+   "name": "山坡地保育利用條例",
+   "versions": 9,
+   "oldest": "1976-04-29",
+   "current": "2026-11-20",
+   "unknownEffective": 0,
+   "bytes": 93406
+  },
+  "M0110007": {
+   "name": "山坡地保育利用條例施行細則",
+   "versions": 3,
+   "oldest": "2003-02-27",
+   "current": "2020-05-13",
+   "unknownEffective": 0,
+   "bytes": 19974
+  },
+  "M0110010": {
+   "name": "集村興建農舍獎勵及協助辦法",
+   "versions": 2,
+   "oldest": "2001-09-28",
+   "current": "2010-11-17",
+   "unknownEffective": 0,
+   "bytes": 5879
+  },
+  "M0110012": {
+   "name": "水土保持計畫審核監督辦法",
+   "versions": 12,
+   "oldest": "2004-08-31",
+   "current": "2025-09-09",
+   "unknownEffective": 0,
+   "bytes": 91890
+  },
+  "M0110013": {
+   "name": "農業用地興建農舍辦法",
+   "versions": 6,
+   "oldest": "2001-04-26",
+   "current": "2022-11-01",
+   "unknownEffective": 0,
+   "bytes": 56931
+  },
+  "M0110024": {
+   "name": "山坡地土地可利用限度分類標準",
+   "versions": 3,
+   "oldest": "2017-08-08",
+   "current": "2020-10-06",
+   "unknownEffective": 0,
+   "bytes": 15663
+  },
+  "M0110026": {
+   "name": "特定水土保持區一定規模以上之地貌改變認定辦法",
+   "versions": 2,
+   "oldest": "2019-05-08",
+   "current": "2024-07-09",
+   "unknownEffective": 0,
+   "bytes": 3124
+  },
+  "N0060001": {
+   "name": "職業安全衛生法",
+   "versions": 7,
+   "oldest": "1974-04-16",
+   "current": "2025-12-19",
+   "unknownEffective": 0,
+   "bytes": 164068
+  },
+  "N0060002": {
+   "name": "職業安全衛生法施行細則",
+   "versions": 5,
+   "oldest": "2002-04-25",
+   "current": "2026-06-26",
+   "unknownEffective": 0,
+   "bytes": 65831
+  },
+  "N0060009": {
+   "name": "職業安全衛生設施規則",
+   "versions": 10,
+   "oldest": "2001-12-12",
+   "current": "2026-06-30",
+   "unknownEffective": 0,
+   "bytes": 614883
+  },
+  "N0060014": {
+   "name": "營造安全衛生設施標準",
+   "versions": 7,
+   "oldest": "2001-12-31",
+   "current": "2026-06-30",
+   "unknownEffective": 0,
+   "bytes": 423463
+  },
+  "N0060023": {
+   "name": "職業安全衛生標示設置準則",
+   "versions": 1,
+   "oldest": "2014-07-02",
+   "current": "2014-07-02",
+   "unknownEffective": 0,
+   "bytes": 4540
+  },
+  "N0060027": {
+   "name": "職業安全衛生管理辦法",
+   "versions": 10,
+   "oldest": "2002-12-18",
+   "current": "2026-06-29",
+   "unknownEffective": 0,
+   "bytes": 206656
+  },
+  "O0020001": {
+   "name": "空氣污染防制法",
+   "versions": 10,
+   "oldest": "1975-05-23",
+   "current": "2018-08-01",
+   "unknownEffective": 0,
+   "bytes": 246459
+  },
+  "O0020058": {
+   "name": "營建工程空氣污染防制設施管理辦法",
+   "versions": 4,
+   "oldest": "2003-05-28",
+   "current": "2021-10-18",
+   "unknownEffective": 0,
+   "bytes": 38808
+  },
+  "O0030001": {
+   "name": "噪音管制法",
+   "versions": 7,
+   "oldest": "1983-05-13",
+   "current": "2025-12-26",
+   "unknownEffective": 0,
+   "bytes": 57144
+  },
+  "O0030006": {
+   "name": "噪音管制標準",
+   "versions": 5,
+   "oldest": "2005-01-31",
+   "current": "2013-08-05",
+   "unknownEffective": 0,
+   "bytes": 104208
+  },
+  "O0040001": {
+   "name": "水污染防治法",
+   "versions": 9,
+   "oldest": "1974-07-11",
+   "current": "2018-06-13",
+   "unknownEffective": 0,
+   "bytes": 207330
+  },
+  "O0040002": {
+   "name": "水污染防治法施行細則",
+   "versions": 6,
+   "oldest": "2001-08-08",
+   "current": "2018-12-21",
+   "unknownEffective": 0,
+   "bytes": 104130
+  },
+  "O0040004": {
+   "name": "放流水標準",
+   "versions": 12,
+   "oldest": "2001-11-21",
+   "current": "2024-12-18",
+   "unknownEffective": 0,
+   "bytes": 509755
+  },
+  "O0040047": {
+   "name": "預鑄式建築物污水處理設施管理辦法",
+   "versions": 4,
+   "oldest": "2003-08-20",
+   "current": "2009-09-17",
+   "unknownEffective": 0,
+   "bytes": 33821
+  },
+  "O0040055": {
+   "name": "水污染防治措施計畫及許可申請審查管理辦法",
+   "versions": 8,
+   "oldest": "2006-10-16",
+   "current": "2026-03-24",
+   "unknownEffective": 0,
+   "bytes": 269481
+  },
+  "O0050001": {
+   "name": "廢棄物清理法",
+   "versions": 15,
+   "oldest": "1974-07-26",
+   "current": "2026-07-15",
+   "unknownEffective": 0,
+   "bytes": 239801
+  },
+  "O0090001": {
+   "name": "環境影響評估法",
+   "versions": 6,
+   "oldest": "1994-12-30",
+   "current": "2025-11-28",
+   "unknownEffective": 0,
+   "bytes": 59536
+  },
+  "O0090002": {
+   "name": "環境影響評估法施行細則",
+   "versions": 9,
+   "oldest": "2001-08-01",
+   "current": "2026-02-05",
+   "unknownEffective": 0,
+   "bytes": 104320
+  },
+  "O0090003": {
+   "name": "開發行為環境影響評估作業準則",
+   "versions": 12,
+   "oldest": "2001-08-01",
+   "current": "2021-02-02",
+   "unknownEffective": 0,
+   "bytes": 134128
+  },
+  "O0090012": {
+   "name": "開發行為應實施環境影響評估細目及範圍認定標準",
+   "versions": 13,
+   "oldest": "2001-10-03",
+   "current": "2026-02-05",
+   "unknownEffective": 0,
+   "bytes": 512308
+  },
+  "O0130001": {
+   "name": "室內空氣品質管理法",
+   "versions": 1,
+   "oldest": "2011-11-23",
+   "current": "2011-11-23",
+   "unknownEffective": 0,
+   "bytes": 15097
+  },
+  "O0130002": {
+   "name": "室內空氣品質管理法施行細則",
+   "versions": 1,
+   "oldest": "2012-11-23",
+   "current": "2012-11-23",
+   "unknownEffective": 0,
+   "bytes": 10042
+  },
+  "O0130003": {
+   "name": "室內空氣品質維護管理專責人員設置管理辦法",
+   "versions": 2,
+   "oldest": "2012-11-23",
+   "current": "2016-08-11",
+   "unknownEffective": 0,
+   "bytes": 16681
+  },
+  "O0130005": {
+   "name": "室內空氣品質標準",
+   "versions": 1,
+   "oldest": "2012-11-23",
+   "current": "2012-11-23",
+   "unknownEffective": 0,
+   "bytes": 7205
+  },
+  "O0130006": {
+   "name": "公告場所室內空氣品質檢驗測定管理辦法",
+   "versions": 3,
+   "oldest": "2012-11-23",
+   "current": "2022-06-24",
+   "unknownEffective": 0,
+   "bytes": 31051
+  }
+ }
+}
