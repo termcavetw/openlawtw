@@ -152,10 +152,13 @@ const revokedMap=items=>{const out={};for(const [id,{by,partial}] of revocations
 // Central agencies' letters: those filed under central laws in laws.gov.taipei (weekly sync), plus 經濟部中部辦公室
 // 《工廠管理輔導法暨相關函釋彙編》 (preserved import). A letter in both is kept once (Taipei's copy, with both filings).
 {const readJSON=async path=>{try{return JSON.parse(await readFile(join(root,path),'utf8'));}catch(error){if(error.code==='ENOENT')return null;throw error;}};
- const base=await readJSON('public/data/central-rulings.json'),moea=await readJSON('public/data/moea-factory-rulings.json');
- if(base||moea){
+ const base=await readJSON('public/data/central-rulings.json'),moea=await readJSON('public/data/moea-factory-rulings.json'),interp=await readJSON('public/data/moea-interpretations.json');
+ if(base||moea||interp){
  const factoryTopic='工廠與產業';
- const m=base?{...base,laws:[...base.laws],items:base.items.map(x=>({...x,filed:[...x.filed]}))}:{source:'',sourceUrl:'',note:'',fetchedAt:moea.fetchedAt,laws:[],stats:{},items:[]};
+ const m=base?{...base,laws:[...base.laws],items:base.items.map(x=>({...x,filed:[...x.filed]}))}:{source:'',sourceUrl:'',note:'',fetchedAt:(moea||interp).fetchedAt,laws:[],stats:{},items:[]};
+ // 解釋令 that 經濟部 publishes as one-paragraph 行政規則 (import-moea-rules.py).
+ if(interp){const have=new Set(m.items.map(x=>numberKey(x.docNo)).filter(Boolean));for(const x of interp.items)if(!have.has(numberKey(x.docNo)))m.items.push(x);
+  for(const name of new Set(interp.items.flatMap(x=>x.filed.map(f=>f.law))))if(!m.laws.some(l=>l.name===name))m.laws.push({id:'',name,topic:'工廠與產業'});}
  if(moea){
   const byKey=new Map();for(const x of m.items){const k=numberKey(x.docNo);if(k)byKey.set(k,x);}
   const origin='經濟部中部辦公室《工廠管理輔導法暨相關函釋彙編》（'+Object.keys(moea.editions).sort().reverse().map(e=>moea.editions[e].label).join('、')+'）';
@@ -166,9 +169,9 @@ const revokedMap=items=>{const out={};for(const [id,{by,partial}] of revocations
   for(const name of new Set(moea.items.flatMap(x=>x.filed.map(f=>f.law))))if(!m.laws.some(l=>l.name===name))m.laws.push({id:'',name,topic:name==='申請農業用地作農業設施容許使用審查辦法'||name==='農業發展條例'?'農業':name==='消防法'?'消防':factoryTopic});
   m.items.sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
   const topicOf=new Map(m.laws.map(l=>[l.name,l.topic])),count=list=>Object.entries(list.reduce((o,k)=>(o[k]=(o[k]||0)+1,o),{})).map(([name,items])=>({name,items})).sort((a,b)=>b.items-a.items);
-  m.source=(base?.source?base.source+'；':'')+moea.source;
+  m.source=(base?.source?base.source+'；':'')+moea.source+(interp?'；'+interp.source+'（解釋令）':'');
   m.note=(base?.note?base.note+'\n':'')+moea.note;
-  m.stats={...(base?.stats||{}),items:m.items.length,sources:{taipei:base?.items.length||0,moea:m.items.length-(base?.items.length||0)},
+  m.stats={...(base?.stats||{}),items:m.items.length,sources:{taipei:base?.items.length||0,moea:m.items.filter(x=>/^M/.test(x.id)).length,rules:m.items.filter(x=>/^R/.test(x.id)).length},
    topics:['消防',factoryTopic,'農業'].map(name=>({name,items:m.items.filter(x=>x.filed.some(f=>topicOf.get(f.law)===name)).length})),issuers:count(m.items.map(x=>x.issuer))};
  }
  const central=Buffer.from(JSON.stringify(m));const hash=sha(central),url='/data/central/central-rulings-'+hash+'.json';
