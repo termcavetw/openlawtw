@@ -203,6 +203,13 @@ try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));co
  const newest=(a,b)=>heads[b][0].localeCompare(heads[a][0])||b.localeCompare(a);for(const r of Object.values(refs)){r.ids.sort(newest);for(const k in r.articles)r.articles[k].sort(newest);}
  manifest.taipeiRefs={...await emit('taipei-refs',{laws:refs,heads,stale,revoked:revokedMap(m.items)}),laws:Object.keys(refs).sort()};
 }catch(error){if(error.code!=='ENOENT')throw error;}
+// 條文歷次版本 (scripts/sync-law-versions.py): served as is under /data/law-versions/, outside offline packs.
+// MCP reads manifest.lawVersions to find each law's file; effective dates it could not establish stay null.
+try{const index=JSON.parse(await readFile(join(root,'public/data/law-versions/index.json'),'utf8'));const laws={};
+ for(const [id,x] of Object.entries(index.laws).sort(([a],[b])=>a.localeCompare(b))){const bytes=await readFile(join(root,'public/data/law-versions',id+'.json'));
+  laws[id]={name:x.name,url:'/data/law-versions/'+id+'.json',sha256:sha(bytes),bytes:bytes.length,versions:x.versions,oldest:x.oldest,current:x.current,unknownEffective:x.unknownEffective};}
+ manifest.lawVersions={schemaVersion:index.schemaVersion,index:'/data/law-versions/index.json',source:'全國法規資料庫 歷史法規（LawOldVer）',laws};
+}catch(error){if(error.code!=='ENOENT')throw error;}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
@@ -220,7 +227,8 @@ const externalCitationContext=Object.fromEntries(Object.entries(makeCitationCont
 await writeFile(join(root,'data/runtime-citation-context.json'),JSON.stringify(externalCitationContext));
 await writeFile(join(root,'data/runtime-citations.json'),JSON.stringify(makeCitationTargets(enriched)));
 await writeFile(join(root,'data/runtime-catalog.json'),JSON.stringify(slim));
-await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(manifest));
+// The app shell embeds the runtime manifest; law versions are only for the MCP server, so leave them out of it.
+{const {lawVersions:_lawVersions,...runtimeManifest}=manifest;await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(runtimeManifest));}
 await writeFile(join(root,'public/data/manifest.json'),JSON.stringify(manifest));
 await writeFile(join(root,'public/data/aliases.json'),await readFile(join(root,'data/aliases.json')));
 await writeFile(join(root,'public/data/yinxian-laws.js'),'// Generated from aliases.json and the same official catalogue.\nexport const aliases='+JSON.stringify(await read('data/aliases.json'))+';\nexport const laws='+JSON.stringify(docs.map(l=>({id:l.id,name:l.name,url:l.url})))+';\n');

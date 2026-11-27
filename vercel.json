@@ -140,6 +140,15 @@
       ]
     },
     {
+      "source": "/data/law-versions/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/laws/(.*)",
       "headers": [
         {

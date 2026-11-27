@@ -16,6 +16,11 @@ public/data/v2/
 public/data/minutes/
 public/data/landuse/
 public/data/agri/
+public/data/land/
+public/data/nfa/
+public/data/ntpc/
+public/data/central/
+public/data/taipei/
 public/data/laws/
 public/data/manifest.json
 public/data/aliases.json

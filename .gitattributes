@@ -24,3 +24,6 @@ scripts/tests/fixtures/local-reviewed/*.html -text whitespace=-blank-at-eol,-bla
 
 # Cited letters added one by one; hashes in supplement-rulings.json refer to exact downloaded bytes.
 data/sources/supplement/** -text -diff
+
+# 條文歷次版本: one JSON line per law; line diffs are not readable.
+public/data/law-versions/*.json -diff
