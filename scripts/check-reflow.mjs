@@ -6,7 +6,7 @@ import {reflow} from '../lib/reflow.ts';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const ink=s=>s.replace(/\s+/g,'').replace(/^(主|說|辦|附|正|副)(旨|明|法|件|本)/gmu,'$1$2');
 let n=0,paras=0;
-for(const f of ['nfa','agri','land','taipei','central','moea-factory'])for(const x of read(`public/data/${f}-rulings.json`).items){
+for(const f of ['nfa','agri','land','taipei','central','moea-factory','supplement'])for(const x of read(`public/data/${f}-rulings.json`).items){
  const text=x.body||x.summary||'';if(!text)continue;const out=reflow(text);
  assert.equal(ink(out.join('')),ink(text),`${f} ${x.id} keeps every character`);n++;paras+=out.length;}
 const moea=read('public/data/moea-factory-rulings.json').items.find(x=>x.body.includes('號書函說明\n五、有關但書'));
