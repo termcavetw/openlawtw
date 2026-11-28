@@ -1,0 +1,162 @@
+{
+ "schemaVersion": 1,
+ "id": "accessible-parking-167-6",
+ "title": "建築技術規則建築設計施工編第一百六十七條之六 無障礙停車位數量表",
+ "law": "D0070115",
+ "lawName": "建築技術規則建築設計施工編",
+ "source": {
+  "kind": "article",
+  "article": "第 167-6 條",
+  "sha256": "8b692bffac10a9e833f7520eae7ec8a4e6fb166830461b1a746f1c78dfd52117",
+  "lawModified": "2026-02-23",
+  "table": {
+   "kind": "attachment",
+   "title": "第 167-6 條完整條文.PDF",
+   "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000301252",
+   "sha256": "75fecc927302e81a2b71f2ef35aa35221fd01686772ac80319a952faed70f829",
+   "lawModified": "2026-02-23"
+  }
+ },
+ "method": "人工對照原檔整理（2026-11-28）",
+ "note": "以官方原文為準；source.sha256 與現行原文不同時，本表可能已過時。",
+ "columns": {
+  "category": "類別",
+  "use": "建築物使用用途",
+  "min": "法定停車位數量下限（輛）",
+  "max": "法定停車位數量上限（輛），null 表示以上",
+  "accessible": "無障礙停車位數量（輛）",
+  "rule": "超過部分的計算原文"
+ },
+ "rows": [
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 51,
+   "max": 150,
+   "accessible": 2
+  },
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 151,
+   "max": 250,
+   "accessible": 3
+  },
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 251,
+   "max": 350,
+   "accessible": 4
+  },
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 351,
+   "max": 450,
+   "accessible": 5
+  },
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 451,
+   "max": 550,
+   "accessible": 6
+  },
+  {
+   "category": "第一類",
+   "use": "H-2 組住宅或集合住宅",
+   "min": 551,
+   "max": null,
+   "accessible": null,
+   "rule": "超過五百五十輛停車位者，超過部分每增加一百輛，應增加一輛無障礙停車位；不足一百輛，以一百輛計。",
+   "per": 100,
+   "base": 6
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 51,
+   "max": 100,
+   "accessible": 2
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 101,
+   "max": 150,
+   "accessible": 3
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 151,
+   "max": 200,
+   "accessible": 4
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 201,
+   "max": 250,
+   "accessible": 5
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 251,
+   "max": 300,
+   "accessible": 6
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 301,
+   "max": 350,
+   "accessible": 7
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 351,
+   "max": 400,
+   "accessible": 8
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 401,
+   "max": 450,
+   "accessible": 9
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 451,
+   "max": 500,
+   "accessible": 10
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 501,
+   "max": 550,
+   "accessible": 11
+  },
+  {
+   "category": "第二類",
+   "use": "前類以外建築物",
+   "min": 551,
+   "max": null,
+   "accessible": null,
+   "rule": "超過五百五十輛停車位者，超過部分每增加五十輛，應增加一輛無障礙停車位；不足五十輛，以五十輛計。",
+   "per": 50,
+   "base": 11
+  }
+ ],
+ "notes": [
+  "第一項：建築物法定停車位總數量為五十輛以下者，應至少設置一輛無障礙停車位。",
+  "第二項：五十一輛以上者，使用用途為表列單一類別依該類別基準；二類別依各該類別分別計算，但二類別或其中一類別之法定停車位數量為五十輛以下者，得按總數量以法定停車位較多數量之類別基準計算，數量相同者以其中一類別基準計算（全文以條文為準）。",
+  "min／max 為法定停車位數量（輛）區間，accessible 為應設無障礙停車位數量；超過 550 輛的列以 base（550 輛時的數量）加上超過部分每 per 輛（不足 per 輛以 per 輛計）增加一輛，此為依條文文字整理的算法。"
+ ]
+}

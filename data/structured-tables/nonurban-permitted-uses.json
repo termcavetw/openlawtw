@@ -1,0 +1,7957 @@
+{
+ "schemaVersion": 1,
+ "id": "nonurban-permitted-uses",
+ "title": "非都市土地使用管制規則 附表一 各種使用地容許使用項目及許可使用細目表",
+ "law": "D0060013",
+ "lawName": "非都市土地使用管制規則",
+ "source": {
+  "kind": "attachment",
+  "title": "附表一：各種使用地容許使用項目及許可使用細目表.PDF",
+  "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000418664",
+  "sha256": "2bf6df4af9d9ab2a04e608cd006227b95c7e2bd8f2e8a70db3fb208f668a9a49",
+  "lawModified": "2026-05-27"
+ },
+ "method": "自原檔（PDF）表格逐列擷取，跨頁續接後抽查版面核對（2026-11-28）",
+ "note": "以官方原文為準；source.sha256 與現行原文不同時，本表可能已過時。",
+ "columns": {
+  "landuseNo": "使用地編號",
+  "landuse": "使用地類別",
+  "item": "容許使用項目",
+  "free": "免經申請許可使用細目",
+  "permit": "需經目的事業主管機關、使用地主管機關及有關機關許可使用細目",
+  "condition": "附帶條件（原文）",
+  "sameAs": "原表該項目寫「同○○用地」時照錄（細目與條件依所指用地）",
+  "pages": "原檔頁碼"
+ },
+ "rows": [
+  {
+   "landuse": "甲種建築用地",
+   "item": "（一）住宅",
+   "free": "1.住宅",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（一）住宅",
+   "free": "2.民宿",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（二）日用品零售及服務設施",
+   "free": "1.零售設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（二）日用品零售及服務設施",
+   "free": "2.批發設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（二）日用品零售及服務設施",
+   "free": "3.倉儲設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（二）日用品零售及服務設施",
+   "free": "4.營業及辦公處所",
+   "permit": "",
+   "condition": "一、國際觀光旅館、觀光旅館、一般旅館者，不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    1
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（三）農產品集散批發運銷設施",
+   "free": "1.農（畜、水）產品之集散場（站）、堆積場（站）、轉運場（站）、拍賣場（站）、批發及零售場（站）",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一) 位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    1,
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（三）農產品集散批發運銷設施",
+   "free": "2.其他農產品集散批發運銷設施",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "1.育苗作業室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "2.菇類栽培設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "3.溫室或網室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "4.作物栽培及培養設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    2
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "5.堆肥舍（場）",
+   "permit": "",
+   "condition": "一、使用面積一百五十平方公尺以上者，不得位於全國區域計畫規定之沿海自然保護區。二、符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積未達一百五十平方公尺，且位於全國區域計畫規定之沿海自然保護區。(二) 使用面積五百平方公尺以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "6.農機具室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "7.乾燥機房、碾米機房",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "8.曬場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "9.管理室、農業資材室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "10.農田灌溉排水設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    3
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "11.農產品集貨運銷處理室（含集貨及包裝處理場所、冷藏冷凍及儲存場所）",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    3,
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "12.農產品批發零售場（站）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "13.消毒室或燻蒸室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "14.自產農產品附屬加工設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "15.農路",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（四）農作產銷設施",
+   "free": "16.其他農作產銷設施",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    4
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "1.畜舍",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    5
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "2.禽舍",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    5
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "3.孵化場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    5
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "4.畜禽停棲場及運動場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    5
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "5.水池（水禽飼養用）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    5
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "6.管理室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    6
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "7.畜牧污染處理設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    6
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "8.堆肥舍（場）",
+   "permit": "",
+   "condition": "一、使用面積一百五十平方公尺以上者，不得位於全國區域計畫規定之沿海自然保護區。二、符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積未達一百五十平方公尺，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積五百平方公尺以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    6
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "9.死廢畜禽處理設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    7
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "10.青貯塔（窖）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    7
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "11.飼（芻）料調配或倉儲設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    7
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "12.畜禽產品轉運場（站）",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一) 位於全國區域計畫規定之沿海自然保護區。(二) 使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    7
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "13.畜禽產品處理設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    7,
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "14.畜禽屠宰分切場",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "15.榨乳及儲乳設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（五）畜牧設施",
+   "free": "16.其他畜牧設施",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一) 使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二) 使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（六）鄉村教育設施",
+   "free": "1.幼兒園",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（六）鄉村教育設施",
+   "free": "2.其他教育設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    8
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "1.鄉（鎮、市）民代表會及鄉（鎮、市）公所",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "2.村里辦公處及集會所",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "3.圖書館",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "4.農民組織及農業推廣設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "5.電影放映場所",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "6.藝文展演場所",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "7.政府機關",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（七）行政及文教設施",
+   "free": "8.其他行政及文教設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "1.醫療機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "2.衛生所（室）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "3.護理機構及精神復健機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "4.老人福利機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "5.兒童少年婦女身心障礙福利機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "6.社區活動中心及社會救助機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "7.托嬰中心",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "8.長期照顧服務機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（八）衛生及福利設施",
+   "free": "9.其他衛生及福利設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "1.郵政局所及郵件處理場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "2.電信公司營運處（所）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "3.電信線路中心及機房設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "4.電信、微波收發站（含基地臺）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    9
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "5.天然氣事業球型儲氣槽、管槽等儲氣設備",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "6.液化石油氣及其他可燃性高壓氣體容器儲存設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "7.加油站、加氣站",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "8.發電、輸電、配電、變電等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "9.自來水設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "10.抽水站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "11.國防設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "12.警察分局、駐在所、檢查哨或消防分小隊",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "13.油庫、輸油設施、輸氣設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    10
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "14.天然氣事業加壓站、整壓站及其他有關之設備",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    10,
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "15.海堤設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "16.人行步道、涼亭、公廁設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "17.衛星廣播電視事業、無線及有線電視、廣播電臺及其相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "18.自來水公司施設之簡易自來水工程設施、自來水、淨水設備、配水池、加壓站及管線工程等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "",
+   "permit": "19.一般廢棄物資源回收貯存設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、回收貯存項目以依廢棄物清理法第五條第六項公告之一般廢棄物回收項目及依同法第十五條第二項公告應回收之物品或其包裝、容器經食用或使用後產生之一般廢棄物為限。但農藥廢容器、環境衛生用藥廢容器、廢機動車輛、廢輪胎、廢鉛蓄電池除外。",
+   "sameAs": "",
+   "pages": [
+    11
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "20.公路汽車客運業、市區汽車客運業（場站）設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "21.水力發電輸水管設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（九）公用事業設施",
+   "free": "22.其他公用事業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十）無公害性小型工業設施",
+   "free": "無公害性小型工業設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、經環境保護機關審查符合環境保護法規規定管制標準之製造加工業。三、動力（含電熱）不得超過一一．二五瓩。但空調冷氣設備不在此限。四、作業廠房最大基層建築面積，不得超過一百平方公尺。",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十一）宗教建築",
+   "free": "1.寺廟",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十一）宗教建築",
+   "free": "2.教會（堂）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十一）宗教建築",
+   "free": "3.其他宗教建築物",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    12
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十二）再生能源相關設施",
+   "free": "1.再生能源發電設施",
+   "permit": "",
+   "condition": "一、本款各目使用面積一百五十平方公尺以上者，不得位於全國區域計畫規定之沿海自然保護區。二、本款各目符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積未達一百五十平方公尺，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。三、沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    12,
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十二）再生能源相關設施",
+   "free": "2.再生能源熱能設施",
+   "permit": "",
+   "condition": "沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十二）再生能源相關設施",
+   "free": "3.再生能源衍生燃料及其相關設施",
+   "permit": "",
+   "condition": "沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十二）再生能源相關設施",
+   "free": "4.再生能源輸送管線設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十二）再生能源相關設施",
+   "free": "5.其他再生能源相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十三）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "溫泉井及溫泉儲槽",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、使用面積合計不得超過三十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    13
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "（十四）兒童課後照顧服務中心",
+   "free": "兒童課後照顧服務中心",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    14
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "(十五)動物保護相關設施",
+   "free": "1.動物保護、收容、照護相關設施",
+   "permit": "",
+   "condition": "一、本款各目需經目的事業主管機關同意。二、本款各目符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積一百五十平方公尺以上，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    14
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "(十五)動物保護相關設施",
+   "free": "2.寵物繁殖(買賣)、寄養、訓練設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    14
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "甲種建築用地",
+   "item": "(十五)動物保護相關設施",
+   "free": "3.其他動物保護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    14
+   ],
+   "landuseNo": "一"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（一）住宅",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    14
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（二）鄉村教育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    14
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（三）行政及文教設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    14
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（四）衛生及福利設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（五）安全設施",
+   "free": "1.警政及其他警衛設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（五）安全設施",
+   "free": "2.消防設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（五）安全設施",
+   "free": "3.其他安全設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（六）宗教建築",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（七）日用品零售及服務設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "1.郵政局所及郵件處理場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "2.電信公司營運處（所）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "3.電信線路中心及機房設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "4.電信、微波收發站（含基地臺）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "5.加油站、加氣站",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "6.發電、輸電、配電、變電等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "7.自來水設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "8.抽水站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "9.國防設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "10.警察分局、駐在所、檢查哨或消防分小隊",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "11.天然氣事業加壓站、整壓站及其他有關之設備",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "12.海堤設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    15
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "13.人行步道、涼亭、公廁設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    16
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "14.衛星廣播電視事業、無線及有線電視、廣播電臺及其相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    16
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "15.自來水公司施設之簡易自來水工程設施、自來水、淨水設備、配水池、加壓站及管線工程等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    16
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "",
+   "permit": "16.一般廢棄物資源回收貯存設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、回收貯存項目以依廢棄物清理法第五條第六項公告之一般廢棄物回收項目及依同法第十五條第二項公告應回收之物品或其包裝、容器經食用或使用後產生之一般廢棄物為限。但農藥廢容器、環境衛生用藥廢容器、廢機動車輛、廢輪胎、廢鉛蓄電池除外。",
+   "sameAs": "",
+   "pages": [
+    16
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "17.公路汽車客運業、市區汽車客運業（場站）設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "18.水力發電輸水管設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "19.其他公用事業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（九）無公害性小型工業設施",
+   "free": "無公害性小型工業設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、經環境保護機關審查符合環境保護法規規定管制標準之製造加工業。三、動力（含電熱）不得超過一一．二五瓩。但空調冷氣設備不在此限。四、作業廠房最大基層建築面積，不得超過二百平方公尺。",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十）農作產銷設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十一）畜牧設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "1.養殖池",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "2.飼料調配及儲藏室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "3.管理室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    17
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "4.自產水產品集貨包裝加工處理設施(含轉運、冷藏冷凍、儲存場所及蓄養池)",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "5.養殖污染防治設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "6.抽水機房",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "7.循環水設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "8.電力室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "9.室內循環水養殖設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "10.一般室內養殖設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "11.蓄水池",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "12.進排水道",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    18
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "13.其他水產養殖經營設施",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "1.兒童遊憩場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "2.青少年遊憩場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "3.小型公園或里鄰公園",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "4.室內桌球館或撞球場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "5.球場、溜冰場或游泳池",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "6.其他室內及小型遊憩設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "7.其他室內及小型運動設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "1.氣象局及其設備",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "2.氣象觀測站、地震測報站、海象觀測站、水文觀測站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "3.雷達站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "4.電信線路中心及機房、衛星站、地平發射站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    19
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "5.民用航空站、助航設施",
+   "permit": "",
+   "condition": "民用航空站位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "6.道路之養護、監理安全等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "7.汽車修理業",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "8.汽車運輸業場站、設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "9.駕駛訓練班",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "10.道路鐵路港灣及其設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "11.停車場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "12.貨櫃集散站",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "13.道路收費站、道路服務及管理設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十四）交通設施",
+   "free": "14.其他交通設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "1.保育水土所採之保育設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "2.保護水源之職工辦公室及宿舍",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "3.自來水取水處理、管理及配送設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "4.水庫及與水庫有關的構造物及設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "5.水文觀測設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    20
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "6.其他水源保護及水土保持設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十六）農產品集散批發運銷設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十七）再生能源相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十八）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "（十九）兒童課後照顧服務中心",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "乙種建築用地",
+   "item": "(二十)動物保護相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "二"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（一）住宅",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（二）鄉村教育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（三）行政及文教設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（四）衛生及福利設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（五）安全設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（六）宗教建築",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（七）日用品零售及服務設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "1.郵政局所及郵件處理場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "2.電信公司營運處（所）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "3.電信線路中心及機房設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "4.電信、微波收發站（含基地臺）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    21
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "5.天然氣事業球型儲氣槽、管槽等儲氣設備",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    21,
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "6.液化石油氣及其他可燃性高壓氣體容器儲存設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "7.加油站、加氣站",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "8.發電、輸電、配電、變電等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "9.自來水設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "10.抽水站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "11.國防設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "12.警察分局、駐在所、檢查哨或消防分小隊",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "13.油庫、輸油設施、輸氣設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "14.天然氣事業加壓站、整壓站及其他有關之設備",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "15.海堤設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "16.人行步道、涼亭、公廁設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "17.衛星廣播電視事業、無線及有線電視、廣播電臺及其相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    22,
+    23
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "18.自來水公司施設之簡易自來水工程設施、自來水、淨水設備、配水池、加壓站及管線工程等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    23
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "19.一般廢棄物回收貯存清除處理設施",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、本規則中華民國一百零二年九月二十一日修正生效後設置，且回收貯存清除處理之項目包含農藥廢容器、環境衛生用藥廢容器、廢機動車輛、廢輪胎或廢鉛蓄電池者，於設置前需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    23
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "20.公路汽車客運業、市區汽車客運業（場站）設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    23
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "21.水力發電輸水管設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（八）公用事業設施",
+   "free": "22.其他公用事業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（九）無公害性小型工業設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十）農作產銷設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十一）畜牧設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十二）水產養殖設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十三）遊憩設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "1.公園",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "2.綜合運動場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "3.露營野餐設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "4.動物園",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "5.滑雪設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "6.登山設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "7.纜車及附帶設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "8.高爾夫球場與其附屬建築物及設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "9.馬場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "10.滑翔設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "11.野外健身訓練設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "12.海水浴場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "13.園藝設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "14.垂釣設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "15.噴水池",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "16.小型遊憩船艇停泊設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "17.超輕型載具起降場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "18.無動力飛行運動設施",
+   "permit": "",
+   "condition": "應依無動力飛行運動相關法規辦理。",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "19.其他戶外遊憩設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十四）戶外遊憩設施",
+   "free": "20.其他戶外運動設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    24
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "1.國際觀光旅館",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可者。",
+   "sameAs": "",
+   "pages": [
+    25
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "2.觀光旅館",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    25
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "3.一般旅館",
+   "permit": "",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "4.餐飲住宿設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "5.風景區管理服務設施（管理處所、遊客中心、展示陳列設施、門票、收費站、停車場、眺望臺、公廁）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "6.水族館",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "7.文物展示中心",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "8.汽車客運業設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "9.觀光零售服務站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "10.涼亭",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "11.游泳池",
+   "permit": "",
+   "condition": "係屬附設游泳池設施。",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "12.花棚花架",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "13.藝品特產店",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十五）觀光遊憩管理服務設施",
+   "free": "14.其他遊憩服務及管理設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    26
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十七）交通設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十八）農產品集散批發運銷設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "1.管制、收費設施",
+   "permit": "",
+   "condition": "本款各目限於森林遊樂區設置管理辦法核定之森林遊樂區範圍。",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "2.管理及服務展示設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "3.平面停車場及相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "4.水土保持設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "5.環境保護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "6.資源保育維護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "7.安全防護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "8.營林設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "9.標示解說設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "10.步道設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "11.住宿、餐飲設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（十九）森林遊樂設施",
+   "free": "12.其他森林遊樂設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（二十）再生能源相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（二十一）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "（二十二）兒童課後照顧服務中心",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丙種建築用地",
+   "item": "(二十三)動物保護相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    27
+   ],
+   "landuseNo": "三"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "1.廠房或相關生產設施",
+   "permit": "",
+   "condition": "一、本款各目不得位於全國區域計畫規定之沿海自然保護區。二、特定農業區、一般農業區、鄉村區及森林區除既有工廠及相關生產設施外，限於經直轄市或縣（市）政府認定之低污染事業使用，其依建築法規規定應申請建造執照或雜項執照者，應檢附直轄市或縣（市）政府核發之低污染事業文件。",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "2.附屬辦公室",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "3.附屬倉庫",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "4.附屬生產實驗或訓練房舍",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "5.附屬單身員工宿舍",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "6.附屬露天設施或堆置場所",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "7.附屬停車場等必要設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    28
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "8.防治公害設備",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "9.工廠對外通路",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "10.兼營工廠登記產品有關之買賣業務",
+   "permit": "",
+   "condition": "不得單純經營買賣業務。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "11.高壓氣體製造設備及其他附屬設備",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "12.工業技術開發或研究發展設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "13.汽車修理業",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "14.倉儲設施（賣場除外）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "15.綠帶及遊憩設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "16.教育設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃或核准設置幼兒園者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "17.社區安全設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "18.標準廠房",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "19.加油站及汽車加氣站",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "20.公共及公用事業設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃或核准設置者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "",
+   "permit": "21.運輸倉儲設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "22.轉運設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "23.職業訓練及創業輔導設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    29
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "24.試驗研究設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "25.專業辦公大樓",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "26.環境保護及景觀維護設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "27.企業營運總部",
+   "permit": "",
+   "condition": "以經中央主管機關依產業創新條例第二十五條及營運總部認定辦法相關規定核定者為限。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "28.衛生及福利設施",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃或核准設置托嬰中心者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "29.兒童課後照顧服務中心",
+   "permit": "",
+   "condition": "限於已開發工業區並經工業主管機關規劃或核准設置兒童課後照顧服務中心者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（一）工業設施",
+   "free": "30.其他工業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "1.社區住宅",
+   "permit": "",
+   "condition": "一、本款各目不得位於全國區域計畫規定之沿海自然保護區。二、本款各目限於已開發工業區且規劃有案者。",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "2.社區教育設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "3.社區遊憩設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "4.社區衛生及福利設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "5.社區日用品零售及服務設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "6.社區行政及文教設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    30
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "7.社區消防及安全設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "8.社區交通設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "9.社區水源保護及水土保持設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "10.社區公共及公用事業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "11.社區金融機構",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "12.市場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "13.工業區員工宿舍",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "14.兒童課後照顧服務中心",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（二）工業社區",
+   "free": "15.其他經工業主管機關同意設置之設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    31
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（三）再生能源相關設施",
+   "free": "1.再生能源發電設施",
+   "permit": "",
+   "condition": "一、本款各目使用面積一百五十平方公尺以上者，不得位於全國區域計畫規定之沿海自然保護區。二、本款各目符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)使用面積未達一百五十平方公尺，且位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。三、工業區外限於興辦工業人設置再生能源相關設施（沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外）。",
+   "sameAs": "",
+   "pages": [
+    31,
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（三）再生能源相關設施",
+   "free": "2.再生能源熱能設施",
+   "permit": "",
+   "condition": "工業區外限於興辦工業人設置再生能源相關設施（沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外）。",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（三）再生能源相關設施",
+   "free": "3.再生能源衍生燃料及其相關設施",
+   "permit": "",
+   "condition": "工業區外限於興辦工業人設置再生能源相關設施（沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外）。",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（三）再生能源相關設施",
+   "free": "4.再生能源輸送管線設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（三）再生能源相關設施",
+   "free": "5.其他再生能源相關設施",
+   "permit": "",
+   "condition": "工業區外限於興辦工業人設置再生能源相關設施。",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（四）臨時堆置收納營建剩餘土石方",
+   "free": "臨時堆置收納營建剩餘土石方",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（五）水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "free": "水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    32
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（六）依產業創新條例第三十九條規定，經核定規劃之用地使用",
+   "free": "依產業創新條例第三十九條規定，經核定規劃之用地使用",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（七）廢棄物回收貯存清除處理設施",
+   "free": "",
+   "permit": "廢棄物回收貯存清除處理設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、依產業創新條例管理之工業區內，以利用回收之廢棄物為原料進行生產，並有產品產出之工廠為限。",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "丁種建築用地",
+   "item": "（八）交通設施",
+   "free": "",
+   "permit": "汽車貨運業、汽車路線貨運業暨汽車貨櫃貨運業之停車場",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "四"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（一）農作使用（包括牧草）",
+   "free": "農作使用",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（二）農舍（工業區、河川區除外；特定農業區、森林區不得興建集村農舍）",
+   "free": "1.農舍及農舍附屬設施",
+   "permit": "",
+   "condition": "限於依農業用地興建農舍辦法或實施區域計畫地區建築管理辦法核准興建之農舍。",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（二）農舍（工業區、河川區除外；特定農業區、森林區不得興建集村農舍）",
+   "free": "2.農產品之零售",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（二）農舍（工業區、河川區除外；特定農業區、森林區不得興建集村農舍）",
+   "free": "3.農作物生產資材及日用品零售",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    33
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（二）農舍（工業區、河川區除外；特定農業區、森林區不得興建集村農舍）",
+   "free": "",
+   "permit": "4.民宿",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、限於民宿管理辦法第四條第一項但書規定之原住民族地區、經農業主管機關劃定之休閒農業區或核發許可登記證之休閒農場、觀光地區、偏遠地區及離島地區等之農舍。但位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    33,
+    34
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（三）農作產銷設施（工業區、河川區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。二、上開審查辦法規定之堆肥舍（場）許可使用細目，不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    34
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（四）畜牧設施（工業區、河川區及森林區除外。但森林區屬原住民保留地，經目的事業主管機關會同原住民族主管機關同意者，不在此限）",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。三、上開審查辦法規定之廢水處理設施、堆肥舍（含共同處理堆肥場）、死廢禽及廢棄物處理設施或孵化廢棄物處理設施等許可使用細目，不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    34,
+    35
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（五）水產養殖設施（工業區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    35
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "1.保育水土所採之保育設施",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    35
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "2.自來水取水處理、管理及配送設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "3.水庫及與水庫有關的構造物及設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "4.水文觀測設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "5.其他水源保護及水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（七）採取土石（特定農業區、一般農業區、森林區及特定專用區除外）",
+   "free": "",
+   "permit": "土石採取",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、採取當地土石（限於採掘、儲存及搬運，不包括設置碎解、洗、選作業場所），並應依非都市土地農牧用地容許採取土石審查作業要點規定辦理。但位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（八）林業使用",
+   "free": "造林、苗圃",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    36
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（九）休閒農業設施（工業區、河川區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依休閒農業輔導管理辦法規定辦理，並限經農業主管機關劃定之休閒農業區，或准予籌設之休閒農場。二、本款不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    36,
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "1.電信監測站",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "2.電信、微波收發站（含基地臺）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "3.電視、廣播訊號收發站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "4.纜線附掛桿",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "5.衛星地面站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "6.輸配電鐵塔",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "7.電線桿",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "8.配電臺及開關站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "9.抽水站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "10.自來水加壓站、配水池",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "11.檢查哨",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "12.航空助航設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "13.輸送電信、電力設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "14.輸送油管、水管設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "15.有線電視管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "16.其他管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十一）戶外廣告物設施",
+   "free": "",
+   "permit": "戶外廣告物設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、使用面積不得超過五十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    37
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十二）私設通路",
+   "free": "",
+   "permit": "私設通路",
+   "condition": "限於以集村方式興建農舍或甲種、乙種、丙種、丁種建築用地，因未面臨建築線，無道路可出入需要者。但位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    38
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十三）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、限於風力發電、太陽光電、小水力發電及地熱發電之發電設施點狀使用，點狀使用面積不得超過六百六十平方公尺；小水力發電設施限於利用圳路或其他既有水利設施所設置，且裝置容量不得超過二十百萬瓦；地熱發電設施裝置容量不得超過五十百萬瓦。三、太陽光電、小水力發電及地熱發電設施不得位於特定農業區。",
+   "sameAs": "",
+   "pages": [
+    39
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十三）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    39
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十四）臨時堆置收納營建剩餘土石方",
+   "free": "",
+   "permit": "臨時堆置收納營建剩餘土石方",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、僅限於本規則中華民國一百零二年九月二十一日修正生效前已核准之既有合法磚窯廠毗鄰之土地。但位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    40
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十五）水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "free": "",
+   "permit": "水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    40
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十六）溫泉井及溫泉儲槽( 工業區、特定農業區除外)",
+   "free": "",
+   "permit": "溫泉井及溫泉儲槽",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、申請用地除位屬依區域計畫法劃定之風景區者外，應符合下列各款之ㄧ：(一)依溫泉法公告劃設之溫泉區。(二)經農業主管機關劃定之休閒農業區，並提供依民宿管理辦法規定之民宿使用。(三)經農業主管機關核發許可登記證之休閒農場，並提供依民宿管理辦法規定設置之民宿或依休閒農業輔導管理辦法規定設置之住宿、餐飲設施使用。(四)中華民國九十四年七月一日溫泉法施行前，已開發溫泉使用。但溫泉法施行前，依水利法建造之水井，曾取得溫泉水權者，其使用分區不受特定農業區除外規定之限制。三、使用面積合計不得超過十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    40,
+    41
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十七）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    41,
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十八）自然保育設施",
+   "free": "",
+   "permit": "",
+   "condition": "本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "（十九）綠能設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。二、位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十)動物保護相關設施",
+   "free": "",
+   "permit": "1.動物保護、收容、照護相關設施",
+   "condition": "一、本款各目使用面積不得超過零點五公頃，且需與動物飼養、照護相關。二、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十)動物保護相關設施",
+   "free": "",
+   "permit": "2.寵物繁殖(買賣)、寄養、訓練設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十)動物保護相關設施",
+   "free": "",
+   "permit": "3.其他動物保護設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十一）露營相關設施",
+   "free": "",
+   "permit": "1.營位設施",
+   "condition": "一、本款應依露營場管理要點規定辦理，開發利用涉及建築法、水土保持法及其他相關法令",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十一）露營相關設施",
+   "free": "",
+   "permit": "2.衛生設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    42
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十一）露營相關設施",
+   "free": "",
+   "permit": "3.管理室",
+   "condition": "事項，應依各該法令規定辦理。二、露營場面積應小於一公頃，其許可使用細目合計面積不得超過露營場面積百分之十，並以六百六十平方公尺為限；且限採點狀配置，其中衛生設施及管理室合計面積不得超過許可使用細目面積百分之三十，且設施高度不得超過四公尺。三、不得位於第一級環境敏感地區之災害敏感類型、生態敏感類型、資源利用敏感類型（水庫蓄水範圍、國有林事業區、保安林等森林地區、溫泉露頭及其一定範圍、水產動植物繁殖保育區或優良農地）及第二級環境敏感地區之災害敏感類型(土石流潛勢溪流及海堤區域之堤身範圍)。",
+   "sameAs": "",
+   "pages": [
+    42,
+    43,
+    44
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十二)無動力飛行運動相關設施( 特定農業區除外)",
+   "free": "",
+   "permit": "1.無動力飛行運動管理相關設施",
+   "condition": "一、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、限於點狀使用，點狀使用面積不得超過六百六十平方公尺；單一許可使用細目設置面積不得超過三百三十平方公尺。三、除衛生設施之儲水槽及維護設施安全之需求外，任一設施興建高度不得超過三點五公尺。四、應依無動力飛行運動相關法規辦理。",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十二)無動力飛行運動相關設施( 特定農業區除外)",
+   "free": "",
+   "permit": "2.無動力飛行運動儲物相關設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "農牧用地",
+   "item": "(二十二)無動力飛行運動相關設施( 特定農業區除外)",
+   "free": "",
+   "permit": "3.衛生設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "五"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（一）林業使用",
+   "free": "1.造林、苗圃",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（一）林業使用",
+   "free": "2.林下經濟經營使用",
+   "permit": "",
+   "condition": "本款應依中央林業主管機關所定林下經濟經營使用審查作業要點規定辦理。",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（二）林業設施",
+   "free": "",
+   "permit": "",
+   "condition": "本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（三）安全設施",
+   "free": "",
+   "permit": "1.警政及其他警衛設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    44
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（三）安全設施",
+   "free": "",
+   "permit": "2.消防設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（三）安全設施",
+   "free": "",
+   "permit": "3.其他安全設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（四）生態體系保護設施",
+   "free": "",
+   "permit": "1.自然生態保護設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（四）生態體系保護設施",
+   "free": "",
+   "permit": "2.生態試驗研究站及圍籬設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（四）生態體系保護設施",
+   "free": "",
+   "permit": "3.經中央主管機關核定之生態體系保護設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（五）水源保護及水土保持設施",
+   "free": "",
+   "permit": "1.保育水土所採之保育設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（五）水源保護及水土保持設施",
+   "free": "",
+   "permit": "2.自來水取水處理、管理及配送設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（五）水源保護及水土保持設施",
+   "free": "",
+   "permit": "3.水文觀測設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（五）水源保護及水土保持設施",
+   "free": "",
+   "permit": "4.其他水源保護及水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    45
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（六）營建剩餘土石方資源之暫屯、堆置、最終填埋設施",
+   "free": "",
+   "permit": "營建剩餘土石方資源之暫屯、堆置、最終填埋設施",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、限公共工程使用且經直轄市、縣（市）政府或公共工程主辦機關核准設置之填埋型、轉運型土石方收容處理場所，且不得有加工處理行為。但位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。三、事業計畫使用面積不得超過二公頃。四、應於申請使用計畫書中提出復育造林計畫。",
+   "sameAs": "",
+   "pages": [
+    45,
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（七）採取土石",
+   "free": "",
+   "permit": "1.土石採取",
+   "condition": "一、本款各目不得位於全國區域計畫規定之沿海自然保護區。二、本款各目事業計畫使用面積不得超過二公頃。",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（七）採取土石",
+   "free": "",
+   "permit": "2.土石採取場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（七）採取土石",
+   "free": "",
+   "permit": "3.土石採取廠房暨產品加工之設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（七）採取土石",
+   "free": "",
+   "permit": "4.水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（七）採取土石",
+   "free": "",
+   "permit": "5.其他在土石業上必要之工程設施及附屬設備",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "1.電信監測站",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "2.電信、微波收發站（含基地臺）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "3.電視、廣播訊號收發站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "4.纜線附掛桿",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "5.衛星地面站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "6.輸配電鐵塔",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "7.電線桿",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    46
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "8.配電臺及開關站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "9.抽水站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "10.自來水加壓站、配水池",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "11.檢查哨",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "12.航空助航設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "13.天文臺",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "14.輸送電信、電力設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "15.輸送油管、水管設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "16.有線電視管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "17.其他管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（八）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "18.國防設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（九）戶外公共遊憩設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "1.人行步道、涼亭、公廁設施",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（九）戶外公共遊憩設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "2.解說標示設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（九）戶外公共遊憩設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "3.遊客服務設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "1.管制、收費設施",
+   "permit": "",
+   "condition": "本款各目限於森林遊樂區設置管理辦法核定之森林遊樂區範圍。",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "2.管理及服務展示設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "3.平面停車場及相關設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "4.水土保持設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "5.環境保護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "6.資源保育維護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "7.安全防護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "8.營林設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "9.標示解說設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "10.步道設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    47
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十）森林遊樂設施（限於森林區、風景區）",
+   "free": "11.其他森林遊樂設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十一）休閒農業設施（工業區、河川區及森林區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依休閒農業輔導管理辦法規定辦理，並限經農業主管機關劃定之休閒農業區，或准予籌設之休閒農場。二、本款不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "1.探採礦",
+   "condition": "一、本款各目不得位於全國區域計畫規定之沿海自然保護區。二、本款各目事業計畫使用面積超過二公頃者，需報經區域計畫擬定機關許可。",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "2.貯礦場及廢土堆積場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "3.臨時性工寮、炸藥庫",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "4.水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "5.載運礦石之索道相關設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十二）礦石開採",
+   "free": "",
+   "permit": "6.其他在礦業上必要之非固定性工程設施及其附屬設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十三）再生能源相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    48
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十四）水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    49
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十五）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "溫泉井及溫泉儲槽",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、申請用地除位屬依區域計畫法劃定之風景區者外，應符合下列各款之ㄧ：(一)依溫泉法公告劃設之溫泉區。(二)經農業主管機關劃定之休閒農業區，並提供依民宿管理辦法規定之民宿使用。(三)經農業主管機關核發經營許可登記證之休閒農場，並提供依民宿管理辦法規定設置之民宿或依休閒農業輔導管理辦法規定設置之住宿、餐飲設施使用。(四)依森林遊樂區設置管理辦法核定之森林遊樂區。(五)中華民國九十四年七月一日溫泉法施行前，已開發溫泉使用。三、使用面積合計不得超過十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    49,
+    50
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十六）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    50
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十七）自然保育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    50
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十八）綠能設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    50
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "（十九）農舍",
+   "free": "",
+   "permit": "民宿",
+   "condition": "限於民宿管理辦法第四條第一項但書規定之原住民族地區、經農業主管機關劃定之休閒農業區或核發許可登記證之休閒農場、觀光地區、偏遠地區及離島地區等之農舍，並僅限於本規則一百零二年九月二十一日修正生效前取得使用執照之農舍。",
+   "sameAs": "",
+   "pages": [
+    50,
+    51
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "(二十)交通設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "雷達站",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    51
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "(二十一)露營相關設施",
+   "free": "",
+   "permit": "1.營位設施",
+   "condition": "一、本款應依露營場管理要點規定辦理，開發利用涉及建築法、水土保持法及其他相關法令事項，應依各該法令規定辦理。二、露營場面積應小於一公頃，其許可使用細目合計面積不得超過露營場面積百分之十，並以六百六十平方公尺為限；且限採點狀配置，其中衛生設施面積不得超過許可使用細目面積百分之十，且設施高度不得超過三公尺。三、不得位於第",
+   "sameAs": "",
+   "pages": [
+    51
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "(二十一)露營相關設施",
+   "free": "",
+   "permit": "2.衛生設施",
+   "condition": "一級環境敏感地區之災害敏感類型、生態敏感類型、資源利用敏感類型（水庫蓄水範圍、國有林事業區、保安林等森林地區、溫泉露頭及其一定範圍、水產動植物繁殖保育區或優良農地）及第二級環境敏感地區之災害敏感類型(土石流潛勢溪流及海堤區域之堤身範圍)。",
+   "sameAs": "",
+   "pages": [
+    51,
+    52
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "林業用地",
+   "item": "(二十二)無動力飛行運動相關設施( 森林區除外)",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    52
+   ],
+   "landuseNo": "六"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（一）水產養殖設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、除養殖池以外，本款應依申請農業用地作農業設施容許使用審查辦法規定辦理。作養殖池使用者，不得採取養殖池底土石。二、位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（二）農作使用（包括牧草）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（三）林業使用",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（四）農作產銷設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（五）畜牧設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（六）水源保護及水土保持設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（七）農舍（森林區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（八）休閒農業設施（工業區、河川區除外）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（九）再生能源相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十）私設通路",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    53
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十一）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    53,
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十二）自然保育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十三）綠能設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十四）公用事業設施(限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺)",
+   "free": "",
+   "permit": "1.輸配電鐵塔",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十四）公用事業設施(限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺)",
+   "free": "2.電線桿",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十四）公用事業設施(限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺)",
+   "free": "",
+   "permit": "3.配電臺及開關站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "養殖用地",
+   "item": "（十四）公用事業設施(限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺)",
+   "free": "",
+   "permit": "4.輸送電信、電力設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "七"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（一）鹽業設施",
+   "free": "1.鹽田及鹽堆積場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（一）鹽業設施",
+   "free": "",
+   "permit": "2.倉儲設施",
+   "condition": "本款第二目至第五目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（一）鹽業設施",
+   "free": "",
+   "permit": "3.鹽廠及食鹽加工廠及辦公廳員工宿舍",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（一）鹽業設施",
+   "free": "",
+   "permit": "4.轉運設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（一）鹽業設施",
+   "free": "",
+   "permit": "5.其他必要之鹽業設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（二）農舍",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    54
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（三）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "限於風力發電、太陽光電之發電設施點狀使用，點狀使用面積不得超過六百六十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    54,
+    55
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "鹽業用地",
+   "item": "（三）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "八"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（一）礦石開採及其設施",
+   "free": "",
+   "permit": "1.探採礦",
+   "condition": "本款各目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（一）礦石開採及其設施",
+   "free": "",
+   "permit": "2.貯礦場及廢土堆積場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（一）礦石開採及其設施",
+   "free": "",
+   "permit": "3.礦業廠庫或其所需房屋",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（一）礦石開採及其設施",
+   "free": "",
+   "permit": "4.水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（一）礦石開採及其設施",
+   "free": "",
+   "permit": "5.其他在礦業上必要之工程設施及其附屬設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "1.土石採取",
+   "condition": "本款各目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "2.土石採取場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "3.土石採取廠房暨產品加工之設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "4.水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "5.砂石堆置、儲運、土石碎解洗選場及其一貫作業之預拌混凝土場、瀝青拌合場（包括純以外購砂石碎解洗選場設置及其儲運、堆置）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（二）採取土石",
+   "free": "",
+   "permit": "6.其他在土石業上必要之工程設施及附屬設備",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "1.保育水土所採之保育設施",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    55
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "2.保護水源之職工辦公室及宿舍",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "3.自來水取水處理、管理及配送設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "4.水庫及與水庫有關的構造物及設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "5.水文觀測設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（三）水源保護及水土保持設施",
+   "free": "",
+   "permit": "6.其他水源保護及水土保持設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（四）林業使用",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（五）林業設施",
+   "free": "1.林業經營設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（五）林業設施",
+   "free": "2.其他林業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（六）臨時堆置收納營建剩餘土石方",
+   "free": "",
+   "permit": "臨時堆置收納營建剩餘土石方",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（七）水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    56
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（八）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、限於風力發電、太陽光電之發電設施點狀使用，點狀使用面積不得超過六百六十平方公尺及地熱發電設施使用。",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（八）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "1.砂土石碎解洗選設施廠房或相關加工設施",
+   "condition": "一、本款各目不得位於全國區域計畫規定之沿海自然保護區。二、位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "2.砂土石堆置、儲運場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "3.附屬之預拌混凝土廠、瀝青拌合廠及辦公廳、員工宿舍、倉庫",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "4.附屬之加儲油（氣）設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "5.環境保護及景觀維護設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    57
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（九）砂土石碎解洗選加工設施",
+   "free": "",
+   "permit": "6.其他必要之砂土石碎解洗選加工設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "礦業用地",
+   "item": "（十）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "溫泉井及溫泉儲槽",
+   "condition": "一、不得位於全國區域計畫規定之沿海自然保護區。二、使用面積合計不得超過十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "九"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "1.窯業製造",
+   "permit": "",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "2.窯業原料或成品堆置場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "3.自用窯業原料取土",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "4.水土保持設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "5.廠房",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（一）窯業使用及其設施",
+   "free": "6.單身員工宿舍及其必要設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（二）農作使用（包括牧草）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（三）水產養殖設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "限於風力發電、太陽光電之發電設施點狀使用，點狀使用面積不得超過六百六十平方公尺。",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    58
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（五）臨時堆置收納營建剩餘土石方",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同礦業用地",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "窯業用地",
+   "item": "（六）水庫、河川、湖泊淤泥資源再生利用臨時處理設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（一）按現況或交通計畫使用",
+   "free": "按現況或交通計畫使用",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "1.氣象局及其設備",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "2.氣象觀測站、地震測報站、海象觀測站、水文觀測站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "3.雷達站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "4.電信線路中心及機房、衛星站、地平發射站",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "5.民用航空站、助航設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "6.道路之養護、監理安全等設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "7.汽車修理業",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "8.汽車運輸業場站、設施",
+   "permit": "",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "9.駕駛訓練班",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "10.道路鐵路港灣及其設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "11.停車場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    59
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "12.貨櫃集散站",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "13.道路收費站、道路服務及管理設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "14.飛行場",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "",
+   "permit": "15.隔離設施",
+   "condition": "限於經區域計畫擬定機關核准開發計畫所設置。",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（二）交通設施（特定農業區除外）",
+   "free": "16.其他交通設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "1.電信監測站",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "2.電信、微波收發站（含基地臺）",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "3.電視、廣播訊號收發站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "4.纜線附掛桿",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "5.衛星地面站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "6.輸配電鐵塔",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "7.電線桿",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "8.配電臺及開關站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "9.抽水站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "10.自來水加壓站、配水池",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "11.檢查哨",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "12.航空助航設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "13.天文臺",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "14.輸送電信、電力設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "15.輸送油管、水管設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "16.有線電視管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（三）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "17.其他管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    60
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源熱能設施",
+   "condition": "沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "3.再生能源衍生燃料及其相關設施",
+   "condition": "沼氣發電、一般廢棄物及一般事業廢棄物為再生能源者除外。",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "4.再生能源輸送管線設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（四）再生能源相關設施",
+   "free": "",
+   "permit": "5.其他再生能源相關設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（五）戶外遊憩設施",
+   "free": "超輕型載具起降場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "交通用地",
+   "item": "（六）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十一"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（一）按現況或水利計畫使用",
+   "free": "",
+   "permit": "按現況或水利計畫使用",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    61
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "1.水岸遊憩建築及構造物",
+   "condition": "一、本款各目限於堰壩、水庫及原有灌溉埤、池。二、本款各目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "2.水上遊憩器材租售店",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "3.船泊加油設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "4.遊憩停泊碼頭及修護設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "5.遊艇出租",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "6.警衛或消防救生設備及建築",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（二）水岸遊憩設施",
+   "free": "",
+   "permit": "7.其他水岸遊憩設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（三）戶外遊憩設施",
+   "free": "",
+   "permit": "1.球道",
+   "condition": "本款各目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（三）戶外遊憩設施",
+   "free": "",
+   "permit": "2.超輕型載具起降場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（四）採取土石",
+   "free": "",
+   "permit": "土石採取",
+   "condition": "一、限於經土石採取機關規劃公告整體砂石資源開發區有案者。二、不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（五）其他經河川或排水管理機關核准者",
+   "free": "",
+   "permit": "其他經河川或排水管理機關核准者",
+   "condition": "限於河川區域內、水道治理計畫用地範圍內或排水設施範圍內。",
+   "sameAs": "",
+   "pages": [
+    62
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（六）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、限於風力發電、太陽光電發電、地熱發電及小水力發電之發電設施使用。但風力發電及地熱發電之設施點狀使用面積不得超過六百六十平方公尺。三、再生能源發電設施應依水利相關法規之使用許可規定辦理，以確保蓄水、供水及防洪等功能不受影響。",
+   "sameAs": "",
+   "pages": [
+    62,
+    63
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（六）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    63
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（七）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    63
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（八）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。二、本款位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（九）滯洪設施",
+   "free": "",
+   "permit": "1.滯洪池及其相關附屬設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "水利用地",
+   "item": "（九）滯洪設施",
+   "free": "",
+   "permit": "2.隔離設施",
+   "condition": "限於經區域計畫擬定機關核准開發計畫所設置。",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十二"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（一）遊憩設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（二）戶外遊憩設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同丙種建築用地",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "1.水岸遊憩建築及構造物",
+   "permit": "",
+   "condition": "本款各目高爾夫球場除外。",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "2.水上遊憩器材租售店",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "3.船泊加油設施",
+   "permit": "",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "4.遊憩停泊碼頭及修護設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "5.遊艇出租",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "6.警衛或消防救生設備及建築",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（三）水岸遊憩設施",
+   "free": "7.其他水岸遊憩設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    64
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（四）觀光遊憩管理服務設施",
+   "free": "",
+   "permit": "",
+   "condition": "一、本款各目高爾夫球場除外。二、國際觀光旅館、觀光旅館及一般旅館不得位於全國區域計畫規定之沿海自然保護區。但位於全國區域計畫規定之沿海一般保護區者，需經保護區主管機關許可。",
+   "sameAs": "同丙種建築用地",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（五）古蹟保存設施",
+   "free": "",
+   "permit": "古蹟及其保存設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（六）鄉村教育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（七）行政及文教設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "1.醫療機構",
+   "condition": "本款各目不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "2.衛生所（室）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "3.護理機構及精神復建機構",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "4.老人福利機構",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "5.兒童少年婦女身心障礙福利機構",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "6.社區活動中心及社會救助機構",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "7.長期照顧服務機構",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    65
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（八）衛生及福利設施",
+   "free": "",
+   "permit": "8.其他衛生及福利設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（九）安全設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同乙種建築用地",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十）宗教建築",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "1.郵政局所及郵件處理場",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "2.電信公司營運處（所）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "3.電信線路中心及機房設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "4.電信、微波收發站（含基地臺）",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "5.天然氣事業球型儲氣槽、管槽等儲氣設備",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "6.液化石油氣及其他可燃性高壓氣體容器儲存設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "7.加油站、加氣站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "8.發電、輸電、配電、變電等設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "9.自來水設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "10.抽水站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "11.國防設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "12.警察分局、駐在所、檢查哨或消防分小隊",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "13.油庫、輸油設施、輸氣設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "14.天然氣事業加壓站、整壓站及其他有關之設備",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "15.海堤設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "16.人行步道、涼亭、公廁設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    66
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "17.衛星廣播電視事業、無線及有線電視、廣播電臺及其相關設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "18.自來水公司施設之簡易自來水工程設施、自來水、淨水設備、配水池、加壓站及管線工程等設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "19.一般廢棄物回收貯存清除處理設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "20.公路汽車客運業、市區汽車客運業（場站）設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "21.水力發電輸水管設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十一）公用事業設施",
+   "free": "",
+   "permit": "22.其他公用事業設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十二）農作使用（包括牧草）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "1.氣象局及其設備",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "2.氣象觀測站、地震測報站、海象觀測站、水文觀測站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "3.雷達站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "4.電信線路中心及機房、衛星站、地平發射站",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "5.航空站、助航設施",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    67
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "6.道路之養護、監理安全等設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "7.汽車修理業",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "8.汽車運輸業場站、設施",
+   "condition": "位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "9.駕駛訓練班",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "10.道路鐵路港灣及其設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "11.停車場",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "12.貨櫃集散站",
+   "condition": "不得位於全國區域計畫規定之沿海自然保護區。",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "13.道路收費站、道路服務及管理設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十三）交通設施",
+   "free": "",
+   "permit": "14.其他交通設施",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十四）生態體系保護設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十五）水源保護及水土保持設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同礦業用地",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十六）林業使用",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十七）森林遊樂設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同丙種建築用地",
+   "pages": [
+    68
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十八）再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、風力發電及地熱發電之發電設施限於遊憩設施使用。二、限於風力發電、太陽光電及地熱發電之發電設施使用。但風力發電及地熱發電之設施，點狀使用面積不得超過六百六十平方公尺。三、設置太陽光電發電設施不得影響遊憩使用之性質及功能。四、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。",
+   "sameAs": "",
+   "pages": [
+    68,
+    69
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十八）再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（十九）溫泉井及溫泉儲槽",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "遊憩用地",
+   "item": "（二十）兒童課後照顧服務中心",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同甲種建築用地",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十三"
+  },
+  {
+   "landuse": "古蹟保存用地",
+   "item": "古蹟保存設施",
+   "free": "",
+   "permit": "古蹟及其保存設施",
+   "condition": "應依文化資產保存法規定辦理。",
+   "sameAs": "",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十四"
+  },
+  {
+   "landuse": "生態保護用地",
+   "item": "（一）生態體系保護設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十五"
+  },
+  {
+   "landuse": "生態保護用地",
+   "item": "（二）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。",
+   "sameAs": "",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十五"
+  },
+  {
+   "landuse": "生態保護用地",
+   "item": "（三）自然保育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十五"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（一）水源保護及水土保持設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（二）林業使用",
+   "free": "1.造林、苗圃",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    69
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（二）林業使用",
+   "free": "2.林下經濟經營使用",
+   "permit": "",
+   "condition": "一、限於保安林範圍且非屬保安林解除審核標準第三條所定不得解除保安林之地區。二、本款應依中央林業主管機關所定林下經濟經營使用審查作業要點規定辦理。",
+   "sameAs": "",
+   "pages": [
+    69,
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（三）林業設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（四）公用事業設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（五）隔離綠帶",
+   "free": "1.隔離綠帶",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（五）隔離綠帶",
+   "free": "",
+   "permit": "2.隔離設施",
+   "condition": "限於經區域計畫擬定機關核准開發計畫所設置。",
+   "sameAs": "",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（六）綠地",
+   "free": "綠地",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（七）再生能源相關設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（八）農村再生設施",
+   "free": "",
+   "permit": "",
+   "condition": "本款應依農村再生發展區計畫審核及管理監督辦法規定辦理。",
+   "sameAs": "",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（九）自然保育設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "（十）綠能設施",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同農牧用地",
+   "pages": [
+    70
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "國土保安用地",
+   "item": "(十一)交通設施（限於點狀或線狀使用。點狀使用面積不得超過六百六十平方公尺）",
+   "free": "",
+   "permit": "",
+   "condition": "",
+   "sameAs": "同林業用地",
+   "pages": [
+    70,
+    71
+   ],
+   "landuseNo": "十六"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（一）殯葬設施",
+   "free": "1.公墓",
+   "permit": "",
+   "condition": "本款各目位於全國區域計畫規定之沿海自然保護區者，需經目的事業主管機關、使用地主管機關及有關機關許可。",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（一）殯葬設施",
+   "free": "2.殯儀館",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（一）殯葬設施",
+   "free": "3.火化場",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（一）殯葬設施",
+   "free": "4.骨灰（骸）存放設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（一）殯葬設施",
+   "free": "5.禮廳及靈堂",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（二）林業使用",
+   "free": "同農牧用地",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（三）林業設施",
+   "free": "1.林業經營設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "（三）林業設施",
+   "free": "2.其他林業設施",
+   "permit": "",
+   "condition": "",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "(四)電信、微波收發站（含基地臺）",
+   "free": "",
+   "permit": "電信、微波收發站（含基地臺）",
+   "condition": "一、位於全國區域計畫規定之沿海自然保護區，需經保護區主管機關許可。二、基地面積不得超過一百平方公尺。",
+   "sameAs": "",
+   "pages": [
+    71
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "(五)寵物骨灰灑葬區",
+   "free": "",
+   "permit": "寵物骨灰灑葬區",
+   "condition": "應符合下列各款規定：(一)應與殯葬設施有明顯區隔。(二)經直轄市、縣（市）殯葬主管機關確認已無殯葬設施規劃設置及使用需求。(三)使用面積不得超過二千五百平方公尺。",
+   "sameAs": "",
+   "pages": [
+    71,
+    72
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "(六)再生能源相關設施",
+   "free": "",
+   "permit": "1.再生能源發電設施",
+   "condition": "一、本款各目位於全國區域計畫規定之沿海自然保護區者，需經保護區主管機關許可。二、應符合下列各款規定：(一)限於太陽光電發電設施使用。(二)限於公墓內設置，並經直轄市、縣（市）殯葬主管機關同意。",
+   "sameAs": "",
+   "pages": [
+    72
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "殯葬用地",
+   "item": "(六)再生能源相關設施",
+   "free": "",
+   "permit": "2.再生能源輸送管線設施",
+   "condition": "限於線狀使用。",
+   "sameAs": "",
+   "pages": [
+    72
+   ],
+   "landuseNo": "十七"
+  },
+  {
+   "landuse": "特定目的事業用地",
+   "item": "按特定目的事業計畫使用",
+   "free": "按特定目的事業計畫使用",
+   "permit": "",
+   "condition": "符合下列各款規定者，需經目的事業主管機關、使用地主管機關及有關機關許可：(一)位於全國區域計畫規定之沿海自然保護區。(二)使用面積零點五公頃以上，且位於全國區域計畫規定之沿海一般保護區。",
+   "sameAs": "",
+   "pages": [
+    72,
+    73
+   ],
+   "landuseNo": "十八"
+  }
+ ],
+ "notes": [
+  "備註：",
+  "一、使用地位屬河川區者，本附表中許可使用細目之使用應經河川管理機關之同意。",
+  "二、本附表中規定免經申請之許可使用細目，除目的事業主管機關另有規定或得逕依建築法申請建造執照、雜項執照者，應依其規定辦理外，得免依本規則申請許可使用。但免經申請許可使用細目定有附帶條件者，應依其附帶條件規定辦理，始得為之。",
+  "本整理一個細目一列；同一容許使用項目沒有細目（例如應依其他辦法辦理者）時，free、permit 都空白，條件寫在該列。"
+ ]
+}

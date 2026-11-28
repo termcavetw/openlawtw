@@ -12,6 +12,7 @@ __pycache__/
 *.pyc
 data/runtime-catalog.json
 data/runtime-manifest.json
+public/data/tables/
 public/data/v2/
 public/data/minutes/
 public/data/landuse/
