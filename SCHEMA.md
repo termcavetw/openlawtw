@@ -81,7 +81,12 @@ scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、�
 
 每個附件：title、url（官方原檔）、kind（pdf、doc、docx、odf、xls、xlsx、image、page＝連到的是網頁而非檔案、missing＝抓不到）、sha256、bytes、retrieved、pages[{page, method, text}]。method＝text 是檔案文字層，ocr 是光學辨識，engine 記用哪個引擎（paddle＝PaddleOCR PP-OCRv6，同一行的方框以「 | 」相連；tesseract＝PaddleOCR 無法使用時的備援），可能有誤字，圖面類頁面辨識結果多半零碎；ODT／DOC 等先由 LibreOffice 轉 PDF 再取文字，保留頁碼與表格排版。表格只保留排版文字，格線不見；data/attachment-transcriptions/<法規 ID>.json 可對個別附件加人工對照原檔整理的 transcription（例如使用類組矩陣逐格寫成「原類組 → 變更類組：符號（條件）」），與擷取文字並列，不取代。以官方原檔為準。
 
+搜尋用合併檔：public/data/attachments/search/all.json（全部）與 search/<地區>.json，manifest.attachments.search 列出網址。每頁一列 {law, name, attachment（該法規附件檔的第幾個附件）, title, page, method, engine, text, truncated}；text 把連續空白併成一個，超過 4000 字截斷並標 truncated，完整內容回該法規的附件檔讀。
+
 部分縣市法規網拒絕國外連線（GitHub 上的每週同步連不到）：可用臺灣網路的瀏覽器把頁面與附件存成 {url: base64} 包，再用 scripts/import-local-pages.py（法規頁，交給 sync-laws.py --add-only --only-laws 解析）與 sync-attachments.py --import（附件）匯入。抓不到時保留上次擷取的內容。
+
+## 最近變更與各地同步狀態
+manifest.recentChanges：最近 90 天內本庫觀測到有變動的法規，依版本封存（data/history.json、data/versions）比對每部法規最新兩次封存，[{id, name, region, modified（現行修正日期）, recordedAt（本庫觀測時間，不是官方日期）, kinds, changedArticles}]。kinds：條文修正（條文與修正日期都變）、條文差異（修正日期未變，多為官方勘誤或本庫重新解析）、註記移除／註記新增（如「函告…無效」註記）、附件更新、修正日期、名稱；只有空白差異的不列。manifest.regionSync：各地區法規數、最近與最久一次向官方核對的時間（newestRetrieved、oldestRetrieved）、最近一次每週同步連不到或需人工確認的筆數（failedLastWeeklyRun），以及該次同步時間 lastWeeklyRun。兩者都只在 public manifest。
 
 ## 查找與離線
 索引只儲存文件位置與 CJK 字元、雙字的 delta-varint/base64 posting lists，沒有再次複製整段原文。候選交集後才載入對應法規／函釋，並用精確條號、別名、全部關鍵字及原文再驗證。
