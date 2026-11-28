@@ -1,0 +1,772 @@
+{
+ "schemaVersion": 1,
+ "id": "change-of-use-subordinate",
+ "title": "建築物使用類組及變更使用辦法 附表五 建築物主從用途關係表",
+ "law": "D0070141",
+ "lawName": "建築物使用類組及變更使用辦法",
+ "source": {
+  "kind": "attachment",
+  "title": "附表五：建築物主從用途關係表.PDF",
+  "url": "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000235203",
+  "sha256": "98384253b2e1a3ffd81907d2b2e1c71a611155dabde1ada79a7bf55d3f6d329c",
+  "lawModified": "2025-05-13"
+ },
+ "method": "人工對照原檔整理（2026-11-28）",
+ "note": "以官方原文為準；source.sha256 與現行原文不同時，本表可能已過時。",
+ "columns": {
+  "subordinate": "從屬用途使用組別",
+  "main": "主用途使用組別",
+  "value": "原表符號"
+ },
+ "rows": [
+  {
+   "subordinate": "D-1",
+   "main": "A-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "A-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "B-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "B-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "B-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "B-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "C-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "C-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "D-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "D-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "D-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "D-5",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "E",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "F-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "F-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "F-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "F-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "G-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "G-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "G-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-1",
+   "main": "H-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "A-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "A-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "B-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "B-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "B-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "B-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "C-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "C-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "D-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "D-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "D-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "D-5",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "E",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "F-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "F-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "F-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "F-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "G-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "G-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "G-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-2",
+   "main": "H-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "A-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "A-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "B-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "B-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "B-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "B-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "C-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "C-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "D-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "D-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "D-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "D-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "E",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "F-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "F-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "F-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "F-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "G-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "G-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "G-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "D-5",
+   "main": "H-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "A-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "A-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "B-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "B-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "B-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "B-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "C-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "C-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "D-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "D-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "D-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "D-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "D-5",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "E",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "F-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "F-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "F-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "G-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "G-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "G-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "F-3",
+   "main": "H-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "A-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "A-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "B-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "B-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "B-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "B-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "C-1",
+   "value": "△"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "C-2",
+   "value": "△"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "D-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "D-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "D-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "D-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "D-5",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "E",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "F-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "F-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "F-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "F-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "G-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "G-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-2",
+   "main": "H-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "A-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "A-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "B-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "B-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "B-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "B-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "C-1",
+   "value": "△"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "C-2",
+   "value": "△"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "D-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "D-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "D-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "D-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "D-5",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "E",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "F-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "F-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "F-3",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "F-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "G-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "G-2",
+   "value": "○"
+  },
+  {
+   "subordinate": "G-3",
+   "main": "H-1",
+   "value": "○"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "A-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "A-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "B-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "B-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "B-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "B-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "C-1",
+   "value": "△"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "C-2",
+   "value": "△"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "D-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "D-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "D-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "D-4",
+   "value": "○"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "D-5",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "E",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "F-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "F-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "F-3",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "F-4",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "G-1",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "G-2",
+   "value": "╳"
+  },
+  {
+   "subordinate": "H-1",
+   "main": "G-3",
+   "value": "╳"
+  }
+ ],
+ "notes": [
+  "說明：",
+  "一、○指表列各從屬用途之合計樓地板面積符合本辦法第六條第一項第三款規定者，其與對應之主用途具有從屬關係。",
+  "二、△指表列各從屬用途之合計樓地板面積同時符合本辦法第六條第一項第三款及建築技術規則建築設計施工編第二百七十二條規定者，其與對應之主用途具有從屬關係。",
+  "三、╳指對應之使用組別未具從屬關係。",
+  "四、本表所列E類別之主用途，以宗教類相關場所為限。",
+  "五、依建築技術規則規定採用建築物防火避難性能設計或依同規則總則編第三條之四規定領有中央主管建築機關認可之建築物防火避難綜合檢討計畫書及評定書之建築物，不適用本表規定。"
+ ],
+ "orientation": "原表列＝從屬用途使用組別，欄＝主用途使用組別（A-1 至 H-1，無 H-2、I）",
+ "legend": {
+  "○": "表列各從屬用途之合計樓地板面積符合本辦法第六條第一項第三款規定者，其與對應之主用途具有從屬關係",
+  "△": "表列各從屬用途之合計樓地板面積同時符合本辦法第六條第一項第三款及建築技術規則建築設計施工編第二百七十二條規定者，其與對應之主用途具有從屬關係",
+  "╳": "對應之使用組別未具從屬關係"
+ }
+}

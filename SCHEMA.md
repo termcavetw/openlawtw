@@ -83,6 +83,17 @@ scripts/sync-law-versions.py 從全國法規資料庫「歷史法規」（LawOld
 - observed=true 的版本不是取自歷史法規頁，而是本庫先前抓到的現行頁內容：縣市網站連不到時，修正後的舊現行版由本庫的檔案保留。
 - 部分縣市網站拒絕國外連線，排程抓不到；這些縣市由臺灣的瀏覽器抓頁面後以 --import 匯入，連得到的網站每週以 --fetch --changed 只重抓現行條文有變的法規。南投縣、內政部主管法規系統的少數法規尚未收；臺北市、新北市用不同的法規系統，也尚未收。
 
+## 常用大表（結構化）
+data/structured-tables/<id>.json 是人工對照官方原文整理的大表，建置時（scripts/structured-tables.mjs）複製到 public/data/tables/<id>.json，總表 /data/tables/index.json；manifest.tables 列出每張表的 url、sha256、bytes、rows、source、stale。只在 public/data/manifest.json，不進 App 內建 manifest 與離線包。
+- parking-59：建築技術規則建築設計施工編第 59 條停車空間設置標準表。rows 每類一列，urban／nonUrban 各有 exemptUpTo（免設面積）、perArea（超過部分每多少平方公尺一輛）與原文；說明（一）至（六）在 notes。
+- accessible-parking-167-6：設計施工編第 167-6 條無障礙停車位數量表。rows {category, use, min, max, accessible}；超過 550 輛的列有 rule 原文與 base／per。
+- live-load-17：建築構造編第 17 條活載重表。rows {class, className, group, groupName, items（使用項目舉例原文）, load（公斤／平方公尺）}；表後各項（車庫、走廊樓梯、屋頂露臺、人群聚集場所）在 notes。
+- change-of-use-principles：建築物使用類組及變更使用辦法附表三變更使用原則表。rows {from 原類組, to 變更類組, value ☆○◎※△}，legend 是摘要，說明全文在 notes。
+- change-of-use-review-items：同辦法附表四。rows {group 變更後類組, no 項次, item 規定項目, standard 檢討標準原文}；每類組 20 項，H-1、H-2 為 22 項。
+- change-of-use-subordinate：同辦法附表五主從用途關係表。rows {subordinate 從屬用途, main 主用途, value ○△╳}。
+- nonurban-permitted-uses：非都市土地使用管制規則附表一。一個細目一列：landuseNo、landuse、item（容許使用項目）、free（免經申請許可使用細目）、permit（需經許可使用細目）、condition（附帶條件原文）、sameAs（原表寫「同○○用地」時照錄）、pages（原檔頁碼）。
+每張表的 source 記取材的條文或附件（kind、article 或 title／url）與當時原文的 sha256；表格在附件時另記 source.table。建置時比對現行條文或附件的 sha256，不符就在發布的檔與 manifest 標 stale: true、sourceCheck 列出比對結果：表示原文已變、整理可能過時，請改讀官方原文並更新整理。
+
 ## 法規附件全文
 scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、附件、圖例、書表、總說明），轉成逐頁文字，寫到 public/data/attachments/<法規 ID>.json（網址 /data/attachments/<URL 編碼的檔名>），總表 index.json。manifest.attachments 列出每部法規附件檔的 url、sha256、附件數、有文字的附件數、缺檔數、OCR 頁數、人工整理數；只在 public/data/manifest.json，不進 App 內建 manifest 與離線包。
 
