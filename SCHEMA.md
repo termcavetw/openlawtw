@@ -79,7 +79,7 @@ scripts/sync-law-versions.py 從全國法規資料庫「歷史法規」（LawOld
 ## 法規附件全文
 scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、附件、圖例、書表、總說明），轉成逐頁文字，寫到 public/data/attachments/<法規 ID>.json（網址 /data/attachments/<URL 編碼的檔名>），總表 index.json。manifest.attachments 列出每部法規附件檔的 url、sha256、附件數、有文字的附件數、缺檔數、OCR 頁數、人工整理數；只在 public/data/manifest.json，不進 App 內建 manifest 與離線包。
 
-每個附件：title、url（官方原檔）、kind（pdf、doc、docx、odf、xls、xlsx、image、page＝連到的是網頁而非檔案、missing＝抓不到）、sha256、bytes、retrieved、pages[{page, method, text}]。method＝text 是檔案文字層，ocr 是光學辨識（chi_tra，可能有誤字）；ODT／DOC 等先由 LibreOffice 轉 PDF 再取文字，保留頁碼與表格排版。表格只保留排版文字，格線不見；data/attachment-transcriptions/<法規 ID>.json 可對個別附件加人工對照原檔整理的 transcription（例如使用類組矩陣逐格寫成「原類組 → 變更類組：符號（條件）」），與擷取文字並列，不取代。以官方原檔為準。
+每個附件：title、url（官方原檔）、kind（pdf、doc、docx、odf、xls、xlsx、image、page＝連到的是網頁而非檔案、missing＝抓不到）、sha256、bytes、retrieved、pages[{page, method, text}]。method＝text 是檔案文字層，ocr 是光學辨識，engine 記用哪個引擎（paddle＝PaddleOCR PP-OCRv6，同一行的方框以「 | 」相連；tesseract＝PaddleOCR 無法使用時的備援），可能有誤字，圖面類頁面辨識結果多半零碎；ODT／DOC 等先由 LibreOffice 轉 PDF 再取文字，保留頁碼與表格排版。表格只保留排版文字，格線不見；data/attachment-transcriptions/<法規 ID>.json 可對個別附件加人工對照原檔整理的 transcription（例如使用類組矩陣逐格寫成「原類組 → 變更類組：符號（條件）」），與擷取文字並列，不取代。以官方原檔為準。
 
 部分縣市法規網拒絕國外連線（GitHub 上的每週同步連不到）：可用臺灣網路的瀏覽器把頁面與附件存成 {url: base64} 包，再用 scripts/import-local-pages.py（法規頁，交給 sync-laws.py --add-only --only-laws 解析）與 sync-attachments.py --import（附件）匯入。抓不到時保留上次擷取的內容。
 

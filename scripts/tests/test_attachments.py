@@ -42,6 +42,8 @@ class StoredFiles(unittest.TestCase):
                     self.assertIsInstance(a['pages'], list)
                 for page in a.get('pages') or []:
                     self.assertIn(page['method'], ('text', 'ocr'))
+                    if page['method'] == 'ocr':
+                        self.assertIn(page.get('engine'), ('paddle', 'tesseract'), (law_id, a['title']))
 
     def test_reviewed_transcription(self):
         d = json.loads((ROOT / 'public/data/attachments/桃園市-GL001285.json').read_text(encoding='utf-8'))
