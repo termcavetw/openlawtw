@@ -76,6 +76,13 @@ scripts/sync-law-versions.py 從全國法規資料庫「歷史法規」（LawOld
 
 施行日規則：沿革寫「自公布／發布日施行」或沒寫時，依中央法規標準法第 13 條為公布日起算第三日；「自即日施行」為當日；寫明日期者照寫；「施行日期另定／由行政院定之」而沿革沒有後續命令的，effective／from 為 null、Known 為 false，不推測。只部分款項或「某某部分」先施行的條文也標 null。沿革中後令定施行日的會覆蓋前面的另定。文字只有標點、空白等差異且該次修正沒有列到該條的，不另起一段。較晚的修正比較早的修正先施行、較早那次從未生效的，那段不列在 articles，原文仍可從 versions 還原。條號是各版本當時的條號，法規全文修正改條號時不會自動對應。
 
+地方法規：scripts/sync-local-versions.py 從各縣市法規系統（主管法規共用系統）的「歷史法規」（LawContentHistoryList／LawContentHistory）抓舊版全文，現行版取 public/data/laws.json，寫到 public/data/law-versions/<法規 ID>.json（例如 桃園市-GL001285.json，網址要 URL 編碼；manifest.lawVersions.laws[id].url 已編好）。格式同上，另有 region、currentHash（現行條文的雜湊，用來判斷有沒有新修正），source 是該法規的歷史法規列表頁。index.json 與 manifest.lawVersions 一起收中央與地方，每筆多 region、source、unsplit（無法切分條號的版本數）。
+- promulgated 是歷史法規頁的異動（發布）日期。施行日：自治條例與名稱為規則、細則、辦法、綱要、標準、準則者，依地方制度法第 32 條為發布日起算第三日（條文定「自即日施行」為當日）；條文明定「自中華民國○年○月○日施行」且不早於這次發布日的，依該日期（早於發布日的是前一版留下的日期，不採用）；「施行日期另定」與要點、原則、規定等行政規則未明定日期的，effective 為 null、effectiveKnown=false，不推測。effectiveBasis 寫判斷依據。
+- 舊版頁面是一整段文字，依「第 N 條／點」標題或行首「一、」切條；切不開的版本只存 fullText、不參與 articles 時間軸（目前只有官方頁面本身沒有條文的 4 個版本）。條號以現行版的寫法對應，對不上的寫成「第 N 條」。版本 name 只在當時名稱與現在不同時列出。
+- 與中央相同，施行日前又被修正、從未生效的那一版不列在 articles，原文仍在 versions。
+- observed=true 的版本不是取自歷史法規頁，而是本庫先前抓到的現行頁內容：縣市網站連不到時，修正後的舊現行版由本庫的檔案保留。
+- 部分縣市網站拒絕國外連線，排程抓不到；這些縣市由臺灣的瀏覽器抓頁面後以 --import 匯入，連得到的網站每週以 --fetch --changed 只重抓現行條文有變的法規。南投縣、內政部主管法規系統的少數法規尚未收；臺北市、新北市用不同的法規系統，也尚未收。
+
 ## 法規附件全文
 scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、附件、圖例、書表、總說明），轉成逐頁文字，寫到 public/data/attachments/<法規 ID>.json（網址 /data/attachments/<URL 編碼的檔名>），總表 index.json。manifest.attachments 列出每部法規附件檔的 url、sha256、附件數、有文字的附件數、缺檔數、OCR 頁數、人工整理數；只在 public/data/manifest.json，不進 App 內建 manifest 與離線包。
 

@@ -30,7 +30,7 @@ DATA_PATHS = (
 )
 REQUIRED_STAGES = (
     'dependencies-node', 'dependencies-python', 'dependencies-ocr', 'unit-tests', 'baseline',
-    'laws', 'rulings', 'guard', 'validate-laws', 'validate-rulings', 'law-versions', 'attachments',
+    'laws', 'rulings', 'guard', 'validate-laws', 'validate-rulings', 'law-versions', 'local-versions', 'attachments',
     'minutes', 'validate-minutes', 'landuse', 'validate-landuse', 'agri', 'validate-agri', 'taipei', 'validate-taipei', 'central', 'validate-central', 'ntpc-manual', 'validate-ntpc-manual',
     'snapshot', 'build', 'typecheck', 'check',
 )

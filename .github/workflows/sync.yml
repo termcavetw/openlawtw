@@ -50,6 +50,8 @@ jobs:
         run: python scripts/run-sync.py step validate-rulings -- python scripts/check-rulings.py --cache .rulings-cache
       - name: Fetch earlier versions of central laws whose current text changed (條文時點查詢)
         run: python scripts/run-sync.py step law-versions -- python scripts/sync-law-versions.py --changed
+      - name: Earlier versions of local laws whose current text changed (sites that refuse foreign connections are rebuilt from the stored files)
+        run: python scripts/run-sync.py step local-versions -- python scripts/sync-local-versions.py --fetch --changed
       - name: Text of new or changed law attachments (附件全文)
         run: python scripts/run-sync.py step attachments -- bash -c "sudo apt-get install -y -qq --no-install-recommends libreoffice-writer-nogui libreoffice-calc-nogui fonts-noto-cjk >/dev/null && python scripts/sync-attachments.py"
       - name: Fetch new Taoyuan building-administration minutes (incremental)
