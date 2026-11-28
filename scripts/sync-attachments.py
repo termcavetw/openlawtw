@@ -15,7 +15,7 @@ URL. Some local law systems refuse connections from outside Taiwan. Files can be
 --import <dir>: a directory of bundles {url: base64} (as a browser on a Taiwan connection saves them) or plain files
 named by sha1(url). A file already extracted is kept when its URL cannot be fetched again.
 """
-import argparse, base64, hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.parse, urllib.request
+import argparse, base64, hashlib, html, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -140,6 +140,38 @@ def targets(laws, only=None):
     return out
 
 
+LISTING = re.compile(r'laws\.gov\.taipei/Law/LawSearch/LawFileList/|web\.law\.ntpc\.gov\.tw/Scripts/FLAWDAT01\.aspx')
+FILE_LINK = re.compile(r'<a[^>]+href="(/(?:Law/File/|Download\.ashx\?pfid=)[^"]+)"[^>]*>(.*?)</a>', re.S)
+
+
+def expand_listing(item, refresh_failed, fetch_ok=True):
+    """Taipei (LawFileList) and New Taipei (FLAWDAT01) link a page listing the law's files, not a file: list its
+    files instead, each under the page's attachment index. The page is fetched every run (its files change with the
+    law); when it cannot be fetched the last copy in the cache is used."""
+    cached = CACHE / (key_of(item['url']) + '.listing')
+    try:
+        if not fetch_ok:
+            raise OSError('not fetching')
+        raw = fetch(item['url'])
+        cached.write_bytes(raw)
+    except Exception:  # noqa: BLE001
+        if fetch_ok:
+            refresh_failed.append(item['url'])
+        if not cached.exists():
+            return [item]
+        raw = cached.read_bytes()
+    page = raw.decode('utf-8', 'replace')
+    base = '{0.scheme}://{0.netloc}'.format(urllib.parse.urlparse(item['url']))
+    files, seen = [], set()
+    for href, label in FILE_LINK.findall(page):
+        url = base + html.unescape(href)
+        title = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', label))).strip() or '官方附件'
+        if url not in seen:
+            seen.add(url)
+            files.append({'index': item['index'], 'title': title, 'url': url, 'listedOn': item['url']})
+    return files or [item]
+
+
 def load_imports(dirs):
     files = {}
     for d in dirs or []:
@@ -180,6 +212,7 @@ def main():
     for k, raw in imported.items():
         (CACHE / k).write_bytes(raw)
     unreachable_hosts, host_failures = set(), {}
+    listing_failures = []
     missing = {}
     stats = {'laws': 0, 'files': 0, 'pages': 0, 'ocrPages': 0, 'linkPages': 0, 'missing': 0}
     now = datetime.now(timezone.utc).isoformat(timespec='seconds')
@@ -188,7 +221,10 @@ def main():
         prev = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
         prev_by_url = {x['url']: x for x in prev.get('attachments', [])}
         records = []
+        expanded = []
         for item in items:
+            expanded += expand_listing(item, listing_failures, not a.no_fetch) if LISTING.search(item['url']) else [item]
+        for item in expanded:
             url, host = item['url'], urllib.parse.urlparse(item['url']).netloc
             if re.search(r'/LawContent\.aspx|/LawAll\.aspx|/LawSingle\.aspx', url):
                 # a link to the law system's own page, not a file
@@ -253,6 +289,10 @@ def main():
                 stats['pages'] += len(rec['pages'])
                 stats['ocrPages'] += sum(p['method'] == 'ocr' for p in rec['pages'])
             records.append(rec)
+        listed = {x['url']: x['listedOn'] for x in expanded if x.get('listedOn')}
+        for rec in records:
+            if rec['url'] in listed:
+                rec['listedOn'] = listed[rec['url']]
         transcription = TRANSCRIPTIONS / f'{safe_name(law_id)}.json'
         if transcription.exists():
             reviewed = json.loads(transcription.read_text(encoding='utf-8'))
@@ -271,7 +311,7 @@ def main():
     write_index()
     if a.list_missing:
         Path(a.list_missing).write_text(json.dumps(missing, ensure_ascii=False, indent=1), encoding='utf-8')
-    print(json.dumps({**stats, 'unreachableHosts': sorted(unreachable_hosts)}, ensure_ascii=False))
+    print(json.dumps({**stats, 'unreachableHosts': sorted(unreachable_hosts), 'listingFailures': listing_failures}, ensure_ascii=False))
 
 
 def write_index():
@@ -287,6 +327,10 @@ def write_index():
                           'missing': sum(1 for x in att if x.get('kind') == 'missing'),
                           'ocrPages': sum(1 for x in att for pg in (x.get('pages') or []) if pg['method'] == 'ocr'),
                           'transcribed': sum(1 for x in att if x.get('transcription'))}
+        tr = [{'attachment': i, 'title': x['title'], 'kind': x['transcription'].get('kind'), 'rows': len(x['transcription'].get('rows') or [])}
+              for i, x in enumerate(att) if x.get('transcription')]
+        if tr:
+            laws[d['law']]['transcriptions'] = tr
     (OUT / 'index.json').write_text(json.dumps({'schemaVersion': 1, 'laws': laws}, ensure_ascii=False,
                                                separators=(',', ':')) + '\n', encoding='utf-8')
     write_search()
@@ -317,6 +361,19 @@ def write_search():
                 if len(text) > SEARCH_PAGE_CHARS:
                     row['truncated'] = True
                 rows.setdefault(d['region'], []).append(row)
+            t = a.get('transcription')
+            if t and t.get('text'):
+                # the reviewed transcription is searchable too, cut at line ends into parts of SEARCH_PAGE_CHARS
+                parts, cur = [], ''
+                for line in t['text'].split('\n'):
+                    if cur and len(cur) + len(line) + 1 > SEARCH_PAGE_CHARS:
+                        parts.append(cur); cur = ''
+                    cur = (cur + '\n' + line) if cur else line
+                parts.append(cur)
+                for n, part in enumerate(parts, 1):
+                    rows.setdefault(d['region'], []).append({'law': d['law'], 'name': d['name'], 'attachment': i, 'title': a['title'],
+                                                             'page': None, 'part': n, 'parts': len(parts), 'method': 'transcription',
+                                                             'text': part[:SEARCH_PAGE_CHARS]})
     target = OUT / 'search'
     if target.exists():
         shutil.rmtree(target)
