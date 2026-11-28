@@ -207,9 +207,9 @@ try{const taipei=await readFile(join(root,'public/data/taipei-rulings.json'));co
 // 條文歷次版本 (scripts/sync-law-versions.py): served as is under /data/law-versions/, outside offline packs.
 // MCP reads manifest.lawVersions to find each law's file; effective dates it could not establish stay null.
 try{const index=JSON.parse(await readFile(join(root,'public/data/law-versions/index.json'),'utf8'));const laws={};
- for(const [id,x] of Object.entries(index.laws).sort(([a],[b])=>a.localeCompare(b))){const bytes=await readFile(join(root,'public/data/law-versions',id+'.json'));
-  laws[id]={name:x.name,url:'/data/law-versions/'+id+'.json',sha256:sha(bytes),bytes:bytes.length,versions:x.versions,oldest:x.oldest,current:x.current,unknownEffective:x.unknownEffective};}
- manifest.lawVersions={schemaVersion:index.schemaVersion,index:'/data/law-versions/index.json',source:'全國法規資料庫 歷史法規（LawOldVer）',laws};
+ for(const [id,x] of Object.entries(index.laws).sort(([a],[b])=>a.localeCompare(b))){const file=x.file||id+'.json';const bytes=await readFile(join(root,'public/data/law-versions',file));
+  laws[id]={name:x.name,region:x.region||'中央',url:'/data/law-versions/'+encodeURIComponent(file),source:x.source,sha256:sha(bytes),bytes:bytes.length,versions:x.versions,oldest:x.oldest,current:x.current,unknownEffective:x.unknownEffective,unsplit:x.unsplit||0};}
+ manifest.lawVersions={schemaVersion:index.schemaVersion,index:'/data/law-versions/index.json',source:'中央法規：全國法規資料庫「歷史法規」（LawOldVer）；地方法規：各縣市法規系統「歷史法規」（LawContentHistory）',laws};
 }catch(error){if(error.code!=='ENOENT')throw error;}
 // 法規附件全文 (scripts/sync-attachments.py): served as is under /data/attachments/, outside offline packs.
 try{const index=JSON.parse(await readFile(join(root,'public/data/attachments/index.json'),'utf8'));const laws={};
