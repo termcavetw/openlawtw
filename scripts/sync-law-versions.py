@@ -462,12 +462,17 @@ def main():
 
 
 def write_index(laws):
+    """index.json over every law's file: the central ones written here and the local ones from sync-local-versions.py."""
     entries = {}
-    for path in sorted(OUT.glob('[A-Z]*.json')):
+    for path in sorted(OUT.glob('*.json')):
+        if path.name == 'index.json':
+            continue
         d = json.loads(path.read_text(encoding='utf-8'))
         unknown = sum(1 for v in d['versions'] if not v['effectiveKnown'])
-        entries[d['law']] = {'name': d['name'], 'versions': len(d['versions']), 'oldest': d['versions'][0]['promulgated'],
-                             'current': d['currentPromulgated'], 'unknownEffective': unknown, 'bytes': path.stat().st_size}
+        entries[d['law']] = {'name': d['name'], 'region': d.get('region', '中央'), 'source': d['source'],
+                             'file': path.name, 'versions': len(d['versions']), 'oldest': d['versions'][0]['promulgated'],
+                             'current': d['currentPromulgated'], 'unknownEffective': unknown,
+                             'unsplit': sum(1 for v in d['versions'] if 'fullText' in v), 'bytes': path.stat().st_size}
     (OUT / 'index.json').write_text(json.dumps({'schemaVersion': 1, 'laws': entries}, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 
 

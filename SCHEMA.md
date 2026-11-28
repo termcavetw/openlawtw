@@ -88,6 +88,15 @@ scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、�
 
 每個附件：title、url（官方原檔）、kind（pdf、doc、docx、odf、xls、xlsx、image、page＝連到的是網頁而非檔案、missing＝抓不到）、sha256、bytes、retrieved、pages[{page, method, text}]。method＝text 是檔案文字層，ocr 是光學辨識，engine 記用哪個引擎（paddle＝PaddleOCR PP-OCRv6，同一行的方框以「 | 」相連；tesseract＝PaddleOCR 無法使用時的備援），可能有誤字，圖面類頁面辨識結果多半零碎；ODT／DOC 等先由 LibreOffice 轉 PDF 再取文字，保留頁碼與表格排版。表格只保留排版文字，格線不見；data/attachment-transcriptions/<法規 ID>.json 可對個別附件加人工對照原檔整理的 transcription（例如使用類組矩陣逐格寫成「原類組 → 變更類組：符號（條件）」），與擷取文字並列，不取代。以官方原檔為準。
 
+臺北市（LawFileList）與新北市（FLAWDAT01）的法規連到的是附件清單頁而不是檔案：同步時會讀清單頁，改列出其中的每個檔案（同一個 index，listedOn 記清單頁網址）；清單頁抓不到時用上次的副本。
+
+人工整理（transcription）：data/attachment-transcriptions/<法規 ID>.json 以附件標題為鍵，同步時併入該附件的 transcription。共同欄位：kind、method（整理方式與日期）、note、text（逐行文字，可直接閱讀與搜尋）、rows（結構化資料）、notes（原表說明與整理註記）。kind 有三種：
+- use-group matrix（原類組 × 變更類組的矩陣，例如臺北市、基隆市、新竹市、連江縣、金門縣、桃園市）：rows 每格一列 {from 原類組, to 變更類組, value 原表符號}；同類組的空白格不列；一格兩個條件以「／」分隔；原表空白而非同類組者寫「（空白）」。legend {符號: 原表說明}，orientation 記原表的列與欄。金門縣以字後的組合底線（U+0332）表示原表加底線的 3、5。
+- use-group list（依變更後類組列條件，例如臺中市、嘉義縣、澎湖縣、新竹縣）：fields 說明各欄；to 為變更後類組（新竹縣另有 from 原類組）。
+- zone-use list（依土地使用分區列使用項目與規模，例如新北市、高雄市）：zone 分區，group／from 類組，items／fromItems 使用項目，scale／condition 規模或條件全文。
+index.json 每部法規的 transcriptions 列出有整理的附件（attachment 序號、title、kind、rows 數）。搜尋合併檔也收整理文字：method＝transcription 的列，page 為 null，依行切成不超過 4000 字的 part／parts。
+臺南市、宜蘭縣、南投縣、嘉義市、臺東縣、彰化縣的免辦變更使用規模寫在條文本身，沒有附表；花蓮縣辦法提到附表，但官方附件只有書表格式，本庫未收到該附表。整理只是方便查詢，以官方原檔為準。
+
 搜尋用合併檔：public/data/attachments/search/all.json（全部）與 search/<地區>.json，manifest.attachments.search 列出網址。每頁一列 {law, name, attachment（該法規附件檔的第幾個附件）, title, page, method, engine, text, truncated}；text 把連續空白併成一個，超過 4000 字截斷並標 truncated，完整內容回該法規的附件檔讀。
 
 部分縣市法規網拒絕國外連線（GitHub 上的每週同步連不到）：可用臺灣網路的瀏覽器把頁面與附件存成 {url: base64} 包，再用 scripts/import-local-pages.py（法規頁，交給 sync-laws.py --add-only --only-laws 解析）與 sync-attachments.py --import（附件）匯入。抓不到時保留上次擷取的內容。

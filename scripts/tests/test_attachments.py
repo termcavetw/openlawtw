@@ -37,7 +37,7 @@ class StoredFiles(unittest.TestCase):
             self.assertEqual(len(d['attachments']), entry['attachments'])
             listed = {a['url'] for a in laws[law_id].get('attachments', [])}
             for a in d['attachments']:
-                self.assertIn(a['url'], listed, (law_id, a['title']))
+                self.assertIn(a.get('listedOn', a['url']), listed, (law_id, a['title']))  # files of a listing page
                 if a['kind'] not in ('missing',):
                     self.assertIsInstance(a['pages'], list)
                 for page in a.get('pages') or []:
@@ -52,6 +52,27 @@ class StoredFiles(unittest.TestCase):
         text = first[0]['transcription']['text']
         self.assertIn('H-1 → G-2：③', text)
         self.assertIn('D-5 → G-1：①', text)
+
+
+class Listing(unittest.TestCase):
+    def test_listing_page_becomes_its_files(self):
+        page = ('<a href="/Law/File/0000258452" title="x">附表一  一定規模以下建築物變更使用類組免辦理變更使用執照表.pdf</a>'
+                '<a href="/Law/File/0000380057">附表二之一.odt</a><a href="/Law/LawSearch/LawFileList/FL038035">清單</a>')
+        item = {'index': 3, 'title': '官方附件下載', 'url': 'https://laws.gov.taipei/Law/LawSearch/LawFileList/FL038035'}
+        orig = at.fetch
+        at.fetch = lambda url, **k: page.encode()
+        try:
+            with tempfile.TemporaryDirectory() as d:
+                saved, at.CACHE = at.CACHE, Path(d)
+                try:
+                    files = at.expand_listing(item, [])
+                finally:
+                    at.CACHE = saved
+        finally:
+            at.fetch = orig
+        self.assertEqual([f['url'] for f in files], ['https://laws.gov.taipei/Law/File/0000258452', 'https://laws.gov.taipei/Law/File/0000380057'])
+        self.assertEqual(files[0]['title'], '附表一 一定規模以下建築物變更使用類組免辦理變更使用執照表.pdf')
+        self.assertTrue(all(f['index'] == 3 and f['listedOn'] == item['url'] for f in files))
 
 
 if __name__ == '__main__':
