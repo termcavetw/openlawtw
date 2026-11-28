@@ -27,3 +27,4 @@ data/sources/supplement/** -text -diff
 
 # 條文歷次版本: one JSON line per law; line diffs are not readable.
 public/data/law-versions/*.json -diff
+public/data/attachments/*.json -diff

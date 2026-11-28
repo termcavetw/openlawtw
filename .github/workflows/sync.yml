@@ -50,6 +50,8 @@ jobs:
         run: python scripts/run-sync.py step validate-rulings -- python scripts/check-rulings.py --cache .rulings-cache
       - name: Fetch earlier versions of central laws whose current text changed (條文時點查詢)
         run: python scripts/run-sync.py step law-versions -- python scripts/sync-law-versions.py --changed
+      - name: Text of new or changed law attachments (附件全文)
+        run: python scripts/run-sync.py step attachments -- bash -c "sudo apt-get install -y -qq --no-install-recommends libreoffice-writer-nogui libreoffice-calc-nogui fonts-noto-cjk >/dev/null && python scripts/sync-attachments.py"
       - name: Fetch new Taoyuan building-administration minutes (incremental)
         run: python scripts/run-sync.py step minutes -- python scripts/sync-minutes.py --cache .minutes-cache
       - name: Check Taoyuan minutes against this run's listing
@@ -87,7 +89,7 @@ jobs:
         run: |
           {
             echo 'list<<EOF'
-            for p in data/catalog.json data/sync-report.json data/provenance.json data/history.json data/versions/ public/data/laws.json public/data/catalog.json public/data/rulings.json public/data/minutes.json public/data/landuse.json public/data/agri-rulings.json public/data/taipei-rulings.json public/data/ntpc-manual.json public/data/central-rulings.json public/data/law-versions/; do
+            for p in data/catalog.json data/sync-report.json data/provenance.json data/history.json data/versions/ public/data/laws.json public/data/catalog.json public/data/rulings.json public/data/minutes.json public/data/landuse.json public/data/agri-rulings.json public/data/taipei-rulings.json public/data/ntpc-manual.json public/data/central-rulings.json public/data/law-versions/ public/data/attachments/; do
               if [ -e "$p" ]; then echo "$p"; fi
             done
             echo EOF
