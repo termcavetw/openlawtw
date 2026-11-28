@@ -289,6 +289,43 @@ def write_index():
                           'transcribed': sum(1 for x in att if x.get('transcription'))}
     (OUT / 'index.json').write_text(json.dumps({'schemaVersion': 1, 'laws': laws}, ensure_ascii=False,
                                                separators=(',', ':')) + '\n', encoding='utf-8')
+    write_search()
+
+
+SEARCH_PAGE_CHARS = 4000
+
+
+def write_search():
+    """One search file per region and one for everything: each page's text with runs of spaces collapsed, cut at
+    SEARCH_PAGE_CHARS characters (truncated: true), so a reader can search all attachments with one or two requests
+    and open the law's own file for the full page."""
+    rows = {}
+    for p in sorted(OUT.glob('*.json')):
+        if p.name == 'index.json':
+            continue
+        d = json.loads(p.read_text(encoding='utf-8'))
+        for i, a in enumerate(d['attachments']):
+            for page in a.get('pages') or []:
+                text = re.sub(r'[ \t\u3000]+', ' ', page['text'])
+                text = re.sub(r'\s*\n\s*', '\n', text).strip()
+                if not text:
+                    continue
+                row = {'law': d['law'], 'name': d['name'], 'attachment': i, 'title': a['title'], 'page': page['page'],
+                       'method': page['method'], 'text': text[:SEARCH_PAGE_CHARS]}
+                if page.get('engine'):
+                    row['engine'] = page['engine']
+                if len(text) > SEARCH_PAGE_CHARS:
+                    row['truncated'] = True
+                rows.setdefault(d['region'], []).append(row)
+    target = OUT / 'search'
+    if target.exists():
+        shutil.rmtree(target)
+    target.mkdir()
+    dump = lambda path, value: path.write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n',
+                                               encoding='utf-8')
+    for region, items in rows.items():
+        dump(target / f'{region}.json', {'region': region, 'pages': items})
+    dump(target / 'all.json', {'region': None, 'pages': [r for items in rows.values() for r in items]})
 
 
 if __name__ == '__main__':

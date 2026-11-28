@@ -5,8 +5,9 @@ import {prepareDocumentReaders} from './prepare-document-readers.mjs';
 import {fileURLToPath} from 'node:url';
 import {makeUniverseData} from './universe-data.mjs';
 import {gzipSync} from 'node:zlib';
-import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,rm,cp,readdir} from 'node:fs/promises';
 import {join} from './paths.mjs';
+import {recentChanges,regionSync} from './recent-changes.mjs';
 import {buildIndex} from '../lib/inverted.ts';
 import {normalize} from '../lib/search.ts';
 import {numberKey,revocations} from './revocations.mjs';
@@ -214,8 +215,13 @@ try{const index=JSON.parse(await readFile(join(root,'public/data/law-versions/in
 try{const index=JSON.parse(await readFile(join(root,'public/data/attachments/index.json'),'utf8'));const laws={};
  for(const [id,x] of Object.entries(index.laws).sort(([a],[b])=>a.localeCompare(b))){const bytes=await readFile(join(root,'public/data/attachments',x.file));
   laws[id]={name:x.name,url:'/data/attachments/'+encodeURIComponent(x.file),sha256:sha(bytes),bytes:bytes.length,attachments:x.attachments,withText:x.withText,missing:x.missing,ocrPages:x.ocrPages,transcribed:x.transcribed};}
- manifest.attachments={schemaVersion:index.schemaVersion,index:'/data/attachments/index.json',laws};
+ const search={};for(const file of (await readdir(join(root,'public/data/attachments/search'))).filter(f=>f.endsWith('.json')).sort()){const bytes=await readFile(join(root,'public/data/attachments/search',file));
+  search[file.slice(0,-5)]={url:'/data/attachments/search/'+encodeURIComponent(file),sha256:sha(bytes),bytes:bytes.length};}
+ manifest.attachments={schemaVersion:index.schemaVersion,index:'/data/attachments/index.json',search,laws};
 }catch(error){if(error.code!=='ENOENT')throw error;}
+// For the MCP server: laws whose text, notes or attachments changed lately, and how fresh each region's copy is.
+{const all=JSON.parse(await readFile(join(root,'public/data/laws.json'),'utf8'));
+ manifest.recentChanges=await recentChanges(root,all);manifest.regionSync=await regionSync(root,all);}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
@@ -234,7 +240,7 @@ await writeFile(join(root,'data/runtime-citation-context.json'),JSON.stringify(e
 await writeFile(join(root,'data/runtime-citations.json'),JSON.stringify(makeCitationTargets(enriched)));
 await writeFile(join(root,'data/runtime-catalog.json'),JSON.stringify(slim));
 // The app shell embeds the runtime manifest; law versions are only for the MCP server, so leave them out of it.
-{const {lawVersions:_lawVersions,attachments:_attachments,...runtimeManifest}=manifest;await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(runtimeManifest));}
+{const {lawVersions:_lawVersions,attachments:_attachments,recentChanges:_recentChanges,regionSync:_regionSync,...runtimeManifest}=manifest;await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(runtimeManifest));}
 await writeFile(join(root,'public/data/manifest.json'),JSON.stringify(manifest));
 await writeFile(join(root,'public/data/aliases.json'),await readFile(join(root,'data/aliases.json')));
 await writeFile(join(root,'public/data/yinxian-laws.js'),'// Generated from aliases.json and the same official catalogue.\nexport const aliases='+JSON.stringify(await read('data/aliases.json'))+';\nexport const laws='+JSON.stringify(docs.map(l=>({id:l.id,name:l.name,url:l.url})))+';\n');
