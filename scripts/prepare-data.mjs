@@ -210,6 +210,12 @@ try{const index=JSON.parse(await readFile(join(root,'public/data/law-versions/in
   laws[id]={name:x.name,url:'/data/law-versions/'+id+'.json',sha256:sha(bytes),bytes:bytes.length,versions:x.versions,oldest:x.oldest,current:x.current,unknownEffective:x.unknownEffective};}
  manifest.lawVersions={schemaVersion:index.schemaVersion,index:'/data/law-versions/index.json',source:'全國法規資料庫 歷史法規（LawOldVer）',laws};
 }catch(error){if(error.code!=='ENOENT')throw error;}
+// 法規附件全文 (scripts/sync-attachments.py): served as is under /data/attachments/, outside offline packs.
+try{const index=JSON.parse(await readFile(join(root,'public/data/attachments/index.json'),'utf8'));const laws={};
+ for(const [id,x] of Object.entries(index.laws).sort(([a],[b])=>a.localeCompare(b))){const bytes=await readFile(join(root,'public/data/attachments',x.file));
+  laws[id]={name:x.name,url:'/data/attachments/'+encodeURIComponent(x.file),sha256:sha(bytes),bytes:bytes.length,attachments:x.attachments,withText:x.withText,missing:x.missing,ocrPages:x.ocrPages,transcribed:x.transcribed};}
+ manifest.attachments={schemaVersion:index.schemaVersion,index:'/data/attachments/index.json',laws};
+}catch(error){if(error.code!=='ENOENT')throw error;}
 provenance.sources.NLMA={url:archive.stats.feed,sha256:archive.stats.sha256,hashScope:'downloaded-json-feed',observedAt:archive.stats.retrieved};manifest.provenance=await emit('provenance',provenance);
 manifest.history=await emit('history',history);
 const universe=makeUniverseData(catalog,archive);
@@ -228,7 +234,7 @@ await writeFile(join(root,'data/runtime-citation-context.json'),JSON.stringify(e
 await writeFile(join(root,'data/runtime-citations.json'),JSON.stringify(makeCitationTargets(enriched)));
 await writeFile(join(root,'data/runtime-catalog.json'),JSON.stringify(slim));
 // The app shell embeds the runtime manifest; law versions are only for the MCP server, so leave them out of it.
-{const {lawVersions:_lawVersions,...runtimeManifest}=manifest;await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(runtimeManifest));}
+{const {lawVersions:_lawVersions,attachments:_attachments,...runtimeManifest}=manifest;await writeFile(join(root,'data/runtime-manifest.json'),JSON.stringify(runtimeManifest));}
 await writeFile(join(root,'public/data/manifest.json'),JSON.stringify(manifest));
 await writeFile(join(root,'public/data/aliases.json'),await readFile(join(root,'data/aliases.json')));
 await writeFile(join(root,'public/data/yinxian-laws.js'),'// Generated from aliases.json and the same official catalogue.\nexport const aliases='+JSON.stringify(await read('data/aliases.json'))+';\nexport const laws='+JSON.stringify(docs.map(l=>({id:l.id,name:l.name,url:l.url})))+';\n');

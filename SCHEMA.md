@@ -76,6 +76,13 @@ scripts/sync-law-versions.py 從全國法規資料庫「歷史法規」（LawOld
 
 施行日規則：沿革寫「自公布／發布日施行」或沒寫時，依中央法規標準法第 13 條為公布日起算第三日；「自即日施行」為當日；寫明日期者照寫；「施行日期另定／由行政院定之」而沿革沒有後續命令的，effective／from 為 null、Known 為 false，不推測。只部分款項或「某某部分」先施行的條文也標 null。沿革中後令定施行日的會覆蓋前面的另定。文字只有標點、空白等差異且該次修正沒有列到該條的，不另起一段。較晚的修正比較早的修正先施行、較早那次從未生效的，那段不列在 articles，原文仍可從 versions 還原。條號是各版本當時的條號，法規全文修正改條號時不會自動對應。
 
+## 法規附件全文
+scripts/sync-attachments.py 下載每部法規列出的官方附件（附表、附件、圖例、書表、總說明），轉成逐頁文字，寫到 public/data/attachments/<法規 ID>.json（網址 /data/attachments/<URL 編碼的檔名>），總表 index.json。manifest.attachments 列出每部法規附件檔的 url、sha256、附件數、有文字的附件數、缺檔數、OCR 頁數、人工整理數；只在 public/data/manifest.json，不進 App 內建 manifest 與離線包。
+
+每個附件：title、url（官方原檔）、kind（pdf、doc、docx、odf、xls、xlsx、image、page＝連到的是網頁而非檔案、missing＝抓不到）、sha256、bytes、retrieved、pages[{page, method, text}]。method＝text 是檔案文字層，ocr 是光學辨識（chi_tra，可能有誤字）；ODT／DOC 等先由 LibreOffice 轉 PDF 再取文字，保留頁碼與表格排版。表格只保留排版文字，格線不見；data/attachment-transcriptions/<法規 ID>.json 可對個別附件加人工對照原檔整理的 transcription（例如使用類組矩陣逐格寫成「原類組 → 變更類組：符號（條件）」），與擷取文字並列，不取代。以官方原檔為準。
+
+部分縣市法規網拒絕國外連線（GitHub 上的每週同步連不到）：可用臺灣網路的瀏覽器把頁面與附件存成 {url: base64} 包，再用 scripts/import-local-pages.py（法規頁，交給 sync-laws.py --add-only --only-laws 解析）與 sync-attachments.py --import（附件）匯入。抓不到時保留上次擷取的內容。
+
 ## 查找與離線
 索引只儲存文件位置與 CJK 字元、雙字的 delta-varint/base64 posting lists，沒有再次複製整段原文。候選交集後才載入對應法規／函釋，並用精確條號、別名、全部關鍵字及原文再驗證。
 
