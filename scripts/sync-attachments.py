@@ -2,7 +2,7 @@
 """Text of every law's official attachments (附表、附件、圖例…) -> public/data/attachments/<lawId>.json + index.json.
 
 Each attachment listed in public/data/laws.json is downloaded from its official URL, typed by its bytes, and turned
-into page text: PDF pages by their text layer (pdftotext -layout), pages without one by OCR (tesseract chi_tra);
+into page text: PDF pages by their text layer (pdftotext -layout), pages without one by OCR (PaddleOCR PP-OCRv6 via scripts/ocr_engine.py, Tesseract if it is unavailable);
 ODT/DOC/DOCX/XLS(X) are converted to PDF by LibreOffice first so pages and table layout survive; images are OCR'd.
 A link that is an HTML page (a law system's own page, a download list) is recorded as kind "page" with no text.
 
@@ -18,6 +18,9 @@ named by sha1(url). A file already extracted is kept when its URL cannot be fetc
 import argparse, base64, hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ocr_engine  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'public/data/attachments'
@@ -79,16 +82,8 @@ def pdf_pages(path):
 
 
 def ocr_page(pdf, page, work):
-    base = work / f'p{page}'
-    run(['pdftoppm', '-r', '300', '-gray', '-png', '-f', str(page), '-l', str(page), '-singlefile', str(pdf), str(base)], 300)
-    png = base.with_suffix('.png')
-    if not png.exists():
-        return ''
-    r = run(['tesseract', str(png), '-', '-l', 'chi_tra+eng', '--psm', '6'], 600)
-    png.unlink(missing_ok=True)
-    text = r.stdout.decode('utf-8', 'replace')
-    # tesseract puts spaces between CJK characters
-    return re.sub(r'(?<=[　-鿿＀-￯])[ ]+(?=[　-鿿＀-￯])', '', text).strip()
+    """(text, engine): PaddleOCR (PP-OCRv6, traditional Chinese) via scripts/ocr_engine.py, Tesseract if it is unavailable."""
+    return ocr_engine.ocr_page(pdf, page)
 
 
 def extract_pdf(pdf, work, ocr=True):
@@ -96,10 +91,11 @@ def extract_pdf(pdf, work, ocr=True):
     for page in range(1, pdf_pages(pdf) + 1):
         r = run(['pdftotext', '-layout', '-enc', 'UTF-8', '-f', str(page), '-l', str(page), str(pdf), '-'], 120)
         text = r.stdout.decode('utf-8', 'replace').replace('\f', '').rstrip()
-        method = 'text'
+        entry = {'page': page, 'method': 'text', 'text': text}
         if len(re.sub(r'\s+', '', text)) < OCR_MIN_CHARS and ocr:
-            text, method = ocr_page(pdf, page, work), 'ocr'
-        pages.append({'page': page, 'method': method, 'text': text})
+            text, engine = ocr_page(pdf, page, work)
+            entry = {'page': page, 'method': 'ocr', 'engine': engine, 'text': text}
+        pages.append(entry)
     return pages
 
 
@@ -119,9 +115,10 @@ def extract(raw, kind, ocr=True):
             return extract_pdf(pdf, work, ocr)
         if kind == 'image':
             src = work / 'a.img'; src.write_bytes(raw)
-            r = run(['tesseract', str(src), '-', '-l', 'chi_tra+eng', '--psm', '6'], 600)
-            text = re.sub(r'(?<=[　-鿿])[ ]+(?=[　-鿿])', '', r.stdout.decode('utf-8', 'replace')).strip()
-            return [{'page': 1, 'method': 'ocr', 'text': text}]
+            try:
+                return [{'page': 1, 'method': 'ocr', 'engine': 'paddle', 'text': ocr_engine.paddle_text(src)}]
+            except Exception:  # noqa: BLE001 - Tesseract when PaddleOCR is unavailable
+                return [{'page': 1, 'method': 'ocr', 'engine': 'tesseract', 'text': ocr_engine.tesseract_text(src)}]
         if kind == 'text':
             for enc in ('utf-8', 'big5', 'cp950'):
                 try:
